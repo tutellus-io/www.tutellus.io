@@ -1,0 +1,27 @@
+{
+  "name": "tutellus.io",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "moment": "^2.19.0",
+    "ramda": "^0.24.1",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-scripts": "1.0.14",
+    "styled-components": "^2.2.1",
+    "styled-reset": "^0.1.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "eslint-config-tutellus": "^2.1.0",
+    "eslint-plugin-react": "^7.4.0",
+    "flow-bin": "^0.56.0",
+    "flow-typed": "^2.1.5",
+    "npm-check": "^5.4.5"
+  }
+}
