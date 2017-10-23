@@ -30,7 +30,7 @@ export const MainLogo = styled((props/*: & {href: url} */) =>
     float: left;
     margin: 15px 20px 0 0;
 `;
-export const MainMenu = styled((props/*: {className: string} */) =>
+export const MainMenu = styled((props/*: {className: string, onLanguage: (string => void)} */) =>
     <nav className={ props.className } role="navigation">
         <ul>
             <li><a>Blog</a></li>
@@ -38,7 +38,8 @@ export const MainMenu = styled((props/*: {className: string} */) =>
             <li><a>Whitepaper</a></li>
             <li><a>Token Sale</a></li>
             <li><a>Team</a></li>
-            <li><a>&#x2691;</a></li>
+            <li><a onClick={ () => props.onLanguage('es') }>&#x2691;</a></li>
+            <li><a onClick={ () => props.onLanguage('en') }>&#x2691;</a></li>
         </ul>
     </nav>
 )`

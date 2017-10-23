@@ -135,6 +135,9 @@ export const styles = {
             color: ${ colors.softblack };
             padding-top: 70px;
         }
+        strong {
+            font-weight: bold;
+        }
     `,
     helpers,
 };
