@@ -14,11 +14,8 @@ export const Features = styled.ul`
 	margin-top: 10px;
 	margin-bottom: 10px;
 	padding: 10px;
-	text-align: center;
     ${ (props/*: {children: React.Node} */) => `
         & > li {
-            display: inline-block;
-            text-align: center;
             width: ${ 1 / React.Children.count(props.children) * 100 }%;
         }
     ` }
@@ -31,9 +28,23 @@ export const FeatureTitle = styled.h4`
     margin-bottom: 5px;
 `;
 /*:: type FeatureAttrs = {image: string, title: string, children?: React.Node} */
-export const Feature = (props/*: FeatureAttrs */) =>
+export const Feature = styled((props/*: FeatureAttrs */) =>
     <li { ...props }>
-        <CenteredImage src={ props.image } style={ {marginBottom: `${ margin.small }`} } />
         <FeatureTitle>{ props.title }</FeatureTitle>
         { props.children }
-    </li>;
+    </li>
+)`
+    position: relative;
+    display: inline-block;
+    padding-left: 4.5em;
+    text-transform: capitalize;
+    & ${FeatureTitle}:before {
+        content: '';
+        display: block;
+        background: url(${ props => props.image }) no-repeat;
+        position: absolute;
+        width: 3em;
+        height: 3em;
+        left: 0.5em;
+    }
+`;

@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 import {CenteredImage} from './Images';
 import {MAX_CONTENT_WIDTH} from './Layout';
+import {MAIN_HEADER_HEIGHT} from './MainHeader';
 
 import styles from '../styles';
 const {margin, colors} = styles;
@@ -23,6 +24,7 @@ type PageBannerAttrs = {
     children?: React.Node,
 }
 */
+const PAGE_SECTION_VERTICAL_PADDING = 40;
 export const PageBanner = styled((props/*: PageBannerAttrs */) =>
     <section className={ props.className }>
         <SectionContent>
@@ -33,13 +35,10 @@ export const PageBanner = styled((props/*: PageBannerAttrs */) =>
         </SectionContent>
     </section>
 )`
-	min-height: 515px;
-    background: url(${ R.prop('image') }) bottom center no-repeat #1b2732;
-    background-size: 3000px;
-    position: relative;
+    background: ${ colors.darkblue };
+    padding: ${ PAGE_SECTION_VERTICAL_PADDING }px 0;
 	color: ${ colors.white };
-    padding: 50px 0;
-`;
+    padding-top: ${ MAIN_HEADER_HEIGHT + PAGE_SECTION_VERTICAL_PADDING }px;
 /*::
 type PageSectionAttrs = {
     className: string,
@@ -48,8 +47,27 @@ type PageSectionAttrs = {
     children?: React.Node,
 }
 */
+`;
+export const InterstitialImage = styled.img`
+    display: block;
+    margin: 0 auto;
+    margin-top: -${ 4 * PAGE_SECTION_VERTICAL_PADDING }px;
+    height: ${ 3 * PAGE_SECTION_VERTICAL_PADDING }px;
+`;
+const colorSectionBackground = R.cond([
+    [R.has('dark'), R.always(colors.darkblue)],
+    [R.has('light'), R.always(colors.athens)],
+    [R.T, R.always(colors.white)],
+]);
+const colorSectionForeground = R.cond([
+    [R.has('dark'), R.always(colors.athens)],
+    [R.T, R.always('inherit')],
+]);
 export const PageSection = styled((props) =>
     <section className={ props.className }>
+        { props.interstitialImage &&
+            <InterstitialImage src={ props.interstitialImage } />
+        }
         <SectionContent>
             { props.title &&
             <SectionTitle>{ props.title }</SectionTitle>
@@ -61,19 +79,12 @@ export const PageSection = styled((props) =>
         </SectionContent>
     </section>
 )`
-    width: 100%;
-    padding: 70px 0;
-
-    &:nth-child(3n+1) {
-        background-color: ${ colors.white };
-    }
-    &:nth-child(3n+2) {
-        background-color: ${ colors.athens };
-    }
-    &:nth-child(3n+3) {
-        background-color: ${ colors.darkblue };
-        color: ${ colors.white };
-    }
+    background: ${ colorSectionBackground };
+    color: ${ colorSectionForeground };
+    padding: ${ PAGE_SECTION_VERTICAL_PADDING }px 0;
+    ${ props => props.interstitialImage && `
+        padding-top: ${ 3 * PAGE_SECTION_VERTICAL_PADDING }px;
+    ` }
 `;
 
 /*:: type pixels = number */
@@ -84,36 +95,32 @@ export const centeredObject = (width/*: pixels */) => `
     margin-left: -${ width / 2 }px;
     width: ${ width }px;
 `;
+const TITLE_UNDERLINE_WIDTH = 100;
 export const SectionTitle = styled.h2`
 	${ styles.text.huge }
+    text-transform: uppercase;
     font-weight: 300;
-    margin-bottom: ${ margin.small };
+    margin-bottom: 40px;
     text-align: center;
 
     &:after {
-        border-top: 1px solid ${ colors.lightblue };
+        background: url('/images/underlined.svg') no-repeat;
         content: "";
-        margin: ${ margin.medium } 0;
-        ${ centeredObject(60) }
+        width: ${ TITLE_UNDERLINE_WIDTH }px;
+        display: block;
+        height: 15px;
+        position: relative;
+        top: 20px;
+        left: calc(50% - ${ TITLE_UNDERLINE_WIDTH / 2 }px);
+    }
+
+    & em {
+        display: block;
+        font-size: 1.2em;
     }
 `;
 
-export const PageTitle = styled(SectionTitle.withComponent('h1'))`
-	padding-top: 10px;
-	&:after {
-		display:none;
-	}
-`;
-export const PageSubtitle = styled(SectionTitle)`
-	${ styles.text.large }
-	&:after {
-		display: none;
-	}
-`;
+export const PageTitle = SectionTitle.withComponent('h1');
 export const SectionImage = styled(CenteredImage)`
     margin-bottom: ${ margin.medium };
-`;
-export const SectionSideImage = styled(SectionImage)`
-    margin: 0;
-    width: 100%;
 `;

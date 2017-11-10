@@ -6,7 +6,7 @@ import styles from '../styles';
 const {colors, margin} = styles;
 const {clearfix} = styles.helpers;
 
-export const MAX_CONTENT_WIDTH = 1280;
+export const MAX_CONTENT_WIDTH = 1140;
 export const CenteredBlock = styled.div`
     text-align: center;
     max-width: ${ MAX_CONTENT_WIDTH / 2 }px;
@@ -15,6 +15,7 @@ export const CenteredBlock = styled.div`
 export const Text = styled.p`
     font-size: 1.071em;
     line-height: 1.5rem;
+    margin-bottom: 40px;
 `;
 export const Row = styled.div`
     ${ clearfix }
@@ -59,31 +60,39 @@ export const Quote = styled((props/*: QuoteAttrs*/)/*: React.Node */=>
     position: relative;
     font-style: italic;
     display: block;
-    font-family: serif;
     line-height: 2em;
     font-size: 2em;
-    color: ${ colors.midgrey };
+    color: ${ colors.darkblack };
     text-align: center;
     margin-top: ${ margin.medium };
 
     & > small {
         width: 100%;
-        text-align: right;
-        margin-top: -1em;
+        text-align: center;
+        //margin-top: -1em;
         display: inline-block;
         font-size: .7em;
         color: ${ colors.darkgrey };
         position: relative;
-        top: -1.5em;
+        //top: -1.5em;
     }
 	&:before {
         content: '\\201C';
-        color: ${ colors.lightblue };
+        color: ${ colors.white };
         font-size: 7.5em;
         font-weight: 700;
         opacity: .3;
         position: absolute;
         top: .2em;
         left: .1em;
+	}
+	&:after {
+        content: '\\201D';
+        color: ${ colors.white };
+        font-size: 7.5em;
+        font-weight: 700;
+        opacity: .3;
+        position: absolute;
+        top: .2em;
 	}
 `;

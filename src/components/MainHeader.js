@@ -5,20 +5,16 @@ import styled from 'styled-components';
 import styles from '../styles';
 const {colors} = styles;
 
+export const MAIN_HEADER_HEIGHT = 128;
+
 export const MainHeader = styled.header`
-    background-color: ${ colors.white };
-    border-bottom: 1px solid ${ colors.grey };
-    height: 50px;
-    padding-left: 15px;
-    padding-right: 15px;
+    background: black;
+    height: ${MAIN_HEADER_HEIGHT}px;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 3;
-
-    @media only screen and (min-width: 64em) {
-        height: 70px;
-    }
+    padding: 42px 50px;
 `;
 /*:: type url = string */
 export const MainLogo = styled((props/*: & {href: url} */) =>

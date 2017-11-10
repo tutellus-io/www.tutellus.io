@@ -1,6 +1,7 @@
 //@flow
 import * as React from 'react';
 import styled from 'styled-components';
+import {SectionContent} from './PageSection';
 import styles from '../styles';
 const {margin, padding, border, colors} = styles;
 
@@ -14,6 +15,15 @@ type TeamMemberAttrs = {
     children?: React.Node,
 }
 */
+const childrenAsColumns = props => {
+    const children_count = React.Children.count(props.children);
+    return `repeat(${ children_count }, ${ 100 / children_count }%)`;
+}
+export const Team = styled.div`
+    display: grid;
+    grid-template-columns: ${ childrenAsColumns };
+    grid-column-gap: 10px;
+`;
 export const TeamMember = styled((props/*: TeamMemberAttrs */) =>
     <div className={ props.className }>
         <TeamMemberAvatar src={ props.photo } />
@@ -25,21 +35,22 @@ export const TeamMember = styled((props/*: TeamMemberAttrs */) =>
     </div>
 )`
 	text-align: center;
-	padding: ${ padding.large };
+	padding: 15px;
 	background-color: ${ colors.grey };
 	border-radius: ${ border.radius.small };
 	margin-bottom: ${ margin.small };
 	color: ${ colors.softblack };
 `;
 export const TeamMemberAvatar = styled.img`
-    max-width: 100%;
+    width: 80%;
     border-radius: 50%;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
 	display: inline-block;
 `;
 const title_style = `
 	text-rendering: optimizelegibility;
 	color: ${ colors.darkblack };
+    font-weight: bold;
     display: block;
 `;
 export const TeamMemberName = styled.span`

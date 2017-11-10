@@ -1,10 +1,9 @@
 //@flow
 export default {
     translation: {
-        page_title: "Reinventing Education through blockchain",
+        page_title: "<em>Reinventing Education</em> through blockchain",
         page_subtitle: "The EdTech platform which <strong>pays you</strong> for learning",
-        main_claim: "Tutellus is an EdTech Collaborative Platform running since 2013. Decentralizing our business model and tokenizing assets we realized could change the market forever: rewarding Students for learning, Teachers for the users' employability and Companies for hiring better people in a more efficient way",
-        the_pain_title: "The pain: Studying is hard and is disconnected from employment",
+        the_pain_title: "<strong>The pain</strong>: Studying is hard and is disconnected from employment",
         the_pain: "EdTech platforms hold a very low recurring levels compared with social ones: studying is hard & expensive. And qualified students are not aligned with the real jobs demand: there's a huge gap between Education and Employment.",
         the_solution_title: "The solution: a platform which pays you for learning",
         the_solution: "We generate an own cryptocurrency: the token TUT. The more you learn (or teach), the more money you get. And you also earn money through relationship with companies looking for the best profiles;",

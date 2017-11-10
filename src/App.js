@@ -11,18 +11,19 @@ import {
     MainLogo,
     MainMenu,
     PageBanner,
-    PageSubtitle,
+    PageTitle,
     SectionImage,
     Text,
     PageSection,
     Row,
     Col,
     SectionTitle,
-    SectionSideImage,
+    PlayButton,
     CTAButton,
     Features,
     Feature,
     Quote,
+    Team,
     TeamMember,
     CenteredImage,
     CrowdsaleTable,
@@ -43,63 +44,61 @@ class App extends Component/*::<{}>*/ {
             <I18n i18n={ i18n }>{ (t, {i18n}) =>
                 <div>
                     <MainHeader>
-                        <MainLogo />
-                        <MainMenu onLanguage={ lang => i18n.changeLanguage(lang) } />
+                {/*
+                    <MainLogo />
+                    <MainMenu onLanguage={ lang => i18n.changeLanguage(lang) } />
+                */}
                     </MainHeader>
                     <main>
-                        <PageBanner title={ t("page_title") } image="https://www.tutellus.com/dist/images/home/header/home7.jpg">
-                            <PageSubtitle dangerouslySetInnerHTML={{ __html: t('page_subtitle') }} />
-                            <SectionImage src="https://placehold.it/800x600" />
-                            <Text>{ t('main_claim') }</Text>
+                        <PageBanner>
+                            <PageTitle dangerouslySetInnerHTML={{ __html: t("page_title") }} />
+                            <Text style={ {textAlign: "center"} } dangerouslySetInnerHTML={{ __html: t('page_subtitle') }} />
+                            <PlayButton />
                         </PageBanner>
                         <PageSection>
+                            <SectionTitle dangerouslySetInnerHTML={{ __html: t('the_pain_title') }} />
+                            <Text>{ t('the_pain') }</Text>
                             <Row>
-                                <Col size={ 2 / 5 }>
-                                    <SectionTitle>{ t('the_pain_title') }</SectionTitle>
-                                    <Text>{ t('the_pain') }</Text>
+                                <Col size={ 1 / 2}>
+                                    <SectionImage src="/images/edtech.svg" />
                                 </Col>
-                                <Col size={ 3 / 5 }>
-                                    <SectionSideImage src="/images/thepain.png" />
+                                <Col size={ 1 / 2}>
+                                    <SectionImage src="/images/itjobs.svg" />
                                 </Col>
                             </Row>
                         </PageSection>
-                        <PageSection>
-                            <Row>
-                                <Col size={ 3 / 5 }>
-                                    <SectionSideImage src="/images/tokens.png" />
-                                </Col>
-                                <Col size={ 2 / 5 }>
-                                    <SectionTitle>{ t('the_solution_title') }</SectionTitle>
-                                    <Text>{ t('the_solution') }</Text>
-                                    <ul>
-                                        <li>{ t('the_solution_for_students') }</li>
-                                        <li>{ t('the_solution_for_teachers') }</li>
-                                        <li>{ t('the_solution_for_business') }</li>
-                                    </ul>
-                                </Col>
-                            </Row>
+                        <PageSection light interstitialImage="/images/tokens.png">
+                            <SectionTitle dangerouslySetInnerHTML={{ __html: t('the_solution_title') }} />
+                            <Text>{ t('the_solution') }</Text>
+                            <ul>
+                                <li>{ t('the_solution_for_students') }</li>
+                                <li>{ t('the_solution_for_teachers') }</li>
+                                <li>{ t('the_solution_for_business') }</li>
+                            </ul>
                         </PageSection>
-                        <PageSection title={ t('how_it_works_title') } image="/images/HTTW.png">
+                        <PageSection dark title={ t('how_it_works_title') } image="/images/HTTW.png">
                             <Text>{ t('how_it_works') }</Text>
                             <CenteredBlock>
-                                <CTAButton primary>{ t('download_whitepaper') }</CTAButton>
+                                <CTAButton icon="http://placehold.it/20x20" primary>{ t('download_whitepaper') }</CTAButton>
                             </CenteredBlock>
                         </PageSection>
                         <PageSection title={ t('platform_title') } image="https://www.tutellus.com/bower_components/tutellus.css/images/home/desktop-computer.jpg">
                             <Features>
-                                <Feature title="1.000.000" image="https://www.tutellus.com/bower_components/tutellus.css/images/landings/titulos-universitarios/icon-yellow-title.svg">
+                                <Feature title="1.000.000" image="/images/students.svg">
                                     { t('students') }
                                 </Feature>
-                                <Feature title="+2.000.000" image="http://placehold.it/50x50">
+                                <Feature title="+2.000.000" image="/images/transactions.svg">
                                     { t('transactions') }
                                 </Feature>
-                                <Feature title="+1b min" image="https://www.tutellus.com/bower_components/tutellus.css/images/landings/titulos-universitarios/icon-green-content.svg">
+                                <Feature title="+1b min" image="/images/learning.svg">
                                     { t('learning') }
                                 </Feature>
-                                <Feature title="$10m" image="https://www.tutellus.com/bower_components/tutellus.css/images/landings/unlimited-corporate/icon-orange-cash.svg">
+                                <Feature title="$10m" image="/images/transactioned.svg">
                                     { t('transactioned') }
                                 </Feature>
                             </Features>
+                        </PageSection>
+                        <PageSection light>
                             <Quote href="https://elpais.com/economia/2015/07/10/actualidad/1436521761_125197.html" cite="El Pais, 2016">
                                 { t('the_leading_platform_quote') }
                             </Quote>
@@ -108,33 +107,23 @@ class App extends Component/*::<{}>*/ {
                             </CenteredBlock>
                         </PageSection>
                         <PageSection title={ t('team_title') }>
-                            <Row>
-                                <Col size={ 1 / 5 }>
-                                    <TeamMember name="Miguel Caballero" title="CEO" photo="https://www.tutellus.com/bower_components/tutellus.css/images/team/Miguel.jpg">
-                                        { t('mcaballero_bio') }
-                                    </TeamMember>
-                                </Col>
-                                <Col size={ 1 / 5 }>
-                                    <TeamMember name="Javier Ortiz" title="CTO" photo="https://www.tutellus.com/bower_components/tutellus.css/images/team/JaviSok.jpg">
-                                        { t('jortiz_bio') }
-                                    </TeamMember>
-                                </Col>
-                                <Col size={ 1 / 5 }>
-                                    <TeamMember name="Carlos López" title="Engineer" photo="https://www.tutellus.com/bower_components/tutellus.css/images/team/Carlos.jpg">
-                                        { t('clopez_bio') }
-                                    </TeamMember>
-                                </Col>
-                                <Col size={ 1 / 5 }>
-                                    <TeamMember name="Javier Calvo" title="Data Scientist" photo="https://www.tutellus.com/bower_components/tutellus.css/images/team/JaviMat.jpg">
-                                        { t('jcalvo_bio') }
-                                    </TeamMember>
-                                </Col>
-                                <Col size={ 1 / 5 }>
-                                    <TeamMember name="Karol Szymanczak" title="Designer" photo="https://www.tutellus.com/bower_components/tutellus.css/images/team/Karol.jpg">
-                                        { t('karol_bio') }
-                                    </TeamMember>
-                                </Col>
-                            </Row>
+                            <Team>
+                                <TeamMember name="Miguel Caballero" title="CEO" photo="https://www.tutellus.com/bower_components/tutellus.css/images/team/Miguel.jpg">
+                                    { t('mcaballero_bio') }
+                                </TeamMember>
+                                <TeamMember name="Javier Ortiz" title="CTO" photo="https://www.tutellus.com/bower_components/tutellus.css/images/team/JaviSok.jpg">
+                                    { t('jortiz_bio') }
+                                </TeamMember>
+                                <TeamMember name="Carlos López" title="Engineer" photo="https://www.tutellus.com/bower_components/tutellus.css/images/team/Carlos.jpg">
+                                    { t('clopez_bio') }
+                                </TeamMember>
+                                <TeamMember name="Javier Calvo" title="Data Scientist" photo="https://www.tutellus.com/bower_components/tutellus.css/images/team/JaviMat.jpg">
+                                    { t('jcalvo_bio') }
+                                </TeamMember>
+                                <TeamMember name="Karol Szymanczak" title="Designer" photo="https://www.tutellus.com/bower_components/tutellus.css/images/team/Karol.jpg">
+                                    { t('karol_bio') }
+                                </TeamMember>
+                            </Team>
                         </PageSection>
                         <PageSection title={ t('crowdsale_title') }>
                             <Row>

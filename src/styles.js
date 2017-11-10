@@ -86,7 +86,7 @@ const fonts = `
 export const styles = {
     font: {
         weight: {
-            normal: 400,
+            normal: 300,
         },
     },
     text: {
@@ -124,6 +124,7 @@ export const styles = {
         ${ fonts }
         *, html {
             font-family: "Lato", sans-serif;
+            font-weight: 300;
         }
         * {
             box-sizing: border-box;
