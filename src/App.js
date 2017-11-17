@@ -6,9 +6,10 @@ import {injectGlobal} from 'styled-components';
 import {I18n} from 'react-i18next';
 import i18n from './i18n';
 
+import styled from 'styled-components';
 import {
     MainHeader,
-    MainLogo,
+    MAIN_HEADER_HEIGHT,
     MainMenu,
     PageBanner,
     PageTitle,
@@ -31,9 +32,75 @@ import {
     Milestone,
     FAQ,
     CenteredBlock,
+    PageFooter,
+    FooterBranding,
+    FooterNav,
+    NavLink,
+    NavCategory,
 } from './components';
 import styles from './styles';
 
+const Benefits = styled.div`
+    display:grid;
+    grid-template-columns: repeat(2, 50%);
+`;
+const UserGroup = styled(props =>
+    <div className={ props.className }>
+        <h4>{ props.name }</h4>
+        <div>{ props.children }</div>
+    </div>
+)`
+    display: grid;
+    grid-column-gap: 10px;
+    grid-template-columns: 33% 67%;
+    align-items: center;
+
+    & > h4 {
+        text-align: center;
+        font-weight: bold;
+        text-transform: uppercase;
+
+        &:before {
+            content: '';
+            background: url(${ props => props.icon }) center center no-repeat;
+            padding: 2em;
+            display: block;
+            margin-bottom: 1em;
+        }
+    }
+`;
+const BulletList = styled.ul``;
+const BulletPoint = styled.li`
+    line-height: 2em;
+    &:before {
+        content: '';
+        display: inline-block;
+        border: solid 5px transparent;
+        border-left-color: ${ styles.colors.lightblue };
+        border-right: none;
+        margin: 0 10px;
+    }
+`;
+
+const SOCIAL_LINKS = {
+    facebook: '//fb.me/tutellus',
+    twitter: '//twitter.com/tutellus',
+    linkedin: '//linkedin.com/tutellus',
+};
+class WindowScroll extends React.Component {
+    constructor() {
+        super();
+        this.state = {x: 0, y: 0};
+    }
+    componentDidMount() {
+        window.addEventListener('scroll', evt => {
+            this.setState({x: window.scrollX, y: window.scrollY});
+        });
+    }
+    render() {
+        return this.props.children(this.state);
+    }
+};
 
 class App extends Component/*::<{}>*/ {
     componentDidMount() {
@@ -43,21 +110,20 @@ class App extends Component/*::<{}>*/ {
         return (
             <I18n i18n={ i18n }>{ (t, {i18n}) =>
                 <div>
-                    <MainHeader>
-                {/*
-                    <MainLogo />
-                    <MainMenu onLanguage={ lang => i18n.changeLanguage(lang) } />
-                */}
-                    </MainHeader>
+                    <WindowScroll>{ scroll =>
+                        <MainHeader small={ scroll.y > MAIN_HEADER_HEIGHT } logo="/images/white-logo.svg">
+                            <MainMenu onLanguage={ lang => i18n.changeLanguage(lang) } socialLinks={ SOCIAL_LINKS } locale={ i18n.language } />
+                        </MainHeader>
+                    }</WindowScroll>
                     <main>
-                        <PageBanner>
+                        <PageBanner dark backgroundVideo="/images/bgvideo.mp4">
                             <PageTitle dangerouslySetInnerHTML={{ __html: t("page_title") }} />
-                            <Text style={ {textAlign: "center"} } dangerouslySetInnerHTML={{ __html: t('page_subtitle') }} />
-                            <PlayButton />
+                            <Text center dangerouslySetInnerHTML={{ __html: t('page_subtitle') }} />
+                            <PlayButton video="/images/bgvideo.mp4" />
                         </PageBanner>
                         <PageSection>
                             <SectionTitle dangerouslySetInnerHTML={{ __html: t('the_pain_title') }} />
-                            <Text>{ t('the_pain') }</Text>
+                            <Text center>{ t('the_pain') }</Text>
                             <Row>
                                 <Col size={ 1 / 2}>
                                     <SectionImage src="/images/edtech.svg" />
@@ -69,15 +135,33 @@ class App extends Component/*::<{}>*/ {
                         </PageSection>
                         <PageSection light interstitialImage="/images/tokens.png">
                             <SectionTitle dangerouslySetInnerHTML={{ __html: t('the_solution_title') }} />
-                            <Text>{ t('the_solution') }</Text>
-                            <ul>
-                                <li>{ t('the_solution_for_students') }</li>
-                                <li>{ t('the_solution_for_teachers') }</li>
-                                <li>{ t('the_solution_for_business') }</li>
-                            </ul>
+                            <Text center>{ t('the_solution') }</Text>
+                        </PageSection>
+                        <PageSection title={ t('benefits_title') }>
+                            <Text center>{ t('benefits_description') }</Text>
+                            <Benefits>
+                                <UserGroup name={ t('students') } icon="/images/students.svg">
+                                    <BulletList>
+                                        <BulletPoint>{ t('benefit_earn_studying') }</BulletPoint>
+                                        <BulletPoint>{ t('benefit_learn_more') }</BulletPoint>
+                                        <BulletPoint>{ t('benefit_relevance') }</BulletPoint>
+                                        <BulletPoint>{ t('benefit_use_crypto') }</BulletPoint>
+                                        <BulletPoint>{ t('benefit_wordwide_payments') }</BulletPoint>
+                                    </BulletList>
+                                </UserGroup>
+                                <UserGroup name={ t('teachers') } icon="/images/teachers.svg">
+                                    <BulletList>
+                                        <BulletPoint>{ t('benefit_instant_payments') }</BulletPoint>
+                                        <BulletPoint>{ t('benefit_earn_via_best_students') }</BulletPoint>
+                                        <BulletPoint>{ t('benefit_earn_via_relevance') }</BulletPoint>
+                                        <BulletPoint>{ t('benefit_earn_via_subscriptions') }</BulletPoint>
+                                        <BulletPoint>{ t('benefit_exclusive_services') }</BulletPoint>
+                                    </BulletList>
+                                </UserGroup>
+                            </Benefits>
                         </PageSection>
                         <PageSection dark title={ t('how_it_works_title') } image="/images/HTTW.png">
-                            <Text>{ t('how_it_works') }</Text>
+                            <Text center>{ t('how_it_works') }</Text>
                             <CenteredBlock>
                                 <CTAButton icon="http://placehold.it/20x20" primary>{ t('download_whitepaper') }</CTAButton>
                             </CenteredBlock>
@@ -125,7 +209,7 @@ class App extends Component/*::<{}>*/ {
                                 </TeamMember>
                             </Team>
                         </PageSection>
-                        <PageSection title={ t('crowdsale_title') }>
+                        <PageSection dark title={ t('crowdsale_title') }>
                             <Row>
                                 <Col size={ 1 / 2 }>
                                     <CenteredImage src="https://placehold.it/800x600" />
@@ -163,72 +247,54 @@ class App extends Component/*::<{}>*/ {
                                 <CTAButton secondary>{ t('register_for_the_crowdsale') }</CTAButton>
                             </CenteredBlock>
                         </PageSection>
-                        <PageSection title="Roadmap">
+                        <PageSection title={ t("roadmap_title") }>
+                            <Text center>{ t("roadmap_description") }</Text>
                             <Roadmap>
-                                <Milestone title="MVP" date={ moment('2014-01') }>
+                                <Milestone done title={ t("mvp") } date={ moment('2014-01') }>
                                     <ul>
-                                        <li>&gt;100k users</li>
-                                        <li>&gt;20k videocourses</li>
+                                        <li>{ t("usercount_100k") }</li>
+                                        <li>{ t("coursecount_20k") }</li>
                                     </ul>
                                 </Milestone>
-                                <Milestone title="New Platform" date={ moment('2015-05') }>
+                                <Milestone done title={ t("new_platform") } date={ moment('2015-05') }>
                                     <ul>
-                                        <li>&gt;300k users</li>
-                                        <li>&gt;40k videcourses</li>
+                                        <li>{ t("api_plus_mean_fw") }</li>
+                                        <li>{ t("usercount_300k") }</li>
+                                        <li>{ t("coursecount_40k") }</li>
                                     </ul>
                                 </Milestone>
-                                <Milestone title="New Platform" date={ moment('2015-05') }>
+                                <Milestone done title={ t("crowdsale") } date={ moment('2017-11') } />
+                                <Milestone title={ t("ico") } date={ moment('2018-01') } />
+                                <Milestone title={ t("core_features") } date={ moment('2018-06') }>
                                     <ul>
-                                        <li>&gt;300k users</li>
-                                        <li>&gt;40k videcourses</li>
+                                        <li>{ t("wallets") }</li>
+                                        <li>{ t("token_interop") }</li>
                                     </ul>
                                 </Milestone>
-                                <Milestone title="New Platform" date={ moment('2015-05') }>
+                                <Milestone title={ t("value_services") } date={ moment('2018-12') }>
                                     <ul>
-                                        <li>&gt;300k users</li>
-                                        <li>&gt;40k videcourses</li>
+                                        <li>{ t("full_offchain_interop") }</li>
                                     </ul>
                                 </Milestone>
-                                <Milestone title="New Platform" date={ moment('2015-05') }>
+                                <Milestone title={ t("third_entities") } date={ moment("2019-06") }>
                                     <ul>
-                                        <li>&gt;300k users</li>
-                                        <li>&gt;40k videcourses</li>
+                                        <li>{ t("entities_design") }</li>
+                                        <li>{ t("access_management") }</li>
                                     </ul>
                                 </Milestone>
-                                <Milestone title="New Platform" date={ moment('2015-05') }>
+                                <Milestone title={ t("value_features") } date={ moment("2019-12") }>
                                     <ul>
-                                        <li>&gt;300k users</li>
-                                        <li>&gt;40k videcourses</li>
+                                        <li>{ t("product_management") }</li>
+                                        <li>{ t("full_integration") }</li>
                                     </ul>
                                 </Milestone>
-                                <Milestone title="New Platform" date={ moment('2015-05') }>
-                                    <ul>
-                                        <li>&gt;300k users</li>
-                                        <li>&gt;40k videcourses</li>
-                                    </ul>
-                                </Milestone>
-                                <Milestone title="New Platform" date={ moment('2015-05') }>
-                                    <ul>
-                                        <li>&gt;300k users</li>
-                                        <li>&gt;40k videcourses</li>
-                                    </ul>
-                                </Milestone>
-                                <Milestone title="New Platform" date={ moment('2015-05') }>
-                                    <ul>
-                                        <li>&gt;300k users</li>
-                                        <li>&gt;40k videcourses</li>
-                                    </ul>
-                                </Milestone>
-                                <Milestone title="New Platform" date={ moment('2015-05') }>
-                                    <ul>
-                                        <li>&gt;300k users</li>
-                                        <li>&gt;40k videcourses</li>
-                                    </ul>
-                                </Milestone>
+                                <Milestone title={ t("api_features") } date={ moment("2020-06") }/>
                             </Roadmap>
                         </PageSection>
-                        <PageSection title="Partners" />
-                        <PageSection title={ t("FAQs") }>
+                        <PageSection light title={ t('Technology') }>
+                            <Text center>{ t('technology_description') }</Text>
+                        </PageSection>
+                        <PageSection dark title={ t("FAQs") }>
                             <FAQ title={ t("are_there_restrictions") }>{ t('are_there_restrictions_answer') }</FAQ>
 
                             <FAQ title={ t("how_to_purchase") }>{ t('how_to_purchase_answer') }</FAQ>
@@ -284,7 +350,29 @@ class App extends Component/*::<{}>*/ {
                         </PageSection>
                     </main>
                     {/* TODO: Falta el footer */}
-                    <footer>Footer</footer>
+                    <PageFooter>
+                        <FooterBranding logo="/images/color-logo.svg" about={ t('about_tutellus') } socialLinks={ SOCIAL_LINKS } />
+                        <FooterNav>
+                            <NavCategory title={ t('company') }>
+                                <NavLink>Tutellus</NavLink>
+                                <NavLink>Platform</NavLink>
+                                <NavLink>Roadmap</NavLink>
+                                <NavLink>Terms of Use</NavLink>
+                            </NavCategory>
+                            <NavCategory title={ t('ICO') }>
+                                <NavLink>Whitepaper</NavLink>
+                                <NavLink>Token Sale</NavLink>
+                                <NavLink>Wallet</NavLink>
+                                <NavLink>Blog</NavLink>
+                                <NavLink>Help</NavLink>
+                            </NavCategory>
+                            <NavCategory title={ t('CONTACT') }>
+                                <NavLink href="mailto:ico@tutellus.com">ico@tutellus.com</NavLink>
+                                <NavLink href="//2tel.us/tutellus-address" target="_blank">c/ Henri Dunant, 15. Madrid 28050.</NavLink>
+                                <NavLink href="tel://+34910052511">+34 91 00 525 11</NavLink>
+                            </NavCategory>
+                        </FooterNav>
+                    </PageFooter>
                 </div>
             }</I18n>
         );

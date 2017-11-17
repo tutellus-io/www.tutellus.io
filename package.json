@@ -11,6 +11,7 @@
     "react-dom": "^16.0.0",
     "react-i18next": "^6.0.6",
     "react-scripts": "1.0.14",
+    "socicon": "^3.0.5",
     "styled-components": "^2.2.1",
     "styled-reset": "^0.1.2"
   },

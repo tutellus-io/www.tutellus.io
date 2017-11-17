@@ -15,17 +15,46 @@ export const SectionContent = styled.div`
     width: 80%;
     margin: 0 auto;
 `;
-/*::
-type url = string;
-type PageBannerAttrs = {
-    className: string,
-    image: url,
-    title?: string,
-    children?: React.Node,
-}
-*/
 const PAGE_SECTION_VERTICAL_PADDING = 40;
-export const PageBanner = styled((props/*: PageBannerAttrs */) =>
+//TODO: el video necesita un poster
+export const PageBanner = styled(props =>
+	<section className={ props.className }>
+	   <div>
+		  <video preload="true" mute="true" autoPlay="true" loop="true" playsInline="true">
+            <source src={ props.backgroundVideo } />
+          </video>
+		  <SectionContent>
+            { props.title &&
+            <PageTitle>{ props.title }</PageTitle>
+            }
+            { props.children }
+		  </SectionContent>
+	   </div>
+	</section>
+)`
+	/*https://www.imi21.com/background-video.php*/
+	width: 100%; position: relative;
+    max-height: 500px;
+            overflow: hidden;
+	& > div {
+		width: 100%; height: 100%;  display: flex;  justify-content: center; align-items: center;
+        color: ${ colors.white };
+        & video {
+            width: 100%;
+        }
+        & > ${SectionContent} {
+            width: 100%; height:100%; position: absolute;
+        }
+	}
+`;
+
+const colorSectionBackground = R.cond([
+    [R.has('dark'), R.always(colors.darkblue)],
+    [R.has('light'), R.always(colors.athens)],
+    [R.T, R.always(colors.white)],
+]);
+/*
+export const PageBanner = styled(props =>
     <section className={ props.className }>
         <SectionContent>
             { props.title &&
@@ -35,30 +64,17 @@ export const PageBanner = styled((props/*: PageBannerAttrs */) =>
         </SectionContent>
     </section>
 )`
-    background: ${ colors.darkblue };
     padding: ${ PAGE_SECTION_VERTICAL_PADDING }px 0;
 	color: ${ colors.white };
     padding-top: ${ MAIN_HEADER_HEIGHT + PAGE_SECTION_VERTICAL_PADDING }px;
-/*::
-type PageSectionAttrs = {
-    className: string,
-    title?: string,
-    image?: url,
-    children?: React.Node,
-}
-*/
 `;
+*/
 export const InterstitialImage = styled.img`
     display: block;
     margin: 0 auto;
     margin-top: -${ 4 * PAGE_SECTION_VERTICAL_PADDING }px;
     height: ${ 3 * PAGE_SECTION_VERTICAL_PADDING }px;
 `;
-const colorSectionBackground = R.cond([
-    [R.has('dark'), R.always(colors.darkblue)],
-    [R.has('light'), R.always(colors.athens)],
-    [R.T, R.always(colors.white)],
-]);
 const colorSectionForeground = R.cond([
     [R.has('dark'), R.always(colors.athens)],
     [R.T, R.always('inherit')],

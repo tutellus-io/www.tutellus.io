@@ -18,90 +18,107 @@ type MilestoneAttrs = {
 */
 export const Milestone = styled((props/*: MilestoneAttrs */)/*: React.Node */=>
     <li className={ props.className }>
-        <time dateTime={ moment(props.date).format('YYYY-MM-DD') }>{ moment(props.date).format('MMM YY') }</time>
-        <span>{ props.title }</span>
-        <div>{ props.children }</div>
+        <div>
+            <time dateTime={ moment(props.date).format('YYYY-MM-DD') }>{ moment(props.date).format('MMM YY') }</time>
+            <span>{ props.title }</span>
+            <div>{ props.children }</div>
+        </div>
     </li>
 )`
-    position: relative;
-    padding: ${ padding.medium } 0;
-    &:after {
-        content: "";
-        height: 110%;
-        width: 5px;
-        background: white;
-        border-radius: 100px;
-        border: solid .15em ${ colors.lightblue };
-        position: absolute;
-        z-index: 0;
-    }
-    & > time {
-        ${ clearfix }
-        color: ${ colors.darkblack };
-        border-bottom: solid ${ border.small } ${ colors.darkgrey };
-    }
-    & > span {
-        position: absolute;
-        top: 0;
-        width: 100%
-    }
+    display: grid;
+    align-items: start;
     & > div {
-        margin: ${ margin.small } 0;
-    }
-    & > time:before {
-        content: "";
-        border-radius: 100px;
-        height: 1em;
-        width: 1em;
-        background: ${ colors.white };
-        border: solid 0.25em ${ colors.lightblue };
-        position: absolute;
-        z-index: 1;
-    }
-    &:nth-child(odd) {
-        margin-right: 50%;
-        text-align: right;
-        float: right;
-        right: 17px;
-        & > time:before {
-            top: -2%;
-            right: -25%;
+        position: relative;
+        top: -1rem;
+        & > * {
+            display: block;
+        }
+        & > time {
+            font-size: 1.5rem;
+            color: black;
+            font-weight: bold;
         }
         & > span {
-            left: 130%;
-            text-align: left;
+            color: black;
+            margin: 0.5rem 0;
         }
         & > div {
-            float: right;
-            text-align: left;
-            display: inline-block;
-        }
-        &:after {
-            right: -22px;
-            top: -5%;
+            margin-bottom: 2rem;
+            color: ${ styles.colors.softblack };
         }
     }
+    &:before {
+        content: ' ';
+        display: block;
+        grid-row-start: 1;
+        grid-row-end: span 3;
+        border: solid 2px ${ styles.colors.lightblue };
+        border-bottom: 0;
+        min-height: 12rem;
+    }
+    &:after {
+        /* milestone marker */
+        content: ' ';
+        display: block;
+        padding: 1rem;
+        border-radius: 50%;
+        border: solid 2px ${ styles.colors.lightblue };
+        background: ${ props => props.done ? styles.colors.lightblue : 'white' };
+    }
     &:nth-child(even) {
-        margin-left: 50%;
-        float: left;
-        left: 17px;
-        & > time:before {
-            top: -2%;
-            left: -25%;
-        }
-        & > span {
-            right: 130%;
-            text-align: right;
-            padding-right: 0.5em;
-        }
+        position: relative;
+        top: 6rem;
+        grid-template-columns: 20% 80%;
+        text-align: left;
+        & > * { grid-column-start: 2; padding-left: 2rem;}
         &:after {
-            left: -22px;
-            top: 0;
+            grid-column-start: 1;
+            grid-row-start: 1;
+            align-self: start;
+            justify-self: start;
+            position: relative;
+            top: calc(-1rem - 1px);
+            left: calc(-1rem - 1px);
         }
+        &:before {
+            grid-column-start: 1;
+            border-right: 0;
+        }
+    }
+    &:nth-child(odd) {
+        text-align: right;
+        grid-template-columns: 80% 20%;
+        & > * { grid-column-start: 1; padding-right: 2rem;}
+        &:after {
+            grid-column-start: 2;
+            grid-row-start: 1;
+            align-self: start;
+            justify-self: end;
+            position: relative;
+            top: calc(-1rem - 1px);
+            right: calc(-1rem - 3px);
+        }
+        &:before {
+            grid-column-start: 2;
+            height: 100%;
+            width: 100%;
+            border-left: 0;
+        }
+    }
+    &:last-child:before {
+        /* avoid excess roadmap length past last milestone */
+        min-height: 0;
     }
 `;
 export const Roadmap = styled.ol`
+/*
     display: block;
     ${ clearfix }
+*/
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    padding-top: 2rem;
+    margin-bottom: 2rem;
+    overflow: hidden;
 `;
 

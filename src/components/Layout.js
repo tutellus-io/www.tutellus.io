@@ -1,5 +1,6 @@
 //@flow
 import * as React from 'react';
+import R from 'ramda';
 import styled from 'styled-components';
 
 import styles from '../styles';
@@ -12,10 +13,16 @@ export const CenteredBlock = styled.div`
     max-width: ${ MAX_CONTENT_WIDTH / 2 }px;
     margin: 0 auto;
 `;
+const alignText = R.cond([
+    [R.has('center'), R.always('center')],
+    [R.has('right'), R.always('right')],
+    [R.T, R.always('left')],
+]);
 export const Text = styled.p`
     font-size: 1.071em;
     line-height: 1.5rem;
     margin-bottom: 40px;
+    text-align: ${ alignText }
 `;
 export const Row = styled.div`
     ${ clearfix }

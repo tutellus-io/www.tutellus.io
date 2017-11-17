@@ -134,10 +134,14 @@ export const styles = {
             line-height: 1.2;
             background-color: ${ colors.white };
             color: ${ colors.softblack };
-            padding-top: 70px;
         }
         strong {
             font-weight: bold;
+        }
+        details > summary {
+            list-style-type: none;
+            &::-webkit-details-marker { display: none; }
+            &:focus {outline: none;}
         }
     `,
     helpers,

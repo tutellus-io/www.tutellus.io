@@ -7,31 +7,32 @@ const {margin, padding, border, colors} = styles;
 
 /*:: type FAQAttrs = {className: string, title: string, children: React.Node} */
 export const FAQ = styled((props/*: FAQAttrs */) =>
-    <div className={ props.className }>
-        {/* TODO: imágenes desde S3 */}
-        <img src="https://www.tutellus.com/bower_components/tutellus.css/images/careers/small-question-icon.svg" alt="" />
-        <strong>{ props.title }</strong>
+    <details className={ props.className }>
+        <summary>{ props.title }</summary>
         <div>{ props.children }</div>
-    </div>
+    </details>
 )`
-	padding-bottom: ${ padding.medium };
-	margin-bottom: ${ margin.medium };
-	border-bottom: solid ${ border.small } ${ colors.grey };
-
-	& > img {
-		margin-right: ${ margin.small };
-		display: inline-block;
-		vertical-align: middle;
-	}
-
-    & > strong {
-        margin-bottom: ${ margin.small };
-		vertical-align: middle;
-        font-weigth: ${ styles.font.weight.normal };
-        ${ styles.text.xlarge }
-        color: ${ colors.darkblack };
+    & summary:before {
+        content: '';
+        display: inline;
+        background: url(/images/plus.svg) center center no-repeat;
+        padding: 1.25em;
+        margin-right: 1em;
     }
+    &[open] {
+        & summary:before {
+            background-image: url(/images/minus.svg);
+        }
+    }
+	border-bottom: solid ${ border.small } ${ colors.softblack };
+    line-height: 3em;
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+
     & > div {
-        margin-top: ${ margin.small };
+        margin-top: 1em;
+    }
+    &:last-of-type {
+        border-bottom: none;
     }
 `;

@@ -9,3 +9,4 @@ export * from './Crowdsale';
 export * from './Roadmap';
 export * from './FAQ';
 export * from './Buttons';
+export * from './Footer';
