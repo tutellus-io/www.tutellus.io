@@ -1,17 +1,13 @@
 //@flow
 import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import styles from '../styles';
 
 import {SocialIcons} from './Footer';
 import {CTAButton} from './Buttons';
 
-const {colors} = styles;
-
-export const MAIN_HEADER_HEIGHT = 128;
+export const TOP_HEADER_HEIGHT = 128;
 //TODO: que por defecto sea small para evitar que flashee?
-export const MainHeader = styled(props =>
+export const TopHeader = styled(props =>
     <header className={ props.className }>
         <a href="/">
             <img src={ props.logo } alt={ props.title } height="100%" />
@@ -20,7 +16,7 @@ export const MainHeader = styled(props =>
     </header>
 )`
     background: linear-gradient(black, transparent);
-    height: ${ MAIN_HEADER_HEIGHT }px;
+    height: ${ TOP_HEADER_HEIGHT }px;
     position: fixed;
     top: 0;
     width: 100%;
@@ -33,7 +29,7 @@ export const MainHeader = styled(props =>
     }
     ${ props => props.small && `
         background: black;
-        height: ${ MAIN_HEADER_HEIGHT / 2 }px;
+        height: ${ TOP_HEADER_HEIGHT / 2 }px;
         padding: 15px 50px;
         transition: all .5s linear;
     ` }
@@ -93,7 +89,7 @@ export const MainMenu = styled((props/*: {className: string, onLanguage: (string
             color: black;
             transition: all .2s linear;
         }
-        ${ MainHeader }.small & {
+        ${ TopHeader }.small & {
             padding: 5px 10px;
         }
     }

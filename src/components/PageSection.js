@@ -5,7 +5,6 @@ import styled from 'styled-components';
 
 import {CenteredImage} from './Images';
 import {MAX_CONTENT_WIDTH} from './Layout';
-import {MAIN_HEADER_HEIGHT} from './MainHeader';
 
 import styles from '../styles';
 const {margin, colors} = styles;
@@ -53,22 +52,6 @@ const colorSectionBackground = R.cond([
     [R.has('light'), R.always(colors.athens)],
     [R.T, R.always(colors.white)],
 ]);
-/*
-export const PageBanner = styled(props =>
-    <section className={ props.className }>
-        <SectionContent>
-            { props.title &&
-            <PageTitle>{ props.title }</PageTitle>
-            }
-            { props.children }
-        </SectionContent>
-    </section>
-)`
-    padding: ${ PAGE_SECTION_VERTICAL_PADDING }px 0;
-	color: ${ colors.white };
-    padding-top: ${ MAIN_HEADER_HEIGHT + PAGE_SECTION_VERTICAL_PADDING }px;
-`;
-*/
 export const InterstitialImage = styled.img`
     display: block;
     margin: 0 auto;
