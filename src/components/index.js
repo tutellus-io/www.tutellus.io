@@ -1,4 +1,5 @@
 //@flow
+export * from './forms';
 export * from './MainHeader';
 export * from './PageSection';
 export * from './Images';
