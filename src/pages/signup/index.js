@@ -14,7 +14,7 @@ import EtherForm from './EtherForm';
 import IdentityForm from './IdentityForm';
 import Summary from './Summary';
 
-class Signup extends Component {
+class SignupElement extends Component {
     constructor() {
         super();
         this.state = {
@@ -191,7 +191,7 @@ class Signup extends Component {
     }
 }
 
-const SignupStyled = styled(translate('signup')(Signup))`
+export const Signup = styled(translate('signup')(SignupElement))`
     & .wizard {
         > div {
             display: flex;
@@ -204,5 +204,4 @@ const SignupStyled = styled(translate('signup')(Signup))`
         }
     }
 `;
-
-export default SignupStyled;
+export default Signup;

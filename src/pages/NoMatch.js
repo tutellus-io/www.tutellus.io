@@ -1,6 +1,6 @@
 import React from 'react';
 
-const NoMatch = () =>
+export const NoMatch = () =>
     <div>
         NOT Found!
     </div>

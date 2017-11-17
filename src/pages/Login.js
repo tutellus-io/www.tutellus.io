@@ -88,7 +88,7 @@ const LoginForm = styled(LoginFormElement)`
     }
 `;
 
-const Login = () =>
+export const Login = () =>
     <div>
         Login
         <LoginForm/>
