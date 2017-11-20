@@ -7,8 +7,8 @@ import {
     Text,
 } from '../../../components';
 
-export const TheSolution = translate('the_solution')(({t}) =>
-    <PageSection light interstitialImage="/images/tokens.png">
+export const TheSolution = translate('the_solution')(({t, id}) =>
+    <PageSection id={ id } light interstitialImage="/images/tokens.png">
         <SectionTitle dangerouslySetInnerHTML={{ __html: t('title') }} />
         <Text center>{ t('description') }</Text>
     </PageSection>

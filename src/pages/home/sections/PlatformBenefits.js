@@ -49,8 +49,8 @@ export const BulletPoint = styled.li`
         margin: 0 10px;
     }
 `;
-export const PlatformBenefits = translate('the_benefits')(({t}) =>
-    <PageSection title={ t('title') }>
+export const PlatformBenefits = translate('the_benefits')(({t, id}) =>
+    <PageSection id={ id } title={ t('title') }>
         <Text center>{ t('description') }</Text>
         <Benefits>
             <UserGroup name={ t('students') } icon="/images/students.svg">

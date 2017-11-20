@@ -9,8 +9,8 @@ import {
     CTAButton,
 } from '../../../components';
 
-export const HowItWorks = translate('how_it_works')(({t}) =>
-    <PageSection dark title={ t('title') } >
+export const HowItWorks = translate('how_it_works')(({t, id}) =>
+    <PageSection id={ id } dark title={ t('title') } >
         <Text center>{ t('description') }</Text>
         <SectionImage src="/images/HTTW.png" />
         <CenteredBlock>

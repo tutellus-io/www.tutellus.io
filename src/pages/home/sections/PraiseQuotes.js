@@ -8,8 +8,8 @@ import {
     CTAButton,
 } from '../../../components';
 
-export const PraiseQuotes = translate('quotes')(({t}) =>
-    <PageSection light>
+export const PraiseQuotes = translate('quotes')(({id, t}) =>
+    <PageSection id={ id } light>
         <Quote href="https://elpais.com/economia/2015/07/10/actualidad/1436521761_125197.html" cite="El Pais, 2016">
             { t('the_leading_platform') }
         </Quote>

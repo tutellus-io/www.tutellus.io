@@ -9,8 +9,8 @@ import {
     TechIcon,
 } from '../../../components';
 
-export const TechnologyStack = translate('technology_stack')(({t}) =>
-    <PageSection light title={ t('title') }>
+export const TechnologyStack = translate('technology_stack')(({t, id}) =>
+    <PageSection id={ id } light title={ t('title') }>
         <Text center>{ t('description') }</Text>
         <Layers>
             <Layer>

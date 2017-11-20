@@ -18,7 +18,7 @@ export const SectionContent = styled.div`
 const PAGE_SECTION_VERTICAL_PADDING = 40;
 //TODO: el video necesita un poster
 export const PageBanner = styled(props =>
-    <section className={ props.className }>
+    <section id={ props.id } className={ props.className }>
         <div>
             <video preload="true" mute="true" autoPlay="true" loop="true" playsInline="true">
                 <source src={ props.backgroundVideo } />
@@ -72,7 +72,7 @@ const colorSectionForeground = R.cond([
     [R.T, R.always('inherit')],
 ]);
 export const PageSection = styled((props) =>
-    <section className={ props.className }>
+    <section id={ props.id } className={ props.className }>
         { props.interstitialImage &&
             <InterstitialImage src={ props.interstitialImage } />
         }

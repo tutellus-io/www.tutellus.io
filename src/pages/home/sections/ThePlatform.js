@@ -8,8 +8,8 @@ import {
     Text,
 } from '../../../components';
 
-export const ThePlatform = translate('the_platform')(({t}) =>
-    <PageSection title={ t('title') } image="https://www.tutellus.com/bower_components/tutellus.css/images/home/desktop-computer.jpg">
+export const ThePlatform = translate('the_platform')(({t, id}) =>
+    <PageSection id={ id } title={ t('title') } image="https://www.tutellus.com/bower_components/tutellus.css/images/home/desktop-computer.jpg">
         <Text center>{ t('description') }</Text>
         <Features>
             <Feature title="1.000.000" image="/images/students.svg">

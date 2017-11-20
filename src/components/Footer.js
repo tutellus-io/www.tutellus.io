@@ -39,7 +39,6 @@ export const SocialIcons = styled(props =>
     </ul>
 )`
     & > ${ SocialIcon } > a {
-        text-decoration: none;
         font-size: 1.5em;
         letter-spacing: 8px;
     }
@@ -67,9 +66,6 @@ export const FooterBranding = styled(props =>
 export const FooterNav = styled.nav`
     display: grid;
     grid-template-columns: repeat(3, 33%);
-    & a {
-        text-decoration: none;
-    }
 `;
 export const PageFooter = styled.footer`
     display: grid;

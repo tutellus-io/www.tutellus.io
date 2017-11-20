@@ -44,11 +44,11 @@ export class Home extends React.Component {
                     <ThePain />
                     <TheSolution />
                     <PlatformBenefits />
-                    <HowItWorks />
-                    <ThePlatform />
+                    <HowItWorks id="howitworks" />
+                    <ThePlatform id="platform" />
                     <PraiseQuotes />
-                    <TheTeam />
-                    <Crowdsale />
+                    <TheTeam id="team" />
+                    <Crowdsale id="crowdsale" />
                     <PlatformRoadmap />
                     <TechnologyStack />
                 </main>
