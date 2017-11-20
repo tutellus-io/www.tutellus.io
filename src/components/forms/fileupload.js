@@ -12,13 +12,14 @@ const UploadButtonElement = (props) => {
         handleUpload,
         clickButton,
         className,
+        posterIcon,
     } = props;
     return (
         <div className={className}>
             {
                 !uploading &&
                 <label>
-                    <span className="title">Selecciona fichero</span>
+                    <img src={posterIcon}/>
                     <input type = "file" onChange={handleUpload} onClick={clickButton}/>
                 </label>
             }
@@ -28,22 +29,20 @@ const UploadButtonElement = (props) => {
 };
 
 const UploadButton = styled(UploadButtonElement)`
-    width: 200px;
     > label {
         width: 100%;
+        height: 100%;
         cursor: pointer;
-        display: block;
-        > .title {
-            display: block;
-            width: 100%;
-            cursor: pointer;
-            padding: 10px;
-            border: none;
-            border-radius: 3px;
-            font-size: 1rem;
-            color: white;
-            background-color: #DADADA; 
-            text-align: center;
+        border: 2px solid #DBDBDB;
+        background-color: #EFEFEF;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        > img {
+            width: 50px;
+            height: 50px;
         }
         & input[type='file']{
             display:none;
@@ -71,6 +70,7 @@ const GalleryElement = (props) => {
     const {
         className,
         images = [],
+        buttonUpload,
     } = props;
     return (
         <div className={className}>
@@ -80,9 +80,55 @@ const GalleryElement = (props) => {
                         <img src={image.url} alt={image.name} title={`${ image.original_name } (${ numeral(image.size).format('0.0b') })`}/>
                     </figure>)
             }
+            {
+                buttonUpload &&
+                    <figure key={`figure-upload`}>
+                        {buttonUpload()}
+                    </figure>
+            }
         </div>
     );
 };
+
+const ImageWithPosterElement = (props) => {
+    const {
+        posterIcon,
+        className,
+        src,
+    } = props;
+
+    return (
+        <div className={className}>
+            {
+                src &&
+                <img src={src} alt=""/>
+            }
+            {
+                !src &&
+                <img className="icon" src={posterIcon} alt=""/>
+            }
+        </div>
+    );
+};
+export const ImageWithPoster = styled(ImageWithPosterElement)`
+    width: ${ (props) => (props.width ? props.width : '100%') };
+    height: ${ (props) => (props.height ? props.height : '100%') };
+    border: 2px solid #DBDBDB;
+    background-color: #EFEFEF;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    > img {
+        width: 100%;
+        height: 100%;
+    }
+    > .icon {
+        width: 50px;
+        height: 50px;
+    }
+`;
 
 const croppedWith = (height) => `
     > figure {
@@ -103,18 +149,21 @@ const Gallery = styled(GalleryElement)`
         display: flex;
         flex-direction: column;
 		justify-content: center;
-        margin: 0 1rem 1rem 0;
+        margin: 0 1em 1em 0;
 
-        width: calc( 100% / 2 - 3 * 8px );  // 2 columns
+        width: 170px;
+        height: 100px;
+
+        > * {
+            width: 100%;
+            height: 100%;
+            flex: 1;
+        }
 
         > img {
-            max-width: 100%;
-            height: auto;
-            flex: 1;
             object-fit: cover;
         }
     }
-    ${ (props) => (props.croppedWith ? croppedWith(props.height) : '') }
 `;
 
 
@@ -227,19 +276,23 @@ export class FileUpload extends Component {
         const {
             className,
             images_uploaded = [],
+            posterIcon,
         } = this.props;
         const {
             error,
         } = this.state;
         return (
             <div className = {className}>
-                <Gallery images={images_uploaded.concat(this.state.images_uploaded)} croppedWith/>
-                <UploadButton
-                    uploading={this.state.uploading}
-                    upload_progress={this.state.upload_progress}
-                    handleUpload= {this.handleUpload}
-                    clickButton= {this.resetError}
-                />
+                <Gallery images={images_uploaded.concat(this.state.images_uploaded)}
+                    buttonUpload = {() =>
+                        <UploadButton
+                            uploading={this.state.uploading}
+                            upload_progress={this.state.upload_progress}
+                            handleUpload= {this.handleUpload}
+                            clickButton= {this.resetError}
+                            posterIcon= {posterIcon}
+                        />
+                    }/>
                 {error && <div className='error'>{error}</div>}
             </div>
         );

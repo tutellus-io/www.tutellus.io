@@ -1,7 +1,7 @@
 import React from 'react';
 import {translate} from 'react-i18next';
 import styled from 'styled-components';
-import {PageTitle, Text} from '../../components';
+import {PageTitle, Text, ImageWithPoster} from '../../components';
 
 const BoxTitle = styled.h3`
     font-weight: bold;
@@ -47,7 +47,10 @@ const SummaryElement = (props) => {
                 <Line label={t('signup:summary_wallet_contribution_label')} value={user.eth_contribution}/>
             </Box>
             <Box title={t('signup:summary_identity_title')}>
-
+                <ImageWithPoster width="170px" height="100px" posterIcon="/images/dni_front.svg"/>
+                <ImageWithPoster width="170px" height="100px" posterIcon="/images/dni_back.svg"/>
+                <ImageWithPoster width="170px" height="100px" posterIcon="/images/selfie.svg"/>
+                <ImageWithPoster width="170px" height="100px" posterIcon="/images/doc.svg"/>
             </Box>
         </div>
     );

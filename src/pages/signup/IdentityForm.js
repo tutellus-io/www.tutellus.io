@@ -25,7 +25,7 @@ const IdentityFormElement = (props) => {
     };
 
     const validationSchema = Yup.object().shape({
-        identity_uploaded: Yup.boolean().oneOf([true], t('signup:identity_identity_uploaded_oneof_err')),
+        identity_front_uploaded: Yup.boolean().oneOf([true], t('signup:identity_identity_uploaded_oneof_err')),
         selfie_uploaded: Yup.boolean().oneOf([true], t('signup:identity_selfie_uploaded_oneof_err')),
         residency_uploaded: Yup.boolean().oneOf([true], t('signup:identity_residency_uploaded_oneof_err')),
     });
@@ -40,11 +40,13 @@ const IdentityFormElement = (props) => {
     };
 
     const initialValues = _.defaults(_.pick(user, [
-        'identity_uploaded',
+        'identity_front_uploaded',
+        'identity_back_uploaded',
         'selfie_uploaded',
         'residency_uploaded',
     ]), {
-        identity_uploaded: false,
+        identity_front_uploaded: false,
+        identity_back_uploaded: false,
         selfie_uploaded: false,
         residency_uploaded: false,
     });
@@ -70,22 +72,31 @@ const IdentityFormElement = (props) => {
                     <Form>
                         <h3>{t('signup:identity_proof_identity_title')}</h3>
                         <div>{t('signup:identity_proof_identity_requirements')}</div>
-                        <FileUpload images_uploaded= {user.identity} max_size = {max_size}
+
+                        <FileUpload images_uploaded= {user.identity_front} max_size = {max_size}
                             allowed_types = {allowed_types}
-                            path={`/backers/${ user.uid }/identity`}
-                            onFinish={(file_uploaded) => onFinish(setFieldValue, 'identity', file_uploaded)}/>
+                            path={`/backers/${ user.uid }/identity_front`}
+                            posterIcon="/images/dni_front.svg"
+                            onFinish={(file_uploaded) => onFinish(setFieldValue, 'identity_front', file_uploaded)}/>
+                        <FileUpload images_uploaded= {user.identity_back} max_size = {max_size}
+                            allowed_types = {allowed_types}
+                            path={`/backers/${ user.uid }/identity_back`}
+                            posterIcon="/images/dni_back.svg"
+                            onFinish={(file_uploaded) => onFinish(setFieldValue, 'identity_back', file_uploaded)}/>
 
                         <h3>{t('signup:identity_proof_selfie_title')}</h3>
                         <div>{t('signup:identity_proof_selfie_requirements')}</div>
                         <FileUpload images_uploaded= {user.selfie} max_size = {max_size}
                             allowed_types = {allowed_types}
                             path={`/backers/${ user.uid }/selfie`}
+                            posterIcon="/images/selfie.svg"
                             onFinish={(file_uploaded) => onFinish(setFieldValue, 'selfie', file_uploaded)} />
                         <h3>{t('signup:identity_proof_residency_title')}</h3>
                         <div>{t('signup:identity_proof_residency_requirements')}</div>
                         <FileUpload images_uploaded= {user.residency} max_size = {max_size}
                             allowed_types = {allowed_types}
                             path={`/backers/${ user.uid }/residency`}
+                            posterIcon="/images/doc.svg"
                             onFinish={(file_uploaded) => onFinish(setFieldValue, 'residency', file_uploaded)}/>
                         <Button primary type="submit">{t('signup:identity_verify_btn')}</Button>
                     </Form>
