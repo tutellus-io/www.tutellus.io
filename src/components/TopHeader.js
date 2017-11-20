@@ -2,9 +2,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import {translate} from 'react-i18next';
+import SmoothScroll from 'react-scroll';
 
 import {SocialIcons} from './Footer';
 import {CTAButton} from './Buttons';
+import styles from '../styles';
 
 export const TOP_HEADER_HEIGHT = 128;
 //TODO: que por defecto sea small para evitar que flashee?
@@ -28,6 +30,7 @@ export const TopHeader = styled(props =>
     width: 100%;
     z-index: 3;
     transition: all .5s linear;
+    color: white;
 
     & > a {
         grid-area: logo;
@@ -81,17 +84,26 @@ export const SecondaryMenu = styled(props =>
             color: black;
             transition: all .2s linear;
         }
-        ${ TopHeader }.small & {
-        }
     }
 `;
+const Link = styled(props =>
+    <SmoothScroll.Link { ...props } spy={ true } smooth={ true } activeClass="active" offset={ -TOP_HEADER_HEIGHT / 2 }>
+    { props.children }
+    </SmoothScroll.Link>
+)`
+    &.active {
+        border-bottom: solid 1px ${ styles.colors.lightblue };
+        padding-bottom: 1em;
+        transition: all .2s linear;
+    }
+`
 export const MainMenu = styled(translate()(({t, className}) =>
     <nav className={ className }>
         <ul>
-            <li><a>{ t('Platform') }</a></li>
-            <li><a>{ t('Whitepaper') }</a></li>
-            <li><a>{ t('crowdsale:title') }</a></li>
-            <li><a>{ t('the_team:title') }</a></li>
+            <li><Link to="howitworks">{ t('Whitepaper') }</Link></li>
+            <li><Link to="platform">{ t('Platform') }</Link></li>
+            <li><Link to="team">{ t('the_team:title') }</Link></li>
+            <li><Link to="crowdsale">{ t('crowdsale:title') }</Link></li>
         </ul>
     </nav>
 ))`
@@ -103,8 +115,5 @@ export const MainMenu = styled(translate()(({t, className}) =>
         font-weight: bold;
         padding: 0 1em;
         text-transform: uppercase;
-        & a {
-            color: white;
-        }
     }
 `;

@@ -8,8 +8,8 @@ import {
     TeamMember,
 } from '../../../components';
 
-export const TheTeam = translate('the_team')(({t}) =>
-    <PageSection title={ t('title') }>
+export const TheTeam = translate('the_team')(({t, id}) =>
+    <PageSection id={ id } title={ t('title') }>
         <Text center>{ t('description') }</Text>
         <Team>
             <TeamMember name="Miguel Caballero" title="CEO" photo="//www.tutellus.com/bower_components/tutellus.css/images/team/Miguel.jpg" socialProfiles={ {

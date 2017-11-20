@@ -137,6 +137,7 @@ export const styles = {
         }
         a {
             color: inherit;
+            text-decoration: none;
         }
         strong {
             font-weight: bold;

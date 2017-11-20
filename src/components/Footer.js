@@ -4,10 +4,13 @@ import styled from 'styled-components';
 import 'socicon/css/socicon.css';
 import styles from '../styles';
 
-export const NavLink = styled.a``;
+export const NavLink = styled.a`
+    line-height: 2em;
+`;
 export const NavCategoryTitle = styled.h3`
     font-weight: bold;
     text-transform: uppercase;
+    margin-bottom: 1em;
 `;
 export const NavCategory = styled(props =>
     <div className={ props.className }>
@@ -36,7 +39,6 @@ export const SocialIcons = styled(props =>
     </ul>
 )`
     & > ${ SocialIcon } > a {
-        text-decoration: none;
         font-size: 1.5em;
         letter-spacing: 8px;
     }

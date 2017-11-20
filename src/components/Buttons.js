@@ -1,21 +1,59 @@
 //@flow
+import React from 'react';
 import styled from 'styled-components';
 import styles from '../styles';
 const {margin, colors} = styles;
 
-export const PlayButton = styled.button`
-    display: block;
-    width: 100px;
-    height: 100px;
-    border: none;
-    margin: 0 auto;
-    padding: 0;
-    background: url(https://www.tutellus.com/dist/images/play-button-overlay.svg);
-    cursor: pointer;
-    transition: all 0.2s linear;
+export const PlayButton = styled(class extends React.Component {
+    constructor() {
+        super();
+        this.state = {};
+    }
+    play() {
+        this.setState({playing: true});
+        this.video.play();
+    }
+    render() {
+        const props = this.props;
+        return (
+        <div className={ props.className }>
+            <button onClick={ () => this.play() }/>
+            <video className={ this.state.playing ? 'playing' : 'paused' } ref={ video => this.video = video } controls preload playsInline>
+                <source src={ props.video } />
+            </video>
+        </div>
+        );
+    }
+})`
+    & > button {
+        display: block;
+        width: 100px;
+        height: 100px;
+        border: none;
+        margin: 0 auto;
+        padding: 0;
+        /*TODO: s3*/
+        background: url(https://www.tutellus.com/dist/images/play-button-overlay.svg);
+        cursor: pointer;
+        transition: all 0.2s linear;
 
-    &:hover {
-        opacity: .5;
+        &:hover {
+            opacity: .5;
+        }
+    }
+    & > video {
+        display: inline-block;
+        position: absolute;
+        opacity: 0;
+        z-index: -1;
+        top: 0;
+        /*TODO: no puede hacerse import de las constantes porque serían referencias circulares */
+        max-height: ${ 500 - 128 }px;
+        &.playing {
+            z-index: 1;
+            opacity: 1;
+            transition: opacity .5s linear;
+        }
     }
 `;
 const colorCTAButton = (props/*: {primary: bool} */) => (
