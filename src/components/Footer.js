@@ -22,23 +22,23 @@ export const NavCategory = styled(props =>
     </div>
 )`
 `;
+export const SocialIcon = styled.li`
+    display: inline;
+    color: ${ styles.colors.athens };
+`;
 export const SocialIcons = styled(props =>
     <ul className={ props.className }>
     {
         Object.entries(props.networks).map(([network, link]) =>
-            <li key={ network }><a className={ `socicon-${ network }` } href={ link }></a></li>
+            <SocialIcon key={ network }><a className={ `socicon-${ network }` } href={ link }></a></SocialIcon>
         )
     }
     </ul>
 )`
-    & > li {
-        display: inline;
-        & > a {
-            text-decoration: none;
-            color: ${ styles.colors.athens };
-            font-size: 1.5em;
-            letter-spacing: 8px;
-        }
+    & > ${ SocialIcon } > a {
+        text-decoration: none;
+        font-size: 1.5em;
+        letter-spacing: 8px;
     }
 `;
 //TODO: media queries

@@ -5,12 +5,7 @@ import AlertContainer from 'react-alert';
 
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
-import App from './App';
-import Signup from './pages/signup';
-import Management from './pages/management';
-import Login from './pages/Login';
-import Dashboard from './pages/Dashboard';
-import NoMatch from './pages/NoMatch';
+import {Home, Signup, Management, Login, Dashboard, NoMatch} from './pages';
 
 import './i18n';
 
@@ -55,7 +50,7 @@ class Master extends React.Component {
                 }} />
                 <BrowserRouter>
                     <Switch>
-                        <Route exact path='/' component={App}/>
+                        <Route exact path='/' component={ Home }/>
                         <Route exact path='/signup' component={(props) =>
                             <Signup {...props} {...all_props}/>
                         }/>

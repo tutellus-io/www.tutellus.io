@@ -2,19 +2,10 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import {SectionContent} from './PageSection';
+import {SocialIcons, SocialIcon} from './Footer';
 import styles from '../styles';
 const {margin, padding, border, colors} = styles;
 
-/*::
-type url = string;
-type TeamMemberAttrs = {
-    className: string,
-    photo: url,
-    name: string,
-    title: string,
-    children?: React.Node,
-}
-*/
 const childrenAsColumns = props => {
     const children_count = React.Children.count(props.children);
     return `repeat(${ children_count }, ${ 100 / children_count }%)`;
@@ -24,7 +15,7 @@ export const Team = styled.div`
     grid-template-columns: ${ childrenAsColumns };
     grid-column-gap: 10px;
 `;
-export const TeamMember = styled((props/*: TeamMemberAttrs */) =>
+export const TeamMember = styled(props =>
     <div className={ props.className }>
         <TeamMemberAvatar src={ props.photo } />
         <TeamMemberName>{ props.name }</TeamMemberName>
@@ -32,6 +23,9 @@ export const TeamMember = styled((props/*: TeamMemberAttrs */) =>
         <p>
             { props.children }
         </p>
+        { props.socialProfiles &&
+        <SocialIcons networks={ props.socialProfiles } />
+        }
     </div>
 )`
 	text-align: center;
@@ -40,6 +34,13 @@ export const TeamMember = styled((props/*: TeamMemberAttrs */) =>
 	border-radius: ${ border.radius.small };
 	margin-bottom: ${ margin.small };
 	color: ${ colors.softblack };
+    & ${ SocialIcons } {
+        margin-top: 0.5rem;
+        font-size: 0.8rem;
+        & > ${ SocialIcon } {
+            color: ${ colors.darkblack };
+        }
+    }
 `;
 export const TeamMemberAvatar = styled.img`
     width: 80%;

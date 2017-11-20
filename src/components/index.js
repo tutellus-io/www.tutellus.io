@@ -1,6 +1,6 @@
 //@flow
 export * from './forms';
-export * from './MainHeader';
+export * from './TopHeader';
 export * from './PageSection';
 export * from './Images';
 export * from './Layout';

@@ -1,39 +1,39 @@
 //@flow
 import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import styles from '../styles';
 
 import {SocialIcons} from './Footer';
 import {CTAButton} from './Buttons';
 
-const {colors} = styles;
-
-export const MAIN_HEADER_HEIGHT = 128;
+export const TOP_HEADER_HEIGHT = 128;
 //TODO: que por defecto sea small para evitar que flashee?
-export const MainHeader = styled(props =>
+export const TopHeader = styled(props =>
     <header className={ props.className }>
         <a href="/">
-            <img src={ props.logo } alt={ props.title } height="100%" />
+            <img src={ props.logo } alt={ props.title } />
         </a>
         { props.children }
     </header>
 )`
+    display: grid;
+    grid-template-areas: "logo . main-menu . secondary-menu";
+    grid-template-columns: 10% 5% 40% 5% 40%;
+    align-items: center;
+    padding: 0 50px;
     background: linear-gradient(black, transparent);
-    height: ${ MAIN_HEADER_HEIGHT }px;
+    height: ${ TOP_HEADER_HEIGHT }px;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 3;
-    padding: 42px 50px;
     transition: all .5s linear;
 
-    & img {
-        margin-right: 1em;
+    & > a {
+        grid-area: logo;
     }
     ${ props => props.small && `
         background: black;
-        height: ${ MAIN_HEADER_HEIGHT / 2 }px;
+        height: ${ TOP_HEADER_HEIGHT / 2 }px;
         padding: 15px 50px;
         transition: all .5s linear;
     ` }
@@ -51,7 +51,40 @@ const LangSelect = styled(props =>
     text-transform: uppercase;
 `;
 
-export const MainMenu = styled((props/*: {className: string, onLanguage: (string => void)} */) =>
+export const SecondaryMenu = styled(props =>
+    <ul className={ props.className }>
+        <li><SocialIcons networks={ props.socialLinks } /></li>
+        <li><CTAButton>Whitelist</CTAButton></li>
+        <li><LangSelect onLanguage={ props.onLanguage } locale={ props.locale } /></li>
+    </ul>
+)`
+    grid-area: secondary-menu;
+    text-align: right;
+    & > li {
+        display: inline-block;
+        margin: 0 .25rem;
+    }
+    & ${ SocialIcons } {
+        display: inline;
+        position: relative;
+        top: 0.25em;
+    }
+    & ${ CTAButton } {
+        margin-top: 0;
+        padding: 0.5rem;
+        background: transparent;
+        border: solid 1px white;
+        transition: all .2s linear;
+        &:hover {
+            background: white;
+            color: black;
+            transition: all .2s linear;
+        }
+        ${ TopHeader }.small & {
+        }
+    }
+`;
+export const MainMenu = styled(props =>
     <nav className={ props.className }>
         <ul>
             <li><a>Blog</a></li>
@@ -59,15 +92,10 @@ export const MainMenu = styled((props/*: {className: string, onLanguage: (string
             <li><a>Whitepaper</a></li>
             <li><a>Token Sale</a></li>
             <li><a>Team</a></li>
-            <li><SocialIcons networks={ props.socialLinks } /></li>
-            <li><CTAButton>Whitelist</CTAButton></li>
-            <li><LangSelect onLanguage={ props.onLanguage } locale={ props.locale } /></li>
         </ul>
     </nav>
 )`
-    display: inline-block;
-    position: relative;
-    top: -0.8em;
+    grid-area: main-menu;
 
     & li {
         display: inline;
@@ -77,24 +105,6 @@ export const MainMenu = styled((props/*: {className: string, onLanguage: (string
         text-transform: uppercase;
         & a {
             color: white;
-        }
-    }
-    & ${ SocialIcons } {
-        display: inline;
-        position: relative;
-        top: 0.25em;
-    }
-    & ${ CTAButton } {
-        background: transparent;
-        border: solid 1px white;
-        transition: all .2s linear;
-        &:hover {
-            background: white;
-            color: black;
-            transition: all .2s linear;
-        }
-        ${ MainHeader }.small & {
-            padding: 5px 10px;
         }
     }
 `;

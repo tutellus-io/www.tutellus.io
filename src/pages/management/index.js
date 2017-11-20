@@ -19,7 +19,7 @@ const EmailNotVerified = () =>
     </div>
 ;
 
-class Management extends Component {
+export class Management extends Component {
     constructor() {
         super();
 
