@@ -1,10 +1,12 @@
 import React from 'react';
+import styled from 'styled-components';
 import {TextField, OneCheckbox, Button, PageTitle, Text} from '../../components';
 import {Field, Form, Formik} from 'formik';
 import Yup from 'yup';
 import _ from 'lodash';
+import {translate} from 'react-i18next';
 
-const EtherForm = (props) => {
+const WalletFormElement = (props) => {
     const {
         db,
         updateUser,
@@ -12,12 +14,13 @@ const EtherForm = (props) => {
         className,
         showAlert,
         user,
+        t,
     } = props;
 
     const validationSchema = Yup.object().shape({
-        eth_adress: Yup.string().required('Escribe la dirección de tu wallet'),
-        eth_contribution: Yup.number().min(0.3, 'La aportacion es demasiado pequeña').required('Escribe tu aportación'),
-        eth_confirm: Yup.boolean().oneOf([true], 'Must Confirm'),
+        eth_adress: Yup.string().required(t('signup:wallet_eth_address_required_err')),
+        eth_contribution: Yup.number().min(0.3, t('signup:wallet_eth_address_required_err')).required(t('signup:wallet_eth_contribution_required_err')),
+        eth_confirm: Yup.boolean().oneOf([true], t('signup:wallet_eth_confirm_required_err')),
     });
 
     const onSubmit = (values) => {
@@ -46,30 +49,28 @@ const EtherForm = (props) => {
 
     return (
         <div className={className}>
-            <PageTitle>Añade tu información de compra</PageTitle>
-            <Text>Indícanos tu dirección pública y la cantidad de ETH que vas a comprar</Text>
+            <PageTitle>{t('signup:wallet_title')}</PageTitle>
+            <Text>{t('signup:wallet_address_info')}</Text>
             <Formik
                 validationSchema= { validationSchema }
                 onSubmit={onSubmit}
                 initialValues={initialValues}
                 component={() =>
                     <Form>
-                        <Field component={TextField} name="eth_adress" placeholder="0x...." label={ {
+                        <Field component={TextField} name="eth_adress" placeholder={t('signup:wallet_eth_address_placeholder')} label={ {
                             required: "required",
-                            value: 'Tu dirección publica ETH',
+                            value: t('signup:wallet_eth_address_label'),
                         } }/>
-                        <div>IMPORTANTE: debes usar un wallet que soporte tokens ERC20. NO envíes ETH directamente desde un Exchange (Kraken, Coinbase, Bittrex…), wallets multi-sig u otro tipo de smart contracts, ya que no tendrás acceso a los tokens que compres.</div>
+                        <Text>{t('signup:wallet_alert_exchanges')}</Text>
                         <Field component={OneCheckbox} type="checkbox" name="eth_confirm" label={
-                            <span>Confirmo que he leido la información anterior.</span>
+                            <span>{t('signup:wallet_eth_confirm_label')}</span>
                         }/>
-                        <Field component={TextField} type="number" min={0} step={0.01} name="eth_contribution" placeholder="0,3" label={ {
+                        <Field component={TextField} type="number" min={0} step={0.01} name="eth_contribution" placeholder={t('signup:wallet_eth_contribution_placeholder')} label={ {
                             required: "required",
-                            value: 'Tu contribución, en ETH',
+                            value: t('signup:wallet_eth_contribution_label'),
                         } }/>
-                        <div>
-                            <b>Nota:</b> La contribución mínima es 0,3 ETH
-                        </div>
-                        <Button primary type="submit">GUARDAR WALLET</Button>
+                        <Text>{t('signup:wallet_contribution_note')}</Text>
+                        <Button primary type="submit">{t('signup:wallet_save_btn')}</Button>
                     </Form>
                 }
             />
@@ -77,4 +78,7 @@ const EtherForm = (props) => {
     );
 };
 
-export default EtherForm;
+const WalletForm = styled(translate()(WalletFormElement))`
+`;
+
+export default WalletForm;

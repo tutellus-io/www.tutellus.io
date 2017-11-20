@@ -10,7 +10,7 @@ import {PageSection, Row, Col} from '../../components';
 import Navigation from './Navigation';
 import SignupForm from './SignupForm';
 import EmailForm from './EmailForm';
-import EtherForm from './EtherForm';
+import WalletForm from './WalletForm';
 import IdentityForm from './IdentityForm';
 import Summary from './Summary';
 
@@ -26,28 +26,6 @@ class Signup extends Component {
         this.updateUser = this.updateUser.bind(this);
         this.getUserInfo = this.getUserInfo.bind(this);
         this.keyDone = this.keyDone.bind(this);
-
-        this.steps = [{
-            name: 'Tus Datos',
-            component: <SignupForm/>,
-            key: 'signup_ok',
-        }, {
-            name: 'Verifica tu email',
-            component: <EmailForm/>,
-            key: 'email_verified',
-        }, {
-            name: 'Tu Wallet',
-            component: <EtherForm/>,
-            key: 'eth_ok',
-        }, {
-            name: 'Identifícate',
-            component: <IdentityForm/>,
-            key: 'identity_ok',
-        }, {
-            name: 'Resumen',
-            component: <Summary/>,
-            key: 'verified_ok',
-        }];
     }
 
     componentWillMount() {
@@ -75,6 +53,28 @@ class Signup extends Component {
                 this.updateUser({email_verified: emailVerified});
             }
         });
+        const t = this.props.t;
+        this.steps = [{
+            name: t('signup:step_signup'),
+            component: <SignupForm/>,
+            key: 'signup_ok',
+        }, {
+            name: t('signup:step_email'),
+            component: <EmailForm/>,
+            key: 'email_verified',
+        }, {
+            name: t('signup:step_wallet'),
+            component: <WalletForm/>,
+            key: 'eth_ok',
+        }, {
+            name: t('signup:step_identity'),
+            component: <IdentityForm/>,
+            key: 'identity_ok',
+        }, {
+            name: t('signup:step_summary'),
+            component: <Summary/>,
+            key: 'verified_ok',
+        }];
     }
 
     componentWillUnmount() {
@@ -166,7 +166,7 @@ class Signup extends Component {
         };
 
         return (
-            <PageSection className={className} title={t('title')}>
+            <PageSection className={className} title={t('signup:title')}>
                 <Row >
                     <Col size= {1} className="wizard">
                         {
@@ -191,7 +191,7 @@ class Signup extends Component {
     }
 }
 
-const SignupStyled = styled(translate('signup')(Signup))`
+const SignupStyled = styled(translate()(Signup))`
     & .wizard {
         > div {
             display: flex;

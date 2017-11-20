@@ -5,6 +5,7 @@ import Yup from 'yup';
 import _ from 'lodash';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
+import {translate} from 'react-i18next';
 
 import passwordMeter from 'passwordmeter';
 
@@ -25,7 +26,7 @@ Yup.addMethod(Yup.mixed, 'sameAs', function(ref, message) {
     });
 });
 
-const SignupForm = (props) => {
+const SignupFormElement = (props) => {
     console.log('SignupForm', props);
     const {
         db,
@@ -35,6 +36,7 @@ const SignupForm = (props) => {
         nextStep,
         className,
         user,
+        t,
     } = props;
 
     const onSubmit = (values = {}) => {
@@ -96,38 +98,38 @@ const SignupForm = (props) => {
 
     return (
         <div className = {className}>
-            <PageTitle>Regístrate antes de comprar tokens en la ICO</PageTitle>
-            <Text>Con este proceso (KYC) nos aseguramos de la procedencia de tu dinero. Es fácil y rápido.</Text>
+            <PageTitle>{t('signup:signup_title')}</PageTitle>
+            <Text>{t('signup:signup_kyc_process')}</Text>
             <Formik
                 validationSchema = {Yup.object().shape(validationObj)}
                 onSubmit={onSubmit}
                 initialValues={initialValues}
                 component={({values}) =>
                     <Form >
-                        <Field component={TextField} name="first_name" placeholder="Nombre" label={ {
+                        <Field component={TextField} name="first_name" placeholder={t('signup:signup_first_name_placeholder')} label={ {
                             required: "required",
-                            value: 'Nombre',
+                            value: t('signup:signup_first_name_label'),
                         } }/>
-                        <Field component={TextField} name="last_name" placeholder="Apellidos" label={ {
+                        <Field component={TextField} name="last_name" placeholder={t('signup:signup_last_name_placeholder')} label={ {
                             required: "required",
-                            value: 'Apellidos',
+                            value: t('signup:signup_last_name_label'),
                         } }/>
-                        <Field component={TextField} name="email" placeholder="Email" label={ {
+                        <Field component={TextField} name="email" placeholder={t('signup:signup_email_placeholder')} label={ {
                             required: "required",
-                            value: 'Email',
+                            value: t('signup:signup_email_label'),
                         } }/>
                         { !values.uid && [
-                            <Field key="passwd" component={TextField} name="passwd" type="password" placeholder="Contraseña" label={ {
+                            <Field key="passwd" component={TextField} name="passwd" type="password" placeholder={t('signup:signup_passwd_placeholder')} label={ {
                                 required: "required",
-                                value: 'Contraseña',
+                                value: t('signup:signup_passwd_label'),
                             } }/>,
-                            <Field key="repasswd" component={TextField} name="repasswd" type="password" placeholder="Repite la contraseña" label={ {
+                            <Field key="repasswd" component={TextField} name="repasswd" type="password" placeholder={t('signup:signup_repasswd_placeholder')} label={ {
                                 required: "required",
-                                value: 'Repite la contraseña',
+                                value: t('signup:signup_repasswd_label'),
                             } }/>]
                         }
-                        <Button type="submit" primary>REGÍSTRATE</Button>
-                        <div className="login">¿Ya estas registrado? <Link to='/login'>Login</Link> </div>
+                        <Button type="submit" primary>{t('signup:signup_submit_btn')}</Button>
+                        <div className="login">{t('signup:signup_already_registered')} <Link to='/login'>{t('signup:signup_login_link')}</Link> </div>
                     </Form>
                 }
             />
@@ -135,11 +137,11 @@ const SignupForm = (props) => {
     );
 };
 
-const SignupFormStyled = styled(SignupForm)`
+const SignupForm = styled(translate()(SignupFormElement))`
     & .login {
         margin-top: 10px;
         font-weight: 200;
     }
 `;
 
-export default SignupFormStyled;
+export default SignupForm;

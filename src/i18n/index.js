@@ -7,7 +7,6 @@ import {reactI18nextModule} from 'react-i18next';
 import * as en from './en';
 import * as es from './es';
 
-console.log(JSON.stringify(es, null, 2));
 i18next
 .use(LanguageDetector)
 .use(reactI18nextModule)

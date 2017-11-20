@@ -1,15 +1,18 @@
 import React from 'react';
+import styled from 'styled-components';
 import {Button, FileUpload, PageTitle, Text} from '../../components';
 import {Form, Field, Formik} from 'formik';
 import _ from 'lodash';
 import Yup from 'yup';
+import {translate} from 'react-i18next';
 
-const IdentityForm = (props) => {
+const IdentityFormElement = (props) => {
     const {
         className,
         user,
         updateUser,
         nextStep,
+        t,
     } = props;
 
     const onFinish = (setFieldValue, prop, values) => {
@@ -22,8 +25,9 @@ const IdentityForm = (props) => {
     };
 
     const validationSchema = Yup.object().shape({
-        identity_uploaded: Yup.boolean().oneOf([true], 'Sube el documento de identificación'),
-        residency_uploaded: Yup.boolean().oneOf([true], 'Sube el documento de residencia'),
+        identity_uploaded: Yup.boolean().oneOf([true], t('signup:identity_identity_uploaded_oneof_err')),
+        selfie_uploaded: Yup.boolean().oneOf([true], t('signup:identity_selfie_uploaded_oneof_err')),
+        residency_uploaded: Yup.boolean().oneOf([true], t('signup:identity_residency_uploaded_oneof_err')),
     });
 
     const onSubmit = (values) => {
@@ -56,39 +60,42 @@ const IdentityForm = (props) => {
 
     return (
         <div className = {className}>
-            <PageTitle>Verifica tu Identidad</PageTitle>
-            <Text>Necesitamos comprobar que eres quien dices ser, con 3 sencillos documentos</Text>
+            <PageTitle>{t('signup:identity_title')}</PageTitle>
+            <Text>{t('signup:identity_we_need_check')}</Text>
             <Formik
                 validationSchema = {validationSchema}
                 onSubmit={onSubmit}
                 initialValues={initialValues}
                 component={({setFieldValue, values}) =>
                     <Form>
-                        <h3>Prueba de Identidad</h3>
-                        <div>DNI, Pasaporte, Cédula de Identificación, CURP o Permiso de conducir. Tanto anverso como reverso</div>
+                        <h3>{t('signup:identity_proof_identity_title')}</h3>
+                        <div>{t('signup:identity_proof_identity_requirements')}</div>
                         <FileUpload images_uploaded= {user.identity} max_size = {max_size}
                             allowed_types = {allowed_types}
                             path={`/backers/${ user.uid }/identity`}
                             onFinish={(file_uploaded) => onFinish(setFieldValue, 'identity', file_uploaded)}/>
 
-                        <h3>Selfie</h3>
-                        <div>Hazte un selfie con el documento anterior</div>
+                        <h3>{t('signup:identity_proof_selfie_title')}</h3>
+                        <div>{t('signup:identity_proof_selfie_requirements')}</div>
                         <FileUpload images_uploaded= {user.selfie} max_size = {max_size}
                             allowed_types = {allowed_types}
                             path={`/backers/${ user.uid }/selfie`}
                             onFinish={(file_uploaded) => onFinish(setFieldValue, 'selfie', file_uploaded)} />
-                        <h3>Prueba de Residencia</h3>
-                        <div>Recibo reciente (3 últimos meses) de agua, luz, Internet… que incluya tu dirección postal</div>
+                        <h3>{t('signup:identity_proof_residency_title')}</h3>
+                        <div>{t('signup:identity_proof_residency_requirements')}</div>
                         <FileUpload images_uploaded= {user.residency} max_size = {max_size}
                             allowed_types = {allowed_types}
                             path={`/backers/${ user.uid }/residency`}
                             onFinish={(file_uploaded) => onFinish(setFieldValue, 'residency', file_uploaded)}/>
-                        <Button primary type="submit">VERIFICAR IDENTIDAD</Button>
+                        <Button primary type="submit">{t('signup:identity_verify_btn')}</Button>
                     </Form>
                 }
             />
         </div>
     );
 };
+
+const IdentityForm = styled(translate()(IdentityFormElement))`
+`;
 
 export default IdentityForm;
