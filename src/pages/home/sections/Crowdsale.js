@@ -4,26 +4,33 @@ import {translate} from 'react-i18next';
 import {
     PageSection,
     Text,
-    Row,
-    Col,
-    CenteredImage,
-    CrowdsaleTable,
+    CrowdsalePurpose,
+    DistributionTable,
+    CrowdsaleSummary,
     CenteredBlock,
     CTAButton,
 } from '../../../components';
+import styled from 'styled-components';
 
 export const Crowdsale = translate('crowdsale')(({t}) =>
     <PageSection dark title={ t('title') }>
         <Text center>{ t('description') }</Text>
-        <Row>
-            <Col size={ 1 / 2 }>
-                <CenteredImage src="https://placehold.it/800x600" />
-            </Col>
-            <Col size={ 1 / 2 }>
-                <CenteredImage src="https://placehold.it/800x600" />
-            </Col>
-        </Row>
-        <CrowdsaleTable>
+        <CrowdsalePurpose>
+            <DistributionTable title={ t('funds_allocation') } stats={ [
+                {value: .4, label: t('product_engineering')},
+                {value: .2, label: t('sales_marketing')},
+                {value: .2, label: t('publicity_pr')},
+                {value: .1, label: t('operations')},
+                {value: .1, label: t('security_loyalty_reserves')},
+            ] } graph="/images/funds_allocation.svg" />
+            <DistributionTable title={ t('token_distribution') } stats={ [
+                {value: .6, label: t('crowdsale')},
+                {value: .2, label: t('pool')},
+                {value: .1, label: t('team')},
+                {value: .1, label: t('bounty_advisors')},
+            ] } graph="/images/token_distribution.svg" />
+        </CrowdsalePurpose>
+        <CrowdsaleSummary>
             <tbody>
                 <tr>
                     <td>{ t('token_name') }</td><td>TUT</td>
@@ -47,7 +54,7 @@ export const Crowdsale = translate('crowdsale')(({t}) =>
                     <td>{ t('accepted_currencies') }</td><td>ETH</td>
                 </tr>
             </tbody>
-        </CrowdsaleTable>
+        </CrowdsaleSummary>
         <CenteredBlock>
             <CTAButton secondary>{ t('register_for_the_crowdsale') }</CTAButton>
         </CenteredBlock>
