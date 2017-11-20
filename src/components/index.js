@@ -12,3 +12,4 @@ export * from './FAQ';
 export * from './Buttons';
 export * from './Footer';
 export * from './FloatingHelp';
+export * from './Technology';
