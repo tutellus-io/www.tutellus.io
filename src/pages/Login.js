@@ -1,45 +1,27 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {TextField, Button} from '../components';
 import {Field, Form, Formik} from 'formik';
 import Yup from 'yup';
-import _ from 'lodash';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
 const LoginFormElement = (props) => {
-    console.log('LoginFormElement', props);
     const {
         db,
-        syncUser,
-        updateUser,
         showAlert,
         className,
-        user,
+        history,
     } = props;
 
     const onSubmit = (values = {}) => {
         const {
             email,
             passwd,
-            first_name,
-            last_name,
-            uid = null,
         } = values;
 
-        let p_auth = Promise.resolve({uid});
-        if (!uid) {
-            p_auth = db.auth().signInWithEmailAndPassword(email, passwd);
-        }
-
-        p_auth.then(({uid}) => {
-            syncUser(uid);
-            updateUser({
-                uid,
-                first_name,
-                last_name,
-                email,
-                signup_ok: true,
-            });
+        db.auth().signInWithEmailAndPassword(email, passwd)
+        .then(() => {
+            history.push('/dashboard');
         })
         .catch((error) => {
             showAlert({text: `Upps ${ error.message }`});
@@ -62,7 +44,7 @@ const LoginFormElement = (props) => {
                     email: '',
                     passwd: '',
                 }}
-                component={({values}) =>
+                component={() =>
                     <Form >
                         <Field component={TextField} name="email" placeholder="Email" label={ {
                             required: "required",
@@ -81,18 +63,34 @@ const LoginFormElement = (props) => {
     );
 };
 
-const LoginForm = styled(LoginFormElement)`
+class LoginElement extends Component {
+    componentWillMount() {
+        const {
+            db,
+            history,
+        } = this.props;
+
+        const user = localStorage.getItem(`firebase:authUser:${ db.options.apiKey }:[DEFAULT]`);
+        if (user) {
+            history.push('/dashboard');
+        }
+    }
+    render() {
+        const {
+            className,
+        } = this.props;
+        return (
+            <div className = {className}>
+                <LoginFormElement {...this.props}/>
+            </div>
+        );
+    }
+}
+
+
+export const Login = styled(LoginElement)`
     & .login {
         margin-top: 10px;
         font-weight: 200;
     }
 `;
-
-export const Login = () =>
-    <div>
-        Login
-        <LoginForm/>
-    </div>
-;
-
-export default Login;

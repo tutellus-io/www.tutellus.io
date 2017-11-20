@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {Button, FileUpload, PageTitle, Text} from '../../components';
-import {Form, Field, Formik} from 'formik';
+import {Form, Formik} from 'formik';
 import _ from 'lodash';
 import Yup from 'yup';
 import {translate} from 'react-i18next';
