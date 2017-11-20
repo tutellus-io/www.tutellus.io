@@ -16,7 +16,10 @@ export const TheTeam = translate()(({t}) =>
             <TeamMember name="Javier Ortiz" title="CTO" photo="https://www.tutellus.com/bower_components/tutellus.css/images/team/JaviSok.jpg">
                 { t('jortiz_bio') }
             </TeamMember>
-            <TeamMember name="Carlos López" title="Engineer" photo="https://www.tutellus.com/bower_components/tutellus.css/images/team/Carlos.jpg">
+            <TeamMember name="Carlos López" title="Engineer" photo="https://www.tutellus.com/bower_components/tutellus.css/images/team/Carlos.jpg" socialProfiles={ {
+                github: '//github.com/carlos-lopez',
+                twitter: '//twitter.com/clpz84',
+            } }>
                 { t('clopez_bio') }
             </TeamMember>
             <TeamMember name="Javier Calvo" title="Data Scientist" photo="https://www.tutellus.com/bower_components/tutellus.css/images/team/JaviMat.jpg">

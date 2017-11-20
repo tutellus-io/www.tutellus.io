@@ -135,6 +135,9 @@ export const styles = {
             background-color: ${ colors.white };
             color: ${ colors.softblack };
         }
+        a {
+            color: inherit;
+        }
         strong {
             font-weight: bold;
         }
