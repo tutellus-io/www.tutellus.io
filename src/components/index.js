@@ -11,3 +11,4 @@ export * from './Roadmap';
 export * from './FAQ';
 export * from './Buttons';
 export * from './Footer';
+export * from './FloatingHelp';

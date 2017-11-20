@@ -20,6 +20,7 @@ import {
 
 } from './sections';
 import {MainFooter} from './MainFooter';
+import {FloatingHelp} from '../../components';
 
 //TODO: están por definir
 const SOCIAL_LINKS = {
@@ -52,6 +53,7 @@ export class Home extends React.Component {
                     <TechnologyStack />
                 </main>
                 <MainFooter socialLinks={ SOCIAL_LINKS } />
+                <FloatingHelp icon="/images/telegram-logo.svg"/>
             </div>
         );
     }
