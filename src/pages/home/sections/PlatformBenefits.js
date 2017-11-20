@@ -49,26 +49,26 @@ export const BulletPoint = styled.li`
         margin: 0 10px;
     }
 `;
-export const PlatformBenefits = translate()(({t}) =>
-    <PageSection title={ t('benefits_title') }>
-        <Text center>{ t('benefits_description') }</Text>
+export const PlatformBenefits = translate('the_benefits')(({t}) =>
+    <PageSection title={ t('title') }>
+        <Text center>{ t('description') }</Text>
         <Benefits>
             <UserGroup name={ t('students') } icon="/images/students.svg">
                 <BulletList>
-                    <BulletPoint>{ t('benefit_earn_studying') }</BulletPoint>
-                    <BulletPoint>{ t('benefit_learn_more') }</BulletPoint>
-                    <BulletPoint>{ t('benefit_relevance') }</BulletPoint>
-                    <BulletPoint>{ t('benefit_use_crypto') }</BulletPoint>
-                    <BulletPoint>{ t('benefit_wordwide_payments') }</BulletPoint>
+                    <BulletPoint>{ t('earn_studying') }</BulletPoint>
+                    <BulletPoint>{ t('learn_more') }</BulletPoint>
+                    <BulletPoint>{ t('relevance') }</BulletPoint>
+                    <BulletPoint>{ t('use_crypto') }</BulletPoint>
+                    <BulletPoint>{ t('wordwide_payments') }</BulletPoint>
                 </BulletList>
             </UserGroup>
             <UserGroup name={ t('teachers') } icon="/images/teachers.svg">
                 <BulletList>
-                    <BulletPoint>{ t('benefit_instant_payments') }</BulletPoint>
-                    <BulletPoint>{ t('benefit_earn_via_best_students') }</BulletPoint>
-                    <BulletPoint>{ t('benefit_earn_via_relevance') }</BulletPoint>
-                    <BulletPoint>{ t('benefit_earn_via_subscriptions') }</BulletPoint>
-                    <BulletPoint>{ t('benefit_exclusive_services') }</BulletPoint>
+                    <BulletPoint>{ t('instant_payments') }</BulletPoint>
+                    <BulletPoint>{ t('earn_via_best_students') }</BulletPoint>
+                    <BulletPoint>{ t('earn_via_relevance') }</BulletPoint>
+                    <BulletPoint>{ t('earn_via_subscriptions') }</BulletPoint>
+                    <BulletPoint>{ t('exclusive_services') }</BulletPoint>
                 </BulletList>
             </UserGroup>
         </Benefits>

@@ -1,6 +1,7 @@
 //@flow
 import React from 'react';
 import styled from 'styled-components';
+import {translate} from 'react-i18next';
 
 import {SocialIcons} from './Footer';
 import {CTAButton} from './Buttons';
@@ -84,17 +85,17 @@ export const SecondaryMenu = styled(props =>
         }
     }
 `;
-export const MainMenu = styled(props =>
-    <nav className={ props.className }>
+export const MainMenu = styled(translate()(({t, className}) =>
+    <nav className={ className }>
         <ul>
-            <li><a>Blog</a></li>
-            <li><a>Platform</a></li>
-            <li><a>Whitepaper</a></li>
-            <li><a>Token Sale</a></li>
-            <li><a>Team</a></li>
+            <li><a>{ t('Blog') }</a></li>
+            <li><a>{ t('Platform') }</a></li>
+            <li><a>{ t('Whitepaper') }</a></li>
+            <li><a>{ t('Token Sale') }</a></li>
+            <li><a>{ t('Team') }</a></li>
         </ul>
     </nav>
-)`
+))`
     grid-area: main-menu;
 
     & li {

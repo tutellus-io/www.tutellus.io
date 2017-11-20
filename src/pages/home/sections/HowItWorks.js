@@ -8,9 +8,9 @@ import {
     CTAButton,
 } from '../../../components';
 
-export const HowItWorks = translate()(({t}) =>
-    <PageSection dark title={ t('how_it_works_title') } image="/images/HTTW.png">
-        <Text center>{ t('how_it_works') }</Text>
+export const HowItWorks = translate('how_it_works')(({t}) =>
+    <PageSection dark title={ t('title') } image="/images/HTTW.png">
+        <Text center>{ t('description') }</Text>
         <CenteredBlock>
             <CTAButton icon="http://placehold.it/20x20" primary>{ t('download_whitepaper') }</CTAButton>
         </CenteredBlock>

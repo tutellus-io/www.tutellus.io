@@ -10,10 +10,10 @@ import {
     Col,
 } from '../../../components';
 
-export const ThePain = translate()(({t}) =>
+export const ThePain = translate('the_pain')(({t}) =>
     <PageSection>
-        <SectionTitle dangerouslySetInnerHTML={ {__html: t('the_pain_title')} } />
-        <Text center>{ t('the_pain') }</Text>
+        <SectionTitle dangerouslySetInnerHTML={ {__html: t('title')} } />
+        <Text center>{ t('description') }</Text>
         <Row>
             <Col size={ 1 / 2}>
                 <SectionImage src="/images/edtech.svg" />

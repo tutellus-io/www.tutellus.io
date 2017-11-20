@@ -8,10 +8,10 @@ import {
     CTAButton,
 } from '../../../components';
 
-export const PraiseQuotes = translate()(({t}) =>
+export const PraiseQuotes = translate('quotes')(({t}) =>
     <PageSection light>
         <Quote href="https://elpais.com/economia/2015/07/10/actualidad/1436521761_125197.html" cite="El Pais, 2016">
-            { t('the_leading_platform_quote') }
+            { t('the_leading_platform') }
         </Quote>
         <CenteredBlock>
             <CTAButton secondary>{ t('goto_tutellus') }</CTAButton>

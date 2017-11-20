@@ -11,8 +11,8 @@ import {
     CTAButton,
 } from '../../../components';
 
-export const Crowdsale = translate()(({t}) =>
-    <PageSection dark title={ t('crowdsale_title') }>
+export const Crowdsale = translate('crowdsale')(({t}) =>
+    <PageSection dark title={ t('title') }>
         <Row>
             <Col size={ 1 / 2 }>
                 <CenteredImage src="https://placehold.it/800x600" />

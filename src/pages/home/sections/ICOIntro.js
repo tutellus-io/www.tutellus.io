@@ -8,10 +8,10 @@ import {
     PlayButton,
 } from '../../../components';
 
-export const ICOIntro = translate()(({t}) =>
+export const ICOIntro = translate('intro')(({t}) =>
     <PageBanner dark backgroundVideo="/images/bgvideo.mp4">
-        <PageTitle dangerouslySetInnerHTML={{ __html: t("page_title") }} />
-        <Text center dangerouslySetInnerHTML={{ __html: t('page_subtitle') }} />
+        <PageTitle dangerouslySetInnerHTML={{ __html: t("title") }} />
+        <Text center dangerouslySetInnerHTML={{ __html: t('subtitle') }} />
         <PlayButton video="/images/bgvideo.mp4" />
     </PageBanner>
 );

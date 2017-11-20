@@ -9,9 +9,9 @@ import {
     Text,
 } from '../../../components';
 
-export const PlatformRoadmap = translate()(({t}) =>
-    <PageSection title={ t("roadmap_title") }>
-        <Text center>{ t("roadmap_description") }</Text>
+export const PlatformRoadmap = translate('the_roadmap')(({t}) =>
+    <PageSection title={ t("title") }>
+        <Text center>{ t("description") }</Text>
         <Roadmap>
             <Milestone done title={ t("mvp") } date={ moment('2014-01') }>
                 <ul>

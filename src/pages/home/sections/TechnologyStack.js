@@ -6,8 +6,8 @@ import {
     Text,
 } from '../../../components';
 
-export const TechnologyStack = translate()(({t}) =>
-    <PageSection light title={ t('Technology') }>
-        <Text center>{ t('technology_description') }</Text>
+export const TechnologyStack = translate('technology_stack')(({t}) =>
+    <PageSection light title={ t('title') }>
+        <Text center>{ t('description') }</Text>
     </PageSection>
 );

@@ -15,16 +15,16 @@ export const MainFooter = translate()(({t, socialLinks}) =>
         <FooterNav>
             <NavCategory title={ t('company') }>
                 <NavLink>Tutellus</NavLink>
-                <NavLink>Platform</NavLink>
-                <NavLink>Roadmap</NavLink>
-                <NavLink>Terms of Use</NavLink>
+                <NavLink>{ t('Platform') }</NavLink>
+                <NavLink>{ t('Roadmap') }</NavLink>
+                <NavLink>{ t('Terms of Use') }</NavLink>
             </NavCategory>
             <NavCategory title={ t('ICO') }>
-                <NavLink>Whitepaper</NavLink>
-                <NavLink>Token Sale</NavLink>
-                <NavLink>Wallet</NavLink>
-                <NavLink>Blog</NavLink>
-                <NavLink>Help</NavLink>
+                <NavLink>{ t('Whitepaper') }</NavLink>
+                <NavLink>{ t('Token Sale') }</NavLink>
+                <NavLink>{ t('Wallet') }</NavLink>
+                <NavLink>{ t('Blog') }</NavLink>
+                <NavLink>{ t('Help') }</NavLink>
             </NavCategory>
             <NavCategory title={ t('CONTACT') }>
                 <NavLink href="mailto:ico@tutellus.com">ico@tutellus.com</NavLink>
