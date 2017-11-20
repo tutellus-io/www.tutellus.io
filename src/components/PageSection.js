@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 import {CenteredImage} from './Images';
 import {MAX_CONTENT_WIDTH} from './Layout';
+import {TOP_HEADER_HEIGHT} from './TopHeader';
 
 import styles from '../styles';
 const {margin, colors} = styles;
@@ -17,34 +18,42 @@ export const SectionContent = styled.div`
 const PAGE_SECTION_VERTICAL_PADDING = 40;
 //TODO: el video necesita un poster
 export const PageBanner = styled(props =>
-	<section className={ props.className }>
-	   <div>
-		  <video preload="true" mute="true" autoPlay="true" loop="true" playsInline="true">
-            <source src={ props.backgroundVideo } />
-          </video>
-		  <SectionContent>
+    <section className={ props.className }>
+        <div>
+            <video preload="true" mute="true" autoPlay="true" loop="true" playsInline="true">
+                <source src={ props.backgroundVideo } />
+            </video>
+            <SectionContent>
             { props.title &&
-            <PageTitle>{ props.title }</PageTitle>
+                <PageTitle>{ props.title }</PageTitle>
             }
-            { props.children }
-		  </SectionContent>
-	   </div>
-	</section>
+                { props.children }
+            </SectionContent>
+        </div>
+    </section>
 )`
-	/*https://www.imi21.com/background-video.php*/
-	width: 100%; position: relative;
+    /*https://www.imi21.com/background-video.php*/
+    width: 100%;
+    position: relative;
     max-height: 500px;
-            overflow: hidden;
-	& > div {
-		width: 100%; height: 100%;  display: flex;  justify-content: center; align-items: center;
+    overflow: hidden;
+    & > div {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         color: ${ colors.white };
         & video {
             width: 100%;
         }
-        & > ${SectionContent} {
-            width: 100%; height:100%; position: absolute;
+        & > ${ SectionContent } {
+            width: 100%;
+            height:100%;
+            position: absolute;
+            top: ${ TOP_HEADER_HEIGHT}px;
         }
-	}
+    }
 `;
 
 const colorSectionBackground = R.cond([
@@ -96,7 +105,7 @@ export const centeredObject = (width/*: pixels */) => `
 `;
 const TITLE_UNDERLINE_WIDTH = 100;
 export const SectionTitle = styled.h2`
-	${ styles.text.huge }
+    ${ styles.text.huge }
     text-transform: uppercase;
     font-weight: 300;
     margin-bottom: 40px;
