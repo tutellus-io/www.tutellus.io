@@ -1,6 +1,7 @@
 //@flow
 export const crowdsale = {
-    title: "Crowdsale",
+    title: "Token Sale",
+    description: "With the main goal to create the biggest EdTech community worlwide with a living ecosystem full of services and functionalities for token holders",
     token_name: "Token Name",
     preico_date: "Pre ICO date",
     preico_date_value: "very soon",

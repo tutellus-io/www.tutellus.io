@@ -3,6 +3,7 @@ import React from 'react';
 import {translate} from 'react-i18next';
 import {
     PageSection,
+    Text,
     Row,
     Col,
     CenteredImage,
@@ -13,6 +14,7 @@ import {
 
 export const Crowdsale = translate('crowdsale')(({t}) =>
     <PageSection dark title={ t('title') }>
+        <Text center>{ t('description') }</Text>
         <Row>
             <Col size={ 1 / 2 }>
                 <CenteredImage src="https://placehold.it/800x600" />

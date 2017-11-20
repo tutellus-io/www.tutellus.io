@@ -3,12 +3,14 @@ import React from 'react';
 import {translate} from 'react-i18next';
 import {
     PageSection,
+    Text,
     Team,
     TeamMember,
 } from '../../../components';
 
 export const TheTeam = translate('the_team')(({t}) =>
     <PageSection title={ t('title') }>
+        <Text center>{ t('description') }</Text>
         <Team>
             <TeamMember name="Miguel Caballero" title="CEO" photo="//www.tutellus.com/bower_components/tutellus.css/images/team/Miguel.jpg" socialProfiles={ {
                 linkedin: '//www.linkedin.com/in/micaballero/',

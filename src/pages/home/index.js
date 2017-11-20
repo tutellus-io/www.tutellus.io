@@ -21,10 +21,13 @@ import {
 } from './sections';
 import {MainFooter} from './MainFooter';
 
+//TODO: están por definir
 const SOCIAL_LINKS = {
-    facebook: '//fb.me/tutellus',
+    telegram: 'telegram',
+    medium: 'medium',
+    github: 'github',
+    slack: 'slack',
     twitter: '//twitter.com/tutellus',
-    linkedin: '//linkedin.com/tutellus',
 };
 
 export class Home extends React.Component {

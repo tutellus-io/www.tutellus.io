@@ -88,11 +88,10 @@ export const SecondaryMenu = styled(props =>
 export const MainMenu = styled(translate()(({t, className}) =>
     <nav className={ className }>
         <ul>
-            <li><a>{ t('Blog') }</a></li>
             <li><a>{ t('Platform') }</a></li>
             <li><a>{ t('Whitepaper') }</a></li>
-            <li><a>{ t('Token Sale') }</a></li>
-            <li><a>{ t('Team') }</a></li>
+            <li><a>{ t('crowdsale:title') }</a></li>
+            <li><a>{ t('the_team:title') }</a></li>
         </ul>
     </nav>
 ))`
