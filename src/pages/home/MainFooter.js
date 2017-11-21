@@ -17,7 +17,7 @@ export const MainFooter = translate()(({t, socialLinks}) =>
                 <NavLink>Tutellus</NavLink>
                 <NavLink>{ t('Platform') }</NavLink>
                 <NavLink>{ t('Roadmap') }</NavLink>
-                <NavLink>{ t('Terms of Use') }</NavLink>
+                <NavLink href={ t('tos_url') }>{ t('Terms of Use') }</NavLink>
             </NavCategory>
             <NavCategory title={ t('ICO') }>
                 <NavLink>{ t('Whitepaper') }</NavLink>
