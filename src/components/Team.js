@@ -34,9 +34,21 @@ export const TeamMember = styled(props =>
 	border-radius: ${ border.radius.small };
 	margin-bottom: ${ margin.small };
 	color: ${ colors.softblack };
+    font-size: 1em;
+    & ${ TeamMemberName } {
+        font-size: 1.2em;
+    }
+    & ${ TeamMemberTitle } {
+        font-size: 1em;
+    }
+    & p {
+        font-size: 0.8em;
+        line-height: 1.5em;
+        font-style: italic;
+    }
     & ${ SocialIcons } {
-        margin-top: 0.5rem;
-        font-size: 0.8rem;
+        font-size: 0.6em;
+        margin-top: 1em;
         & > ${ SocialIcon } {
             color: ${ colors.darkblack };
         }
@@ -57,10 +69,8 @@ const title_style = `
 export const TeamMemberName = styled.span`
 	${ title_style }
 	margin-bottom: ${ margin.small }
-	${ styles.text.large }
 `;
 export const TeamMemberTitle = styled.i`
-	${ styles.text.medium }
 	color: ${ colors.lightblue };
 	display: inline-block;
 	margin-bottom: ${ margin.small };

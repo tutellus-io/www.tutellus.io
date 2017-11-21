@@ -1,7 +1,7 @@
 //@flow
 export const the_team = {
     title: "Team",
-    description: "A solid team growing together since 2014 and with next guys leading the project",
+    description: "A solid team growing together since 2014, adding 100 years of experience and with next guys leading the project",
     mcaballero: "Engineer & MBA. 20 years in tech industry",
     jortiz: "Fullstack Engineer, 20 years making DevTeams",
     clopez: "Engineer, Backend & Blockchain Developer",

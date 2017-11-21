@@ -6,10 +6,10 @@ export const the_benefits = {
     learn_more: 'Learn more and better',
     relevance: 'Get rewards with Relevance',
     use_crypto: 'Pay in cryptocurrency',
-    wordwide_payments: 'Access from complex fiat markets: Venezuela, Cuba, etc.',
+    wordwide_payments: 'Access from complex fiat markets',
     instant_payments: 'Get payments instantly',
     earn_via_best_students: 'Earn money with best Students',
     earn_via_relevance: 'Earn money with Relevance',
     earn_via_subscriptions: 'Earn money with Subscriptions',
-    exclusive_services: 'Acecss to exclusive Promotional and Marketing Services',
+    exclusive_services: 'Acecss to VIP Promotional services',
 };

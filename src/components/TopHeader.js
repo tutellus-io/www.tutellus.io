@@ -22,6 +22,7 @@ export const TopHeader = styled(props =>
     grid-template-areas: "logo . main-menu . secondary-menu";
     grid-template-columns: 10% 5% 40% 5% 40%;
     align-items: center;
+    font-size: .8em;
     padding: 0 50px;
     background: linear-gradient(black, transparent);
     height: ${ TOP_HEADER_HEIGHT }px;

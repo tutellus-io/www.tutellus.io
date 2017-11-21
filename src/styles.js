@@ -130,8 +130,7 @@ export const styles = {
             box-sizing: border-box;
         }
         body {
-            font-size: 14px;
-            line-height: 1.2;
+            font-size: 18px;
             background-color: ${ colors.white };
             color: ${ colors.softblack };
         }

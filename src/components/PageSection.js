@@ -4,7 +4,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 import {CenteredImage} from './Images';
-import {MAX_CONTENT_WIDTH} from './Layout';
+import {MAX_CONTENT_WIDTH, Text} from './Layout';
 import {TOP_HEADER_HEIGHT} from './TopHeader';
 
 import styles from '../styles';
@@ -145,3 +145,6 @@ export const PageTitle = SectionTitle.withComponent('h1');
 export const SectionImage = styled(CenteredImage)`
     margin-bottom: ${ margin.medium };
 `;
+export const PageSubtitle = styled(Text)`
+    font-size: 1.25em;
+`

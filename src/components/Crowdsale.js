@@ -36,7 +36,7 @@ export const CrowdsaleSummary = styled.table`
         margin-right: .5em;
     }
     & td:first-child {
-        width: 60%;
+        width: 50%;
     }
     & td:last-child {
         font-weight: bold;

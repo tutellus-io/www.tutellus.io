@@ -10,7 +10,7 @@ export const crowdsale = {
     security_loyalty_reserves: 'Security, Loyalty & Reserves',
     token_distribution: 'Token Distribution',
     crowdsale: 'Token Sale',
-    pool: 'Poop',
+    pool: 'Pool',
     team: 'Team',
     bounty_advisors: 'Bounty & Advisors',
     preico_date: "Pre Sale date",

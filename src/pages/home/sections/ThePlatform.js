@@ -6,11 +6,13 @@ import {
     Features,
     Feature,
     Text,
+    SectionImage,
 } from '../../../components';
 
 export const ThePlatform = translate('the_platform')(({t, id}) =>
-    <PageSection id={ id } title={ t('title') } image="/images/theplatform.png">
+    <PageSection id={ id } title={ t('title') }>
         <Text center>{ t('description') }</Text>
+        <SectionImage src="/images/theplatform.png" />
         <Features>
             <Feature title="1.000.000" image="/images/students.svg">
                 { t('students') }

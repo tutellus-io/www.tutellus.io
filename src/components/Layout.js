@@ -19,8 +19,7 @@ const alignText = R.cond([
     [R.T, R.always('left')],
 ]);
 export const Text = styled.p`
-    font-size: 1.071em;
-    line-height: 1.5rem;
+    line-height: 1.5em;
     margin-bottom: 40px;
     text-align: ${ alignText }
 `;
@@ -85,7 +84,6 @@ export const Quote = styled((props/*: QuoteAttrs*/)/*: React.Node */=>
     }
 	&:before {
         content: '\\201C';
-        color: ${ colors.white };
         font-size: 7.5em;
         font-weight: 700;
         opacity: .3;
@@ -95,7 +93,6 @@ export const Quote = styled((props/*: QuoteAttrs*/)/*: React.Node */=>
 	}
 	&:after {
         content: '\\201D';
-        color: ${ colors.white };
         font-size: 7.5em;
         font-weight: 700;
         opacity: .3;
