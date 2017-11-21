@@ -1,5 +1,5 @@
 //@flow
 export const the_pain = {
-    title: "<strong>The pain</strong>: Studying is hard and is disconnected from employment",
-    description: "EdTech platforms hold a very low recurring levels compared with social ones: studying is hard & expensive. And qualified students are not aligned with the real jobs demand: there's a huge gap between Education and Employment.",
+    title: "<strong>The pain</strong>: studying is hard and it doesn’t help to decrease poverty worldwide",
+    description: "EdTech platforms requiere a hard & expensive process to learn and to improve your knowledge the enough to get a better job. And they don’t let people to earn money studying or learning, so Education really doesn’t let people to decrease their poverty.",
 };
