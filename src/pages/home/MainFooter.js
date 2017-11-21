@@ -13,22 +13,15 @@ export const MainFooter = translate()(({t, socialLinks}) =>
     <PageFooter>
         <FooterBranding logo="/images/color-logo.svg" about={ t('about_tutellus') } socialLinks={ socialLinks } />
         <FooterNav>
-            <NavCategory title={ t('company') }>
-                <NavLink>Tutellus</NavLink>
-                <NavLink>{ t('Platform') }</NavLink>
-                <NavLink>{ t('Roadmap') }</NavLink>
-                <NavLink href={ t('tos_url') }>{ t('Terms of Use') }</NavLink>
-            </NavCategory>
-            <NavCategory title={ t('ICO') }>
-                <NavLink>{ t('Whitepaper') }</NavLink>
-                <NavLink>{ t('Token Sale') }</NavLink>
-                <NavLink>{ t('Wallet') }</NavLink>
-                <NavLink>{ t('Blog') }</NavLink>
+            <NavCategory title={ t('About') }>
                 <NavLink>{ t('Help') }</NavLink>
+                <NavLink>{ t('Blog') }</NavLink>
+                <NavLink href="//www.tutellus.com">Tutellus</NavLink>
+                <NavLink href={ t('tos_url') }>{ t('terms_of_sale') }</NavLink>
             </NavCategory>
             <NavCategory title={ t('CONTACT') }>
-                <NavLink href="mailto:ico@tutellus.com">ico@tutellus.com</NavLink>
-                <NavLink href="//2tel.us/tutellus-address" target="_blank">c/ Henri Dunant, 15. Madrid 28050.</NavLink>
+                <NavLink href="mailto:ico@tutellus.com">ico@tutellus.io</NavLink>
+                <NavLink href="//2tel.us/tutellus-address" target="_blank">c/ Henri Dunant, 15. Madrid 28036 Spain</NavLink>
                 <NavLink href="tel://+34910052511">+34 91 00 525 11</NavLink>
             </NavCategory>
         </FooterNav>

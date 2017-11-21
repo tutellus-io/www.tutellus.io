@@ -5,7 +5,7 @@ import 'socicon/css/socicon.css';
 import styles from '../styles';
 
 export const NavLink = styled.a`
-    line-height: 2em;
+    line-height: 1.5em;
 `;
 export const NavCategoryTitle = styled.h3`
     font-weight: bold;
@@ -54,18 +54,18 @@ export const FooterBranding = styled(props =>
     & img {
         display: block;
         margin-bottom: 1em;
-        width: 33%;
+        width: 10em;
     }
     & small {
         display: block;
-        max-width: 66%;
+        max-width: 15em;
         font-style: italic;
         margin-bottom: 1em;
     }
 `;
 export const FooterNav = styled.nav`
     display: grid;
-    grid-template-columns: repeat(3, 33%);
+    grid-template-columns: repeat(2, 50%);
 `;
 export const PageFooter = styled.footer`
     display: grid;

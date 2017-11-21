@@ -29,21 +29,23 @@ export const Milestone = styled((props/*: MilestoneAttrs */)/*: React.Node */=>
     align-items: start;
     & > div {
         position: relative;
-        top: -1rem;
+        top: -1em;
         & > * {
             display: block;
         }
         & > time {
-            font-size: 1.5rem;
+            font-size: 1.5em;
             color: black;
             font-weight: bold;
         }
         & > span {
             color: black;
-            margin: 0.5rem 0;
+            margin: 0.5em 0;
         }
         & > div {
-            margin-bottom: 2rem;
+            font-size: 0.8em;
+            line-height: 1.5em;
+            margin-bottom: 2em;
             color: ${ styles.colors.softblack };
         }
     }
@@ -54,31 +56,31 @@ export const Milestone = styled((props/*: MilestoneAttrs */)/*: React.Node */=>
         grid-row-end: span 3;
         border: solid 2px ${ styles.colors.lightblue };
         border-bottom: 0;
-        min-height: 12rem;
+        min-height: 12em;
     }
     &:after {
         /* milestone marker */
         content: ' ';
         display: block;
-        padding: 1rem;
+        padding: 1em;
         border-radius: 50%;
         border: solid 2px ${ styles.colors.lightblue };
         background: ${ props => props.done ? styles.colors.lightblue : 'white' };
     }
     &:nth-child(even) {
         position: relative;
-        top: 6rem;
+        top: 6em;
         grid-template-columns: 20% 80%;
         text-align: left;
-        & > * { grid-column-start: 2; padding-left: 2rem;}
+        & > * { grid-column-start: 2; padding-left: 2em;}
         &:after {
             grid-column-start: 1;
             grid-row-start: 1;
             align-self: start;
             justify-self: start;
             position: relative;
-            top: calc(-1rem - 1px);
-            left: calc(-1rem - 1px);
+            top: calc(-1em - 1px);
+            left: calc(-1em - 1px);
         }
         &:before {
             grid-column-start: 1;
@@ -88,15 +90,15 @@ export const Milestone = styled((props/*: MilestoneAttrs */)/*: React.Node */=>
     &:nth-child(odd) {
         text-align: right;
         grid-template-columns: 80% 20%;
-        & > * { grid-column-start: 1; padding-right: 2rem;}
+        & > * { grid-column-start: 1; padding-right: 2em;}
         &:after {
             grid-column-start: 2;
             grid-row-start: 1;
             align-self: start;
             justify-self: end;
             position: relative;
-            top: calc(-1rem - 1px);
-            right: calc(-1rem - 3px);
+            top: calc(-1em - 1px);
+            right: calc(-1em - 3px);
         }
         &:before {
             grid-column-start: 2;
@@ -117,8 +119,8 @@ export const Roadmap = styled.ol`
 */
     display: grid;
     grid-template-columns: repeat(2, 50%);
-    padding-top: 2rem;
-    margin-bottom: 2rem;
+    padding-top: 2em;
+    margin-bottom: 2em;
     overflow: hidden;
 `;
 
