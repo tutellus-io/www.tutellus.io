@@ -12,7 +12,7 @@ import {
 export const HowItWorks = translate('how_it_works')(({t, id}) =>
     <PageSection id={ id } dark title={ t('title') } >
         <Text center>{ t('description') }</Text>
-        <SectionImage src="/images/HTTW.png" />
+        <SectionImage src="/images/howitworks.svg" />
         <CenteredBlock>
             <CTAButton icon="http://placehold.it/20x20" primary>{ t('download_whitepaper') }</CTAButton>
         </CenteredBlock>

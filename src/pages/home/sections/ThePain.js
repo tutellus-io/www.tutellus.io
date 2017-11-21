@@ -14,13 +14,6 @@ export const ThePain = translate('the_pain')(({t, id}) =>
     <PageSection id={ id }>
         <SectionTitle dangerouslySetInnerHTML={ {__html: t('title')} } />
         <Text center>{ t('description') }</Text>
-        <Row>
-            <Col size={ 1 / 2}>
-                <SectionImage src="/images/edtech.svg" />
-            </Col>
-            <Col size={ 1 / 2}>
-                <SectionImage src="/images/itjobs.svg" />
-            </Col>
-        </Row>
+        <SectionImage src="/images/thepain.svg" />
     </PageSection>
 );

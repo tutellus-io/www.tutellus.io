@@ -12,12 +12,12 @@ const helpers = {
 };
 
 const colors = {
-    athens: '#EDF1F5',
+    athens: '#E6E6E6',
     blacksea: '#3B4F58',
     bluegrey: '#CED3D9',
     caribbean: '#21b3a7',
     darkblack: '#42474D',
-    darkblue: '#26323F',
+    darkblue: '#202933',
     darkgrey: '#7F8A94',
     emerald: '#33c17a',
     facebook: '#3C599B',
