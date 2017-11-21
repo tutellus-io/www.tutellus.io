@@ -1,17 +1,17 @@
 import React from 'react';
 import {has} from 'lodash';
-
+import styled from 'styled-components';
 import {Label, Field} from './styled';
 
-export const Radio = (props) =>
+export const Radio = props =>
     <ItemField {...props} type='radio'/>;
 ;
 
-export const Checkbox = (props) =>
+export const Checkbox = props =>
     <ItemField {...props} value={true} type='checkbox'/>;
 ;
 
-const ItemField = ({className, field, form, label, value, type}) => {
+const ItemFieldElement = ({className, field, form, label, value, type}) => {
     const uid = `${ field.name }-${ value }`;
     return (
         <div className={className}>
@@ -20,22 +20,25 @@ const ItemField = ({className, field, form, label, value, type}) => {
                 id={uid}
                 name={field.name}
                 value={value}
-                onChange={(e) => {
+                onChange={e => {
                     console.log('onChange', type, field.name);
                     form.handleBlur(e);
                     form.handleChange(e);
                 }}
-                onBlur={(e) => {
+                onBlur={e => {
                     console.log('onBlur', type, field.name);
                     form.handleBlur(e);
                 }}
             />
-            <Label htmlFor={uid}>{ label }</Label>
+            <Label inline htmlFor={uid}>{ label }</Label>
         </div>
     );
 };
+const ItemField = styled(ItemFieldElement)`
+    display: inline;
+`;
 
-export const GroupField = (props) => {
+export const GroupField = props => {
     const {
         field,
         form,
@@ -59,7 +62,7 @@ export const GroupField = (props) => {
     );
 };
 
-export const OneCheckbox = (props) => {
+export const OneCheckbox = props => {
     const {
         field,
         form,
@@ -67,7 +70,7 @@ export const OneCheckbox = (props) => {
     } = props;
     const has_error = has(form, `errors.${ field.name }`) && has(form, `touched.${ field.name }`);
     return (
-        <Field className={ `${ className } ${ has_error ? 'error' : '' }` } >
+        <Field no_margin className={ `${ className } ${ has_error ? 'error' : '' }` } >
             <ItemField {...props} value={true} type='checkbox'/>
             {
                 has_error &&

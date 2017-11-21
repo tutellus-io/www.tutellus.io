@@ -1,3 +1,5 @@
+import React from 'react';
+import Color from 'color';
 import styled from 'styled-components';
 import styles from '../../styles';
 
@@ -12,15 +14,52 @@ export const Input = styled.input`
     font-size: 1em;
 `;
 
+export const Hr = styled.div`
+    height: 4em;
+`;
+
+export const IconElement = props =>
+    <i className={`material-icons ${ props.className }`}>{props.name}</i>
+;
+
+export const Icon = styled(IconElement)`
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+    
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+    
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+    ${ props => (props.color ? `color: ${ props.color };` : '') }
+    ${ props => (props.size ? `font-size: ${ props.size };` : '') }
+    ${ props => (props.margin ? `margin: ${ props.margin };` : '') }
+`;
+
 export const Label = styled.label`
-    display: block;
+    margin-bottom: ;
+    display: ${ props => (props.inline ? 'inline' : 'block') };
     font-weight: bold;
     font-size: 1em;
     margin: 0.5em 0
 `;
 
 export const Field = styled.div`
-    margin-bottom: 1.5em;
+    margin-bottom: ${ props => (props.no_margin ? '' : '1.5em') };
     &.error {
         input,
         textarea {
@@ -34,6 +73,41 @@ export const Field = styled.div`
     }
 `;
 
+export const BoxTitle = styled.h3`
+    font-weight: bold;
+    font-size: 1.1em;
+    text-align: center;
+`;
+
+export const BoxInTitle = styled.div`
+    font-weight: bold;
+    font-size: 1.1em;
+    > * {
+        display: flex;
+        align-items: center;
+    }
+    margin-bottom: 0.75em;
+`;
+
+export const InnerBox = styled.div`
+    border: 2px solid ${ styles.colors.bluegrey };
+    background-color: ${ styles.colors.grey };
+    padding: 1.75em;
+`;
+
+export const BoxElement = props =>
+    <div className={props.className}>
+        {props.preTitle && <BoxTitle>{props.preTitle}</BoxTitle>}
+        <InnerBox>
+            {props.title && <BoxInTitle>{props.title}</BoxInTitle>}
+            {props.children}
+        </InnerBox>
+    </div>;
+
+export const Box = styled(BoxElement)`
+    margin-bottom: 3em;
+`;
+
 export const Button = styled.button`
     display: block;
     /* cursor: pointer; */
@@ -42,6 +116,17 @@ export const Button = styled.button`
     border-radius: 3px;
     font-size: 1em;
     color: white;
-    background-color: ${ props=> (props.primary ? styles.colors.emerald : styles.colors.softgrey) }; 
+    background-color: ${ props=> (props.primary
+        ? styles.colors.emerald
+        : styles.colors.midgrey)
+}; 
     width: 100%;
+    transition: all .2s ease-in;
+    &:hover {
+        background-color: ${ props=> (props.primary
+        ? Color(styles.colors.emerald).darken(0.2).string()
+        : Color(styles.colors.midgrey).darken(0.2).string())
+};
+
+    }
 `;
