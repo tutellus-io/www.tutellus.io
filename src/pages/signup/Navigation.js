@@ -34,7 +34,7 @@ const NavigationStyled = styled(Navigation)`
     grid-template-columns: repeat(5, 20%);
     list-style-type: none;
     padding: 0;
-    margin-bottom: 3em;
+    margin-bottom: 2em;
     & li {
         display: inline-block;
         text-align: center;

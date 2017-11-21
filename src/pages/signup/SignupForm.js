@@ -1,16 +1,17 @@
 import React from 'react';
-import {TextField, Button, PageTitle, Text} from '../../components';
+import {TextField, Button, PageTitle, Text, ColumnCenter} from '../../components';
 import {Field, Form, Formik} from 'formik';
 import Yup from 'yup';
 import _ from 'lodash';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import {translate} from 'react-i18next';
+import styles from '../../styles';
 
 import passwordMeter from 'passwordmeter';
 
 Yup.addMethod(Yup.string, 'passwdStrength', function(level, message) {
-    return this.test('passwdStrength', message, (value) => {
+    return this.test('passwdStrength', message, value => {
         const result = passwordMeter.checkPass(value);
         return result >= level;
     });
@@ -26,7 +27,7 @@ Yup.addMethod(Yup.mixed, 'sameAs', function(ref, message) {
     });
 });
 
-const SignupFormElement = (props) => {
+const SignupFormElement = props => {
     console.log('SignupForm', props);
     const {
         db,
@@ -64,7 +65,7 @@ const SignupFormElement = (props) => {
             });
             nextStep();
         })
-        .catch((error) => {
+        .catch(error => {
             showAlert({text: `Upps ${ error.message }`});
         });
     };
@@ -82,55 +83,59 @@ const SignupFormElement = (props) => {
     });
 
     const validationObj = {
-        first_name: Yup.string().required('Escribe tu nombre'),
-        last_name: Yup.string().required('Escribe tus apellidos'),
-        email: Yup.string().email('No parece un email válido')
-        .required('Escribe tu email'),
+        first_name: Yup.string().required(t('signup:signup_first_name_required_err')),
+        last_name: Yup.string().required(t('signup:signup_last_name_required_err')),
+        email: Yup.string().required(t('signup:signup_email_required_err'))
+        .email(t('signup:signup_email_email_err')),
     };
 
     if (!initialValues.uid) {
         validationObj.passwd = Yup.string()
-        .required('Escribe tu contraseña')
-        .min(8, 'Escribe al menos 8 caracteres')
-        .passwdStrength(60, 'La password es demasido débil');
-        validationObj.repasswd = Yup.string().sameAs(Yup.ref('passwd'), "Passwords don't match");
+        .required(t('signup:signup_passwd_required_err'))
+        .min(8, t('signup:signup_passwd_min_err'))
+        .passwdStrength(55, t('signup:signup_passwd_strength_err'));
+        validationObj.repasswd = Yup.string()
+        .required(t('signup:signup_repasswd_required_err'))
+        .sameAs(Yup.ref('passwd'), t('signup:signup_repasswd_sameas_err'));
     }
 
     return (
         <div className = {className}>
             <PageTitle>{t('signup:signup_title')}</PageTitle>
-            <Text>{t('signup:signup_kyc_process')}</Text>
+            <Text center>{t('signup:signup_kyc_process')}</Text>
             <Formik
                 validationSchema = {Yup.object().shape(validationObj)}
                 onSubmit={onSubmit}
                 initialValues={initialValues}
                 component={({values}) =>
-                    <Form >
-                        <Field component={TextField} name="first_name" placeholder={t('signup:signup_first_name_placeholder')} label={ {
-                            required: "required",
-                            value: t('signup:signup_first_name_label'),
-                        } }/>
-                        <Field component={TextField} name="last_name" placeholder={t('signup:signup_last_name_placeholder')} label={ {
-                            required: "required",
-                            value: t('signup:signup_last_name_label'),
-                        } }/>
-                        <Field component={TextField} name="email" placeholder={t('signup:signup_email_placeholder')} label={ {
-                            required: "required",
-                            value: t('signup:signup_email_label'),
-                        } }/>
-                        { !values.uid && [
-                            <Field key="passwd" component={TextField} name="passwd" type="password" placeholder={t('signup:signup_passwd_placeholder')} label={ {
+                    <ColumnCenter>
+                        <Form >
+                            <Field component={TextField} name="first_name" placeholder={t('signup:signup_first_name_placeholder')} label={ {
                                 required: "required",
-                                value: t('signup:signup_passwd_label'),
-                            } }/>,
-                            <Field key="repasswd" component={TextField} name="repasswd" type="password" placeholder={t('signup:signup_repasswd_placeholder')} label={ {
+                                value: t('signup:signup_first_name_label'),
+                            } }/>
+                            <Field component={TextField} name="last_name" placeholder={t('signup:signup_last_name_placeholder')} label={ {
                                 required: "required",
-                                value: t('signup:signup_repasswd_label'),
-                            } }/>]
-                        }
-                        <Button type="submit" primary>{t('signup:signup_submit_btn')}</Button>
-                        <div className="login">{t('signup:signup_already_registered')} <Link to='/login'>{t('signup:signup_login_link')}</Link> </div>
-                    </Form>
+                                value: t('signup:signup_last_name_label'),
+                            } }/>
+                            <Field component={TextField} name="email" placeholder={t('signup:signup_email_placeholder')} label={ {
+                                required: "required",
+                                value: t('signup:signup_email_label'),
+                            } }/>
+                            { !values.uid && [
+                                <Field key="passwd" component={TextField} name="passwd" type="password" placeholder={t('signup:signup_passwd_placeholder')} label={ {
+                                    required: "required",
+                                    value: t('signup:signup_passwd_label'),
+                                } }/>,
+                                <Field key="repasswd" component={TextField} name="repasswd" type="password" placeholder={t('signup:signup_repasswd_placeholder')} label={ {
+                                    required: "required",
+                                    value: t('signup:signup_repasswd_label'),
+                                } }/>]
+                            }
+                            <Button type="submit" primary>{t('signup:signup_submit_btn')}</Button>
+                            <Text center className="login">{t('signup:signup_already_registered')} <Link to='/login'>{t('signup:signup_login_link')}</Link> </Text>
+                        </Form>
+                    </ColumnCenter>
                 }
             />
         </div>
@@ -139,8 +144,15 @@ const SignupFormElement = (props) => {
 
 const SignupForm = styled(translate()(SignupFormElement))`
     & .login {
-        margin-top: 10px;
+        margin-top: 1em;
         font-weight: 200;
+
+        > a {
+            color : ${ styles.colors.emerald };
+            &:hover {
+                text-decoration: underline
+            }
+        }
     }
 `;
 

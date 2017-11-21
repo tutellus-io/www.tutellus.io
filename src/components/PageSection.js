@@ -14,6 +14,11 @@ export const PageContent = styled.div`
     margin-top: 84px;
 `;
 
+export const ColumnCenter = styled.div`
+    width: 350px;
+    margin: 0 auto;
+`;
+
 export const SectionContent = styled.div`
     max-width: ${ MAX_CONTENT_WIDTH }px;
     width: 80%;
