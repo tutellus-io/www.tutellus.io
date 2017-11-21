@@ -18,7 +18,7 @@ export const TechnologyStack = translate('technology_stack')(({t, id}) =>
                 <TechIcon src="/images/technologies/graphql.svg" />
                 <TechIcon src="/images/technologies/android.svg" />
                 <TechIcon src="/images/technologies/ios.svg" />
-                <TechIcon src="/images/technologies/chrome.svg" />
+                <TechIcon src="/images/technologies/html5.svg" />
             </Layer>
             <Layer>
                 <TechIcon src="/images/technologies/docker.svg" />
