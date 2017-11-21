@@ -91,6 +91,11 @@ const Link = styled(props =>
     { props.children }
     </SmoothScroll.Link>
 )`
+    cursor: pointer;
+    transition: color .2s linear;
+    &:hover {
+        color: ${ styles.colors.lightblue };
+    }
     &.active {
         border-bottom: solid 1px ${ styles.colors.lightblue };
         padding-bottom: 1em;
