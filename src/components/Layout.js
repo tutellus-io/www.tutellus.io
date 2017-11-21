@@ -19,15 +19,16 @@ const alignText = R.cond([
     [R.T, R.always('left')],
 ]);
 export const Text = styled.p`
+    font-size: 1em;
     line-height: 1.5em;
-    margin-bottom: 40px;
+    margin-bottom: 1.5em;
     text-align: ${ alignText }
 `;
 export const Row = styled.div`
     ${ clearfix }
 `;
 /*:: type fraction = number */
-const stretchColumnWidth = (props/*: {size: fraction} */)/*: string */=>
+const stretchColumnWidth = props/*: string */=>
     `${ (props.size * 100) - 2 }%`;
 
 export const Col = styled.div`
@@ -57,7 +58,7 @@ type QuoteAttrs = {
     children?: React.Node,
 }
 */
-export const Quote = styled((props/*: QuoteAttrs*/)/*: React.Node */=>
+export const Quote = styled(props/*: React.Node */=>
     <blockquote cite={ props.href } className={ props.className }>
         { props.children }
         <small>{ props.cite }</small>

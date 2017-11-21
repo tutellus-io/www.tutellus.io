@@ -82,6 +82,18 @@ const fonts = `
             font-weight: 300;
             font-style: normal
     }
+
+    @font-face {
+        font-family: 'Material Icons';
+        font-style: normal;
+        font-weight: 400;
+        src: url(/fonts/material-icon/MaterialIcons-Regular.eot); /* For IE6-8 */
+        src: local('Material Icons'),
+          local('MaterialIcons-Regular'),
+          url(/fonts/material-icon/MaterialIcons-Regular.woff2) format('woff2'),
+          url(/fonts/material-icon/MaterialIcons-Regular.woff) format('woff'),
+          url(/fonts/material-icon/MaterialIcons-Regular.ttf) format('truetype');
+      }
 `;
 export const styles = {
     font: {

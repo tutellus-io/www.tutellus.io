@@ -15,7 +15,7 @@ export const PageContent = styled.div`
 `;
 
 export const ColumnCenter = styled.div`
-    width: 350px;
+    width: 450px;
     margin: 0 auto;
 `;
 

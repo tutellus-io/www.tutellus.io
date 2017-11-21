@@ -39,7 +39,7 @@ const NavigationStyled = styled(Navigation)`
         display: inline-block;
         text-align: center;
         line-height: 2.5em;
-        font-size: 1.1em;
+        font-size: 1em;
         padding: 0;
         & div {
             width: 100%;

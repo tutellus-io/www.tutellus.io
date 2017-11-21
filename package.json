@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "color": "^2.0.1",
     "firebase": "^4.6.1",
     "formik": "^0.10.3",
     "globalize": "^1.3.0",
