@@ -12,6 +12,11 @@ import {
 } from '../../../components';
 import styled from 'styled-components';
 
+export const CrowdsaleCTA = translate('crowdsale')(({t}) =>
+    <CenteredBlock>
+        <CTAButton secondary>{ t('register_for_the_crowdsale') }</CTAButton>
+    </CenteredBlock>
+);
 export const Crowdsale = translate('crowdsale')(({t, id}) =>
     <PageSection id={ id } dark title={ t('title') }>
         <Text center>{ t('description') }</Text>
@@ -33,30 +38,37 @@ export const Crowdsale = translate('crowdsale')(({t, id}) =>
         <CrowdsaleSummary>
             <tbody>
                 <tr>
-                    <td>{ t('token_name') }</td><td>TUT</td>
-                </tr>
-                <tr>
-                    <td>{ t('preico_date') }</td><td>{ t('preico_date_value') }</td>
-                </tr>
-                <tr>
-                    <td>{ t('ico_date') }</td><td>{ t('ico_date_value') }</td>
-                </tr>
-                <tr>
                     <td>{ t('total_supply') }</td><td>{ t('total_supply_value') }</td>
                 </tr>
                 <tr>
                     <td>{ t('amount_for_sale') }</td><td>{ t('amount_for_sale_value') }</td>
                 </tr>
                 <tr>
-                    <td>{ t('soft_cap') }</td><td>{ t('soft_cap_value') }</td>
+                    <td>{ t('hard_cap') }</td><td>{ t('hard_cap_value') }</td>
                 </tr>
                 <tr>
                     <td>{ t('accepted_currencies') }</td><td>ETH</td>
                 </tr>
+                <tr>
+                    <td>{ t('preico_date') }</td><td>{ t('preico_date_value') }</td>
+                </tr>
+                <tr className="secondary">
+                    <td>{ t('preico_min') }</td><td>{ t('preico_min_value') }</td>
+                </tr>
+                <tr className="secondary">
+                    <td>{ t('preico_bonus') }</td><td>{ t('preico_bonus_value') }</td>
+                </tr>
+                <tr>
+                    <td>{ t('ico_date') }</td><td>{ t('ico_date_value') }</td>
+                </tr>
+                <tr className="secondary">
+                    <td>{ t('ico_min') }</td><td>{ t('ico_min_value') }</td>
+                </tr>
+                <tr className="secondary">
+                    <td>{ t('ico_bonus') }</td><td>{ t('ico_bonus_value') }</td>
+                </tr>
             </tbody>
         </CrowdsaleSummary>
-        <CenteredBlock>
-            <CTAButton secondary>{ t('register_for_the_crowdsale') }</CTAButton>
-        </CenteredBlock>
+        <CrowdsaleCTA />
     </PageSection>
 );

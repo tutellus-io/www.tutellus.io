@@ -13,12 +13,15 @@ export const CrowdsaleSummary = styled.table`
     & tr {
         color: black;
         line-height: 2.5em;
-    }
-    & tr:nth-child(odd) {
-        background-color: ${ colors.athens };
-    }
-    & tr:nth-child(even) {
-        background-color: white;
+        &.secondary td:nth-child(1):before {
+            margin-left: 4em;
+        }
+        &:nth-child(odd) {
+            background-color: ${ colors.athens };
+        }
+        &:nth-child(even) {
+            background-color: white;
+        }
     }
     & td:before {
         /*TODO: definir como helper "bullets" (copiado de DistributionTable)*/
@@ -33,7 +36,7 @@ export const CrowdsaleSummary = styled.table`
         margin-right: .5em;
     }
     & td:first-child {
-        width: 70%;
+        width: 60%;
     }
     & td:last-child {
         font-weight: bold;

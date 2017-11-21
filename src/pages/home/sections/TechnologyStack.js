@@ -8,6 +8,7 @@ import {
     Layer,
     TechIcon,
 } from '../../../components';
+import {CrowdsaleCTA} from './Crowdsale';
 
 export const TechnologyStack = translate('technology_stack')(({t, id}) =>
     <PageSection id={ id } light title={ t('title') }>
@@ -37,5 +38,6 @@ export const TechnologyStack = translate('technology_stack')(({t, id}) =>
                 Ethereum
             </Layer>
         </Layers>
+        <CrowdsaleCTA />
     </PageSection>
 );
