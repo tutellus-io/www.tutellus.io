@@ -18,7 +18,7 @@ export const PlayButton = styled(class extends React.Component {
         return (
         <div className={ props.className }>
             <button onClick={ () => this.play() }/>
-            <video className={ this.state.playing ? 'playing' : 'paused' } ref={ video => this.video = video } controls preload playsInline>
+            <video className={ this.state.playing ? 'playing' : 'paused' } ref={ video => this.video = video } controls preload="preload" playsInline>
                 <source src={ props.video } />
             </video>
         </div>
