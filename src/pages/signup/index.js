@@ -5,7 +5,7 @@ import Rebase from 're-base';
 import _ from 'lodash';
 import {translate} from 'react-i18next';
 
-import {PageSection, Row, Col} from '../../components';
+import {PageContent, PageSection, SectionTitle} from '../../components';
 
 import Navigation from './Navigation';
 import SignupForm from './SignupForm';
@@ -166,27 +166,28 @@ class SignupElement extends Component {
         };
 
         return (
-            <PageSection className={className} title={t('signup:title')}>
-                <Row >
-                    <Col size= {1} className="wizard">
-                        {
-                            this.state.active_step === -1
-                                ? <div>Loading....</div>
-                                : <div>
-                                    <Navigation
-                                        active_step = {this.state.active_step}
-                                        steps={this.steps}
-                                        keyDone={this.keyDone}
-                                        jumpToStep={jumpToStep}
-                                    />
-                                    <div className="content">
-                                        {React.cloneElement(this.steps[this.state.active_step].component, cloneExtensions)}
-                                    </div>
-                                </div>
-                        }
-                    </Col>
-                </Row>
-            </PageSection>
+            <PageContent className={className}>
+                {
+                    this.state.active_step === -1
+                        ? <PageSection>
+                            Loading....
+                        </PageSection>
+                        : <div>
+                            <PageSection>
+                                <SectionTitle simple>{t('signup:title')}</SectionTitle>
+                                <Navigation
+                                    active_step = {this.state.active_step}
+                                    steps={this.steps}
+                                    keyDone={this.keyDone}
+                                    jumpToStep={jumpToStep}
+                                />
+                            </PageSection>
+                            <PageSection className="content" light>
+                                {React.cloneElement(this.steps[this.state.active_step].component, cloneExtensions)}
+                            </PageSection>
+                        </div>
+                }
+            </PageContent>
         );
     }
 }

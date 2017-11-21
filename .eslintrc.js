@@ -26,6 +26,6 @@ module.exports = {
         }],
         //siempre poner paréntesis a los parámetros de las funciones, aunque sea
         //solo para especificar su tipo con un comentario de flow
-        'arrow-parens': ['error', 'always'],
+        'arrow-parens': ['error', 'as-needed'],
     },
 };

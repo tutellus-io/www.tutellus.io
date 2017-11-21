@@ -21,15 +21,7 @@ import {
 } from './sections';
 import {MainFooter} from './MainFooter';
 import {FloatingHelp} from '../../components';
-
-//TODO: están por definir
-const SOCIAL_LINKS = {
-    telegram: 'telegram',
-    medium: 'medium',
-    github: 'github',
-    slack: 'slack',
-    twitter: '//twitter.com/tutellus',
-};
+import {social_links} from '../../config';
 
 export class Home extends React.Component {
     componentDidMount() {
@@ -38,7 +30,7 @@ export class Home extends React.Component {
     render() {
         return (
             <div>
-                <MainHeader socialLinks={ SOCIAL_LINKS } />
+                <MainHeader socialLinks={ social_links } />
                 <main>
                     <ICOIntro />
                     <ThePain />
@@ -52,7 +44,7 @@ export class Home extends React.Component {
                     <PlatformRoadmap />
                     <TechnologyStack />
                 </main>
-                <MainFooter socialLinks={ SOCIAL_LINKS } />
+                <MainFooter socialLinks={ social_links } />
                 <FloatingHelp icon="/images/telegram-logo.svg"/>
             </div>
         );

@@ -1,9 +1,10 @@
 import React from 'react';
+import {PageContent} from '../components';
 
-export const NoMatch = () =>
-    <div>
+export const NoMatch = props =>
+    <PageContent className= {props.className}>
         NOT Found!
-    </div>
+    </PageContent>
 ;
 
 export default NoMatch;

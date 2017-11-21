@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import {TextField, Button} from '../components';
+import {PageContent, TextField, Button} from '../components';
 import {Field, Form, Formik} from 'formik';
 import Yup from 'yup';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
-const LoginFormElement = (props) => {
+const LoginFormElement = props => {
     const {
         db,
         showAlert,
@@ -23,7 +23,7 @@ const LoginFormElement = (props) => {
         .then(() => {
             history.push('/dashboard');
         })
-        .catch((error) => {
+        .catch(error => {
             showAlert({text: `Upps ${ error.message }`});
         });
     };
@@ -80,9 +80,9 @@ class LoginElement extends Component {
             className,
         } = this.props;
         return (
-            <div className = {className}>
+            <PageContent className = {className}>
                 <LoginFormElement {...this.props}/>
-            </div>
+            </PageContent>
         );
     }
 }

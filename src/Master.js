@@ -2,15 +2,52 @@ import React from 'react';
 import styles from './styles';
 import {injectGlobal} from 'styled-components';
 import AlertContainer from 'react-alert';
+import {translate} from 'react-i18next';
 
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
 import {Home, Signup, Management, Login, Dashboard, NoMatch} from './pages';
+import {TopHeader, MainMenu, SecondaryMenu} from './components';
 
 import './i18n';
+import {social_links} from './config';
 
 const ALERT_TIME_MS = 5000;
 const ALERT_OFFSET = 20;
+
+const SimpleHeader = translate()(props => {
+    const {
+        i18n,
+    } = props;
+
+    return (
+        <TopHeader logo="/images/white-logo.svg" small>
+            <MainMenu />
+            <SecondaryMenu onLanguage={ lang => i18n.changeLanguage(lang) } socialLinks={ social_links } locale={ i18n.language } />
+        </TopHeader>
+    );
+});
+
+const WithHeaderLayout = header_props =>
+    <div>
+        <SimpleHeader/>
+        <Switch>
+            <Route exact path='/signup' component={props =>
+                <Signup {...props} {...header_props}/>
+            }/>
+            <Route exact path='/management' component={props =>
+                <Management {...props} {...header_props}/>
+            }/>
+            <Route exact path='/dashboard' component={props =>
+                <Dashboard {...props} {...header_props}/>
+            }/>
+            <Route exact path='/login' component={props =>
+                <Login {...props} {...header_props}/>
+            }/>
+            <Route path='/404' component={NoMatch}/>
+            <Route component={NoMatch}/>
+        </Switch>
+    </div>;
 
 class Master extends React.Component {
     constructor() {
@@ -45,31 +82,22 @@ class Master extends React.Component {
 
         return (
             <div>
-                <AlertContainer {...alertOptions} ref={(ref) => {
+                <AlertContainer {...alertOptions} ref={ref => {
                     this.alertContainer = ref;
                 }} />
                 <BrowserRouter>
-                    <Switch>
-                        <Route exact path='/' component={ Home }/>
-                        <Route exact path='/signup' component={(props) =>
-                            <Signup {...props} {...all_props}/>
-                        }/>
-                        <Route exact path='/management' component={(props) =>
-                            <Management {...props} {...all_props}/>
-                        }/>
-                        <Route exact path='/dashboard' component={(props) =>
-                            <Dashboard {...props} {...all_props}/>
-                        }/>
-                        <Route exact path='/login' component={(props) =>
-                            <Login {...props} {...all_props}/>
-                        }/>
-                        <Route path='/404' component={NoMatch}/>
-                        <Route component={NoMatch}/>
-                    </Switch>
+                    <div>
+                        <Switch>
+                            <Route exact path='/' component={ Home }/>
+                            <Route component={ props =>
+                                <WithHeaderLayout {...props} {...all_props}/>
+                            } />
+                        </Switch>
+                    </div>
                 </BrowserRouter>
             </div>
         );
     }
 }
 
-export default Master;
+export default translate()(Master);

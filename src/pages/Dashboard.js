@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Rebase from 're-base';
 import _ from 'lodash';
+import {PageContent} from '../components';
 
 export class Dashboard extends Component {
     constructor() {
@@ -23,7 +24,7 @@ export class Dashboard extends Component {
             history.push('/signup');
         }
 
-        db.auth().onAuthStateChanged((auth_info) => {
+        db.auth().onAuthStateChanged(auth_info => {
             // No funciona ({uid = null, emailVerified = null} = {})
             const {
                 uid,
@@ -56,7 +57,9 @@ export class Dashboard extends Component {
             user,
         } = this.state;
         return (
-            <div>Esto es el Dashboard! {user.first_name}</div>
+            <PageContent>
+                <div>Esto es el Dashboard! {user.first_name}</div>
+            </PageContent>
         );
     }
 }

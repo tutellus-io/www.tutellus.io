@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import styles from '../../styles';
 
-const Navigation = (props) => {
+const Navigation = props => {
     const {
         active_step,
         steps,
@@ -17,85 +18,79 @@ const Navigation = (props) => {
     `.trim();
 
     return (
-        <div className={className}>
-            <ol>
-                {steps.map((step, i)=>
-                    <li className={getClassName(step, i)}
-                        onClick={() => jumpToStep(i)} key={i} value={i}>
-                        <em>{i + 1}</em>
-                        <span>{step.name}</span>
-                    </li>
-                )}
-            </ol>
-        </div>
+        <ol className={className}>
+            {steps.map((step, i)=>
+                <li className={getClassName(step, i)}
+                    onClick={() => jumpToStep(i)} key={i} value={i}>
+                    <div>{step.name}</div>
+                </li>
+            )}
+        </ol>
     );
 };
 
 const NavigationStyled = styled(Navigation)`
-    & ol {
-        list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 3em;
+    & li {
+        display: inline-block;
+        text-align: center;
+        line-height: 2.5em;
+        font-size: 1.1em;
         padding: 0;
-        margin-bottom: 3rem;
-        & li {
-            display: inline-block;
+        & div {
+            width: 100%;
             text-align: center;
-            line-height: 4.5rem;
-            & span {
-                padding: 0 2.5rem;
-            }
-            &.dot {
-                color: silver;
-                border-bottom: 3px solid silver;
-                &:before {
-                    content: "\\039F"; 
-                    color: silver;
-                    background-color: white;
-                    width: 1.2em;
-                    line-height: 1.4em;
-                }
-                &:hover:before {
-                    color: #ff4500;
-                }
-            }
-            &.active {
-                color: black;
-                border-bottom: 3px solid silver;
-                &:before {
-                    content: "\\2022";
-                    color: white;
-                    background-color: #CCCCCC;
-                    width: 1em;
-                    line-height: 1.2em;
-                    border-radius: 1.2em;
-                }
-                &:hover:before {
-                    color: #ff4500;
-                }
-            }
-            &.valid {
-                color: black;
-                border-bottom: 3px solid #5cb85c;
-                &:before {
-                    content: "\\2713";
-                    color: white;
-                    background-color: #5cb85c;
-                    width: 1.2em;
-                    line-height: 1.2em;
-                    border-radius: 1.2em;
-                }
-                &:hover:before {
-                    color: #333333;
-                }
-            }
+            padding-top: 0.3em;
+        }
+        &.dot {
+            color: silver;
+            border-bottom: 2px solid ${ styles.colors.lightblue };
             &:after {
-                content: "\\00a0\\00a0";
+                content: ' '; 
+                display: block;
+                height: 2em;
+                width: 2em;
+                border-radius: 50%;
+                border: solid 2px ${ styles.colors.lightblue };
+                background-color: white;
             }
-            &:before {
-                position: relative;
-                bottom: -4.05rem;
-                float: left;
-                left: 50%;
+        }
+        
+        &.active {
+            color: black;
+            font-weight: bold;
+        }
+
+        &.valid {
+            color: black;
+            &:after {
+                background-color: ${ styles.colors.lightblue };
             }
+        }
+        
+        &.not-valid {
+            &:after {
+                background-color: ${ styles.colors.lightblue };
+            }
+        }
+        &:before {
+            content: '';
+            position: relative;
+            border-right: 2px solid ${ styles.colors.lightblue };
+            float: left;
+            left: 50%;
+            height: 1.5em;
+            margin-top: 3em;
+        }
+        &:after {
+            position: relative;
+            bottom: -1.3em;
+            float: left;
+            left: calc(50% - 1.2em);
         }
     }
     & em {

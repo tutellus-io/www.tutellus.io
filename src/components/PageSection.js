@@ -10,11 +10,16 @@ import {TOP_HEADER_HEIGHT} from './TopHeader';
 import styles from '../styles';
 const {margin, colors} = styles;
 
+export const PageContent = styled.div`
+    margin-top: 84px;
+`;
+
 export const SectionContent = styled.div`
     max-width: ${ MAX_CONTENT_WIDTH }px;
     width: 80%;
     margin: 0 auto;
 `;
+
 const PAGE_SECTION_VERTICAL_PADDING = 40;
 //TODO: el video necesita un poster
 export const PageBanner = styled(props =>
@@ -24,9 +29,9 @@ export const PageBanner = styled(props =>
                 <source src={ props.backgroundVideo } />
             </video>
             <SectionContent>
-            { props.title &&
+                { props.title &&
                 <PageTitle>{ props.title }</PageTitle>
-            }
+                }
                 { props.children }
             </SectionContent>
         </div>
@@ -51,7 +56,7 @@ export const PageBanner = styled(props =>
             width: 100%;
             height:100%;
             position: absolute;
-            top: ${ TOP_HEADER_HEIGHT}px;
+            top: ${ TOP_HEADER_HEIGHT }px;
         }
     }
 `;
@@ -71,7 +76,7 @@ const colorSectionForeground = R.cond([
     [R.has('dark'), R.always(colors.athens)],
     [R.T, R.always('inherit')],
 ]);
-export const PageSection = styled((props) =>
+export const PageSection = styled(props =>
     <section id={ props.id } className={ props.className }>
         { props.interstitialImage &&
             <InterstitialImage src={ props.interstitialImage } />
@@ -96,7 +101,7 @@ export const PageSection = styled((props) =>
 `;
 
 /*:: type pixels = number */
-export const centeredObject = (width/*: pixels */) => `
+export const centeredObject = width => `
     left: 50%;
     display: block;
     position: relative;
@@ -111,16 +116,19 @@ export const SectionTitle = styled.h2`
     margin-bottom: 40px;
     text-align: center;
 
-    &:after {
-        background: url('/images/underlined.svg') no-repeat;
-        content: "";
-        width: ${ TITLE_UNDERLINE_WIDTH }px;
-        display: block;
-        height: 15px;
-        position: relative;
-        top: 20px;
-        left: calc(50% - ${ TITLE_UNDERLINE_WIDTH / 2 }px);
-    }
+    ${ props =>
+        props.simple || `
+            &:after {
+                background: url('/images/underlined.svg') no-repeat;
+                content: "";
+                width: ${ TITLE_UNDERLINE_WIDTH }px;
+                display: block;
+                height: 15px;
+                position: relative;
+                top: 20px;
+                left: calc(50% - ${ TITLE_UNDERLINE_WIDTH / 2 }px);
+            }`
+}
 
     & em {
         display: block;
