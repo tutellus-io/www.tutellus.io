@@ -58,6 +58,7 @@ export const FooterBranding = styled(props =>
     }
     & small {
         display: block;
+        font-size: .8em;
         max-width: 15em;
         font-style: italic;
         margin-bottom: 1em;
