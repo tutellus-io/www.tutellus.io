@@ -1,9 +1,9 @@
 //@flow
 import React from 'react';
 import styled from 'styled-components';
-//TODO: url de ayuda
+import {social_links} from '../config';
 export const FloatingHelp = styled(props =>
-    <a className={ props.className } href="#" />
+    <a className={ props.className } href={ social_links.telegram } />
 )`
     position: fixed;
     z-index: 3;
