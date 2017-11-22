@@ -22,8 +22,8 @@ export const Features = styled.ul`
 `;
 export const FeatureTitle = styled.h4`
     font-weight: bold;
-    font-size: 1.143em;
-    line-height: 1.251rem;
+    font-size: 1.1em;
+    line-height: 1.25em;
     color: ${ colors.darkblack };
     margin-bottom: 5px;
 `;
@@ -38,7 +38,8 @@ export const Feature = styled((props/*: FeatureAttrs */) =>
     display: inline-block;
     padding-left: 4.5em;
     text-transform: capitalize;
-    & ${FeatureTitle}:before {
+    font-size: 1.5em;
+    & ${ FeatureTitle }:before {
         content: '';
         display: block;
         background: url(${ props => props.image }) no-repeat;
