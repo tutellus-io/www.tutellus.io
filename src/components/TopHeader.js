@@ -35,6 +35,7 @@ export const TopHeader = styled(props =>
 
     & > a {
         grid-area: logo;
+        max-width: 10em;
     }
     ${ props => props.small && `
         background: black;
