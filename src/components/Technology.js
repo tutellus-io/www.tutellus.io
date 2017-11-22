@@ -1,6 +1,5 @@
 //@flow
 import styled from 'styled-components';
-import {styles} from '../styles';
 
 export const Layers = styled.div`
     max-width: 80%;
@@ -18,5 +17,9 @@ export const TechIcon = styled.img`
     display: inline-block;
     margin: 0 0.5em;
     height: 1.5em;
+    & + span {
+        position: relative;
+        bottom: .3em;
+    }
 `;
 
