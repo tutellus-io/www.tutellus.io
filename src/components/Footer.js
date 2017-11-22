@@ -28,6 +28,11 @@ export const NavCategory = styled(props =>
 export const SocialIcon = styled.li`
     display: inline;
     color: ${ styles.colors.athens };
+    margin: 0 .25em;
+    &:hover {
+        color: ${ styles.colors.lightblue };
+        transition: color .2s linear;
+    }
 `;
 export const SocialIcons = styled(props =>
     <ul className={ props.className }>

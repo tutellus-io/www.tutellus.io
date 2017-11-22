@@ -73,14 +73,13 @@ export const SecondaryMenu = styled(props =>
         display: inline;
         position: relative;
         top: 0.25em;
-        & ${ SocialIcon }:hover {
-            color: ${ styles.colors.lightblue };
-            transition: color .2s linear;
-        }
     }
     & ${ CTAButton } {
+        font-size: .8em;
         margin-top: 0;
-        padding: 0.5rem;
+        padding: 1em;
+        position: relative;
+        top: -.25em;
         background: transparent;
         border: solid 1px white;
         transition: all .2s linear;
@@ -122,7 +121,7 @@ export const MainMenu = styled(translate()(({t, className}) =>
     & li {
         display: inline;
         line-height: 1.5em;
-        font-weight: bold;
+        font-weight: normal;
         padding: 0 1em;
         text-transform: uppercase;
     }
