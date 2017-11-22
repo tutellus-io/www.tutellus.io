@@ -76,5 +76,5 @@ export const FooterNav = styled.nav`
 export const PageFooter = styled.footer`
     display: grid;
     grid-template-columns: [logo] 50% [sitemap] 50%;
-    padding: 30px;
+    padding: 30px 50px;
 `;
