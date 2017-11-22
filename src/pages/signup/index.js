@@ -39,7 +39,7 @@ class SignupElement extends Component {
             this.setState({active_step: 0});
         }
 
-        db.auth().onAuthStateChanged((auth_info) => {
+        db.auth().onAuthStateChanged(auth_info => {
             // No funciona ({uid = null, emailVerified = null} = {})
             const {
                 uid,
@@ -77,6 +77,24 @@ class SignupElement extends Component {
         }];
     }
 
+    checkEmailVerified() {
+        const {
+            db,
+        } = this.props;
+
+        if (!this.interval) {
+            console.log('Programaos setInterval');
+            this.interval = setInterval(() => {
+                console.log('CheckingForEmail');
+                db.auth().currentUser.reload();
+                const {
+                    emailVerified,
+                } = db.auth().currentUser;
+                this.updateUser({email_verified: emailVerified});
+            }, 5000);
+        }
+    }
+
     componentWillUnmount() {
         if (this.ref_user) {
             this.base.removeBinding(this.ref_user);
@@ -87,10 +105,39 @@ class SignupElement extends Component {
         const stateEqual = _.isEqual(this.state, prevState);
         console.log('componentDidUpdate', stateEqual, this.state, prevState);
         if (!stateEqual && this.state.active_step === -1) {
-            const last_step_done = _.findLastIndex(this.steps, (step) => this.keyDone(step.key));
+            const last_step_done = _.findLastIndex(this.steps, step => this.keyDone(step.key));
             this.setState({
                 active_step: last_step_done + 1,
             });
+        }
+
+        if (this.isWaitingForEmailVerified()) {
+            this.checkEmailVerified();
+        }
+        this.tryClearInterval();
+    }
+
+    isWaitingForEmailVerified() {
+        const {
+            user: {
+                email_verified = false,
+                verification_email_sended = false,
+            },
+        } = this.state;
+
+        return verification_email_sended && !email_verified;
+    }
+
+    tryClearInterval() {
+        const {
+            user: {
+                email_verified = false,
+            },
+        } = this.state;
+
+        if (email_verified && this.interval) {
+            console.log('Cancelando chequeo');
+            clearInterval(this.interval);
         }
     }
 
@@ -136,7 +183,7 @@ class SignupElement extends Component {
         } = this.props;
 
         console.log('translate -t', t);
-        const jumpToStep = (step) => {
+        const jumpToStep = step => {
             this.setState({
                 active_step: step,
             });
@@ -148,7 +195,7 @@ class SignupElement extends Component {
             syncUser: this.syncUser,
             updateUser: this.updateUser,
             user: this.state.user,
-            jumpToStep: (step) => {
+            jumpToStep: step => {
                 jumpToStep(step);
             },
             nextStep: () => {

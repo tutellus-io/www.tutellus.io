@@ -2,6 +2,7 @@ import React from 'react';
 import Color from 'color';
 import styled from 'styled-components';
 import styles from '../../styles';
+import {Link} from 'react-router-dom';
 
 export const Input = styled.input`
     display: block;
@@ -146,4 +147,29 @@ export const Button = styled.button`
 };
 
     }
+`;
+
+export const LinkButton = styled(Link)`
+    display: block;
+    /* cursor: pointer; */
+    padding: 1em;
+    border: none;
+    border-radius: 3px;
+    font-size: 1em;
+    color: white;
+    text-align: center;
+    width: 100%;
+    transition: all .2s ease-in;
+    
+    background-color: ${ props=> (props.primary
+        ? styles.colors.emerald
+        : styles.colors.midgrey)
+}; 
+    &:hover {
+        background-color: ${ props=> (props.primary
+        ? Color(styles.colors.emerald).darken(0.2).string()
+        : Color(styles.colors.midgrey).darken(0.2).string())
+};
+    }
+
 `;

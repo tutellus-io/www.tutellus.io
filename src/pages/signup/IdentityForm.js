@@ -55,7 +55,7 @@ const IdentityFormElement = props => {
         'image/gif',
         'image/jpeg',
         'image/png',
-        'application/pdf',
+        // 'application/pdf',
     ];
 
     const max_size = 5 * 1024 * 1024; //5Mb;

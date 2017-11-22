@@ -2,24 +2,32 @@ import React, {Component} from 'react';
 import {parse} from 'query-string';
 import {Redirect, Link} from 'react-router-dom';
 import _ from 'lodash';
+import {PageContent, SectionTitle, Text, ColumnCenter, LinkButton} from '../../components';
+import {translate} from 'react-i18next';
+import styled from 'styled-components';
+import styles from '../../styles';
 
-const EmailVerified = () =>
+
+const EmailVerified = ({t}) =>
     <div>
-        Enhorabuena tu email ha sido verificado.
-        <Link to="/signup"> Seguir el proceso de registro</Link>
+        <SectionTitle simple>{t('signup:verified_title')}</SectionTitle>
+        <ColumnCenter>
+            <Text center>{t('signup:verified_text')}</Text>
+        </ColumnCenter>
     </div>
 ;
 
-const EmailNotVerified = () =>
+const EmailNotVerified = ({t}) =>
     <div>
-        Lo siento tu email no ha podido ser verificado.
-        The action code is invalid. This can happen if the code is malformed, expired, or has already been used
-        Solicita de nuevo el email de verificación.
-        <Link to="/signup"> Volver al proceso de registro</Link>
+        <SectionTitle simple>{t('signup:not_verified_title')}</SectionTitle>
+        <ColumnCenter>
+            <Text center>{t('signup:not_verified_text')}</Text>
+            <LinkButton to="/signup" className="link">{t('signup:not_verified_link')}</LinkButton>
+        </ColumnCenter>
     </div>
 ;
 
-export class Management extends Component {
+export class ManagementElement extends Component {
     constructor() {
         super();
 
@@ -56,7 +64,7 @@ export class Management extends Component {
 
         if (_.has(views_Fn, url_params.mode)) {
             views_Fn[url_params.mode](auth, url_params)
-            .then((view) => {
+            .then(view => {
                 this.setState({
                     view,
                     params: url_params,
@@ -71,6 +79,7 @@ export class Management extends Component {
     }
 
     verifyEmail(auth, params) {
+        console.log('verifyEmail', params);
         if (params.oobCode) {
             return auth.applyActionCode(params.oobCode)
             .then(() => this.STATES.EMAIL_VERIFIED)
@@ -80,18 +89,23 @@ export class Management extends Component {
     }
 
     render() {
-        return <div>
+        const {
+            t,
+            className,
+        } = this.props;
+        console.log(this.state.view);
+        return <PageContent className={className}>
             {
-                this.state.view === this.STATES.EMAIL_VERIFIED && <EmailVerified/>
+                this.state.view === this.STATES.EMAIL_VERIFIED && <EmailVerified t={t}/>
             }
             {
-                this.state.view === this.STATES.EMAIL_NOT_VERIFIED && <EmailNotVerified/>
+                this.state.view === this.STATES.EMAIL_NOT_VERIFIED && <EmailNotVerified t={t}/>
             }
             {
                 this.state.view === this.STATES.RESET_PASSWORD && <Redirect to='/404'/>
             }
-        </div>;
+        </PageContent>;
     }
 };
 
-export default Management;
+export const Management = translate()(ManagementElement);

@@ -76,4 +76,9 @@ export const signup = {
     summary_wallet_address_label: 'Tu dirección pública',
     summary_wallet_contribution_label: 'Tu contribución en ETH',
     summary_identity_title: 'Tu identificación',
+    not_verified_title: 'Problemas al verificar el email',
+    not_verified_text: 'Lo siento tu email no ha podido ser verificado. El código ha expirado o ya ha sido usado, solicita un nuevo email de verificación.',
+    not_verified_link: 'Volver al proceso de registro',
+    verified_title: 'Email verificado',
+    verified_text: 'Tu email ha sido verificado, cierra esta pesta y continua con el proceso',
 };
