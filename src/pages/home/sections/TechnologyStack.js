@@ -16,17 +16,17 @@ export const TechnologyStack = translate('technology_stack')(({t, id}) =>
         <Layers>
             <Layer>
                 <TechIcon src="/images/technologies/react.svg" />
+                <TechIcon src="/images/technologies/ios.svg" />
                 <TechIcon src="/images/technologies/graphql.svg" />
                 <TechIcon src="/images/technologies/android.svg" />
-                <TechIcon src="/images/technologies/ios.svg" />
                 <TechIcon src="/images/technologies/html5.svg" />
             </Layer>
             <Layer>
-                <TechIcon src="/images/technologies/docker.svg" />
                 <TechIcon src="/images/technologies/mongodb.svg" />
-                <TechIcon src="/images/technologies/redis.svg" />
+                <TechIcon src="/images/technologies/docker.svg" />
                 <TechIcon src="/images/technologies/tensorflow.svg" />
                 <TechIcon src="/images/technologies/r.svg" />
+                <TechIcon src="/images/technologies/redis.svg" />
                 <TechIcon src="/images/technologies/nodejs.svg" />
             </Layer>
             <Layer>
