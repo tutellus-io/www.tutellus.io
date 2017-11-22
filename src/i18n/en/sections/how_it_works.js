@@ -1,6 +1,6 @@
 //@flow
 export const how_it_works = {
     title: "How the token works",
-    description: "We promote an ecosystem where all players get profit: Students, Teachers and Companies. Through the tokens Pool and the Market as inside points, students & teachers can study free, learn more and get money through tokens, Relevance and different flows inside the dAPP",
+    description: "An ecosystem where all players get benefits: Students, Teachers and Companies. Using the Pool tokens and the Market as entry points, students and teachers may study for free and earn money through tokens, get Relevance and access to valuable services inside the dAPP.",
     download_whitepaper: "Download Whitepaper",
 };
