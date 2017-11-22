@@ -1,19 +1,24 @@
 import React, {Component} from 'react';
-import {PageContent, TextField, Button} from '../components';
+import {PageContent, TextField, Button, ColumnCenter} from '../components';
 import {Field, Form, Formik} from 'formik';
 import Yup from 'yup';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
+import styles from '../styles';
+import {translate} from 'react-i18next';
 
 const LoginFormElement = props => {
     const {
         db,
-        showAlert,
         className,
         history,
+        t,
     } = props;
 
-    const onSubmit = (values = {}) => {
+    const onSubmit = (values = {}, {
+        setSubmitting,
+        setErrors,
+    }) => {
         const {
             email,
             passwd,
@@ -23,16 +28,17 @@ const LoginFormElement = props => {
         .then(() => {
             history.push('/dashboard');
         })
-        .catch(error => {
-            showAlert({text: `Upps ${ error.message }`});
+        .catch(() => {
+            setSubmitting(false);
+            setErrors({passwd: t('login_err')});
         });
     };
 
     const validationObj = {
-        email: Yup.string().email('No parece un email válido')
-        .required('Escribe tu email'),
+        email: Yup.string().email(t('login_email_email_err'))
+        .required(t('login_email_required_err')),
         passwd: Yup.string()
-        .required('Escribe tu contraseña'),
+        .required(t('login_passwd_required_err')),
     };
 
     return (
@@ -44,19 +50,21 @@ const LoginFormElement = props => {
                     email: '',
                     passwd: '',
                 }}
-                component={() =>
-                    <Form >
-                        <Field component={TextField} name="email" placeholder="Email" label={ {
-                            required: "required",
-                            value: 'Email',
-                        } }/>
-                        <Field key="passwd" component={TextField} name="passwd" type="password" placeholder="Passwd" label={ {
-                            required: "required",
-                            value: 'Password',
-                        } }/>
-                        <Button type="submit" primary>Login</Button>
-                        <div className="login">Not registered? <Link to='/signup'>Regístrate</Link> </div>
-                    </Form>
+                component={({isSubmitting}) =>
+                    <ColumnCenter>
+                        <Form >
+                            <Field component={TextField} name="email" placeholder={t('login_email_placeholder')} label={ {
+                                required: "required",
+                                value: t('login_email_label'),
+                            } }/>
+                            <Field key="passwd" component={TextField} name="passwd" type="password" placeholder={t('login_passwd_placeholder')} label={ {
+                                required: "required",
+                                value: t('login_passwd_required_err'),
+                            } }/>
+                            <Button type="submit" primary disabled={isSubmitting}>{t('login_submit_btn')}</Button>
+                            <div className="login">{t('login_not_registered')} <Link to='/signup'>{t('login_signup_link')}</Link> </div>
+                        </Form>
+                    </ColumnCenter>
                 }
             />
         </div>
@@ -88,9 +96,18 @@ class LoginElement extends Component {
 }
 
 
-export const Login = styled(LoginElement)`
+export const Login = styled(translate('signup')(LoginElement))`
+    > {LoginFormElement} {
+        margin-top: 10em;
+    }
     & .login {
         margin-top: 10px;
         font-weight: 200;
+        > a {
+            color : ${ styles.colors.emerald };
+            &:hover {
+                text-decoration: underline
+            }
+        }
     }
 `;
