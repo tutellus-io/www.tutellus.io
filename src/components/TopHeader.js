@@ -39,7 +39,6 @@ export const TopHeader = styled(props =>
     ${ props => props.small && `
         background: black;
         height: ${ TOP_HEADER_HEIGHT / 2 }px;
-        padding: 15px 50px;
         transition: all .5s linear;
     ` }
 `;
@@ -57,29 +56,22 @@ const LangSelect = styled(props =>
 `;
 
 export const SecondaryMenu = styled(props =>
-    <ul className={ props.className }>
-        <li><SocialIcons networks={ props.socialLinks } /></li>
-        <li><CTAButton>Whitelist</CTAButton></li>
-        <li><LangSelect onLanguage={ props.onLanguage } locale={ props.locale } /></li>
-    </ul>
+    <div className={ props.className }>
+        <SocialIcons networks={ props.socialLinks } />
+        <CTAButton>Whitelist</CTAButton>
+        <LangSelect onLanguage={ props.onLanguage } locale={ props.locale } />
+    </div>
 )`
     grid-area: secondary-menu;
-    text-align: right;
-    & > li {
-        display: inline-block;
-        margin: 0 .25rem;
-    }
-    & ${ SocialIcons } {
-        display: inline;
-        position: relative;
-        top: 0.25em;
-    }
+    display: inline-grid;
+    grid-template-columns: 100fr 1fr 1fr;
+    grid-column-gap: 1em;
+    align-items: center;
+    justify-items: end;
     & ${ CTAButton } {
+        margin: 0;
         font-size: .8em;
-        margin-top: 0;
         padding: 1em;
-        position: relative;
-        top: -.25em;
         background: transparent;
         border: solid 1px white;
         transition: all .2s linear;
@@ -98,12 +90,10 @@ const Link = styled(props =>
     cursor: pointer;
     transition: color .2s linear;
     &:hover {
-        color: ${ styles.colors.lightblue };
+        color: ${ styles.colors.midgrey };
     }
     &.active {
-        border-bottom: solid 1px ${ styles.colors.lightblue };
-        padding-bottom: 1em;
-        transition: all .2s linear;
+        color: ${ styles.colors.lightblue };
     }
 `
 export const MainMenu = styled(translate()(({t, className}) =>

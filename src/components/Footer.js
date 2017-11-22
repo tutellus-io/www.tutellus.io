@@ -30,7 +30,7 @@ export const SocialIcon = styled.li`
     color: ${ styles.colors.athens };
     margin: 0 .25em;
     &:hover {
-        color: ${ styles.colors.lightblue };
+        color: ${ styles.colors.midgrey };
         transition: color .2s linear;
     }
 `;
