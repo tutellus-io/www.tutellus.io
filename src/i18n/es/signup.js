@@ -79,7 +79,6 @@ export const signup = {
     not_verified_link: 'Volver al proceso de registro',
     verified_title: 'Email verificado',
     verified_text: 'Tu email ha sido verificado, cierra esta pestaña y continua con el proceso',
-
     login_email_label: 'Email',
     login_email_placeholder: 'Ej. Isaac@tutellus.io',
     login_email_required_err: 'Escribe tu email',
