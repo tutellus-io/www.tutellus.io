@@ -1,5 +1,5 @@
 //@flow
 export const the_solution = {
-    title: "The solution: a platform which pays you for learning",
-    description: "We generate an own cryptocurrency: the token TUT. The more you learn, the more money you get and the more relevant you become in the Community, so the more interesting you are for being hired or contacted by companies",
+    title: "The solution: a platform that pays you for learning",
+    description: "We create our own cryptocurrency, the TUT token. The more you learn, the more money you get, the more relevant you are in the Community and the more visible you become to companies that may be interested in you.",
 };
