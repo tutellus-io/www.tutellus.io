@@ -1,7 +1,7 @@
 //@flow
 export const crowdsale = {
     title: "Token Sale",
-    description: "With the main goal to create the biggest EdTech community worlwide with a living ecosystem full of services and functionalities for token holders",
+    description: "With the main goal of creating the biggest EdTech community worlwide, a living ecosystem full of services and functionalities for token holders",
     funds_allocation: 'Funds Allocation',
     product_engineering: 'Product & Engineering',
     sales_marketing: 'Sales & Marketing',
