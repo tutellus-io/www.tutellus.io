@@ -1,7 +1,7 @@
 //@flow
 export const the_roadmap = {
     title: 'Roadmap',
-    description: "An exciting 4 years travel improving the product, but best things are for coming",
+    description: "4 exciting years improving the Product, and the best things are yet to come",
     mvp: "MVP",
     usercount_100k: '100k users',
     coursecount_20k: '20k videocourses',
