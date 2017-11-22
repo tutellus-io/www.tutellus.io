@@ -8,23 +8,37 @@ export const PlayButton = styled(class extends React.Component {
     constructor() {
         super();
         this.state = {};
+        this.play = this.play.bind(this);
+        this.stop = this.stop.bind(this);
     }
-    play() {
+    stop(evt) {
+        evt.preventDefault();
+        evt.stopPropagation();
+        this.setState({playing: false});
+    }
+    play(evt) {
+        evt.preventDefault();
+        evt.stopPropagation();
         this.setState({playing: true});
-        this.video.play();
     }
     render() {
         const props = this.props;
         return (
-        <div className={ props.className }>
-            <button onClick={ () => this.play() }/>
-            <video className={ this.state.playing ? 'playing' : 'paused' } ref={ video => this.video = video } controls preload="preload" playsInline>
-                <source src={ props.video } />
-            </video>
+        <div className={ props.className } onClick={ this.stop }>
+        { this.state.playing ?
+            <iframe src="https://player.vimeo.com/video/242570391?autoplay=1&loop=1" frameBorder="0" allowFullScreen="allowfullscreen" />
+            :
+            <button onClick={ this.play } />
+        }
         </div>
         );
     }
 })`
+    position: absolute;
+    top: -128px;
+    left: 0;
+    width: 100%;
+    height: 100%;
     & > button {
         display: block;
         width: 100px;
@@ -32,6 +46,8 @@ export const PlayButton = styled(class extends React.Component {
         border: none;
         margin: 0 auto;
         padding: 0;
+        position: relative;
+        top: 32em;
         /*TODO: s3*/
         background: url(https://www.tutellus.com/dist/images/play-button-overlay.svg);
         cursor: pointer;
@@ -41,19 +57,13 @@ export const PlayButton = styled(class extends React.Component {
             opacity: .5;
         }
     }
-    & > video {
-        display: inline-block;
-        position: absolute;
-        opacity: 0;
-        z-index: -1;
-        top: 0;
-        /*TODO: no puede hacerse import de las constantes porque serían referencias circulares */
-        max-height: ${ 500 - 128 }px;
-        &.playing {
-            z-index: 1;
-            opacity: 1;
-            transition: opacity .5s linear;
-        }
+    & > iframe {
+        position:fixed;
+        top: 25%;
+        left: 25%;
+        z-index: 998;
+        width: 50%;
+        height: 50%;
     }
 `;
 const colorCTAButton = (props/*: {primary: bool} */) => (

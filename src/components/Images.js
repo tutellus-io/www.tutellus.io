@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 export const CenteredImage = styled.img`
-    width: 50%;
+    width: ${ props => props.big ? 60 : 50 }%;
     margin: 0 auto;
     display:block;
 `;

@@ -5,6 +5,7 @@ import styles from '../styles';
 export const Benefits = styled.div`
     display:grid;
     grid-template-columns: repeat(2, 50%);
+    margin: 3em 0;
 `;
 export const UserGroup = styled(props =>
     <div className={ props.className }>

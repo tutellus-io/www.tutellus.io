@@ -88,17 +88,17 @@ export const Quote = styled(props/*: React.Node */=>
         content: '\\201C';
         font-size: 7.5em;
         font-weight: 700;
-        opacity: .3;
         position: absolute;
         top: .2em;
         left: .1em;
+        color: white;
 	}
 	&:after {
         content: '\\201D';
         font-size: 7.5em;
         font-weight: 700;
-        opacity: .3;
         position: absolute;
         top: .2em;
+        color: white;
 	}
 `;

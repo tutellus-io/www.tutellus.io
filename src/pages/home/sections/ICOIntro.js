@@ -7,11 +7,12 @@ import {
     PageSubtitle,
     PlayButton,
 } from '../../../components';
+import {S3} from '../../../config';
 
 export const ICOIntro = translate('intro')(({t, id}) =>
-    <PageBanner id={ id } dark backgroundVideo="/images/bgvideo.mp4">
+    <PageBanner id={ id } dark backgroundVideo={ `${ S3 }/video/background.mp4` }>
         <PageTitle dangerouslySetInnerHTML={{ __html: t("title") }} />
         <PageSubtitle center dangerouslySetInnerHTML={{ __html: t('subtitle') }} />
-        <PlayButton video="/images/bgvideo.mp4" />
+        <PlayButton video={ t('video_url') } />
     </PageBanner>
 );

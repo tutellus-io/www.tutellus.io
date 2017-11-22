@@ -30,7 +30,7 @@ const PAGE_SECTION_VERTICAL_PADDING = 40;
 export const PageBanner = styled(props =>
     <section id={ props.id } className={ props.className }>
         <div>
-            <video preload="true" mute="true" autoPlay="true" loop="true" playsInline="true">
+            <video preload="true" mute="true" autoPlay="true" loop="true" playsInline="true" poster={ `${ props.backgroundVideo }.jpg` }>
                 <source src={ props.backgroundVideo } />
             </video>
             <SectionContent>
@@ -75,12 +75,52 @@ export const InterstitialImage = styled.img`
     display: block;
     margin: 0 auto;
     margin-top: -${ 4 * PAGE_SECTION_VERTICAL_PADDING }px;
+    margin-bottom: 40px;
     height: ${ 3 * PAGE_SECTION_VERTICAL_PADDING }px;
 `;
 const colorSectionForeground = R.cond([
     [R.has('dark'), R.always(colors.athens)],
     [R.T, R.always('inherit')],
 ]);
+
+/*:: type pixels = number */
+export const centeredObject = width => `
+    left: 50%;
+    display: block;
+    position: relative;
+    margin-left: -${ width / 2 }px;
+    width: ${ width }px;
+`;
+const TITLE_UNDERLINE_WIDTH = 100;
+export const SectionTitle = styled.h2`
+    font-size: 2.3em;
+    line-height: 1.25em;
+    text-transform: uppercase;
+    font-weight: 300;
+    margin-bottom: 40px;
+    text-align: center;
+
+    ${ props =>
+        props.simple || `
+            &:after {
+                background: url('/images/underlined.svg') no-repeat;
+                content: "";
+                width: ${ TITLE_UNDERLINE_WIDTH }px;
+                display: block;
+                height: 15px;
+                position: relative;
+                top: 20px;
+                left: calc(50% - ${ TITLE_UNDERLINE_WIDTH / 2 }px);
+            }`
+}
+
+    & em {
+        display: block;
+        font-size: 1.2em;
+        line-height: 1.5em;
+    }
+`;
+
 export const PageSection = styled(props =>
     <section id={ props.id } className={ props.className }>
         { props.interstitialImage &&
@@ -104,43 +144,6 @@ export const PageSection = styled(props =>
         padding-top: ${ 3 * PAGE_SECTION_VERTICAL_PADDING }px;
     ` }
 `;
-
-/*:: type pixels = number */
-export const centeredObject = width => `
-    left: 50%;
-    display: block;
-    position: relative;
-    margin-left: -${ width / 2 }px;
-    width: ${ width }px;
-`;
-const TITLE_UNDERLINE_WIDTH = 100;
-export const SectionTitle = styled.h2`
-    ${ styles.text.huge }
-    text-transform: uppercase;
-    font-weight: 300;
-    margin-bottom: 40px;
-    text-align: center;
-
-    ${ props =>
-        props.simple || `
-            &:after {
-                background: url('/images/underlined.svg') no-repeat;
-                content: "";
-                width: ${ TITLE_UNDERLINE_WIDTH }px;
-                display: block;
-                height: 15px;
-                position: relative;
-                top: 20px;
-                left: calc(50% - ${ TITLE_UNDERLINE_WIDTH / 2 }px);
-            }`
-}
-
-    & em {
-        display: block;
-        font-size: 1.2em;
-    }
-`;
-
 export const PageTitle = SectionTitle.withComponent('h1');
 export const SectionImage = styled(CenteredImage)`
     margin-bottom: ${ margin.medium };
