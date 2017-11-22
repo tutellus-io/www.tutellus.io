@@ -6,7 +6,9 @@ export const translation = {
     transactioned: "transaccionados",
     about_tutellus: 'Tutellus es la Plataforma educativa que te paga por aprender',
     terms_of_sale: 'Términos de la Token Sale',
-    HELP: 'Ayuda',
+    Help: 'Ayuda',
+    Contact: 'Contacto',
+    About: 'Acerca de',
     help_url: '//tutellusico.zendesk.com/hc/es',
     tos_url: '/pdf/tos_es.pdf',
 };

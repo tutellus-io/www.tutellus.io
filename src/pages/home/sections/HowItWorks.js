@@ -12,6 +12,6 @@ export const HowItWorks = translate('how_it_works')(({t, id}) =>
     <PageSection id={ id } dark title={ t('title') } >
         <Text center>{ t('description') }</Text>
         <SectionImage src="/images/howitworks.svg" />
-        <CrowdsaleCTA href="https://lib.tutellus.com/ico/whitepaper_ico_es.pdf">{ t('download_whitepaper') }</CrowdsaleCTA>
+        <CrowdsaleCTA href={ t("whitepaper_url") }>{ t('download_whitepaper') }</CrowdsaleCTA>
     </PageSection>
 );

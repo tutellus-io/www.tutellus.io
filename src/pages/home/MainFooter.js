@@ -19,7 +19,7 @@ export const MainFooter = translate()(({t, socialLinks}) =>
                 <NavLink href="//www.tutellus.com">Tutellus</NavLink>
                 <NavLink href={ t('tos_url') }>{ t('terms_of_sale') }</NavLink>
             </NavCategory>
-            <NavCategory title={ t('CONTACT') }>
+            <NavCategory title={ t('Contact') }>
                 <NavLink href="mailto:ico@tutellus.com">ico@tutellus.io</NavLink>
                 <NavLink href="//2tel.us/tutellus-address" target="_blank">c/ Henri Dunant, 15. Madrid 28036 Spain</NavLink>
                 <NavLink href="tel://+34910052511">+34 91 00 525 11</NavLink>
