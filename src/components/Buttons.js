@@ -4,6 +4,19 @@ import styled from 'styled-components';
 import styles from '../styles';
 const {margin, colors} = styles;
 
+const Overlay = styled.div`
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,.8);
+    z-index: 998;
+    & * {
+        z-index: 999;
+        opacity: 1;
+    }
+`
 export const PlayButton = styled(class extends React.Component {
     constructor() {
         super();
@@ -24,9 +37,11 @@ export const PlayButton = styled(class extends React.Component {
     render() {
         const props = this.props;
         return (
-        <div className={ props.className } onClick={ this.stop }>
+        <div className={ props.className }>
         { this.state.playing ?
-            <iframe src={ `${ props.video }?autoplay=1&loop=1` } frameBorder="0" allowFullScreen="allowfullscreen" />
+            <Overlay onClick={ this.stop }>
+    -            <iframe src={ `${ props.video }?autoplay=1&loop=1` } frameBorder="0" allowFullScreen="allowfullscreen" />
+            </Overlay>
             :
             <button onClick={ this.play } />
         }
@@ -57,11 +72,10 @@ export const PlayButton = styled(class extends React.Component {
             opacity: .5;
         }
     }
-    & > iframe {
+    & iframe {
         position:fixed;
         top: 25%;
         left: 25%;
-        z-index: 998;
         width: 50%;
         height: 50%;
     }
