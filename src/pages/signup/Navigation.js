@@ -96,7 +96,7 @@ const NavigationStyled = styled(Navigation)`
     & em {
         display: none;
         font-weight: 700;
-        padding-left: 1rem;
+        padding-left: 1em;
     }
 `;
 

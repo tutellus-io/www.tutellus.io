@@ -37,6 +37,9 @@ export const CrowdsaleSummary = styled.table`
     }
     & td:first-child {
         width: 50%;
+        @media ${ styles.media.tablet } {
+            width: 40%;
+        }
     }
     & td:last-child {
         font-weight: bold;

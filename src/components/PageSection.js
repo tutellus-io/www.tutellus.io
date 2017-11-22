@@ -64,6 +64,9 @@ export const PageBanner = styled(props =>
             top: ${ TOP_HEADER_HEIGHT }px;
         }
     }
+    @media ${ styles.media.tablet } {
+        font-size: .7em;
+    }
 `;
 
 const colorSectionBackground = R.cond([
@@ -143,6 +146,9 @@ export const PageSection = styled(props =>
     ${ props => props.interstitialImage && `
         padding-top: ${ 3 * PAGE_SECTION_VERTICAL_PADDING }px;
     ` }
+    @media ${ styles.media.tablet } {
+        font-size: .8em;
+    }
 `;
 export const PageTitle = SectionTitle.withComponent('h1');
 export const SectionImage = styled(CenteredImage)`

@@ -21,6 +21,12 @@ export const TopHeader = styled(props =>
     display: grid;
     grid-template-areas: "logo . main-menu . secondary-menu";
     grid-template-columns: 10% 5% 40% 5% 40%;
+    @media ${ styles.media.laptop } {
+        grid-template-columns: 10% 0% 50% 0% 40%;
+    }
+    @media ${ styles.media.tablet } {
+        grid-template-columns: 0% 0% 70% 0% 30%;
+    }
     align-items: center;
     font-size: .8em;
     padding: 0 50px;
@@ -36,6 +42,7 @@ export const TopHeader = styled(props =>
     & > a {
         grid-area: logo;
         max-width: 10em;
+        }
     }
     ${ props => props.small && `
         background: black;
@@ -81,6 +88,19 @@ export const SecondaryMenu = styled(props =>
             color: black;
             transition: all .2s linear;
         }
+    }
+    & > li {
+        display: inline-block;
+        margin: 0 .25em;
+    }
+    & ${ SocialIcons } {
+        display: inline;
+        position: relative;
+        top: 0.25em;
+        @media ${ styles.media.tablet } {
+            display: none;
+        }
+    }
     }
 `;
 const Link = styled(props =>

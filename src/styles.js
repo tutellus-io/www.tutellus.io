@@ -160,6 +160,10 @@ export const styles = {
         }
     `,
     helpers,
+    media: {
+        tablet: '(max-width: 48em)',
+        laptop: '(max-width: 64em)',
+    },
 };
 
 export default styles;

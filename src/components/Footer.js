@@ -77,4 +77,7 @@ export const PageFooter = styled.footer`
     display: grid;
     grid-template-columns: [logo] 50% [sitemap] 50%;
     padding: 30px 50px;
+    @media ${ styles.media.tablet } {
+        grid-template-columns: [logo] 30% [sitemap] 70%;
+    }
 `;

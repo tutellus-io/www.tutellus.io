@@ -17,6 +17,11 @@ export const Features = styled.ul`
     ${ (props/*: {children: React.Node} */) => `
         & > li {
             width: ${ 1 / React.Children.count(props.children) * 100 }%;
+            @media ${ styles.media.tablet } {
+                width: 50%;
+                font-size: 1.25em;
+                margin-top: 1em;
+            }
         }
     ` }
 `;
@@ -39,6 +44,9 @@ export const Feature = styled((props/*: FeatureAttrs */) =>
     padding-left: 4.5em;
     text-transform: capitalize;
     font-size: 1.5em;
+    @media ${ styles.media.laptop } {
+        font-size: 1em;
+    }
     & ${ FeatureTitle }:before {
         content: '';
         display: block;

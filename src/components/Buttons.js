@@ -71,6 +71,9 @@ export const PlayButton = styled(class extends React.Component {
         &:hover {
             opacity: .5;
         }
+        @media ${ styles.media.tablet } {
+            top: 28em;
+        }
     }
     & iframe {
         position:fixed;

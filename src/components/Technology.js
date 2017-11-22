@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const Layers = styled.div`
     max-width: 80%;
     margin: 0 auto;
-    font-size: 1.5rem;
+    font-size: 1.25em;
     margin-bottom: 2em;
 `;
 export const Layer = styled.div`
