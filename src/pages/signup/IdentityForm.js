@@ -60,6 +60,16 @@ const IdentityFormElement = props => {
 
     const max_size = 5 * 1024 * 1024; //5Mb;
 
+    const IdentityFileUpload = props_fu =>
+        <FileUpload
+            {...props_fu}
+            one_image
+            max_size = {max_size}
+            max_size_err ={t('signup:identity_fileupload_max_size_err')}
+            allowed_types = {allowed_types}
+            allowed_types_err ={t('signup:identity_fileupload_allowed_types_err')}
+        />;
+
     return (
         <div className = {className}>
             <PageTitle>{t('signup:identity_title')}</PageTitle>
@@ -74,13 +84,13 @@ const IdentityFormElement = props => {
                             <BoxTitle margin="0 0 0.5em 0">{t('signup:identity_proof_identity_title')}</BoxTitle>
                             <Text center>{t('signup:identity_proof_identity_requirements')}</Text>
                             <FlexCenter margin="0 0 0.5em 0">
-                                <FileUpload images_uploaded= {user.identity_front} max_size = {max_size}
-                                    allowed_types = {allowed_types}
+                                <IdentityFileUpload
+                                    images_uploaded= {user.identity_front}
                                     path={`/backers/${ user.uid }/identity_front`}
                                     posterIcon="/images/dni_front.svg"
                                     onFinish={file_uploaded => onFinish(setFieldValue, 'identity_front', file_uploaded)}/>
-                                <FileUpload images_uploaded= {user.identity_back} max_size = {max_size}
-                                    allowed_types = {allowed_types}
+                                <IdentityFileUpload
+                                    images_uploaded= {user.identity_back}
                                     path={`/backers/${ user.uid }/identity_back`}
                                     posterIcon="/images/dni_back.svg"
                                     onFinish={file_uploaded => onFinish(setFieldValue, 'identity_back', file_uploaded)}/>
@@ -88,8 +98,8 @@ const IdentityFormElement = props => {
                             <BoxTitle margin="0 0 0.5em 0">{t('signup:identity_proof_selfie_title')}</BoxTitle>
                             <Text center>{t('signup:identity_proof_selfie_requirements')}</Text>
                             <FlexCenter margin="0 0 0.5em 0">
-                                <FileUpload images_uploaded= {user.selfie} max_size = {max_size}
-                                    allowed_types = {allowed_types}
+                                <IdentityFileUpload
+                                    images_uploaded= {user.selfie}
                                     path={`/backers/${ user.uid }/selfie`}
                                     posterIcon="/images/selfie.svg"
                                     onFinish={file_uploaded => onFinish(setFieldValue, 'selfie', file_uploaded)} />
@@ -97,8 +107,8 @@ const IdentityFormElement = props => {
                             <BoxTitle margin="0 0 0.5em 0">{t('signup:identity_proof_residency_title')}</BoxTitle>
                             <Text center>{t('signup:identity_proof_residency_requirements')}</Text>
                             <FlexCenter margin="0 0 0.5em 0">
-                                <FileUpload images_uploaded= {user.residency} max_size = {max_size}
-                                    allowed_types = {allowed_types}
+                                <IdentityFileUpload
+                                    images_uploaded= {user.residency}
                                     path={`/backers/${ user.uid }/residency`}
                                     posterIcon="/images/doc.svg"
                                     onFinish={file_uploaded => onFinish(setFieldValue, 'residency', file_uploaded)}/>

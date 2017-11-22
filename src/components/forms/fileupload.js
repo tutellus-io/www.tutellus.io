@@ -3,9 +3,10 @@ import firebase from 'firebase';
 import _ from 'lodash';
 import styled from 'styled-components';
 import numeral from 'numeral';
+import styles from '../../styles';
 
 
-const UploadButtonElement = (props) => {
+const UploadButtonElement = props => {
     const {
         uploading,
         upload_progress,
@@ -66,16 +67,22 @@ const UploadButton = styled(UploadButtonElement)`
     }
 `;
 
-const GalleryElement = (props) => {
+const GalleryElement = props => {
     const {
         className,
         images = [],
         buttonUpload,
+        one_image = false,
     } = props;
+
+    let all_images = images;
+    if (one_image) {
+        all_images = _.takeRight(all_images);
+    }
     return (
         <div className={className}>
             {
-                images.map((image, index) =>
+                all_images.map((image, index) =>
                     <figure key={`figure-${ index }`}>
                         <img src={image.url} alt={image.name} title={`${ image.original_name } (${ numeral(image.size).format('0.0b') })`}/>
                     </figure>)
@@ -90,7 +97,7 @@ const GalleryElement = (props) => {
     );
 };
 
-const ImageWithPosterElement = (props) => {
+const ImageWithPosterElement = props => {
     const {
         posterIcon,
         className,
@@ -111,8 +118,8 @@ const ImageWithPosterElement = (props) => {
     );
 };
 export const ImageWithPoster = styled(ImageWithPosterElement)`
-    width: ${ (props) => (props.width ? props.width : '100%') };
-    height: ${ (props) => (props.height ? props.height : '100%') };
+    width: ${ props => (props.width ? props.width : '100%') };
+    height: ${ props => (props.height ? props.height : '100%') };
     border: 2px solid #DBDBDB;
     background-color: #EFEFEF;
     border-radius: 5px;
@@ -130,7 +137,7 @@ export const ImageWithPoster = styled(ImageWithPosterElement)`
     }
 `;
 
-const croppedWith = (height) => `
+const croppedWith = height => `
     > figure {
         width: auto;
         height: ${ height || '100px' };
@@ -166,8 +173,7 @@ const Gallery = styled(GalleryElement)`
     }
 `;
 
-
-export class FileUpload extends Component {
+class FileUploadElement extends Component {
     constructor() {
         super();
         this.state = {
@@ -184,15 +190,17 @@ export class FileUpload extends Component {
     assertFile(file) {
         const {
             allowed_types = [],
+            allowed_types_err = 'Not allowed type',
             max_size = 0,
+            max_size_err = 'Max size exceeds',
         } = this.props;
         console.log('assertFile', file, allowed_types, max_size);
 
         if (max_size !== 0 && file.size > max_size) {
-            throw new Error('Max size exceeds');
+            throw new Error(max_size_err);
         }
         if (_.size(allowed_types) > 0 && !_.includes(allowed_types, file.type)) {
-            throw new Error('Not allowed type');
+            throw new Error(allowed_types_err);
         }
     }
 
@@ -200,12 +208,12 @@ export class FileUpload extends Component {
         const file_path = `${ path }/${ Date.now() }_${ _.snakeCase(file.name) }`;
         const storageRef = firebase.storage().ref(file_path);
         const task = storageRef.put(file);
-        task.on('state_changed', (snapshot) => {
+        task.on('state_changed', snapshot => {
             const upload_progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
             this.setState({
                 upload_progress,
             });
-        }, (error) => {
+        }, error => {
             throw new Error(error.message);
         }, () => {
             const {
@@ -277,13 +285,15 @@ export class FileUpload extends Component {
             className,
             images_uploaded = [],
             posterIcon,
+            one_image = false,
         } = this.props;
         const {
             error,
         } = this.state;
         return (
             <div className = {className}>
-                <Gallery images={images_uploaded.concat(this.state.images_uploaded)}
+                <Gallery one_image={one_image}
+                    images={images_uploaded.concat(this.state.images_uploaded)}
                     buttonUpload = {() =>
                         <UploadButton
                             uploading={this.state.uploading}
@@ -298,3 +308,11 @@ export class FileUpload extends Component {
         );
     }
 }
+
+
+export const FileUpload = styled(FileUploadElement)`
+    > .error {
+        margin-top: 0.5em;
+        color: ${ styles.colors.googleplus };
+    }
+`;

@@ -1,10 +1,15 @@
 import React from 'react';
-import {PageContent} from '../components';
+import {translate} from 'react-i18next';
+import {PageContent, SectionTitle, ColumnCenter, Text, LinkButton} from '../components';
 
-export const NoMatch = props =>
-    <PageContent className= {props.className}>
-        NOT Found!
+export const NoMatchElement = ({className, t}) =>
+    <PageContent className= {className}>
+        <SectionTitle simple>{t('signup:404_title')}</SectionTitle>
+        <ColumnCenter>
+            <Text center>{t('signup:404_text')}</Text>
+            <LinkButton to="/" full>{t('signup:404_link')}</LinkButton>
+        </ColumnCenter>
     </PageContent>
 ;
 
-export default NoMatch;
+export const NoMatch = translate()(NoMatchElement);

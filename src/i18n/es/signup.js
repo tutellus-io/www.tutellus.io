@@ -90,4 +90,9 @@ export const signup = {
     login_submit_btn: 'LOGIN',
     login_not_registered: '¿No estás registrado?',
     login_signup_link: 'Regístrate',
+    '404_title': 'Página no encontrada',
+    '404_text': 'La página que indicas ya no existe.',
+    '404_link': 'Volver',
+    identity_fileupload_max_size_err: 'El fichero excede de 5Mb de tamaño',
+    identity_fileupload_allowed_types_err: 'El formato del fichero no está permitido, debe ser .jpg, .gif o .png',
 };
