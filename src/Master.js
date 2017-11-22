@@ -22,7 +22,6 @@ const SimpleHeader = translate()(props => {
 
     return (
         <TopHeader logo="/images/white-logo.svg" small>
-            <MainMenu />
             <SecondaryMenu onLanguage={ lang => i18n.changeLanguage(lang) } socialLinks={ social_links } locale={ i18n.language } />
         </TopHeader>
     );

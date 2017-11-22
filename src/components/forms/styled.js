@@ -77,6 +77,8 @@ export const BoxTitle = styled.h3`
     font-weight: bold;
     font-size: 1.1em;
     text-align: center;
+    margin-bottom: 0.75em;
+    ${ props => (props.margin ? `margin: ${ props.margin };` : '') }
 `;
 
 export const BoxInTitle = styled.div`
@@ -87,6 +89,21 @@ export const BoxInTitle = styled.div`
         align-items: center;
     }
     margin-bottom: 0.75em;
+`;
+
+export const FlexCenter = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    ${ props => (props.margin ? `margin: ${ props.margin };` : '') }
+`;
+
+export const ImageGrid = styled.div`
+    display: grid;
+    grid-column-gap: 0.5em;
+    grid-row-gap: 0.5em;
+    grid-template-columns: repeat(2, 50%);
+    align-items: center;
 `;
 
 export const InnerBox = styled.div`
