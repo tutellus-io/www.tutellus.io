@@ -61,7 +61,7 @@ const LoginFormElement = props => {
                                 required: "required",
                                 value: t('login_passwd_required_err'),
                             } }/>
-                            <Button type="submit" primary disabled={isSubmitting}>{t('login_submit_btn')}</Button>
+                            <Button full type="submit" primary disabled={isSubmitting}>{t('login_submit_btn')}</Button>
                             <div className="login">{t('login_not_registered')} <Link to='/signup'>{t('login_signup_link')}</Link> </div>
                         </Form>
                     </ColumnCenter>

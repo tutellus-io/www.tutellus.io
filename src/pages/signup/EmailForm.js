@@ -61,11 +61,11 @@ const EmailFormElement = props => {
                     <ColumnCenter>
                         <Form>
                             <Text>{t('signup:emailform_recieve_newsletter')}</Text>
-                            <Button primary onClick={() => sendVerificationEmail(setFieldValue)}>{t('signup:emailform_send_email_btn')}</Button>
+                            <Button full primary onClick={() => sendVerificationEmail(setFieldValue)}>{t('signup:emailform_send_email_btn')}</Button>
                             <Field type="hidden" name="verification_email_sended" />
                             <Hr/>
                             <Text>{t('signup:emailform_continue_signup')}</Text>
-                            <Button type="submit">{t('signup:emailform_continue_btn')}</Button>
+                            <Button full type="submit">{t('signup:emailform_continue_btn')}</Button>
                         </Form>
                     </ColumnCenter>
                 }

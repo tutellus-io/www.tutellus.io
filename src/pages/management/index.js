@@ -22,7 +22,7 @@ const EmailNotVerified = ({t}) =>
         <SectionTitle simple>{t('signup:not_verified_title')}</SectionTitle>
         <ColumnCenter>
             <Text center>{t('signup:not_verified_text')}</Text>
-            <LinkButton to="/signup" className="link">{t('signup:not_verified_link')}</LinkButton>
+            <LinkButton to="/signup" full>{t('signup:not_verified_link')}</LinkButton>
         </ColumnCenter>
     </div>
 ;

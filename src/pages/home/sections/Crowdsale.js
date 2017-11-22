@@ -8,31 +8,36 @@ import {
     DistributionTable,
     CrowdsaleSummary,
     CenteredBlock,
-    CTAButton,
+    LinkButton,
+    AButton,
 } from '../../../components';
 import styled from 'styled-components';
 
-export const CrowdsaleCTA = translate('crowdsale')(({t}) =>
+export const CrowdsaleCTA = ({href = "", children}) =>
     <CenteredBlock>
-        <CTAButton secondary>{ t('register_for_the_crowdsale') }</CTAButton>
-    </CenteredBlock>
-);
+        {
+            (href.startsWith("http")
+                ? <AButton href={href} target="_blank" primary> { children }</AButton>
+                : <LinkButton to={href} primary>{ children }</LinkButton>)
+        }
+    </CenteredBlock>;
+
 export const Crowdsale = translate('crowdsale')(({t, id}) =>
     <PageSection id={ id } dark title={ t('title') }>
         <Text center>{ t('description') }</Text>
         <CrowdsalePurpose>
             <DistributionTable title={ t('funds_allocation') } stats={ [
-                {value: .4, label: t('product_engineering')},
-                {value: .2, label: t('sales_marketing')},
-                {value: .2, label: t('publicity_pr')},
-                {value: .1, label: t('operations')},
-                {value: .1, label: t('security_loyalty_reserves')},
+                {value: 0.4, label: t('product_engineering')},
+                {value: 0.2, label: t('sales_marketing')},
+                {value: 0.2, label: t('publicity_pr')},
+                {value: 0.1, label: t('operations')},
+                {value: 0.1, label: t('security_loyalty_reserves')},
             ] } graph="/images/funds_allocation.svg" />
             <DistributionTable title={ t('token_distribution') } stats={ [
-                {value: .6, label: t('crowdsale')},
-                {value: .2, label: t('pool')},
-                {value: .1, label: t('team')},
-                {value: .1, label: t('bounty_advisors')},
+                {value: 0.6, label: t('crowdsale')},
+                {value: 0.2, label: t('pool')},
+                {value: 0.1, label: t('team')},
+                {value: 0.1, label: t('bounty_advisors')},
             ] } graph="/images/token_distribution.svg" />
         </CrowdsalePurpose>
         <CrowdsaleSummary>
@@ -69,6 +74,6 @@ export const Crowdsale = translate('crowdsale')(({t, id}) =>
                 </tr>
             </tbody>
         </CrowdsaleSummary>
-        <CrowdsaleCTA />
+        <CrowdsaleCTA href="/signup">{ t('crowdsale:register_for_the_crowdsale') }</CrowdsaleCTA>
     </PageSection>
 );

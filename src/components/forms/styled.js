@@ -127,49 +127,30 @@ export const Box = styled(BoxElement)`
 `;
 
 export const Button = styled.button`
+    color: ${ styles.colors.white };
     display: block;
-    /* cursor: pointer; */
-    padding: 1em;
     border: none;
+    padding: 0.8em 2em;
     border-radius: 3px;
-    font-size: 1em;
-    color: white;
+    font-size: 1.1em;
+    cursor: pointer;
+    letter-spacing: .035em;
     background-color: ${ props=> (props.primary
-        ? styles.colors.emerald
+        ? styles.colors.lightblue
         : styles.colors.midgrey)
 }; 
-    width: 100%;
-    transition: all .2s ease-in;
-    &:hover {
-        background-color: ${ props=> (props.primary
-        ? Color(styles.colors.emerald).darken(0.2).string()
-        : Color(styles.colors.midgrey).darken(0.2).string())
-};
-
-    }
-`;
-
-export const LinkButton = styled(Link)`
-    display: block;
-    /* cursor: pointer; */
-    padding: 1em;
-    border: none;
-    border-radius: 3px;
-    font-size: 1em;
-    color: white;
+    ${ props => (props.full ? 'width: 100%' : '') };
+    transition: all 0.3s ease-in;
     text-align: center;
-    width: 100%;
-    transition: all .2s ease-in;
-    
-    background-color: ${ props=> (props.primary
-        ? styles.colors.emerald
-        : styles.colors.midgrey)
-}; 
+    text-transform: uppercase;
     &:hover {
         background-color: ${ props=> (props.primary
-        ? Color(styles.colors.emerald).darken(0.2).string()
+        ? Color(styles.colors.lightblue).darken(0.2).string()
         : Color(styles.colors.midgrey).darken(0.2).string())
 };
-    }
 
+    }
 `;
+
+export const LinkButton = Button.withComponent(Link);
+export const AButton = Button.withComponent('a');

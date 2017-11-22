@@ -81,7 +81,7 @@ const WalletFormElement = props => {
                                 required: "required",
                                 value: t('signup:wallet_eth_contribution_label'),
                             } }/>
-                            <Button primary type="submit">{t('signup:wallet_save_btn')}</Button>
+                            <Button full primary type="submit">{t('signup:wallet_save_btn')}</Button>
                         </Form>
                     </ColumnCenter>
                 }

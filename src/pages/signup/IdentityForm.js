@@ -103,7 +103,7 @@ const IdentityFormElement = props => {
                                     posterIcon="/images/doc.svg"
                                     onFinish={file_uploaded => onFinish(setFieldValue, 'residency', file_uploaded)}/>
                             </FlexCenter>
-                            <Button primary type="submit">{t('signup:identity_verify_btn')}</Button>
+                            <Button full primary type="submit">{t('signup:identity_verify_btn')}</Button>
                         </Form>
                     </ColumnCenter>
                 }

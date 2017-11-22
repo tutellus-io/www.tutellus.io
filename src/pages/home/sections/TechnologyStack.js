@@ -38,6 +38,6 @@ export const TechnologyStack = translate('technology_stack')(({t, id}) =>
                 Ethereum
             </Layer>
         </Layers>
-        <CrowdsaleCTA />
+        <CrowdsaleCTA href="/signup">{ t('crowdsale:register_for_the_crowdsale') }</CrowdsaleCTA>
     </PageSection>
 );

@@ -132,7 +132,7 @@ const SignupFormElement = props => {
                                     value: t('signup:signup_repasswd_label'),
                                 } }/>]
                             }
-                            <Button type="submit" primary>{t('signup:signup_submit_btn')}</Button>
+                            <Button full type="submit" primary>{t('signup:signup_submit_btn')}</Button>
                             <Text center className="login">{t('signup:signup_already_registered')} <Link to='/login'>{t('signup:signup_login_link')}</Link> </Text>
                         </Form>
                     </ColumnCenter>
