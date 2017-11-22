@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import Rebase from 're-base';
 import _ from 'lodash';
-import {PageContent} from '../components';
+import {translate} from 'react-i18next';
+import {PageContent, PageSection} from '../components';
 
-export class Dashboard extends Component {
+class DashboardElement extends Component {
     constructor() {
         super();
 
@@ -28,14 +29,23 @@ export class Dashboard extends Component {
             // No funciona ({uid = null, emailVerified = null} = {})
             const {
                 uid,
-                emailVerified,
-            } = _.pick(auth_info, ['uid', 'emailVerified']);
+            } = _.pick(auth_info, ['uid']);
 
             if (_.get(this.state.user, 'uid') !== uid) {
                 //Siguimos logados
                 this.syncUser(uid);
             }
         });
+    }
+
+    componentWillUpdate(nextProps, nextState) {
+        const {
+            history,
+        } = this.props;
+        const verified = _.get(nextState, 'user.verified_ok', false);
+        if (!verified) {
+            history.push('/signup');
+        }
     }
 
     componentWillUnmount() {
@@ -45,7 +55,6 @@ export class Dashboard extends Component {
     }
 
     syncUser(uid) {
-        console.log('syncUser', uid);
         this.ref_user = this.base.syncState(`backers/${ uid }`, {
             context: this,
             state: 'user',
@@ -54,12 +63,20 @@ export class Dashboard extends Component {
 
     render() {
         const {
+            className,
+        } = this.props;
+        const {
             user,
         } = this.state;
         return (
-            <PageContent>
-                <div>Esto es el Dashboard! {user.first_name}</div>
+            <PageContent className={className}>
+                {
+                    _.isEmpty(user) ? <PageSection>Loading....</PageSection>
+                        : <PageSection>Esto es el Dashboard! {user.first_name}</PageSection>
+                }
             </PageContent>
         );
     }
 }
+
+export const Dashboard = translate()(DashboardElement);
