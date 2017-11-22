@@ -1,7 +1,7 @@
 //@flow
 export const the_roadmap = {
     title: 'Roadmap',
-    description: "Un increíble viaje de 4 años mejorando el producto, pero lo mejor está por llegar",
+    description: "Un increíble viaje de 4 años trabajando por y para el producto, aunque lo mejor está por llegar",
     mvp: "MVP",
     usercount_100k: '100k usuarios',
     coursecount_20k: '20k videocursos',
@@ -12,7 +12,7 @@ export const the_roadmap = {
     coursecount_40k: '40k videocursos',
     crowdsale: 'Nuevo Modelo',
     usercount_800k: '800k usuarios',
-    decentralization: 'Decentralización',
+    decentralization: 'Descentralización',
     tokens: 'Tokens',
     ico: 'ICO',
     core_features: 'Funcionalidades core',
@@ -28,7 +28,7 @@ export const the_roadmap = {
     multiuser_features: 'Funcionalidades multiusuario',
     value_features: 'Funcionalidades de Valor añadido',
     product_management: 'Lanzamiento de Productos asociados',
-    full_integration: 'Full Integration',
+    full_integration: 'Integración completa',
     api_features: 'Api por microservicio',
     deep_learning: 'IA aplicada a tokens',
     tokenomics_optimization: 'Optimización de los Tokenomics',

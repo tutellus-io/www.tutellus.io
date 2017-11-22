@@ -1,5 +1,5 @@
 //@flow
 export const technology_stack = {
-    title: 'Technology',
-    description: "A 4 layers model connected to Users through a multi-platform APP layer, a microservices API layer and a ERC20 token layer, finally connected to the Ethereum Blockchain",
+    title: 'Tecnología',
+    description: "Un modelo de 4 capas conectado a Usuarios a través de una capa de APPs multiplataforma, una capa de microservicios en API y una capa de token ERC20, conectada finalmente a la Blockchain de Ethereum",
 };

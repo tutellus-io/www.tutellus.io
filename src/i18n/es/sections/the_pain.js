@@ -1,5 +1,5 @@
 //@flow
 export const the_pain = {
-    title: "<strong>The pain</strong>: studying is hard and it doesn’t help to decrease poverty worldwide",
-    description: "EdTech platforms requiere a hard & expensive process to learn and to improve your knowledge the enough to be able to get a better job. And they don’t let people to earn money studying, so Education really doesn’t let people to decrease their poverty.",
+    title: "<strong>El problema</strong>: estudiar es duro, y no ayuda a la gente sin recursos a salir de la pobreza",
+    description: "Las plataformas EdTech requieren de mucha atención (y dinero) para aprender lo suficiente como para optar a un [mejor] trabajo. Y realmente no ayudan a que la gente gane dinero mientras aprende, por lo que no contribuyen, directamente, a salir de la pobreza",
 };

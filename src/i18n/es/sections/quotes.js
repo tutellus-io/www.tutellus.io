@@ -1,5 +1,5 @@
 //@flow
 export const quotes = {
-    the_leading_platform: "Tutellus, the leading Educational platform in the spanish spoken world.",
-    goto_tutellus: "Visit Tutellus",
+    the_leading_platform: "Tutellus, la plataforma educativa líder del mundo hispano.",
+    goto_tutellus: "Ir a Tutellus",
 };
