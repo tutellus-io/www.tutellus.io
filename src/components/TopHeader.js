@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import {translate} from 'react-i18next';
 import SmoothScroll from 'react-scroll';
 
-import {SocialIcons} from './Footer';
+import {SocialIcons, SocialIcon} from './Footer';
 import {CTAButton} from './Buttons';
 import styles from '../styles';
 
@@ -73,6 +73,10 @@ export const SecondaryMenu = styled(props =>
         display: inline;
         position: relative;
         top: 0.25em;
+        & ${ SocialIcon }:hover {
+            color: ${ styles.colors.lightblue };
+            transition: color .2s linear;
+        }
     }
     & ${ CTAButton } {
         margin-top: 0;
