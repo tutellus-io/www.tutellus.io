@@ -33,14 +33,16 @@ const SignupFormElement = props => {
         db,
         syncUser,
         updateUser,
-        showAlert,
         nextStep,
         className,
         user,
         t,
     } = props;
 
-    const onSubmit = (values = {}) => {
+    const onSubmit = (values = {}, {
+        setSubmitting,
+        setErrors,
+    }) => {
         const {
             email,
             passwd,
@@ -66,7 +68,8 @@ const SignupFormElement = props => {
             nextStep();
         })
         .catch(error => {
-            showAlert({text: `Upps ${ error.message }`});
+            setErrors({email: t('signup:signup_email_already_err')});
+            setSubmitting(false);
         });
     };
     const initialValues = _.defaults(_.pick(user, [
@@ -107,7 +110,7 @@ const SignupFormElement = props => {
                 validationSchema = {Yup.object().shape(validationObj)}
                 onSubmit={onSubmit}
                 initialValues={initialValues}
-                component={({values}) =>
+                component={({values, isSubmitting}) =>
                     <ColumnCenter>
                         <Form >
                             <Field component={TextField} name="first_name" placeholder={t('signup:signup_first_name_placeholder')} label={ {
@@ -132,7 +135,7 @@ const SignupFormElement = props => {
                                     value: t('signup:signup_repasswd_label'),
                                 } }/>]
                             }
-                            <Button full type="submit" primary>{t('signup:signup_submit_btn')}</Button>
+                            <Button full type="submit" primary disabled={isSubmitting}>{t('signup:signup_submit_btn')}</Button>
                             <Text center className="login">{t('signup:signup_already_registered')} <Link to='/login'>{t('signup:signup_login_link')}</Link> </Text>
                         </Form>
                     </ColumnCenter>
