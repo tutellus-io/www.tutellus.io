@@ -14,8 +14,8 @@ export const MainFooter = translate()(({t, socialLinks}) =>
         <FooterBranding logo="/images/color-logo.svg" about={ t('about_tutellus') } socialLinks={ socialLinks } />
         <FooterNav>
             <NavCategory title={ t('About') }>
-                <NavLink>{ t('Help') }</NavLink>
-                <NavLink>{ t('Blog') }</NavLink>
+                <NavLink href={ t('help_url') }>{ t('Help') }</NavLink>
+                <NavLink href={ socialLinks.medium }>{ t('Blog') }</NavLink>
                 <NavLink href="//www.tutellus.com">Tutellus</NavLink>
                 <NavLink href={ t('tos_url') }>{ t('terms_of_sale') }</NavLink>
             </NavCategory>
