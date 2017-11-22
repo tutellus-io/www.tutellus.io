@@ -72,7 +72,7 @@ const IdentityFormElement = props => {
                     <ColumnCenter>
                         <Form>
                             <BoxTitle margin="0 0 0.5em 0">{t('signup:identity_proof_identity_title')}</BoxTitle>
-                            <Text>{t('signup:identity_proof_identity_requirements')}</Text>
+                            <Text center>{t('signup:identity_proof_identity_requirements')}</Text>
                             <FlexCenter margin="0 0 0.5em 0">
                                 <FileUpload images_uploaded= {user.identity_front} max_size = {max_size}
                                     allowed_types = {allowed_types}
@@ -86,7 +86,7 @@ const IdentityFormElement = props => {
                                     onFinish={file_uploaded => onFinish(setFieldValue, 'identity_back', file_uploaded)}/>
                             </FlexCenter>
                             <BoxTitle margin="0 0 0.5em 0">{t('signup:identity_proof_selfie_title')}</BoxTitle>
-                            <Text>{t('signup:identity_proof_selfie_requirements')}</Text>
+                            <Text center>{t('signup:identity_proof_selfie_requirements')}</Text>
                             <FlexCenter margin="0 0 0.5em 0">
                                 <FileUpload images_uploaded= {user.selfie} max_size = {max_size}
                                     allowed_types = {allowed_types}
@@ -95,7 +95,7 @@ const IdentityFormElement = props => {
                                     onFinish={file_uploaded => onFinish(setFieldValue, 'selfie', file_uploaded)} />
                             </FlexCenter>
                             <BoxTitle margin="0 0 0.5em 0">{t('signup:identity_proof_residency_title')}</BoxTitle>
-                            <Text>{t('signup:identity_proof_residency_requirements')}</Text>
+                            <Text center>{t('signup:identity_proof_residency_requirements')}</Text>
                             <FlexCenter margin="0 0 0.5em 0">
                                 <FileUpload images_uploaded= {user.residency} max_size = {max_size}
                                     allowed_types = {allowed_types}
