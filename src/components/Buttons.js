@@ -26,7 +26,7 @@ export const PlayButton = styled(class extends React.Component {
         return (
         <div className={ props.className } onClick={ this.stop }>
         { this.state.playing ?
-            <iframe src="https://player.vimeo.com/video/242570391?autoplay=1&loop=1" frameBorder="0" allowFullScreen="allowfullscreen" />
+            <iframe src={ `${ props.video }?autoplay=1&loop=1` } frameBorder="0" allowFullScreen="allowfullscreen" />
             :
             <button onClick={ this.play } />
         }

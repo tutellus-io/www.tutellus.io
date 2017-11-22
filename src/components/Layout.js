@@ -61,7 +61,7 @@ type QuoteAttrs = {
 */
 export const Quote = styled(props/*: React.Node */=>
     <blockquote cite={ props.href } className={ props.className }>
-        { props.children }
+        "{ props.children }"
         <small>{ props.cite }</small>
     </blockquote>
 )`
@@ -77,28 +77,9 @@ export const Quote = styled(props/*: React.Node */=>
     & > small {
         width: 100%;
         text-align: center;
-        //margin-top: -1em;
         display: inline-block;
         font-size: .7em;
         color: ${ colors.darkgrey };
         position: relative;
-        //top: -1.5em;
     }
-	&:before {
-        content: '\\201C';
-        font-size: 7.5em;
-        font-weight: 700;
-        position: absolute;
-        top: .2em;
-        left: .1em;
-        color: white;
-	}
-	&:after {
-        content: '\\201D';
-        font-size: 7.5em;
-        font-weight: 700;
-        position: absolute;
-        top: .2em;
-        color: white;
-	}
 `;
