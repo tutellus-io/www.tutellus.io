@@ -7,6 +7,12 @@ module.exports = {
             jsx: true,
         },
     },
+    globals: {
+        window: true,
+        navigator: true,
+        document: true,
+        localStorage: true,
+    },
     extends: ['tutellus', "plugin:react/recommended"],
     plugins: ["react"],
     rules: {
@@ -27,5 +33,7 @@ module.exports = {
         //siempre poner paréntesis a los parámetros de las funciones, aunque sea
         //solo para especificar su tipo con un comentario de flow
         'arrow-parens': ['error', 'as-needed'],
+        'react/prop-types': 'warn',
+        'class-methods-use-this': 'warn',
     },
 };
