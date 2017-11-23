@@ -10,5 +10,5 @@ export const translation = {
     Contact: 'Contacto',
     About: 'Acerca de',
     help_url: '//tutellusico.zendesk.com/hc/es',
-    tos_url: '/pdf/tos_es.pdf',
+    tos_url: 'https://2tel.us/2iHc8WL',
 };
