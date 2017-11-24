@@ -1,15 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 import styles from '../../styles';
+import _ from 'lodash';
 
 const Navigation = props => {
     const {
         active_step,
         steps,
-        keyDone,
         jumpToStep,
         className = '',
+        user,
     } = props;
+
+    const keyDone = key => _.get(user, key, false);
 
     const getClassName = (step, i) => `
         ${ (active_step === i ? 'active' : '') } 
@@ -17,11 +20,18 @@ const Navigation = props => {
         dot
     `.trim();
 
+    const jump = (step, i) => {
+        if (active_step === 0) return;
+        if (!keyDone(step.key)) {
+            jumpToStep(i);
+        }
+    };
+
     return (
         <ol className={className}>
             {steps.map((step, i)=>
                 <li className={getClassName(step, i)}
-                    onClick={() => jumpToStep(i)} key={i} value={i}>
+                    onClick={() => jump(step, i)} key={i} value={i}>
                     <div>{step.name}</div>
                 </li>
             )}

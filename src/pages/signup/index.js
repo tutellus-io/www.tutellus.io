@@ -219,7 +219,7 @@ class SignupElement extends Component {
                                 <Navigation
                                     active_step = {this.state.active_step}
                                     steps={this.steps}
-                                    keyDone={this.keyDone}
+                                    user={this.state.user}
                                     jumpToStep={jumpToStep}
                                 />
                             </PageSection>
