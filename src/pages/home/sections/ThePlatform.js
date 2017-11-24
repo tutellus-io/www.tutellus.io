@@ -15,16 +15,16 @@ export const ThePlatform = translate('the_platform')(({t, id}) =>
         <SectionImage src="/images/theplatform.png" />
         <Features>
             <Feature title="1.000.000" image="/images/students.svg">
-                { t('students') }
+                { t('translation:students') }
             </Feature>
             <Feature title="+2.000.000" image="/images/transactions.svg">
-                { t('transactions') }
+                { t('translation:transactions') }
             </Feature>
             <Feature title="+1b min" image="/images/learning.svg">
-                { t('learning') }
+                { t('translation:learning') }
             </Feature>
             <Feature title="$10m" image="/images/transactioned.svg">
-                { t('transactioned') }
+                { t('translation:transactioned') }
             </Feature>
         </Features>
     </PageSection>

@@ -11,7 +11,7 @@ i18next
 .use(LanguageDetector)
 .use(reactI18nextModule)
 .init({
-    debug: true,
+    debug: false,
     resources: {
         en,
         es,

@@ -14,7 +14,7 @@ export const PlatformBenefits = translate('the_benefits')(({t, id}) =>
     <PageSection id={ id } title={ t('title') }>
         <Text center>{ t('description') }</Text>
         <Benefits>
-            <UserGroup name={ t('students') } icon="/images/student.svg">
+            <UserGroup name={ t('translation:students') } icon="/images/student.svg">
                 <BulletList>
                     <BulletPoint>{ t('earn_studying') }</BulletPoint>
                     <BulletPoint>{ t('learn_more') }</BulletPoint>
@@ -23,7 +23,7 @@ export const PlatformBenefits = translate('the_benefits')(({t, id}) =>
                     <BulletPoint>{ t('wordwide_payments') }</BulletPoint>
                 </BulletList>
             </UserGroup>
-            <UserGroup name={ t('teachers') } icon="/images/teacher.svg">
+            <UserGroup name={ t('translation:teachers') } icon="/images/teacher.svg">
                 <BulletList>
                     <BulletPoint>{ t('instant_payments') }</BulletPoint>
                     <BulletPoint>{ t('earn_via_best_students') }</BulletPoint>

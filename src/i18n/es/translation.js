@@ -1,6 +1,7 @@
 //@flow
 export const translation = {
     students: "alumnos",
+    teachers: 'profesores',
     transactions: "transacciones",
     learning: "aprendiendo",
     transactioned: "transaccionados",
@@ -9,6 +10,7 @@ export const translation = {
     Help: 'Ayuda',
     Contact: 'Contacto',
     About: 'Acerca de',
+    Blog: 'Blog',
     help_url: '//tutellusico.zendesk.com/hc/es',
     tos_url: 'https://2tel.us/2iHc8WL',
 };
