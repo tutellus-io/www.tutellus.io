@@ -9,6 +9,7 @@
     "globalize": "^1.3.0",
     "i18next": "^10.0.7",
     "i18next-browser-languagedetector": "^2.1.0",
+    "keccak": "^1.3.0",
     "lodash": "^4.17.4",
     "moment": "^2.19.0",
     "numeral": "^2.0.6",

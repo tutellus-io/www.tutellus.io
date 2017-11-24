@@ -92,4 +92,5 @@ export const signup = {
     login_signup_link: 'Register',
     identity_fileupload_max_size_err: 'The file exceeds 5Mb in size',
     identity_fileupload_allowed_types_err: 'The format of the file is not allowed, it must be .jpg, .gif or .png',
+    wallet_eth_address_eth_waller_err: 'Write a valid wallet',
 };

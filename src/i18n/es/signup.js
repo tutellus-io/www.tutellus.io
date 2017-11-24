@@ -96,4 +96,5 @@ export const signup = {
     identity_fileupload_max_size_err: 'El fichero excede de 5Mb de tamaño',
     identity_fileupload_allowed_types_err: 'El formato del fichero no está permitido, debe ser .jpg, .gif o .png',
     signup_email_already_err: 'Este email ya está registrado',
+    wallet_eth_address_eth_waller_err: 'Escribe un wallet válido',
 };

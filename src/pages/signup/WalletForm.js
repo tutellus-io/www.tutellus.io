@@ -19,7 +19,8 @@ const WalletFormElement = props => {
     } = props;
 
     const validationSchema = Yup.object().shape({
-        eth_adress: Yup.string().required(t('signup:wallet_eth_address_required_err')),
+        eth_adress: Yup.string().required(t('signup:wallet_eth_address_required_err'))
+        .ethWallet(t('signup:wallet_eth_address_eth_waller_err')),
         eth_contribution: Yup.number().required(t('signup:wallet_eth_contribution_required_err')),
         eth_confirm: Yup.boolean().oneOf([true], t('signup:wallet_eth_confirm_required_err')),
     });
