@@ -25,9 +25,7 @@ const WalletFormElement = props => {
     });
 
     const onSubmit = values => {
-        console.log('onSubmit', values);
         const user = db.auth().currentUser;
-        console.log(user);
         if (user) {
             updateUser({
                 eth_adress: values.eth_adress,

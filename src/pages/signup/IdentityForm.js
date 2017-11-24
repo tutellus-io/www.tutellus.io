@@ -16,7 +16,6 @@ const IdentityFormElement = props => {
     } = props;
 
     const onFinish = (setFieldValue, prop, values) => {
-        console.log('onFinish', values);
         updateUser({
             [prop]: [values],
             [`${ prop }_uploaded`]: true,
@@ -31,7 +30,6 @@ const IdentityFormElement = props => {
     });
 
     const onSubmit = values => {
-        console.log('onSubmit', values);
         updateUser({
             ...values,
             identity_ok: true,

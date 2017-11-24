@@ -28,7 +28,6 @@ Yup.addMethod(Yup.mixed, 'sameAs', function(ref, message) {
 });
 
 const SignupFormElement = props => {
-    console.log('SignupForm', props);
     const {
         db,
         syncUser,

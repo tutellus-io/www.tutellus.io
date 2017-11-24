@@ -7,7 +7,6 @@ import Yup from 'yup';
 import {translate} from 'react-i18next';
 
 const EmailFormElement = props => {
-    console.log('EmailForm', props);
     const {
         db,
         showAlert,
@@ -38,7 +37,6 @@ const EmailFormElement = props => {
     });
 
     const onSubmit = values => {
-        console.log('onSubmit', values);
         updateUser(values);
         nextStep();
     };

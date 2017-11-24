@@ -21,12 +21,10 @@ const ItemFieldElement = ({className, field, form, label, value, type}) => {
                 name={field.name}
                 value={value}
                 onChange={e => {
-                    console.log('onChange', type, field.name);
                     form.handleBlur(e);
                     form.handleChange(e);
                 }}
                 onBlur={e => {
-                    console.log('onBlur', type, field.name);
                     form.handleBlur(e);
                 }}
             />
@@ -47,7 +45,6 @@ export const GroupField = props => {
         className = '',
     } = props;
     const has_error = has(form, `errors.${ field.name }`) && has(form, `touched.${ field.name }`);
-    console.log('GroupField', has_error, field.name);
     return (
         <Field className={ `${ className } ${ has_error ? 'error' : '' }` } >
             <Label className="mbxs" {...label} >{ label.value }</Label>

@@ -26,7 +26,6 @@ const SummaryElement = props => {
         className,
         t,
     } = props;
-    console.log('Summary', user);
 
     const getLastImageUrl = key => {
         const images = _.get(user, key, []);

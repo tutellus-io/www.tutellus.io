@@ -194,7 +194,6 @@ class FileUploadElement extends Component {
             max_size = 0,
             max_size_err = 'Max size exceeds',
         } = this.props;
-        console.log('assertFile', file, allowed_types, max_size);
 
         if (max_size !== 0 && file.size > max_size) {
             throw new Error(max_size_err);
@@ -239,7 +238,6 @@ class FileUploadElement extends Component {
                 original_name,
                 u_on: Date.now(),
             };
-            console.log(`finish Upload`, task.snapshot, featured_info);
             onFinish(featured_info);
             this.setState({
                 upload_progress: 100,
@@ -255,7 +253,6 @@ class FileUploadElement extends Component {
             onFinish = _.noop,
         } = this.props;
 
-        console.log('handleUpload', path, onFinish);
         const file = _.get(event, 'target.files[0]');
         if (path && file) {
             this.setState({

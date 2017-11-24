@@ -83,9 +83,7 @@ class SignupElement extends Component {
         } = this.props;
 
         if (!this.interval) {
-            console.log('Programaos setInterval');
             this.interval = setInterval(() => {
-                console.log('CheckingForEmail');
                 db.auth().currentUser.reload();
                 const {
                     emailVerified,
@@ -103,7 +101,6 @@ class SignupElement extends Component {
 
     componentDidUpdate(prevProps, prevState) {
         const stateEqual = _.isEqual(this.state, prevState);
-        console.log('componentDidUpdate', stateEqual, this.state, prevState);
         if (!stateEqual && this.state.active_step === -1) {
             const last_step_done = _.findLastIndex(this.steps, step => this.keyDone(step.key));
             this.setState({
@@ -136,7 +133,6 @@ class SignupElement extends Component {
         } = this.state;
 
         if (email_verified && this.interval) {
-            console.log('Cancelando chequeo');
             clearInterval(this.interval);
         }
     }
@@ -159,7 +155,6 @@ class SignupElement extends Component {
     }
 
     syncUser(uid) {
-        console.log('syncUser', uid);
         this.ref_user = this.base.syncState(`backers/${ uid }`, {
             context: this,
             state: 'user',
@@ -182,7 +177,6 @@ class SignupElement extends Component {
             t,
         } = this.props;
 
-        console.log('translate -t', t);
         const jumpToStep = step => {
             this.setState({
                 active_step: step,

@@ -12,7 +12,6 @@ export default class VerifyEmail extends Component {
     }
 
     componentWillMount() {
-        console.log('VerifyEmail - componentWillMount');
         const {
             db,
             mgmt: {
