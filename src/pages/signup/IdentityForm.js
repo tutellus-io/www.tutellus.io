@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import {Button, FileUpload, PageTitle, ColumnCenter, Text, BoxTitle, FlexCenter} from '../../components';
 import {Form, Formik} from 'formik';
 import _ from 'lodash';
-import Yup from 'yup';
+import Yup from '../../yup';
 import {translate} from 'react-i18next';
 
 const IdentityFormElement = props => {

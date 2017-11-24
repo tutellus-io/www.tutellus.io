@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {PageContent, TextField, Button, ColumnCenter} from '../components';
 import {Field, Form, Formik} from 'formik';
-import Yup from 'yup';
+import Yup from '../yup';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import styles from '../styles';

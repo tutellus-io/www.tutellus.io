@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import {TextField, OneCheckbox, Button, PageTitle, Text, ColumnCenter, Box, Icon} from '../../components';
 import styles from '../../styles';
 import {Field, Form, Formik} from 'formik';
-import Yup from 'yup';
+import Yup from '../../yup';
 import _ from 'lodash';
 import {translate} from 'react-i18next';
 

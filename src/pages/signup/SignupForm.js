@@ -1,31 +1,12 @@
 import React from 'react';
 import {TextField, Button, PageTitle, Text, ColumnCenter} from '../../components';
 import {Field, Form, Formik} from 'formik';
-import Yup from 'yup';
+import Yup from '../../yup';
 import _ from 'lodash';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import {translate} from 'react-i18next';
 import styles from '../../styles';
-
-import passwordMeter from 'passwordmeter';
-
-Yup.addMethod(Yup.string, 'passwdStrength', function(level, message) {
-    return this.test('passwdStrength', message, value => {
-        const result = passwordMeter.checkPass(value);
-        return result >= level;
-    });
-});
-
-Yup.addMethod(Yup.mixed, 'sameAs', function(ref, message) {
-    return this.test('sameAs', message, function(value) {
-        if (value) {
-            const other = this.resolve(ref);
-            return !other || value === other;
-        }
-        return !value;
-    });
-});
 
 const SignupFormElement = props => {
     const {
