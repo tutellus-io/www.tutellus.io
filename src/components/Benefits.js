@@ -3,9 +3,11 @@ import React from 'react';
 import styled from 'styled-components';
 import styles from '../styles';
 export const Benefits = styled.div`
+/*
     display:grid;
     grid-template-columns: repeat(2, 50%);
     margin: 3em 0;
+*/
 `;
 export const UserGroup = styled(props =>
     <div className={ props.className }>
@@ -13,12 +15,8 @@ export const UserGroup = styled(props =>
         <div>{ props.children }</div>
     </div>
 )`
-    display: grid;
-    grid-column-gap: 10px;
-    grid-template-columns: 33% 67%;
-    align-items: center;
-
     & > h4 {
+        margin: 1em 0;
         text-align: center;
         font-weight: bold;
         text-transform: uppercase;
@@ -32,6 +30,13 @@ export const UserGroup = styled(props =>
             margin-right: -1em;
         }
     }
+/*
+    display: grid;
+    grid-column-gap: 10px;
+    grid-template-columns: 33% 67%;
+    align-items: center;
+
+*/
 `;
 export const BulletList = styled.ul``;
 export const BulletPoint = styled.li`

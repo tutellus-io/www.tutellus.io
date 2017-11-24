@@ -12,6 +12,7 @@ export const FAQ = styled((props/*: FAQAttrs */) =>
         <div>{ props.children }</div>
     </details>
 )`
+/*
     & summary:before {
         content: '';
         display: inline;
@@ -35,4 +36,5 @@ export const FAQ = styled((props/*: FAQAttrs */) =>
     &:last-of-type {
         border-bottom: none;
     }
+*/
 `;

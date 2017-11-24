@@ -8,47 +8,70 @@ import {SocialIcons, SocialIcon} from './Footer';
 import {CTAButton} from './Buttons';
 import styles from '../styles';
 
-export const TOP_HEADER_HEIGHT = 128;
+export const TOP_HEADER_HEIGHT = {
+    //px
+    SMALL: 64,
+}
+TOP_HEADER_HEIGHT.BIG = 2 * TOP_HEADER_HEIGHT.SMALL;
 //TODO: que por defecto sea small para evitar que flashee?
+const small_header_styles = `
+    height: ${ TOP_HEADER_HEIGHT.SMALL }px;
+    background: black;
+    transition: all .5s linear;
+`
+const HeaderLogo = styled(props =>
+    <a className={ props.className }>
+        <img src={ props.logo } alt={ props.title } />
+    </a>
+)`
+`
+
 export const TopHeader = styled(props =>
     <header className={ props.className }>
-        <a href="/">
-            <img src={ props.logo } alt={ props.title } />
-        </a>
+        <HeaderLogo logo={ props.logo } title={ props.title } />
         { props.children }
     </header>
 )`
+    position: fixed;
+    top: 0;
+    z-index: 3;
+    width: 100%;
+    padding: 0 1em;
+    font-size: 125%;
+    color: white;
+    ${ small_header_styles }
     display: grid;
-    grid-template-areas: "logo . main-menu . secondary-menu";
-    grid-template-columns: 10% 5% 40% 5% 40%;
+    grid: "logo secondary-menu" / 30% 70%;
+    align-items: center;
+    justify-items: justify;
+    transition: all .5s linear;
+
+    & > ${ HeaderLogo } {
+        display: block;
+        grid-area: logo;
+        max-width: 8em;
+    }
+    & > ${ SecondaryMenu } {
+        grid-area: secondary-menu;
+    }
+/*
+
+    @media ${ styles.media.tablet } {
+        padding: 0 50px;
+        height: ${ TOP_HEADER_HEIGHT }px;
+        background: linear-gradient(black, transparent);
+        grid-template-areas: "logo . main-menu . secondary-menu";
+        grid-template-columns: 0% 0% 70% 0% 30%;
+
+        ${ props => props.small && small_header_styles }
+    }
     @media ${ styles.media.laptop } {
         grid-template-columns: 10% 0% 50% 0% 40%;
     }
-    @media ${ styles.media.tablet } {
-        grid-template-columns: 0% 0% 70% 0% 30%;
+    @media ${ styles.media.desktop } {
+        grid-template-columns: 10% 5% 40% 5% 40%;
     }
-    align-items: center;
-    font-size: .8em;
-    padding: 0 50px;
-    background: linear-gradient(black, transparent);
-    height: ${ TOP_HEADER_HEIGHT }px;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 3;
-    transition: all .5s linear;
-    color: white;
-
-    & > a {
-        grid-area: logo;
-        max-width: 10em;
-        }
-    }
-    ${ props => props.small && `
-        background: black;
-        height: ${ TOP_HEADER_HEIGHT / 2 }px;
-        transition: all .5s linear;
-    ` }
+    */
 `;
 const LangSelect = styled(props =>
     <select className={ props.className } onChange={ event => props.onLanguage(event.target.value) } value={ props.locale }>
@@ -56,11 +79,15 @@ const LangSelect = styled(props =>
         <option value="es">Español</option>
     </select>
 )`
+    text-align: right;
     appearance: none;
+    background: transparent;
     border: none;
+/*
     background: transparent;
     color: white;
     text-transform: uppercase;
+    */
 `;
 
 export const SecondaryMenu = styled(props =>
@@ -70,44 +97,43 @@ export const SecondaryMenu = styled(props =>
         <LangSelect onLanguage={ props.onLanguage } locale={ props.locale } />
     </div>
 )`
-    grid-area: secondary-menu;
-    display: inline-grid;
-    grid-template-columns: 100fr 1fr 1fr;
-    grid-column-gap: 1em;
-    align-items: center;
+    display: grid;
+    grid: "social lang-select" / 3fr 1fr;
     justify-items: end;
+    & ${ SocialIcons } {
+        grid-area: social;
+    }
+
     & ${ CTAButton } {
-        margin: 0;
-        font-size: .8em;
+        display: none;
+    /*
+        grid-area: cta;
         padding: 1em;
+        font-size: .8em;
         background: transparent;
         border: solid 1px white;
-        transition: all .2s linear;
+        color: white;
+
         &:hover {
             background: white;
             color: black;
             transition: all .2s linear;
         }
+    */
     }
-    & > li {
-        display: inline-block;
-        margin: 0 .25em;
+    & ${ LangSelect } {
+        grid-area: lang-select;
+        color: white;
     }
-    & ${ SocialIcons } {
-        display: inline;
-        position: relative;
-        top: 0.25em;
-        @media ${ styles.media.tablet } {
-            display: none;
-        }
-    }
-    }
+/*
+    */
 `;
 const Link = styled(props =>
-    <SmoothScroll.Link { ...props } spy={ true } smooth={ true } activeClass="active" offset={ -TOP_HEADER_HEIGHT / 2 }>
+    <SmoothScroll.Link { ...props } spy={ true } smooth={ true } activeClass="active" offset={ TOP_HEADER_HEIGHT.SMALL }>
     { props.children }
     </SmoothScroll.Link>
 )`
+/*
     cursor: pointer;
     transition: color .2s linear;
     &:hover {
@@ -116,6 +142,7 @@ const Link = styled(props =>
     &.active {
         color: ${ styles.colors.lightblue };
     }
+    */
 `
 export const MainMenu = styled(translate()(({t, className}) =>
     <nav className={ className }>
@@ -127,6 +154,7 @@ export const MainMenu = styled(translate()(({t, className}) =>
         </ul>
     </nav>
 ))`
+/*
     grid-area: main-menu;
 
     & li {
@@ -136,4 +164,5 @@ export const MainMenu = styled(translate()(({t, className}) =>
         padding: 0 1em;
         text-transform: uppercase;
     }
+*/
 `;

@@ -10,7 +10,7 @@ export const NavLink = styled.a`
 export const NavCategoryTitle = styled.h3`
     font-weight: bold;
     text-transform: uppercase;
-    margin-bottom: 1em;
+    margin: 1em 0;
 `;
 export const NavCategory = styled(props =>
     <div className={ props.className }>
@@ -27,12 +27,14 @@ export const NavCategory = styled(props =>
 `;
 export const SocialIcon = styled.li`
     display: inline;
-    color: ${ styles.colors.athens };
     margin: 0 .25em;
+/*
+    color: ${ styles.colors.athens };
     &:hover {
         color: ${ styles.colors.midgrey };
         transition: color .2s linear;
     }
+*/
 `;
 export const SocialIcons = styled(props =>
     <ul className={ props.className }>
@@ -43,12 +45,14 @@ export const SocialIcons = styled(props =>
     }
     </ul>
 )`
+
+/*
     & > ${ SocialIcon } > a {
         font-size: 1.5em;
         letter-spacing: 8px;
     }
+*/
 `;
-//TODO: media queries
 export const FooterBranding = styled(props =>
     <div className={ props.className }>
         <img src={ props.logo } />
@@ -56,9 +60,10 @@ export const FooterBranding = styled(props =>
         <SocialIcons networks={ props.socialLinks } />
     </div>
 )`
+    text-align: center;
     & img {
         display: block;
-        margin-bottom: 1em;
+        margin: 1em auto;
         width: 10em;
     }
     & small {
@@ -66,18 +71,24 @@ export const FooterBranding = styled(props =>
         font-size: .8em;
         max-width: 15em;
         font-style: italic;
+        margin: 0 auto;
         margin-bottom: 1em;
+    }
+    & ${ SocialIcons } {
+        font-size: 120%;
     }
 `;
 export const FooterNav = styled.nav`
+/*
     display: grid;
     grid-template-columns: repeat(2, 50%);
+*/
 `;
 export const PageFooter = styled.footer`
+    padding: 1em;
+/*
     display: grid;
     grid-template-columns: [logo] 50% [sitemap] 50%;
     padding: 30px 50px;
-    @media ${ styles.media.tablet } {
-        grid-template-columns: [logo] 30% [sitemap] 70%;
-    }
+*/
 `;

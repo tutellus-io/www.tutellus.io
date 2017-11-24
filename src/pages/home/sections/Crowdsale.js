@@ -11,7 +11,6 @@ import {
     LinkButton,
     AButton,
 } from '../../../components';
-import styled from 'styled-components';
 
 export const CrowdsaleCTA = ({href = "", children}) =>
     <CenteredBlock>

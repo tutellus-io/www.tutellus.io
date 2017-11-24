@@ -8,15 +8,15 @@ import styles from '../styles';
 const {padding, border, margin, colors} = styles;
 const {clearfix} = styles.helpers;
 
-/*::
-type MilestoneAttrs = {
-    className: string,
-    title: string,
-    date: moment$Moment,
-    children?: React.Node,
-}
-*/
-export const Milestone = styled((props/*: MilestoneAttrs */)/*: React.Node */=>
+const milestone_marker =  props => `
+    content: ' ';
+    display: block;
+    padding: 1em;
+    border-radius: 50%;
+    border: solid 2px ${ styles.colors.lightblue };
+    background: ${ props.done ? styles.colors.lightblue : 'white' };
+`
+export const Milestone = styled(props =>
     <li className={ props.className }>
         <div>
             <time dateTime={ moment(props.date).format('YYYY-MM-DD') }>{ moment(props.date).format('MMM YY') }</time>
@@ -59,13 +59,7 @@ export const Milestone = styled((props/*: MilestoneAttrs */)/*: React.Node */=>
         min-height: 12em;
     }
     &:after {
-        /* milestone marker */
-        content: ' ';
-        display: block;
-        padding: 1em;
-        border-radius: 50%;
-        border: solid 2px ${ styles.colors.lightblue };
-        background: ${ props => props.done ? styles.colors.lightblue : 'white' };
+        ${ milestone_marker }
     }
     &:nth-child(even) {
         position: relative;
@@ -113,10 +107,6 @@ export const Milestone = styled((props/*: MilestoneAttrs */)/*: React.Node */=>
     }
 `;
 export const Roadmap = styled.ol`
-/*
-    display: block;
-    ${ clearfix }
-*/
     display: grid;
     grid-template-columns: repeat(2, 50%);
     padding-top: 2em;

@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 export const Layers = styled.div`
-    max-width: 80%;
+    max-width: 90%;
     margin: 0 auto;
     font-size: 1.25em;
     margin-bottom: 2em;
@@ -22,4 +22,3 @@ export const TechIcon = styled.img`
         bottom: .3em;
     }
 `;
-

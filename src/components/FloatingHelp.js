@@ -5,6 +5,7 @@ import {social_links} from '../config';
 export const FloatingHelp = styled(props =>
     <a className={ props.className } href={ social_links.telegram } />
 )`
+/*
     position: fixed;
     z-index: 3;
     bottom: 0;
@@ -17,4 +18,5 @@ export const FloatingHelp = styled(props =>
         height: 5em;
         margin: 1em;
     }
+    */
 `;

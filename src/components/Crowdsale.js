@@ -2,9 +2,39 @@
 import React from 'react';
 import styled from 'styled-components';
 import styles from '../styles';
-const {colors} = styles;
 
+const bullets = `
+    content: '';
+    display: inline-block;
+    border: solid .5em transparent;
+    border-left: solid .5em ${ styles.colors.lightblue };
+    position: relative;
+    top: .125em;
+`;
 export const CrowdsaleSummary = styled.table`
+    width: 100%;
+    margin-bottom: 2em;
+    & tr {
+        color: black;
+        line-height: 2.5em;
+        &.secondary td:nth-child(1):before {
+            ${ bullets }
+            margin-left: .5em;
+        }
+        &:nth-child(odd) {
+            background-color: ${ styles.colors.athens };
+        }
+        &:nth-child(even) {
+            background-color: white;
+        }
+        & td:first-child {
+            padding-left: .25em;
+        }
+        & td:last-child {
+            font-weight: bold;
+        }
+    }
+/*
     width: 100%;
     margin: 0 15px;
     padding: 0 15px;
@@ -17,44 +47,48 @@ export const CrowdsaleSummary = styled.table`
             margin-left: 4em;
         }
         &:nth-child(odd) {
-            background-color: ${ colors.athens };
+            background-color: ${ styles.colors.athens };
         }
         &:nth-child(even) {
             background-color: white;
         }
     }
     & td:before {
-        /*TODO: definir como helper "bullets" (copiado de DistributionTable)*/
+        /*TODO: definir como helper "bullets" (copiado de DistributionTable)*//*
         content: '';
         display: inline-block;
         border: solid .5em transparent;
-        border-left: solid .5em ${ colors.lightblue };
+        border-left: solid .5em ${ styles.colors.lightblue };
         position: relative;
         top: .125em;
-        /* esto ya no es bullets */
+        /* esto ya no es bullets *//*
         margin-left: 2em;
         margin-right: .5em;
     }
-    & td:first-child {
-        width: 50%;
-        @media ${ styles.media.tablet } {
-            width: 40%;
-        }
-    }
-    & td:last-child {
-        font-weight: bold;
-    }
+*/
 `;
 export const CrowdsalePurpose = styled.div`
+/*
     margin-bottom: 1em;
     display: grid;
     grid-template-columns: repeat(2, 50%);
     grid-column-gap: 10%;
+*/
+`;
+const DistributionGraph = styled.img`
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 1em;
+`
+const DistributionTableTitle = styled.h4`
+    text-align: center;
+    margin-bottom: 1em;
 `;
 export const DistributionTable = styled(props =>
     <div className={ props.className } >
-        <img src={ props.graph } width="100%" />
-        <h4>{ props.title }</h4>
+        <DistributionGraph src={ props.graph } />
+        <DistributionTableTitle>{ props.title }</DistributionTableTitle>
         <table>
             <tbody>{ props.stats.map((stat, i) =>
                 <tr key={ i }>
@@ -65,6 +99,23 @@ export const DistributionTable = styled(props =>
         </table>
     </div>
 )`
+    & > table {
+        margin-bottom: 2em;
+        font-size: .8em;
+        & tr {
+            line-height: 1.5em;
+        }
+        & td:nth-child(2):before {
+            content: '';
+            display: inline-block;
+            border: solid .5em transparent;
+            border-left: solid .5em ${ styles.colors.lightblue };
+            position: relative;
+            top: .125em;
+            margin-left: .5em;
+        }
+    }
+/*
     display: grid;
     grid-template-columns: 30% 70%;
     grid-template-rows: 2em auto;
@@ -82,23 +133,6 @@ export const DistributionTable = styled(props =>
     & > h4 {
         grid-area: table;
     }
-    & > table {
-        grid-area: table;
-        grid-row-start: 2;
-        align-self: start;
-        font-size: .8em;
-        & tr {
-            line-height: 1.5em;
-        }
-        & td:nth-child(2):before {
-            content: '';
-            display: inline-block;
-            border: solid .5em transparent;
-            border-left: solid .5em ${ colors.lightblue };
-            position: relative;
-            top: .125em;
-            margin-left: .5em;
-        }
-    }
+*/
 `;
 

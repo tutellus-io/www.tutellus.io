@@ -5,6 +5,7 @@ import styles from '../styles';
 const {margin, colors} = styles;
 
 const Overlay = styled.div`
+/*
     position: fixed;
     top: 0;
     left: 0;
@@ -16,6 +17,7 @@ const Overlay = styled.div`
         z-index: 999;
         opacity: 1;
     }
+*/
 `
 export const PlayButton = styled(class extends React.Component {
     constructor() {
@@ -49,11 +51,6 @@ export const PlayButton = styled(class extends React.Component {
         );
     }
 })`
-    position: absolute;
-    top: -128px;
-    left: 0;
-    width: 100%;
-    height: 100%;
     & > button {
         display: block;
         width: 100px;
@@ -61,9 +58,6 @@ export const PlayButton = styled(class extends React.Component {
         border: none;
         margin: 0 auto;
         padding: 0;
-        position: relative;
-        top: 32em;
-        /*TODO: s3*/
         background: url(https://www.tutellus.com/dist/images/play-button-overlay.svg);
         cursor: pointer;
         transition: all 0.2s linear;
@@ -75,6 +69,12 @@ export const PlayButton = styled(class extends React.Component {
             top: 28em;
         }
     }
+/*
+    position: absolute;
+    top: -128px;
+    left: 0;
+    width: 100%;
+    height: 100%;
     & iframe {
         position:fixed;
         top: 25%;
@@ -82,11 +82,13 @@ export const PlayButton = styled(class extends React.Component {
         width: 50%;
         height: 50%;
     }
+*/
 `;
 const colorCTAButton = (props/*: {primary: bool} */) => (
     props.primary ? colors.emerald : colors.lightblue
 );
 export const CTAButton = styled.button`
+/*
     background-color: ${ colorCTAButton };
     color: ${ colors.white };
     display: block;
@@ -122,4 +124,5 @@ export const CTAButton = styled.button`
             background: ${ `url(${ props.icon })` } center center no-repeat;
         }
     ` }
+*/
 `;

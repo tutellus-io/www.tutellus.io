@@ -4,16 +4,28 @@ import styled from 'styled-components';
 import {SectionContent} from './PageSection';
 import {SocialIcons, SocialIcon} from './Footer';
 import styles from '../styles';
-const {margin, padding, border, colors} = styles;
 
 const childrenAsColumns = props => {
     const children_count = React.Children.count(props.children);
     return `repeat(${ children_count }, ${ 100 / children_count }%)`;
 }
-export const Team = styled.div`
-    display: grid;
-    grid-template-columns: ${ childrenAsColumns };
-    grid-column-gap: 10px;
+const TeamMemberAvatar = styled.img`
+    display: block;
+    max-width: 80%;
+    margin: 0 auto;
+    margin-bottom: 1em;
+    border-radius: 50%;
+`;
+const TeamMemberName = styled.span`
+    display: block;
+    margin-bottom: 1em;
+	color: ${ styles.colors.darkblack };
+    font-weight: bold;
+`;
+const TeamMemberTitle = styled.i`
+	color: ${ styles.colors.lightblue };
+	display: inline-block;
+	margin-bottom: 1em;
 `;
 export const TeamMember = styled(props =>
     <div className={ props.className }>
@@ -28,12 +40,29 @@ export const TeamMember = styled(props =>
         }
     </div>
 )`
+    padding: 1em;
+	border-radius: ${ styles.border.radius.small };
+	background-color: ${ styles.colors.grey };
 	text-align: center;
+
+    & p {
+        font-size: 0.8em;
+        line-height: 1.5em;
+        font-style: italic;
+    }
+    & ${ SocialIcons } {
+        margin-top: 1em;
+        font-size: 1.2em;
+        & > ${ SocialIcon } {
+            color: ${ styles.colors.darkblack };
+        }
+    }
+/*
 	padding: 15px;
-	background-color: ${ colors.grey };
-	border-radius: ${ border.radius.small };
-	margin-bottom: ${ margin.small };
-	color: ${ colors.softblack };
+	background-color: ${ styles.colors.grey };
+	border-radius: ${ styles.border.radius.small };
+	margin-bottom: ${ styles.margin.small };
+	color: ${ styles.colors.softblack };
     font-size: 1em;
     & ${ TeamMemberName } {
         font-size: 1.2em;
@@ -41,37 +70,16 @@ export const TeamMember = styled(props =>
     & ${ TeamMemberTitle } {
         font-size: 1em;
     }
-    & p {
-        font-size: 0.8em;
-        line-height: 1.5em;
-        font-style: italic;
+    */
+`;
+export const Team = styled.div`
+    margin: 1em;
+    & ${ TeamMember } {
+        margin-bottom: 1em;
     }
-    & ${ SocialIcons } {
-        font-size: 0.6em;
-        margin-top: 1em;
-        & > ${ SocialIcon } {
-            color: ${ colors.darkblack };
-        }
-    }
-`;
-export const TeamMemberAvatar = styled.img`
-    width: 80%;
-    border-radius: 50%;
-    margin-bottom: 15px;
-	display: inline-block;
-`;
-const title_style = `
-	text-rendering: optimizelegibility;
-	color: ${ colors.darkblack };
-    font-weight: bold;
-    display: block;
-`;
-export const TeamMemberName = styled.span`
-	${ title_style }
-	margin-bottom: ${ margin.small }
-`;
-export const TeamMemberTitle = styled.i`
-	color: ${ colors.lightblue };
-	display: inline-block;
-	margin-bottom: ${ margin.small };
+/*
+    display: grid;
+    grid-template-columns: ${ childrenAsColumns };
+    grid-column-gap: 10px;
+    */
 `;

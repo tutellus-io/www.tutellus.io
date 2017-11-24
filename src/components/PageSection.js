@@ -11,28 +11,42 @@ import styles from '../styles';
 const {margin, colors} = styles;
 
 export const PageContent = styled.div`
+/*
     margin-top: 84px;
+*/
 `;
 
 export const ColumnCenter = styled.div`
+/*
     width: 450px;
     margin: 0 auto;
+    */
 `;
 
 export const SectionContent = styled.div`
+/*
     max-width: ${ MAX_CONTENT_WIDTH }px;
     width: 80%;
     margin: 0 auto;
+    */
 `;
 
-const PAGE_SECTION_VERTICAL_PADDING = 40;
-//TODO: el video necesita un poster
+const colorSectionBackground = R.cond([
+    [R.has('dark'), R.always(colors.darkblue)],
+    [R.has('light'), R.always(colors.athens)],
+    [R.T, R.always(colors.white)],
+]);
+const section_styles = `
+    padding: 1em;
+`;
 export const PageBanner = styled(props =>
     <section id={ props.id } className={ props.className }>
         <div>
+        { /*
             <video preload="true" mute="true" autoPlay="true" loop="true" playsInline="true" poster={ `${ props.backgroundVideo }.jpg` }>
                 <source src={ props.backgroundVideo } />
             </video>
+            */ }
             <SectionContent>
                 { props.title &&
                 <PageTitle>{ props.title }</PageTitle>
@@ -42,7 +56,14 @@ export const PageBanner = styled(props =>
         </div>
     </section>
 )`
-    /*https://www.imi21.com/background-video.php*/
+    ${ section_styles }
+    background: ${ colorSectionBackground };
+    margin-top: ${ TOP_HEADER_HEIGHT.SMALL }px;
+    padding-top: 1em;
+    background: url(${ props => `${ props.backgroundVideo }.jpg` }) no-repeat;
+    color: white;
+/*
+    /*https://www.imi21.com/background-video.php*//*
     width: 100%;
     position: relative;
     max-height: 500px;
@@ -64,23 +85,11 @@ export const PageBanner = styled(props =>
             top: ${ TOP_HEADER_HEIGHT }px;
         }
     }
-    @media ${ styles.media.tablet } {
-        font-size: .7em;
-    }
+*/
 `;
 
-const colorSectionBackground = R.cond([
-    [R.has('dark'), R.always(colors.darkblue)],
-    [R.has('light'), R.always(colors.athens)],
-    [R.T, R.always(colors.white)],
-]);
-export const InterstitialImage = styled.img`
-    display: block;
-    margin: 0 auto;
-    margin-top: -${ 4 * PAGE_SECTION_VERTICAL_PADDING }px;
-    margin-bottom: 40px;
-    height: ${ 3 * PAGE_SECTION_VERTICAL_PADDING }px;
-`;
+export const InterstitialImage = styled.img``;
+
 const colorSectionForeground = R.cond([
     [R.has('dark'), R.always(colors.athens)],
     [R.T, R.always('inherit')],
@@ -94,34 +103,38 @@ export const centeredObject = width => `
     margin-left: -${ width / 2 }px;
     width: ${ width }px;
 `;
-const TITLE_UNDERLINE_WIDTH = 100;
+const TITLE_UNDERLINE_WIDTH = 5;//em
 export const SectionTitle = styled.h2`
-    font-size: 2.3em;
+    margin-bottom: 1em;
+    font-size: 1.5em;
     line-height: 1.25em;
-    text-transform: uppercase;
-    font-weight: 300;
-    margin-bottom: 40px;
     text-align: center;
-
-    ${ props =>
-        props.simple || `
-            &:after {
-                background: url('/images/underlined.svg') no-repeat;
-                content: "";
-                width: ${ TITLE_UNDERLINE_WIDTH }px;
-                display: block;
-                height: 15px;
-                position: relative;
-                top: 20px;
-                left: calc(50% - ${ TITLE_UNDERLINE_WIDTH / 2 }px);
-            }`
-}
+    text-transform: uppercase;
 
     & em {
         display: block;
         font-size: 1.2em;
-        line-height: 1.5em;
     }
+
+    ${ props =>
+        props.simple || `
+            &:after {
+                content: "";
+                background: url('/images/underlined.svg') no-repeat;
+                display: block;
+                position: relative;
+                top: .5em;
+                height: 1em;
+                width: ${ TITLE_UNDERLINE_WIDTH }em;
+                left: calc(50% - ${ TITLE_UNDERLINE_WIDTH / 2 }em);
+            }`
+    }
+
+`;
+export const SectionImage = styled(CenteredImage)`
+/*
+    margin-bottom: ${ margin.medium };
+*/
 `;
 
 export const PageSection = styled(props =>
@@ -140,20 +153,24 @@ export const PageSection = styled(props =>
         </SectionContent>
     </section>
 )`
+    ${ section_styles }
     background: ${ colorSectionBackground };
     color: ${ colorSectionForeground };
-    padding: ${ PAGE_SECTION_VERTICAL_PADDING }px 0;
+
+    & ${ InterstitialImage } {
+        width: 100%;
+        margin-top: -3.5em;
+        margin-bottom: 1.5em;
+    }
     ${ props => props.interstitialImage && `
-        padding-top: ${ 3 * PAGE_SECTION_VERTICAL_PADDING }px;
+        /* make room for the image */
+        margin-top: 2em;
     ` }
-    @media ${ styles.media.tablet } {
-        font-size: .8em;
+    & ${ SectionImage } {
+        max-width: 100%;
     }
 `;
 export const PageTitle = SectionTitle.withComponent('h1');
-export const SectionImage = styled(CenteredImage)`
-    margin-bottom: ${ margin.medium };
-`;
 export const PageSubtitle = styled(Text)`
-    font-size: 1.25em;
+    text-shadow: 1px 1px 1px black;
 `

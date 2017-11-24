@@ -10,6 +10,11 @@ const helpers = {
         }
     `,
 };
+const media = {
+    tablet: '(min-width: 32em)',
+    laptop: '(min-width: 48em)',
+    desktop: '(min-width: 64em)',
+};
 
 const colors = {
     athens: '#E6E6E6',
@@ -140,11 +145,15 @@ export const styles = {
         }
         * {
             box-sizing: border-box;
+            text-rendering: optimizelegibility;
         }
         body {
             font-size: 18px;
             background-color: ${ colors.white };
             color: ${ colors.softblack };
+        }
+        main {
+            overflow: hidden;
         }
         a {
             color: inherit;
@@ -160,10 +169,7 @@ export const styles = {
         }
     `,
     helpers,
-    media: {
-        tablet: '(max-width: 48em)',
-        laptop: '(max-width: 64em)',
-    },
+    media,
 };
 
 export default styles;

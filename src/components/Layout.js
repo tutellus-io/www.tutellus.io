@@ -9,10 +9,12 @@ const {clearfix} = styles.helpers;
 
 export const MAX_CONTENT_WIDTH = 1140;
 export const CenteredBlock = styled.div`
+/*
     display: flex;
     justify-content: center;
     max-width: ${ MAX_CONTENT_WIDTH / 2 }px;
     margin: 0 auto;
+*/
 `;
 const alignText = R.cond([
     [R.has('center'), R.always('center')],
@@ -20,19 +22,21 @@ const alignText = R.cond([
     [R.T, R.always('left')],
 ]);
 export const Text = styled.p`
-    font-size: 1em;
-    line-height: 1.5em;
     margin-bottom: 1.5em;
-    text-align: ${ alignText }
+    text-align: ${ alignText };
+    line-height: 1.5em;
 `;
 export const Row = styled.div`
+/*
     ${ clearfix }
+*/
 `;
 /*:: type fraction = number */
 const stretchColumnWidth = props/*: string */=>
     `${ (props.size * 100) - 2 }%`;
 
 export const Col = styled.div`
+/*
     float: left;
     width: ${ stretchColumnWidth };
 	margin-right: 1%;
@@ -48,6 +52,7 @@ export const Col = styled.div`
     &:last-of-type:after {
         clear: both;
     }
+*/
 `;
 
 /*::
@@ -65,8 +70,21 @@ export const Quote = styled(props/*: React.Node */=>
         <small>{ props.cite }</small>
     </blockquote>
 )`
-    position: relative;
+    margin-bottom: 1em;
+    font-size: 1.5em;
+    line-height: 1.5em;
+    color: ${ styles.colors.darkblack };
     font-style: italic;
+    text-align: center;
+    & > small {
+        display: inline-block;
+        margin-top: .5em;
+        width: 100%;
+        font-size: .7em;
+        color: ${ colors.darkgrey };
+    }
+/*
+    position: relative;
     display: block;
     line-height: 2em;
     font-size: 2em;
@@ -82,4 +100,5 @@ export const Quote = styled(props/*: React.Node */=>
         color: ${ colors.darkgrey };
         position: relative;
     }
+*/
 `;
