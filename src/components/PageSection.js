@@ -187,7 +187,9 @@ export const PageSection = styled(props =>
         margin-top: 2em;
     ` }
     & ${ SectionImage } {
+        display: block;
         max-width: 100%;
+        margin: 0 auto;
     }
 
     @media ${ styles.media.laptop } {
