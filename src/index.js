@@ -6,13 +6,14 @@ import registerServiceWorker from './registerServiceWorker';
 import Master from './Master';
 
 const db = firebase.initializeApp({
-    apiKey: "AIzaSyADJxoagH6SeCzyBLan77tgUgjR9FiJSb8",
-    authDomain: "tutellus-ico-development.firebaseapp.com",
-    databaseURL: "https://tutellus-ico-development.firebaseio.com",
-    projectId: "tutellus-ico-development",
-    storageBucket: "tutellus-ico-development.appspot.com",
-    messagingSenderId: "430987029164",
+    apiKey: "AIzaSyB5KQp2UxY88zzPCBQfqwlE83xBuduArJ8",
+    authDomain: "tutellus-ico-production.firebaseapp.com",
+    databaseURL: "https://tutellus-ico-production.firebaseio.com",
+    projectId: "tutellus-ico-production",
+    storageBucket: "tutellus-ico-production.appspot.com",
+    messagingSenderId: "732584545649",
 });
+
 
 ReactDOM.render(<Master db={db}/>, document.getElementById('root'));
 registerServiceWorker();
