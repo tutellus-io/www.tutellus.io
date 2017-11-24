@@ -1,8 +1,12 @@
 //@flow
 import React from 'react';
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 import styles from '../styles';
+import {bounceIn} from 'react-animations';
+
 const {margin, colors} = styles;
+
+const animation = keyframes`${ bounceIn }`;
 
 const Overlay = styled.div`
 /*
@@ -18,7 +22,7 @@ const Overlay = styled.div`
         opacity: 1;
     }
 */
-`
+`;
 export const PlayButton = styled(class extends React.Component {
     constructor() {
         super();
@@ -39,18 +43,18 @@ export const PlayButton = styled(class extends React.Component {
     render() {
         const props = this.props;
         return (
-        <div className={ props.className }>
-        { this.state.playing ?
-            <Overlay onClick={ this.stop }>
+            <div className={ props.className }>
+                { this.state.playing
+                    ? <Overlay onClick={ this.stop }>
     -            <iframe src={ `${ props.video }?autoplay=1&loop=1` } frameBorder="0" allowFullScreen="allowfullscreen" />
-            </Overlay>
-            :
-            <button onClick={ this.play } />
-        }
-        </div>
+                    </Overlay>
+                    : <button onClick={ this.play } />
+                }
+            </div>
         );
     }
 })`
+    animation: 3s ${ animation } 0s infinite;
     & > button {
         display: block;
         width: 100px;
@@ -84,7 +88,7 @@ export const PlayButton = styled(class extends React.Component {
     }
 */
 `;
-const colorCTAButton = (props/*: {primary: bool} */) => (
+const colorCTAButton = props => (
     props.primary ? colors.emerald : colors.lightblue
 );
 export const CTAButton = styled.button`
