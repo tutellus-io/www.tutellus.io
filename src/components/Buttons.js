@@ -53,7 +53,6 @@ export const PlayButton = styled(class extends React.Component {
         );
     }
 })`
-    animation: 3s ${ animation } 0s infinite;
     & > button {
         display: block;
         width: 100px;
@@ -64,6 +63,8 @@ export const PlayButton = styled(class extends React.Component {
         background: url(https://www.tutellus.com/dist/images/play-button-overlay.svg);
         cursor: pointer;
         transition: all 0.2s linear;
+        animation: 3s ${ animation } 0s infinite;
+        animation-direction: alternate;
 
         &:hover {
             opacity: .5;
