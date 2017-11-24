@@ -19,6 +19,7 @@
     "react": "^16.0.0",
     "react-alert": "^2.4.0",
     "react-dom": "^16.0.0",
+    "react-ga": "^2.3.5",
     "react-i18next": "^6.1.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.14",

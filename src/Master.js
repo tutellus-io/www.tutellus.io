@@ -5,9 +5,10 @@ import AlertContainer from 'react-alert';
 import {translate} from 'react-i18next';
 
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import withTracker from './withTracker';
 
 import {Home, Signup, Management, Login, Dashboard, NoMatch} from './pages';
-import {TopHeader, MainMenu, SecondaryMenu} from './components';
+import {TopHeader, SecondaryMenu} from './components';
 
 import './i18n';
 import {social_links} from './config';
@@ -31,19 +32,19 @@ const WithHeaderLayout = header_props =>
     <div>
         <SimpleHeader/>
         <Switch>
-            <Route exact path='/signup' component={props =>
+            <Route exact path='/signup' component={withTracker(props =>
                 <Signup {...props} {...header_props}/>
-            }/>
-            <Route exact path='/management' component={props =>
+            )}/>
+            <Route exact path='/management' component={withTracker(props =>
                 <Management {...props} {...header_props}/>
-            }/>
-            <Route exact path='/dashboard' component={props =>
+            )}/>
+            <Route exact path='/dashboard' component={withTracker(props =>
                 <Dashboard {...props} {...header_props}/>
-            }/>
-            <Route exact path='/login' component={props =>
+            )}/>
+            <Route exact path='/login' component={withTracker(props =>
                 <Login {...props} {...header_props}/>
-            }/>
-            <Route path='/404' component={NoMatch}/>
+            )}/>
+            <Route path='/404' component={withTracker(NoMatch)}/>
             <Route component={NoMatch}/>
         </Switch>
     </div>;
@@ -87,7 +88,7 @@ class Master extends React.Component {
                 <BrowserRouter>
                     <div>
                         <Switch>
-                            <Route exact path='/' component={ Home }/>
+                            <Route exact path='/' component={ withTracker(Home) }/>
                             <Route component={ props =>
                                 <WithHeaderLayout {...props} {...all_props}/>
                             } />
