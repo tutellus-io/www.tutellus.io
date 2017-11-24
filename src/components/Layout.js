@@ -9,12 +9,10 @@ const {clearfix} = styles.helpers;
 
 export const MAX_CONTENT_WIDTH = 1140;
 export const CenteredBlock = styled.div`
-/*
     display: flex;
     justify-content: center;
     max-width: ${ MAX_CONTENT_WIDTH / 2 }px;
     margin: 0 auto;
-*/
 `;
 const alignText = R.cond([
     [R.has('center'), R.always('center')],

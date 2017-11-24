@@ -5,8 +5,8 @@ import {
     PageSection,
     Text,
     SectionImage,
+    CrowdsaleCTA,
 } from '../../../components';
-import {CrowdsaleCTA} from './Crowdsale';
 
 export const HowItWorks = translate('how_it_works')(({t, id}) =>
     <PageSection id={ id } dark title={ t('title') } >

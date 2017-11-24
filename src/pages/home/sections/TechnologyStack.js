@@ -7,8 +7,8 @@ import {
     Layers,
     Layer,
     TechIcon,
+    CrowdsaleCTA,
 } from '../../../components';
-import {CrowdsaleCTA} from './Crowdsale';
 
 export const TechnologyStack = translate('technology_stack')(({t, id}) =>
     <PageSection id={ id } light title={ t('title') }>

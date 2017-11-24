@@ -77,8 +77,21 @@ export const FooterBranding = styled(props =>
     & ${ SocialIcons } {
         font-size: 120%;
     }
+    @media ${ styles.media.laptop } {
+        text-align: left;
+        & img {
+            margin-left: 0;
+        }
+        & small {
+            margin-left: 0;
+        }
+    }
 `;
 export const FooterNav = styled.nav`
+    @media ${ styles.media.tablet } {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
 /*
     display: grid;
     grid-template-columns: repeat(2, 50%);
@@ -86,6 +99,11 @@ export const FooterNav = styled.nav`
 `;
 export const PageFooter = styled.footer`
     padding: 1em;
+    @media ${ styles.media.laptop } {
+        display: grid;
+        grid: "logo nav" / 1fr 1fr;
+        padding: 1em 2em;
+    }
 /*
     display: grid;
     grid-template-columns: [logo] 50% [sitemap] 50%;

@@ -11,6 +11,16 @@ const {clearfix} = styles.helpers;
 
 export const Features = styled.ul`
     margin-top: 1em;
+
+    @media ${ styles.media.tablet } {
+        display: grid;
+        grid-template-columns: repeat(4, 25%);
+        font-size: .9em;
+        justify-items: start;
+    }
+    @media ${ styles.media.laptop } {
+        font-size: 1.2em;
+    }
 /*
     ${ clearfix }
 	margin-top: 10px;

@@ -5,7 +5,7 @@ import {translate} from 'react-i18next';
 import SmoothScroll from 'react-scroll';
 
 import {SocialIcons, SocialIcon} from './Footer';
-import {CTAButton} from './Buttons';
+import {LinkButton} from './';
 import styles from '../styles';
 
 export const TOP_HEADER_HEIGHT = {
@@ -24,7 +24,58 @@ const HeaderLogo = styled(props =>
         <img src={ props.logo } alt={ props.title } />
     </a>
 )`
+    display: block;
+    max-width: 7em;
 `
+const Link = styled(props =>
+    <SmoothScroll.Link { ...props } spy={ true } smooth={ true } activeClass="active" offset={ -TOP_HEADER_HEIGHT.SMALL }>
+    { props.children }
+    </SmoothScroll.Link>
+)`
+    cursor: pointer;
+    transition: color .2s linear;
+    &:hover {
+        color: ${ styles.colors.midgrey };
+    }
+    &.active {
+        color: ${ styles.colors.lightblue };
+    }
+`
+export const MainMenu = styled(translate()(({t, className}) =>
+    <nav className={ className }>
+        <ul>
+            <li><Link to="howitworks">{ t('Whitepaper') }</Link></li>
+            <li><Link to="platform">{ t('Platform') }</Link></li>
+            <li><Link to="team">{ t('the_team:title') }</Link></li>
+            <li><Link to="crowdsale">{ t('crowdsale:title') }</Link></li>
+        </ul>
+    </nav>
+))`
+    display: none;
+
+    @media ${ styles.media.tablet } {
+        display: block;
+        margin-left: .5em;
+
+        & li {
+            display: inline-block;
+            font-size: .5em;
+            font-weight: normal;
+            padding: 0 .5em;
+            text-transform: uppercase;
+            & ${ Link } {
+                display: block;
+                margin-top: -1.5em;
+            }
+        }
+    }
+    @media ${ styles.media.laptop } {
+        font-size: 1.25em;
+        & li {
+            padding: 0 1em;
+        }
+    }
+`;
 
 export const TopHeader = styled(props =>
     <header className={ props.className }>
@@ -47,12 +98,35 @@ export const TopHeader = styled(props =>
     transition: all .5s linear;
 
     & > ${ HeaderLogo } {
-        display: block;
         grid-area: logo;
-        max-width: 8em;
+    }
+    $ > ${ MainMenu } {
+        grid-area: main-menu;
     }
     & > ${ SecondaryMenu } {
         grid-area: secondary-menu;
+    }
+
+    @media ${ styles.media.tablet } {
+        height: ${ TOP_HEADER_HEIGHT.BIG }px;
+        background: linear-gradient(black, transparent);
+        grid: "logo main-menu secondary-menu" / 10% 50% 40%;
+
+        ${ props => props.small && small_header_styles }
+
+    }
+    @media ${ styles.media.laptop } {
+        padding: 0 2em;
+        grid: "logo . main-menu . secondary-menu" / 15% 55% 30%;
+        & > ${ HeaderLogo } {
+            grid-area: logo;
+        }
+        $ > ${ MainMenu } {
+            grid-area: main-menu;
+        }
+        & > ${ SecondaryMenu } {
+            grid-area: secondary-menu;
+        }
     }
 /*
 
@@ -63,7 +137,6 @@ export const TopHeader = styled(props =>
         grid-template-areas: "logo . main-menu . secondary-menu";
         grid-template-columns: 0% 0% 70% 0% 30%;
 
-        ${ props => props.small && small_header_styles }
     }
     @media ${ styles.media.laptop } {
         grid-template-columns: 10% 0% 50% 0% 40%;
@@ -83,86 +156,65 @@ const LangSelect = styled(props =>
     appearance: none;
     background: transparent;
     border: none;
-/*
-    background: transparent;
-    color: white;
     text-transform: uppercase;
-    */
+    color: white;
 `;
 
 export const SecondaryMenu = styled(props =>
     <div className={ props.className }>
         <SocialIcons networks={ props.socialLinks } />
-        <CTAButton>Whitelist</CTAButton>
+        <LinkButton to="/signup">Whitelist</LinkButton>
         <LangSelect onLanguage={ props.onLanguage } locale={ props.locale } />
     </div>
 )`
     display: grid;
     grid: "social lang-select" / 3fr 1fr;
+    align-items: center;
     justify-items: end;
-    & ${ SocialIcons } {
+    & > ${ SocialIcons } {
         grid-area: social;
     }
 
-    & ${ CTAButton } {
+    & > ${ LinkButton } {
         display: none;
-    /*
-        grid-area: cta;
-        padding: 1em;
-        font-size: .8em;
-        background: transparent;
-        border: solid 1px white;
-        color: white;
-
-        &:hover {
-            background: white;
-            color: black;
-            transition: all .2s linear;
-        }
-    */
     }
-    & ${ LangSelect } {
+
+    & > ${ LangSelect } {
         grid-area: lang-select;
         color: white;
     }
-/*
-    */
-`;
-const Link = styled(props =>
-    <SmoothScroll.Link { ...props } spy={ true } smooth={ true } activeClass="active" offset={ TOP_HEADER_HEIGHT.SMALL }>
-    { props.children }
-    </SmoothScroll.Link>
-)`
-/*
-    cursor: pointer;
-    transition: color .2s linear;
-    &:hover {
-        color: ${ styles.colors.midgrey };
-    }
-    &.active {
-        color: ${ styles.colors.lightblue };
-    }
-    */
-`
-export const MainMenu = styled(translate()(({t, className}) =>
-    <nav className={ className }>
-        <ul>
-            <li><Link to="howitworks">{ t('Whitepaper') }</Link></li>
-            <li><Link to="platform">{ t('Platform') }</Link></li>
-            <li><Link to="team">{ t('the_team:title') }</Link></li>
-            <li><Link to="crowdsale">{ t('crowdsale:title') }</Link></li>
-        </ul>
-    </nav>
-))`
-/*
-    grid-area: main-menu;
 
-    & li {
-        display: inline;
-        line-height: 1.5em;
-        font-weight: normal;
-        padding: 0 1em;
-        text-transform: uppercase;
+    @media ${ styles.media.tablet } {
+        grid: "cta lang-select" / 3fr 1fr;
+        & > ${ SocialIcons } {
+            display: none;
+        }
+        & > ${ LinkButton } {
+            display: block;
+            grid-area: cta;
+            grid-area: cta;
+            padding: .5em;
+            font-size: .8em;
+            background: transparent;
+            border: solid 1px white;
+            color: white;
+
+            &:hover {
+                background: white;
+                color: black;
+                transition: all .2s linear;
+            }
+        }
     }
-*/
+    @media ${ styles.media.laptop } {
+        grid: "social cta lang-select" / 6fr 2fr 1fr;
+        & > ${ SocialIcons } {
+            display: block;
+        }
+        & > ${ LinkButton } {
+            margin: 0 1em;
+            font-size: .5em;
+            padding: 1em;
+        }
+    }
 `;

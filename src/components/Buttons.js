@@ -9,19 +9,18 @@ const {margin, colors} = styles;
 const animation = keyframes`${ bounceIn }`;
 
 const Overlay = styled.div`
-/*
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background: rgba(0,0,0,.8);
-    z-index: 998;
-    & * {
-        z-index: 999;
-        opacity: 1;
+    @media ${ styles.media.tablet} {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: rgba(0,0,0,.8);
+        z-index: 998;
+        & * {
+            z-index: 999;
+        }
     }
-*/
 `;
 export const PlayButton = styled(class extends React.Component {
     constructor() {
@@ -73,25 +72,32 @@ export const PlayButton = styled(class extends React.Component {
             top: 28em;
         }
     }
+    & iframe {
+        display: block;
+        margin: 0 auto;
+    }
+    @media ${ styles.media.tablet } {
+        & iframe {
+            position:fixed;
+            top: 25%;
+            left: 25%;
+            width: 50%;
+            height: 50%;
+        }
+    }
 /*
     position: absolute;
     top: -128px;
     left: 0;
     width: 100%;
     height: 100%;
-    & iframe {
-        position:fixed;
-        top: 25%;
-        left: 25%;
-        width: 50%;
-        height: 50%;
-    }
 */
 `;
 const colorCTAButton = props => (
     props.primary ? colors.emerald : colors.lightblue
 );
 export const CTAButton = styled.button`
+    text-transform: uppercase;
 /*
     background-color: ${ colorCTAButton };
     color: ${ colors.white };

@@ -2,6 +2,16 @@
 import React from 'react';
 import styled from 'styled-components';
 import styles from '../styles';
+import {CenteredBlock, AButton, LinkButton} from './';
+
+export const CrowdsaleCTA = ({href = "", children}) =>
+    <CenteredBlock>
+        {
+            (href.startsWith("http")
+                ? <AButton href={href} target="_blank" primary> { children }</AButton>
+                : <LinkButton to={href} primary>{ children }</LinkButton>)
+        }
+    </CenteredBlock>;
 
 const bullets = `
     content: '';
@@ -32,6 +42,20 @@ export const CrowdsaleSummary = styled.table`
         }
         & td:last-child {
             font-weight: bold;
+        }
+    }
+    @media ${ styles.media.laptop } {
+        & td {
+            &:before {
+                ${ bullets }
+                margin-left: 1em;
+            }
+            &.secondary:before {
+                margin-left: 2em;
+            }
+            &:first-child {
+                width: 60%;
+            }
         }
     }
 /*
@@ -68,12 +92,10 @@ export const CrowdsaleSummary = styled.table`
 */
 `;
 export const CrowdsalePurpose = styled.div`
-/*
-    margin-bottom: 1em;
-    display: grid;
-    grid-template-columns: repeat(2, 50%);
-    grid-column-gap: 10%;
-*/
+    @media ${ styles.media.tablet } {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
 `;
 const DistributionGraph = styled.img`
     display: block;
@@ -115,24 +137,29 @@ export const DistributionTable = styled(props =>
             margin-left: .5em;
         }
     }
-/*
-    display: grid;
-    grid-template-columns: 30% 70%;
-    grid-template-rows: 2em auto;
-    grid-template-areas: 'graph table';
-    grid-column-gap: 1em;
-    justify-items: left;
-    font-size: 1.25em;
-    margin-bottom: 2em;
-    & > img {
-        display: inline-block;
-        grid-area: graph;
-        grid-row-end: span 2;
-        justify-self: right;
+    @media ${ styles.media.laptop } {
+        display: grid;
+        grid: "graph title"
+              "graph table" / 30% 70%;
+        grid-column-gap: 1em;
+        justify-items: left;
+        font-size: 1.25em;
+        margin-bottom: 2em;
+
+        & > ${ DistributionGraph } {
+            display: inline-block;
+            grid-area: graph;
+        }
+        & > ${ DistributionTableTitle } {
+            grid-area: title;
+        }
+        & > table {
+            grid-area: table;
+        }
     }
-    & > h4 {
-        grid-area: table;
+    @media ${ styles.media.desktop } {
+        grid: "graph title"
+              "graph table" / 40% 60%;
     }
-*/
 `;
 

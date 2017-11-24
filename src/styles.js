@@ -11,9 +11,9 @@ const helpers = {
     `,
 };
 const media = {
-    tablet: '(min-width: 32em)',
-    laptop: '(min-width: 48em)',
-    desktop: '(min-width: 64em)',
+    tablet: '(min-width: 768px)',
+    laptop: '(min-width: 960px)',
+    desktop: '(min-width: 1140px)',
 };
 
 const colors = {

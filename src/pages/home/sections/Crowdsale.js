@@ -7,19 +7,8 @@ import {
     CrowdsalePurpose,
     DistributionTable,
     CrowdsaleSummary,
-    CenteredBlock,
-    LinkButton,
-    AButton,
+    CrowdsaleCTA,
 } from '../../../components';
-
-export const CrowdsaleCTA = ({href = "", children}) =>
-    <CenteredBlock>
-        {
-            (href.startsWith("http")
-                ? <AButton href={href} target="_blank" primary> { children }</AButton>
-                : <LinkButton to={href} primary>{ children }</LinkButton>)
-        }
-    </CenteredBlock>;
 
 export const Crowdsale = translate('crowdsale')(({t, id}) =>
     <PageSection id={ id } dark title={ t('title') }>

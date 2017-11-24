@@ -25,10 +25,8 @@ class WindowScroll extends React.Component {
 
 export const MainHeader = translate()(({i18n, socialLinks}) =>
     <WindowScroll>{ scroll =>
-        <TopHeader small={ scroll.y > TOP_HEADER_HEIGHT } logo="/images/white-logo.svg">
-        {/* TODO: responsive
+        <TopHeader small={ scroll.y > TOP_HEADER_HEIGHT.SMALL } logo="/images/white-logo.svg">
             <MainMenu />
-        */}
             <SecondaryMenu onLanguage={ lang => i18n.changeLanguage(lang) } socialLinks={ socialLinks } locale={ i18n.language } />
         </TopHeader>
     }</WindowScroll>

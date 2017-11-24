@@ -4,8 +4,8 @@ import {translate} from 'react-i18next';
 import {
     PageSection,
     Quote,
+    CrowdsaleCTA,
 } from '../../../components';
-import {CrowdsaleCTA} from './Crowdsale';
 
 export const PraiseQuotes = translate('quotes')(({id, t}) =>
     <PageSection id={ id } light>

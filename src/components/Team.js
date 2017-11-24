@@ -57,6 +57,39 @@ export const TeamMember = styled(props =>
             color: ${ styles.colors.darkblack };
         }
     }
+    @media ${ styles.media.tablet } {
+        font-size: 1.5em;
+        display: grid;
+        grid: "avatar name"
+              "avatar title"
+              "avatar bio"
+              "avatar social-icons"
+              / 50% 50%;
+        & > ${ TeamMemberAvatar } {
+            grid-area: avatar;
+        }
+        & > ${ TeamMemberName } {
+            grid-area: name;
+        }
+        & > ${ TeamMemberTitle } {
+            grid-area: title;
+        }
+        & > p {
+            grid-area: bio;
+        }
+        & > ${ SocialIcons } {
+            grid-area: social-icons;
+        }
+    }
+    @media ${ styles.media.laptop } {
+        display: block;
+        & > ${ TeamMemberAvatar } {
+            width: 7em;
+        }
+    }
+    @media ${ styles.media.dektop } {
+        font-size: 2em;
+    }
 /*
 	padding: 15px;
 	background-color: ${ styles.colors.grey };
@@ -76,6 +109,12 @@ export const Team = styled.div`
     margin: 1em;
     & ${ TeamMember } {
         margin-bottom: 1em;
+    }
+    @media ${ styles.media.laptop } {
+        display: grid;
+        grid-column-gap: .5em;
+        grid-auto-flow: column;
+        font-size: .5em;
     }
 /*
     display: grid;
