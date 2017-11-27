@@ -16,7 +16,7 @@ const media = {
     desktop: '(min-width: 1140px)',
 };
 
-const colors = {
+export const colors = {
     athens: '#E6E6E6',
     blacksea: '#3B4F58',
     bluegrey: '#CED3D9',
@@ -44,6 +44,10 @@ const colors = {
     twitter: '#00ADF0',
     watergrey: '#F7F9FA',
     white: '#FFFFFF',
+    settings: {
+        //Diferencia entre el color y el efecto :hover
+        hover_gap: 0.2, //eslint-disable-line no-magic-numbers
+    },
 };
 
 const fonts = `
