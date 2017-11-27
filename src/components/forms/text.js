@@ -1,7 +1,9 @@
 import React from 'react';
-import {has, omit} from 'lodash';
+import {negate, isEmpty, has, omit} from 'lodash';
 
 import {Input, Label, Field} from './styled';
+
+const nonEmpty = negate(isEmpty);
 
 export const TextField = (props) => {
     const {
@@ -14,7 +16,9 @@ export const TextField = (props) => {
     const has_error = has(form, `errors.${ field.name }`) && has(form, `touched.${ field.name }`);
     return (
         <Field className={ `${ className } ${ has_error ? 'error' : '' }` }>
+            { nonEmpty(label) &&
             <Label className="mbxs" {...label} >{ label.value }</Label>
+            }
             <Input {...field} {...rest} />
             {
                 has_error &&
