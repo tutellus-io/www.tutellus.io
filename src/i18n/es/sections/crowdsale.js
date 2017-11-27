@@ -26,7 +26,7 @@ export const crowdsale = {
     ico_bonus: 'Bonus de descuento',
     ico_bonus_value: '20 - 0%',
     total_supply: "Oferta total ",
-    total_supply_value: "1.000.000.000 TUT (no fija)",
+    total_supply_value: "100.000.000 TUT (no fija)",
     amount_for_sale: "Oferta para Token Sale",
     amount_for_sale_value: "60%",
     hard_cap: "Hard Cap",
