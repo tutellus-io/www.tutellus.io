@@ -8,14 +8,14 @@ import styles from '../styles';
 const {padding, border, margin, colors} = styles;
 const {clearfix} = styles.helpers;
 
-const milestone_marker =  props => `
+const milestone_marker = props => `
     content: ' ';
     display: block;
     padding: 1em;
     border-radius: 50%;
     border: solid 2px ${ styles.colors.lightblue };
     background: ${ props.done ? styles.colors.lightblue : 'white' };
-`
+`;
 export const Milestone = styled(props =>
     <li className={ props.className }>
         <div>

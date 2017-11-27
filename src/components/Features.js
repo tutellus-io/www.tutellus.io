@@ -26,7 +26,7 @@ export const Features = styled.ul`
 	margin-top: 10px;
 	margin-bottom: 10px;
 	padding: 10px;
-    ${ (props) => `
+    ${ props => `
         & > li {
             width: ${ 1 / React.Children.count(props.children) * 100 }%;
         }
@@ -34,8 +34,7 @@ export const Features = styled.ul`
 */
 `;
 export const FeatureTitle = styled.h4``;
-/*:: type FeatureAttrs = {image: string, title: string, children?: React.Node} */
-export const Feature = styled((props/*: FeatureAttrs */) =>
+export const Feature = styled(props =>
     <li { ...props }>
         <FeatureTitle>{ props.title }</FeatureTitle>
         { props.children }

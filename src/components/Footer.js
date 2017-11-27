@@ -15,13 +15,11 @@ export const NavCategoryTitle = styled.h3`
 export const NavCategory = styled(props =>
     <div className={ props.className }>
         <NavCategoryTitle>{ props.title }</NavCategoryTitle>
-        <ul>
-            {
-                React.Children.map(props.children, navlink =>
-                    <li>{ navlink }</li>
-                )
-            }
-        </ul>
+        <ul>{
+            React.Children.map(props.children, navlink =>
+                <li>{ navlink }</li>
+            )
+        }</ul>
     </div>
 )`
 `;

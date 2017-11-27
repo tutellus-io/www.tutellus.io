@@ -102,7 +102,7 @@ const DistributionGraph = styled.img`
     width: 80%;
     margin: 0 auto;
     margin-bottom: 1em;
-`
+`;
 const DistributionTableTitle = styled.h4`
     text-align: center;
     margin-bottom: 1em;

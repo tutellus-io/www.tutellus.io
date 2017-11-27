@@ -9,7 +9,7 @@ const {margin, colors} = styles;
 const animation = keyframes`${ bounceIn }`;
 
 const Overlay = styled.div`
-    @media ${ styles.media.tablet} {
+    @media ${ styles.media.tablet } {
         position: fixed;
         top: 0;
         left: 0;

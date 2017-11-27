@@ -5,8 +5,7 @@ import styled from 'styled-components';
 import styles from '../styles';
 const {margin, padding, border, colors} = styles;
 
-/*:: type FAQAttrs = {className: string, title: string, children: React.Node} */
-export const FAQ = styled((props/*: FAQAttrs */) =>
+export const FAQ = styled(props =>
     <details className={ props.className }>
         <summary>{ props.title }</summary>
         <div>{ props.children }</div>

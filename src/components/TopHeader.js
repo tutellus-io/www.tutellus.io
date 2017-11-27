@@ -11,14 +11,14 @@ import styles from '../styles';
 export const TOP_HEADER_HEIGHT = {
     //px
     SMALL: 64,
-}
+};
 TOP_HEADER_HEIGHT.BIG = 2 * TOP_HEADER_HEIGHT.SMALL;
 //TODO: que por defecto sea small para evitar que flashee?
 const small_header_styles = `
     height: ${ TOP_HEADER_HEIGHT.SMALL }px;
     background: black;
     transition: all .5s linear;
-`
+`;
 const HeaderLogo = styled(props =>
     <a className={ props.className }>
         <img src={ props.logo } alt={ props.title } />
@@ -26,10 +26,10 @@ const HeaderLogo = styled(props =>
 )`
     display: block;
     max-width: 7em;
-`
+`;
 const Link = styled(props =>
     <SmoothScroll.Link { ...props } spy={ true } smooth={ true } activeClass="active" offset={ -TOP_HEADER_HEIGHT.SMALL }>
-    { props.children }
+        { props.children }
     </SmoothScroll.Link>
 )`
     cursor: pointer;
@@ -40,7 +40,7 @@ const Link = styled(props =>
     &.active {
         color: ${ styles.colors.lightblue };
     }
-`
+`;
 export const MainMenu = styled(translate()(({t, className}) =>
     <nav className={ className }>
         <ul>

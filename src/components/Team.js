@@ -74,7 +74,7 @@ export const TeamMember = styled(props =>
         margin-top: 1em;
         display: flex;
         flex-flow: row nowrap;
-        justify-content: center;        
+        justify-content: center;
         & > ${ TeamIcon } {
             color: ${ styles.colors.darkblack };
         }
