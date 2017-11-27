@@ -21,10 +21,18 @@ const UploadButtonElement = props => {
                 !uploading &&
                 <label>
                     <img src={posterIcon}/>
-                    <input type = "file" onChange={handleUpload} onClick={clickButton}/>
+                    <input type = "file"
+                        onChange={handleUpload}
+                        onClick={clickButton}/>
                 </label>
             }
-            {uploading && <progress value={upload_progress} min="0" max="100"></progress>}
+            {
+                uploading &&
+                <progress value={upload_progress}
+                    min="0"
+                    max="100"
+                />
+            }
         </div>
     );
 };
@@ -84,8 +92,11 @@ const GalleryElement = props => {
             {
                 all_images.map((image, index) =>
                     <figure key={`figure-${ index }`}>
-                        <img src={image.url} alt={image.name} title={`${ image.original_name } (${ numeral(image.size).format('0.0b') })`}/>
-                    </figure>)
+                        <img src={image.url}
+                            alt={image.name}
+                            title={`${ image.original_name } (${ numeral(image.size).format('0.0b') })`}/>
+                    </figure>
+                )
             }
             {
                 buttonUpload &&
@@ -187,7 +198,9 @@ class FileUploadElement extends Component {
         if (max_size !== 0 && file.size > max_size) {
             throw new Error(max_size_err);
         }
-        if (_.size(allowed_types) > 0 && !_.includes(allowed_types, file.type)) {
+        const has_type_restrictions = _.size(allowed_types) > 0;
+        const is_type_allowed = _.includes(allowed_types, file.type);
+        if (has_type_restrictions && !is_type_allowed) {
             throw new Error(allowed_types_err);
         }
     }
@@ -197,7 +210,11 @@ class FileUploadElement extends Component {
         const storageRef = firebase.storage().ref(file_path);
         const task = storageRef.put(file);
         task.on('state_changed', snapshot => {
-            const upload_progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            const {
+                bytesTransferred,
+                totalBytes,
+            } = snapshot;
+            const upload_progress = (bytesTransferred / totalBytes) * 100;
             this.setState({
                 upload_progress,
             });

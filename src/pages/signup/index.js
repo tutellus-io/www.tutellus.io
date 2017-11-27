@@ -103,7 +103,9 @@ class SignupElement extends Component {
     componentDidUpdate(prevProps, prevState) {
         const stateEqual = _.isEqual(this.state, prevState);
         if (!stateEqual && this.state.active_step === -1) {
-            const last_step_done = _.findLastIndex(this.steps, step => this.keyDone(step.key));
+            const last_step_done = _.findLastIndex(this.steps,
+                step => this.keyDone(step.key)
+            );
             this.setState({
                 active_step: last_step_done + 1,
             });
@@ -145,11 +147,13 @@ class SignupElement extends Component {
     }
 
     updateUser(updated_fields) {
-        const user = _.mergeWith(this.state.user, updated_fields, (obj, other) => {
-            if (_.isArray(obj)) {
-                return obj.concat(other);
+        const user = _.mergeWith(this.state.user, updated_fields,
+            (obj, other) => {
+                if (_.isArray(obj)) {
+                    return obj.concat(other);
+                }
             }
-        });
+        );
         this.setState({
             user,
         });
@@ -225,7 +229,9 @@ class SignupElement extends Component {
                                 />
                             </PageSection>
                             <PageSection className="content" light>
-                                {React.cloneElement(this.steps[this.state.active_step].component, cloneExtensions)}
+                                { //eslint-disable-next-line max-len
+                                    React.cloneElement(this.steps[this.state.active_step].component, cloneExtensions)
+                                }
                             </PageSection>
                         </div>
                 }

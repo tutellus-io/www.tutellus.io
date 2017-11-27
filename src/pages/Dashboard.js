@@ -72,7 +72,9 @@ class DashboardElement extends Component {
             <PageContent className={className}>
                 {
                     _.isEmpty(user) ? <PageSection>Loading....</PageSection>
-                        : <PageSection>Esto es el Dashboard! {user.first_name}</PageSection>
+                        : <PageSection>
+                            Esto es el Dashboard! {user.first_name}
+                        </PageSection>
                 }
             </PageContent>
         );

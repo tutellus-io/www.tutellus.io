@@ -8,8 +8,13 @@ export const CrowdsaleCTA = ({href = "", children}) =>
     <CenteredBlock>
         {
             (href.startsWith("http")
-                ? <AButton href={href} target="_blank" primary> { children }</AButton>
-                : <LinkButton to={href} primary>{ children }</LinkButton>)
+                ? <AButton href={href}
+                    target="_blank" primary>
+                    { children }
+                </AButton>
+                : <LinkButton to={href} primary>
+                    { children }
+                </LinkButton>)
         }
     </CenteredBlock>;
 

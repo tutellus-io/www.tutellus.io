@@ -1,16 +1,16 @@
 import React from 'react';
 import Color from 'color';
 import styled from 'styled-components';
-import styles from '../../styles';
+import {colors} from '../../styles';
 import {Link} from 'react-router-dom';
 
 export const Input = styled.input`
     display: block;
     padding: 0.6em 0.9em;
     width: 100%;
-    border: 1px solid ${ styles.colors.bluegrey };
+    border: 1px solid ${ colors.bluegrey };
     border-radius: 3px;
-    background-color: ${ styles.colors.white };
+    background-color: ${ colors.white };
     font-weight: 200;
     font-size: 1em;
 `;
@@ -64,12 +64,12 @@ export const Field = styled.div`
     &.error {
         input,
         textarea {
-            border-color: ${ styles.colors.googleplus };
+            border-color: ${ colors.googleplus };
         }
 
         > .error_placeholder {
             margin-top: 0.5em;
-            color: ${ styles.colors.googleplus };
+            color: ${ colors.googleplus };
         }
     }
 `;
@@ -108,8 +108,8 @@ export const ImageGrid = styled.div`
 `;
 
 export const InnerBox = styled.div`
-    border: 2px solid ${ styles.colors.bluegrey };
-    background-color: ${ styles.colors.grey };
+    border: 2px solid ${ colors.bluegrey };
+    background-color: ${ colors.grey };
     padding: 1.75em;
 `;
 
@@ -127,7 +127,7 @@ export const Box = styled(BoxElement)`
 `;
 
 export const Button = styled.button`
-    color: ${ styles.colors.white };
+    color: ${ colors.white };
     display: block;
     border: none;
     padding: 0.8em 1.2em;
@@ -137,8 +137,8 @@ export const Button = styled.button`
     letter-spacing: .035em;
     text-align: center;
     background-color: ${ props=> (props.primary
-        ? styles.colors.lightblue
-        : styles.colors.midgrey)
+        ? colors.lightblue
+        : colors.midgrey)
 };
     ${ props => (props.full ? 'width: 100%' : '') };
     transition: all 0.3s ease-in;
@@ -146,8 +146,9 @@ export const Button = styled.button`
     text-transform: uppercase;
     &:hover {
         background-color: ${ props=> (props.primary
-        ? Color(styles.colors.lightblue).darken(0.2).string()
-        : Color(styles.colors.midgrey).darken(0.2).string())
+        ? Color(colors.lightblue)
+        .darken(colors.settings.hover_gap).string()
+        : Color(colors.midgrey).darken(colors.settings.hover_gap).string())
 };
 
     }

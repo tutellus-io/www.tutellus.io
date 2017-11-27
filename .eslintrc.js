@@ -16,9 +16,6 @@ module.exports = {
     extends: ['tutellus', "plugin:react/recommended"],
     plugins: ["react"],
     rules: {
-        //respetar los 80 caracteres es contraproducente en html (jsx)
-        //es mejor poner cada etiqueta en su propia línea y que ocupe lo que necesite
-        'max-len': 'warn',
         //poner espacios en las variables de los template string ayuda a verlas
         //más fácilmente, haciendo el código más legible.
         'template-curly-spacing': ['error', 'always'],
@@ -34,6 +31,7 @@ module.exports = {
         'react/prop-types': 'warn',
         'react/display-name': 'warn',
         'class-methods-use-this': 'warn',
+        'max-lines': 'warn',
         'prefer-arrow-callback': ['error', {
             allowUnboundThis: true,
         }],

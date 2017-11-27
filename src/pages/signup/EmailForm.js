@@ -17,7 +17,7 @@ const EmailFormElement = props => {
         t,
     } = props;
 
-    const sendVerificationEmail = setFieldValue => {
+    const sendVerification = setFieldValue => {
         const current_user = db.auth().currentUser;
         if (current_user) {
             return current_user.sendEmailVerification()
@@ -59,11 +59,18 @@ const EmailFormElement = props => {
                     <ColumnCenter>
                         <Form>
                             <Text>{t('signup:emailform_recieve_newsletter')}</Text>
-                            <Button full primary onClick={() => sendVerificationEmail(setFieldValue)}>{t('signup:emailform_send_email_btn')}</Button>
-                            <Field type="hidden" name="verification_email_sended" />
+                            <Button full primary
+                                onClick={() => sendVerification(setFieldValue)}>
+                                {t('signup:emailform_send_email_btn')}
+                            </Button>
+                            <Field type="hidden"
+                                name="verification_email_sended"
+                            />
                             <Hr/>
                             <Text>{t('signup:emailform_continue_signup')}</Text>
-                            <Button full type="submit">{t('signup:emailform_continue_btn')}</Button>
+                            <Button full type="submit">
+                                {t('signup:emailform_continue_btn')}
+                            </Button>
                         </Form>
                     </ColumnCenter>
                 }

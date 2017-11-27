@@ -66,20 +66,33 @@ const WalletFormElement = props => {
                                     <span>{t('signup:wallet_alert_title')}</span></div>
                             }>
                                 <Text>{t('signup:wallet_alert_exchanges')}</Text>
-                                <Field component={OneCheckbox} type="checkbox" name="eth_confirm" label={
-                                    <span>{t('signup:wallet_eth_confirm_label')}</span>
-                                }/>
+                                <Field component={OneCheckbox}
+                                    type="checkbox"
+                                    name="eth_confirm"
+                                    label={
+                                        <span>{t('signup:wallet_eth_confirm_label')}</span>
+                                    }
+                                />
                             </Box>
-                            <Field component={TextField} name="eth_adress" placeholder={t('signup:wallet_eth_address_placeholder')} label={ {
-                                required: "required",
-                                value: t('signup:wallet_eth_address_label'),
-                            } }/>
-
-
-                            <Field component={TextField} type="number" min={0} step={0.01} name="eth_contribution" placeholder={t('signup:wallet_eth_contribution_placeholder')} label={ {
-                                required: "required",
-                                value: t('signup:wallet_eth_contribution_label'),
-                            } }/>
+                            <Field component={TextField}
+                                name="eth_adress"
+                                placeholder={t('signup:wallet_eth_address_placeholder')}
+                                label={ {
+                                    required: "required",
+                                    value: t('signup:wallet_eth_address_label'),
+                                } }
+                            />
+                            <Field component={TextField}
+                                type="number"
+                                min={0}
+                                step={0.01}
+                                name="eth_contribution"
+                                placeholder={t('signup:wallet_eth_contribution_placeholder')}
+                                label={ {
+                                    required: "required",
+                                    value: t('signup:wallet_eth_contribution_label'),
+                                } }
+                            />
                             <Button full primary type="submit">{t('signup:wallet_save_btn')}</Button>
                         </Form>
                     </ColumnCenter>

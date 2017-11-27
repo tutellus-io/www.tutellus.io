@@ -26,7 +26,11 @@ const HeaderLogo = styled(props =>
     max-width: 7em;
 `;
 const Link = styled(props =>
-    <SmoothScroll.Link { ...props } spy={ true } smooth={ true } activeClass="active" offset={ -TOP_HEADER_HEIGHT.SMALL }>
+    <SmoothScroll.Link { ...props }
+        spy={ true }
+        smooth={ true }
+        activeClass="active"
+        offset={ -TOP_HEADER_HEIGHT.SMALL }>
         { props.children }
     </SmoothScroll.Link>
 )`
@@ -122,7 +126,9 @@ export const TopHeader = styled(props =>
     }
 `;
 const LangSelect = styled(props =>
-    <select className={ props.className } onChange={ event => props.onLanguage(event.target.value) } value={ props.locale }>
+    <select className={ props.className }
+        onChange={ event => props.onLanguage(event.target.value) }
+        value={ props.locale }>
         <option value="en">English</option>
         <option value="es">Español</option>
     </select>

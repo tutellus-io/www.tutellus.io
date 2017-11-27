@@ -23,7 +23,10 @@ const SimpleHeader = translate()(props => {
 
     return (
         <TopHeader logo="/images/white-logo.svg" small>
-            <SecondaryMenu onLanguage={ lang => i18n.changeLanguage(lang) } socialLinks={ social_links } locale={ i18n.language } />
+            <SecondaryMenu onLanguage={ lang => i18n.changeLanguage(lang) }
+                socialLinks={ social_links }
+                locale={ i18n.language }
+            />
         </TopHeader>
     );
 });
@@ -88,7 +91,8 @@ class Master extends React.Component {
                 <BrowserRouter>
                     <div>
                         <Switch>
-                            <Route exact path='/' component={ withTracker(Home) }/>
+                            <Route exact path='/'
+                                component={ withTracker(Home) }/>
                             <Route component={ props =>
                                 <WithHeaderLayout {...props} {...all_props}/>
                             } />
