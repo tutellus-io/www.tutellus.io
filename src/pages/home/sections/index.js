@@ -10,3 +10,4 @@ export * from './PraiseQuotes';
 export * from './TheTeam';
 export * from './Crowdsale';
 export * from './TechnologyStack';
+export * from './SubscribeToMailList';
