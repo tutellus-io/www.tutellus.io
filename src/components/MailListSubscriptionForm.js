@@ -1,4 +1,5 @@
 //@flow
+/* global fetch: false, Headers: false */
 import React from 'react';
 import {translate} from 'react-i18next';
 import Yup from '../yup';
@@ -7,51 +8,47 @@ import {
     TextField,
     Button,
 } from './';
-// <link href="//cdn-images.mailchimp.com/embedcode/slim-10_7.css" rel="stylesheet" type="text/css">
-//<style type="text/css">
-//    #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
-//    /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
-//       We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
-//</style>
 
+const SUBSCRIBE_URL = "https://tutellus.us17.list-manage.com/subscribe/post-json?u=ffe45494a6104522759bbdcb4&id=3275465a01&c=?";
 export const MailListSubscriptionForm = translate('mailinglist')(({t}) => {
     const validationSchema = Yup.object().shape({
         EMAIL: Yup.string().required(t('signup:maillist_email_required_err'))
-        .email(t('signup:maillist_email_email_err')),
+               .email(t('signup:maillist_email_email_err')),
     });
 
-    const onSubmit = (values = {}, {
-        setSubmitting,
-        setErrors,
-    }) => {
-        console.log('To send EMAIL', values.EMAIL);
-        setErrors({EMAIL: 'Vaya catastrofe de error'});
-        //Si no pones que no se está enviando, no se puede enviar de nuevo
-        setSubmitting(false);
+    const subscribe = async (form_data = {}, {setSubmitting, setErrors, resetForm}) => {
+        try {
+            const params = Object.entries(form_data).map(x => x.join('='));
+            const subscribe_url = `${ SUBSCRIBE_URL }&${ params.join('&') }`;
+            const response = await fetch(subscribe_url, {mode: 'no-cors'});
+            if (!response.ok) {
+                throw new Error();
+            }
+        } catch (error) {
+            setErrors({EMAIL: t('subscription_failed')});
+        } finally {
+            setSubmitting(false);
+            resetForm();
+        }
     };
 
     return (
         <div id="mc_embed_signup">
             <Formik
-                validationSchema = {validationSchema}
-                onSubmit={onSubmit}
-                initialValues={{EMAIL: ''}}
-                component={({isSubmitting}) =>
+                validationSchema={ validationSchema }
+                onSubmit={ subscribe }
+                initialValues={ {
+                    EMAIL: '',
+                    b_ffe45494a6104522759bbdcb4_3275465a01: "",
+                } }
+                component={ ({isSubmitting}) =>
             		<Form >
-                        {/* action="https://tutellus.us17.list-manage.com/subscribe/post?u=ffe45494a6104522759bbdcb4&amp;id=3275465a01" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate" target="_blank" novalidate> */}
                         <div id="mc_embed_signup_scroll">
-                            <Field component={TextField} name="EMAIL" placeholder={t('email_address')} />
-                            {/*
-				<input type="email" value="" name="EMAIL" className="email" id="mce-EMAIL" placeholder="email address" required />
-					<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-				<div className="clear">
-					<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" className="button" />
-				</div>
-				*/}
+                            <Field component={ TextField } name="EMAIL" placeholder={ t('email_address') } />
                             <div style={ {position: "absolute", left: "-5000px"} } aria-hidden="true">
-                                <input type="text" name="b_ffe45494a6104522759bbdcb4_3275465a01" tabIndex="-1" value="" />
+                                <Field component={ TextField } name="b_ffe45494a6104522759bbdcb4_3275465a01" tabIndex="-1" value="foobar" />
                             </div>
-                            <Button full type="submit" primary disabled={isSubmitting}>{t('subscribe')}</Button>
+                            <Button full type="submit" primary disabled={ isSubmitting }>{ t('subscribe') }</Button>
                         </div>
                     </Form>
                 }
