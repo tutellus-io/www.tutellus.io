@@ -2,9 +2,10 @@
 /* global fetch: false, Headers: false */
 import React from 'react';
 import {translate} from 'react-i18next';
-import Yup from '../yup';
 import styled from 'styled-components';
+import Yup from '../yup';
 import {Form, Field, Formik} from 'formik';
+import styles from '../styles';
 import {
     TextField,
     Field as myField,
@@ -43,6 +44,8 @@ export const SubscriptionForm = translate('mailinglist')(({t, className}) => {
             onSubmit={ subscribe }
             initialValues={ {
                 EMAIL: '',
+                //necesario para mailchimp
+                //eslint-disable-next-line id-length
                 b_fb6c7232ef9595533c37d1fc0_fa6bf30be0: "",
             } }
             component={ ({isSubmitting}) =>
@@ -56,24 +59,35 @@ export const SubscriptionForm = translate('mailinglist')(({t, className}) => {
 });
 
 export const MailListSubscriptionForm = styled(SubscriptionForm)`
-    display: block;
-    margin: 0 auto;
-    width: 75%;
-    & ${ myField } {
-        display: inline-block;
-        width: 70%;
-        ${ Input } {
-            padding: 0.8em;
+    @media ${ styles.media.tablet } {
+        display: block;
+        margin: 0 auto;
+        width: 80%;
+        & ${ myField } {
+            display: inline-block;
+            width: 60%;
+            ${ Input } {
+                padding: 0.8em;
+            }
+            & .error_placeholder {
+                font-weight: bold;
+            }
         }
-        & .error_placeholder {
-            font-weight: bold;
+        & ${ Button } {
+            display: inline-block;
+            margin-left: 1em;
+            width: calc(40% - 1em);
+            vertical-align: top;
         }
     }
-    & ${ Button } {
-        display: inline-block;
-        margin-left: 1em;
-        width: calc(30% - 1em);
-        vertical-align: top;
+    @media ${ styles.media.laptop } {
+        width: 75%;
+        & ${ myField } {
+            width: 70%;
+        }
+        & ${ Button } {
+            width: calc(30% - 1em);
+        }
     }
 `
 ;
