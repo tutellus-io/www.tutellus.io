@@ -4,12 +4,12 @@ import {translate} from 'react-i18next';
 import {
     PageSection,
     Text,
-	MailListSubscriptionForm,
+    MailListSubscriptionForm,
 } from '../../../components';
 
 export const SubscribeToMailList = translate('mailinglist')(({t}) =>
-    <PageSection title={ t('title') }>
+    <PageSection dark title={ t('title') }>
         <Text center>{ t('description') }</Text>
-		<MailListSubscriptionForm />
+        <MailListSubscriptionForm />
     </PageSection>
-)
+);
