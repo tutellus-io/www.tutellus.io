@@ -17,6 +17,7 @@ import {
     TechnologyStack,
     TheTeam,
     Crowdsale,
+    SubscribeToMailList,
 
 } from './sections';
 import {MainFooter} from './MainFooter';
@@ -43,6 +44,7 @@ export class Home extends React.Component {
                     <Crowdsale id="crowdsale" />
                     <PlatformRoadmap />
                     <TechnologyStack />
+                    <SubscribeToMailList />
                 </main>
                 <MainFooter socialLinks={ social_links } />
                 <FloatingHelp icon="/images/telegram-logo.svg"/>

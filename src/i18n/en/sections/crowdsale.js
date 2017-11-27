@@ -26,7 +26,7 @@ export const crowdsale = {
     ico_bonus: 'Early bird Bonus',
     ico_bonus_value: '20 - 0%',
     total_supply: "Total Supply",
-    total_supply_value: "1.000.000.000 TUT (not fixed)",
+    total_supply_value: "100.000.000 TUT (not fixed)",
     amount_for_sale: "For Sale",
     amount_for_sale_value: "60%",
     hard_cap: "Hard Cap",
