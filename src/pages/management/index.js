@@ -13,7 +13,6 @@ const ManagementElement = props => {
         location: {
             search,
         },
-        history,
     } = props;
     const mgmt_params = pick(parse(search), ['mode', 'oobCode', 'continueUrl']);
 

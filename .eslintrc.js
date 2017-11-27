@@ -30,10 +30,12 @@ module.exports = {
             enforceForArrowConditionals: false,
             nestedBinaryExpressions: false,
         }],
-        //siempre poner paréntesis a los parámetros de las funciones, aunque sea
-        //solo para especificar su tipo con un comentario de flow
         'arrow-parens': ['error', 'as-needed'],
         'react/prop-types': 'warn',
+        'react/display-name': 'warn',
         'class-methods-use-this': 'warn',
+        'prefer-arrow-callback': ['error', {
+            allowUnboundThis: true,
+        }],
     },
 };

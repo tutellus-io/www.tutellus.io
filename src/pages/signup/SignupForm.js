@@ -36,10 +36,10 @@ const SignupFormElement = props => {
             p_auth = db.auth().createUserWithEmailAndPassword(email, passwd);
         }
 
-        p_auth.then(({uid}) => {
-            syncUser(uid);
+        p_auth.then(({uid: user_id}) => {
+            syncUser(user_id);
             updateUser({
-                uid,
+                user_id,
                 first_name,
                 last_name,
                 email,
@@ -47,7 +47,7 @@ const SignupFormElement = props => {
             });
             nextStep();
         })
-        .catch(error => {
+        .catch(() => {
             setErrors({email: t('signup:signup_email_already_err')});
             setSubmitting(false);
         });
@@ -73,10 +73,12 @@ const SignupFormElement = props => {
     };
 
     if (!initialValues.uid) {
+        const MIN_PASSWD_LENGTH = 8;
+        const MIN_PASSWD_STRENGTH = 55;
         validationObj.passwd = Yup.string()
         .required(t('signup:signup_passwd_required_err'))
-        .min(8, t('signup:signup_passwd_min_err'))
-        .passwdStrength(55, t('signup:signup_passwd_strength_err'));
+        .min(MIN_PASSWD_LENGTH, t('signup:signup_passwd_min_err'))
+        .passwdStrength(MIN_PASSWD_STRENGTH, t('signup:signup_passwd_strength_err'));
         validationObj.repasswd = Yup.string()
         .required(t('signup:signup_repasswd_required_err'))
         .sameAs(Yup.ref('passwd'), t('signup:signup_repasswd_sameas_err'));

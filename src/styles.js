@@ -46,7 +46,6 @@ const colors = {
     white: '#FFFFFF',
 };
 
-//TODO mover a S3?
 const fonts = `
     @font-face {
             font-family: 'Lato';
@@ -101,25 +100,6 @@ const fonts = `
       }
 `;
 export const styles = {
-    font: {
-        weight: {
-            normal: 300,
-        },
-    },
-    text: {
-        medium: `
-			font-size: 1.143em;
-			line-height: 1.251rem;`,
-        large: `
-			font-size: 1.286em;
-			line-height: 1.457rem;`,
-        xlarge: `
-            font-size: 1.571em;
-            line-height: 1.85rem;`,
-        huge: `
-			font-size: 2.357em;
-			line-height: 2.557rem;`,
-    },
     margin: {
         small: `10px`,
         medium: `20px`,

@@ -137,17 +137,6 @@ export const ImageWithPoster = styled(ImageWithPosterElement)`
     }
 `;
 
-const croppedWith = height => `
-    > figure {
-        width: auto;
-        height: ${ height || '100px' };
-        > img {
-            height: 100%;
-            width: auto;
-            max-width: auto;
-        }
-    }
-`;
 const Gallery = styled(GalleryElement)`
     display: flex;
     flex-wrap: wrap;

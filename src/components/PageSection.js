@@ -3,25 +3,14 @@ import R from 'ramda';
 import * as React from 'react';
 import styled from 'styled-components';
 
-import {CenteredImage} from './Images';
 import {MAX_CONTENT_WIDTH, Text} from './Layout';
 import {TOP_HEADER_HEIGHT} from './TopHeader';
 
 import styles from '../styles';
-const {margin, colors} = styles;
 
-export const PageContent = styled.div`
-/*
-    margin-top: 84px;
-*/
-`;
+export const PageContent = styled.div``;
 
-export const ColumnCenter = styled.div`
-/*
-    width: 450px;
-    margin: 0 auto;
-    */
-`;
+export const ColumnCenter = styled.div``;
 
 export const SectionContent = styled.div`
     @media ${ styles.media.desktop } {
@@ -32,9 +21,9 @@ export const SectionContent = styled.div`
 `;
 
 const colorSectionBackground = R.cond([
-    [R.has('dark'), R.always(colors.darkblue)],
-    [R.has('light'), R.always(colors.athens)],
-    [R.T, R.always(colors.white)],
+    [R.has('dark'), R.always(styles.colors.darkblue)],
+    [R.has('light'), R.always(styles.colors.athens)],
+    [R.T, R.always(styles.colors.white)],
 ]);
 const section_styles = `
     padding: 1em;
@@ -72,47 +61,15 @@ export const PageBanner = styled(props =>
         margin-top: 0;
         padding-top: calc(${ TOP_HEADER_HEIGHT.BIG }px + 1em);
     }
-/*
-    /*https://www.imi21.com/background-video.php*//*
-    width: 100%;
-    position: relative;
-    max-height: 500px;
-    overflow: hidden;
-    & > div {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: ${ colors.white };
-        & video {
-            width: 100%;
-        }
-        & > ${ SectionContent } {
-            width: 100%;
-            height:100%;
-            position: absolute;
-            top: ${ TOP_HEADER_HEIGHT }px;
-        }
-    }
-*/
 `;
 
 export const InterstitialImage = styled.img``;
 
 const colorSectionForeground = R.cond([
-    [R.has('dark'), R.always(colors.athens)],
+    [R.has('dark'), R.always(styles.colors.athens)],
     [R.T, R.always('inherit')],
 ]);
 
-/*:: type pixels = number */
-export const centeredObject = width => `
-    left: 50%;
-    display: block;
-    position: relative;
-    margin-left: -${ width / 2 }px;
-    width: ${ width }px;
-`;
 const TITLE_UNDERLINE_WIDTH = 5;//em
 export const SectionTitle = styled.h2`
     margin-bottom: 1em;
@@ -149,12 +106,11 @@ export const SectionTitle = styled.h2`
     }
 
 `;
-export const SectionImage = styled(CenteredImage)`
-/*
-    margin-bottom: ${ margin.medium };
-*/
+export const SectionImage = styled.img`
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
 `;
-
 export const PageSection = styled(props =>
     <section id={ props.id } className={ props.className }>
         { props.interstitialImage &&
@@ -187,6 +143,7 @@ export const PageSection = styled(props =>
         /* make room for the image */
         margin-top: 2em;
     ` }
+
     & ${ SectionImage } {
         display: block;
         max-width: 100%;

@@ -3,7 +3,7 @@ import GoogleAnalytics from 'react-ga';
 
 GoogleAnalytics.initialize('UA-110157188-1');
 
-const withTracker = (WrappedComponent, options = {}) => {
+export const withTracker = (WrappedComponent, options = {}) => {
     const trackPage = page => {
         GoogleAnalytics.set({
             page,
@@ -12,7 +12,7 @@ const withTracker = (WrappedComponent, options = {}) => {
         GoogleAnalytics.pageview(page);
     };
 
-    const HOC = class extends Component {
+    return class HOC extends Component {
         componentDidMount() {
             const page = this.props.location.pathname;
             trackPage(page);
@@ -31,8 +31,6 @@ const withTracker = (WrappedComponent, options = {}) => {
             return <WrappedComponent {...this.props} />;
         }
     };
-
-    return HOC;
 };
 
 export default withTracker;

@@ -20,13 +20,13 @@ const ItemFieldElement = ({className, field, form, label, value, type}) => {
                 id={uid}
                 name={field.name}
                 value={value}
-                onChange={e => {
-                    form.handleBlur(e);
-                    form.handleChange(e);
-                }}
-                onBlur={e => {
-                    form.handleBlur(e);
-                }}
+                onChange={ event => {
+                    form.handleBlur(event);
+                    form.handleChange(event);
+                } }
+                onBlur={ event => {
+                    form.handleBlur(event);
+                } }
             />
             <Label inline htmlFor={uid}>{ label }</Label>
         </div>

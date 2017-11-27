@@ -4,8 +4,6 @@ import styled, {keyframes} from 'styled-components';
 import styles from '../styles';
 import {bounceIn} from 'react-animations';
 
-const {margin, colors} = styles;
-
 const animation = keyframes`${ bounceIn }`;
 
 const Overlay = styled.div`
@@ -86,54 +84,7 @@ export const PlayButton = styled(class extends React.Component {
             height: 50%;
         }
     }
-/*
-    position: absolute;
-    top: -128px;
-    left: 0;
-    width: 100%;
-    height: 100%;
-*/
 `;
-const colorCTAButton = props => (
-    props.primary ? colors.emerald : colors.lightblue
-);
 export const CTAButton = styled.button`
     text-transform: uppercase;
-/*
-    background-color: ${ colorCTAButton };
-    color: ${ colors.white };
-    display: block;
-    border: none;
-    margin: ${ margin.small } auto;
-    margin-bottom: -${ margin.small };
-    border-radius: 3px;
-    letter-spacing: .035em;
-    padding-top: 22px;
-    padding-bottom: 22px;
-    font-size: 1.143em;
-    padding-left: 80px;
-    padding-right: 80px;
-    display: inline-block;
-    padding: 13px 30px;
-    text-align: center;
-    transition: all 0.3s linear;
-    cursor: pointer;
-    text-transform: uppercase;
-
-    ${ props => props.icon && `
-        padding-left: 3em;
-        position: relative;
-
-        &:before {
-            content: '';
-            display: inline-block;
-            width: 2em;
-            height: 100%;
-            position: absolute;
-            left: 1em;
-            top: 0;
-            background: ${ `url(${ props.icon })` } center center no-repeat;
-        }
-    ` }
-*/
 `;

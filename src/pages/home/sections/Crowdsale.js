@@ -1,4 +1,5 @@
 //@flow
+/* eslint no-magic-numbers: off */
 import React from 'react';
 import {translate} from 'react-i18next';
 import {

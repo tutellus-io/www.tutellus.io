@@ -4,8 +4,6 @@ import R from 'ramda';
 import styled from 'styled-components';
 
 import styles from '../styles';
-const {colors, margin} = styles;
-const {clearfix} = styles.helpers;
 
 export const MAX_CONTENT_WIDTH = 1140;
 export const CenteredBlock = styled.div`
@@ -24,47 +22,12 @@ export const Text = styled.p`
     text-align: ${ alignText };
     line-height: 1.5em;
 `;
-export const Row = styled.div`
-/*
-    ${ clearfix }
-*/
-`;
-/*:: type fraction = number */
-const stretchColumnWidth = props/*: string */=>
-    `${ (props.size * 100) - 2 }%`;
 
-export const Col = styled.div`
-/*
-    float: left;
-    width: ${ stretchColumnWidth };
-	margin-right: 1%;
-	margin-left: 0;
-    &:first-of-type {
-        clear: left;
-		margin-left: 0;
-    }
-    &:last-of-type {
-        clear: right;
-		margin-right: 0;
-    }
-    &:last-of-type:after {
-        clear: both;
-    }
-*/
-`;
+export const Col = styled.div``;
 
-/*::
-type url = string;
-type QuoteAttrs = {
-    href: url,
-    className: string,
-    cite: React.Node,
-    children?: React.Node,
-}
-*/
-export const Quote = styled(props/*: React.Node */=>
+export const Quote = styled(props =>
     <blockquote cite={ props.href } className={ props.className }>
-        "{ props.children }"
+        &quot;{ props.children }&quot;
         <small>{ props.cite }</small>
     </blockquote>
 )`
@@ -79,24 +42,6 @@ export const Quote = styled(props/*: React.Node */=>
         margin-top: .5em;
         width: 100%;
         font-size: .7em;
-        color: ${ colors.darkgrey };
+        color: ${ styles.colors.darkgrey };
     }
-/*
-    position: relative;
-    display: block;
-    line-height: 2em;
-    font-size: 2em;
-    color: ${ colors.darkblack };
-    text-align: center;
-    margin-top: ${ margin.medium };
-
-    & > small {
-        width: 100%;
-        text-align: center;
-        display: inline-block;
-        font-size: .7em;
-        color: ${ colors.darkgrey };
-        position: relative;
-    }
-*/
 `;

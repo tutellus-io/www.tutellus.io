@@ -35,15 +35,15 @@ export const Icon = styled(IconElement)`
     word-wrap: normal;
     white-space: nowrap;
     direction: ltr;
-    
+
     /* Support for all WebKit browsers. */
     -webkit-font-smoothing: antialiased;
     /* Support for Safari and Chrome. */
     text-rendering: optimizeLegibility;
-    
+
     /* Support for Firefox. */
     -moz-osx-font-smoothing: grayscale;
-    
+
     /* Support for IE. */
     font-feature-settings: 'liga';
     ${ props => (props.color ? `color: ${ props.color };` : '') }
@@ -139,7 +139,7 @@ export const Button = styled.button`
     background-color: ${ props=> (props.primary
         ? styles.colors.lightblue
         : styles.colors.midgrey)
-}; 
+};
     ${ props => (props.full ? 'width: 100%' : '') };
     transition: all 0.3s ease-in;
     text-align: center;

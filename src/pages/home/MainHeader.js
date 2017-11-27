@@ -11,10 +11,12 @@ import {
 class WindowScroll extends React.Component {
     constructor() {
         super();
+        //eslint-disable-next-line id-length
         this.state = {x: 0, y: 0};
     }
     componentDidMount() {
         window.addEventListener('scroll', () => {
+            //eslint-disable-next-line id-length
             this.setState({x: window.scrollX, y: window.scrollY});
         });
     }

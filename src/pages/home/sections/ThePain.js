@@ -6,8 +6,6 @@ import {
     SectionImage,
     SectionTitle,
     Text,
-    Row,
-    Col,
 } from '../../../components';
 
 export const ThePain = translate('the_pain')(({t, id}) =>

@@ -18,9 +18,9 @@ const EmailFormElement = props => {
     } = props;
 
     const sendVerificationEmail = setFieldValue => {
-        const user = db.auth().currentUser;
-        if (user) {
-            return user.sendEmailVerification()
+        const current_user = db.auth().currentUser;
+        if (current_user) {
+            return current_user.sendEmailVerification()
             .then(() => {
                 showAlert({text: t('signup:emailform_send_email_sent')});
                 setFieldValue('verification_email_sended', true);

@@ -5,8 +5,6 @@ import moment from 'moment/moment';
 import styled from 'styled-components';
 
 import styles from '../styles';
-const {padding, border, margin, colors} = styles;
-const {clearfix} = styles.helpers;
 
 const milestone_marker = props => `
     content: ' ';

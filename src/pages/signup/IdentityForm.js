@@ -56,13 +56,14 @@ const IdentityFormElement = props => {
         // 'application/pdf',
     ];
 
-    const max_size = 5 * 1024 * 1024; //5Mb;
+    //eslint-disable-next-line no-magic-numbers
+    const MAX_SIZE = 5 * 1024 * 1024; //5Mb;
 
     const IdentityFileUpload = props_fu =>
         <FileUpload
             {...props_fu}
             one_image
-            max_size = {max_size}
+            max_size = { MAX_SIZE }
             max_size_err ={t('signup:identity_fileupload_max_size_err')}
             allowed_types = {allowed_types}
             allowed_types_err ={t('signup:identity_fileupload_allowed_types_err')}
@@ -76,7 +77,7 @@ const IdentityFormElement = props => {
                 validationSchema = {validationSchema}
                 onSubmit={onSubmit}
                 initialValues={initialValues}
-                component={({setFieldValue, values}) =>
+                component={({setFieldValue}) =>
                     <ColumnCenter>
                         <Form>
                             <BoxTitle margin="0 0 0.5em 0">{t('signup:identity_proof_identity_title')}</BoxTitle>

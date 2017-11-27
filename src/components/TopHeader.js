@@ -4,16 +4,14 @@ import styled from 'styled-components';
 import {translate} from 'react-i18next';
 import SmoothScroll from 'react-scroll';
 
-import {SocialIcons, SocialIcon} from './Footer';
-import {LinkButton} from './';
+import {SocialIcons, LinkButton} from './';
 import styles from '../styles';
 
+const SMALL_HEADER_HEIGHT = 64;//px
 export const TOP_HEADER_HEIGHT = {
-    //px
-    SMALL: 64,
+    SMALL: SMALL_HEADER_HEIGHT,
+    BIG: 2 * SMALL_HEADER_HEIGHT,
 };
-TOP_HEADER_HEIGHT.BIG = 2 * TOP_HEADER_HEIGHT.SMALL;
-//TODO: que por defecto sea small para evitar que flashee?
 const small_header_styles = `
     height: ${ TOP_HEADER_HEIGHT.SMALL }px;
     background: black;
@@ -103,9 +101,6 @@ export const TopHeader = styled(props =>
     $ > ${ MainMenu } {
         grid-area: main-menu;
     }
-    & > ${ SecondaryMenu } {
-        grid-area: secondary-menu;
-    }
 
     @media ${ styles.media.tablet } {
         height: ${ TOP_HEADER_HEIGHT.BIG }px;
@@ -124,27 +119,7 @@ export const TopHeader = styled(props =>
         $ > ${ MainMenu } {
             grid-area: main-menu;
         }
-        & > ${ SecondaryMenu } {
-            grid-area: secondary-menu;
-        }
     }
-/*
-
-    @media ${ styles.media.tablet } {
-        padding: 0 50px;
-        height: ${ TOP_HEADER_HEIGHT }px;
-        background: linear-gradient(black, transparent);
-        grid-template-areas: "logo . main-menu . secondary-menu";
-        grid-template-columns: 0% 0% 70% 0% 30%;
-
-    }
-    @media ${ styles.media.laptop } {
-        grid-template-columns: 10% 0% 50% 0% 40%;
-    }
-    @media ${ styles.media.desktop } {
-        grid-template-columns: 10% 5% 40% 5% 40%;
-    }
-    */
 `;
 const LangSelect = styled(props =>
     <select className={ props.className } onChange={ event => props.onLanguage(event.target.value) } value={ props.locale }>

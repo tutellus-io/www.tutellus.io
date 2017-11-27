@@ -89,6 +89,7 @@ class SignupElement extends Component {
                     emailVerified,
                 } = db.auth().currentUser;
                 this.updateUser({email_verified: emailVerified});
+            //eslint-disable-next-line no-magic-numbers
             }, 5000);
         }
     }

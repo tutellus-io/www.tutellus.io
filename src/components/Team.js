@@ -112,20 +112,6 @@ export const TeamMember = styled(props =>
     @media ${ styles.media.dektop } {
         font-size: 2em;
     }
-/*
-	padding: 15px;
-	background-color: ${ styles.colors.grey };
-	border-radius: ${ styles.border.radius.small };
-	margin-bottom: ${ styles.margin.small };
-	color: ${ styles.colors.softblack };
-    font-size: 1em;
-    & ${ TeamMemberName } {
-        font-size: 1.2em;
-    }
-    & ${ TeamMemberTitle } {
-        font-size: 1em;
-    }
-    */
 `;
 export const Team = styled.div`
     margin: 1em;
@@ -139,9 +125,4 @@ export const Team = styled.div`
         font-size: .5em;
         grid-template-columns: ${ childrenAsColumns };
     }
-/*
-    display: grid;
-    grid-template-columns: ${ childrenAsColumns };
-    grid-column-gap: 10px;
-    */
 `;
