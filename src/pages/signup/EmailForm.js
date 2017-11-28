@@ -1,3 +1,4 @@
+//@flow
 import React from 'react';
 import styled from 'styled-components';
 import {Button, PageTitle, Text, ColumnCenter, Hr} from '../../components';
@@ -6,7 +7,19 @@ import _ from 'lodash';
 import Yup from '../../yup';
 import {translate} from 'react-i18next';
 
-const EmailFormElement = props => {
+/*::
+type EmailFormProps = {|
+    className?: string,
+    //$FlowFixMe
+    db: any,
+    user: void,
+    showAlert: (({|text: string|}) => void),
+    nextStep: (void => void),
+    updateUser: (void => void),
+    t: ((string, ?Object) => string),
+|}
+*/
+const EmailFormElement = (props/*:EmailFormProps*/) => {
     const {
         db,
         showAlert,
@@ -79,7 +92,8 @@ const EmailFormElement = props => {
     );
 };
 
-const EmailForm = styled(translate()(EmailFormElement))`
+//$FlowFixMe
+const EmailForm /*:ComponentType<EmailFormProps>*/= styled(translate()(EmailFormElement))`
 `;
 
 export default EmailForm;

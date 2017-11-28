@@ -1,4 +1,5 @@
-import React from 'react';
+//@flow
+import * as React from 'react';
 import styled from 'styled-components';
 import {Button, FileUpload, PageTitle, ColumnCenter, Text, BoxTitle, FlexCenter} from '../../components';
 import {Form, Formik} from 'formik';
@@ -6,7 +7,22 @@ import _ from 'lodash';
 import Yup from '../../yup';
 import {translate} from 'react-i18next';
 
-const IdentityFormElement = props => {
+/*::
+type IdentityFormProps = {|
+    className: void,
+    user: {|
+        uid: string,
+        selfie: string,
+        residency: string,
+        identity_front: string,
+        identity_back: string,
+    |},
+    updateUser: (Object => void),
+    nextStep: (void => void),
+    t: (string => string),
+|}
+*/
+const IdentityFormElement = (props/*:IdentityFormProps*/) => {
     const {
         className,
         user,
@@ -121,7 +137,8 @@ const IdentityFormElement = props => {
     );
 };
 
-const IdentityForm = styled(translate()(IdentityFormElement))`
+//$FlowFixMe
+const IdentityForm /*:ComponentType<IdentityFormProps>*/= styled(translate()(IdentityFormElement))`
 `;
 
 export default IdentityForm;

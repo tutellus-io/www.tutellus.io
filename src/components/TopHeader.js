@@ -1,5 +1,6 @@
 //@flow
-import React from 'react';
+import * as React from 'react';
+/*:: import type {ComponentType} from 'react' */
 import styled from 'styled-components';
 import {translate} from 'react-i18next';
 import SmoothScroll from 'react-scroll';
@@ -17,7 +18,14 @@ const small_header_styles = `
     background: black;
     transition: all .5s linear;
 `;
-const HeaderLogo = styled(props =>
+/*::
+type HeaderLogoProps = {|
+    className?: string,
+    logo: string,
+    title: string,
+|}
+*/
+const HeaderLogo/*:ComponentType<HeaderLogoProps>*/ = styled((props/*:HeaderLogoProps*/) =>
     <a className={ props.className }>
         <img src={ props.logo } alt={ props.title } />
     </a>
@@ -25,7 +33,13 @@ const HeaderLogo = styled(props =>
     display: block;
     max-width: 7em;
 `;
-const Link = styled(props =>
+/*::
+type LinkProps = {|
+    to: string,
+    children?: React.Node,
+|}
+*/
+const Link/*:ComponentType<LinkProps>*/ = styled((props/*:LinkProps*/) =>
     <SmoothScroll.Link { ...props }
         spy={ true }
         smooth={ true }
@@ -79,7 +93,16 @@ export const MainMenu = styled(translate()(({t, className}) =>
     }
 `;
 
-export const TopHeader = styled(props =>
+/*::
+type TopHeaderProps = {|
+    className?: string,
+    logo: string,
+    title: string,
+    small?: bool,
+    children?: React.Node,
+|}
+*/
+export const TopHeader/*:ComponentType<TopHeaderProps>*/ = styled((props/*:TopHeaderProps*/) =>
     <header className={ props.className }>
         <HeaderLogo logo={ props.logo } title={ props.title } />
         { props.children }
@@ -125,7 +148,14 @@ export const TopHeader = styled(props =>
         }
     }
 `;
-const LangSelect = styled(props =>
+/*::
+type LangSelectProps = {|
+    className?: string,
+    onLanguage: (string => void),
+    locale: string,
+|}
+*/
+const LangSelect/*:ComponentType<LangSelectProps>*/ = styled((props/*:LangSelectProps*/) =>
     <select className={ props.className }
         onChange={ event => props.onLanguage(event.target.value) }
         value={ props.locale }>
@@ -141,7 +171,15 @@ const LangSelect = styled(props =>
     color: white;
 `;
 
-export const SecondaryMenu = styled(props =>
+/*::
+type SecondaryMenuProps = {|
+    className?: string,
+    socialLinks: Object,
+    onLanguage: (string => void),
+    locale: string,
+|}
+*/
+export const SecondaryMenu/*:ComponentType<SecondaryMenuProps>*/ = styled((props/*:SecondaryMenuProps*/) =>
     <div className={ props.className }>
         <SocialIcons networks={ props.socialLinks } />
         <LinkButton to="/signup">Whitelist</LinkButton>

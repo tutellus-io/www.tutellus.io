@@ -1,5 +1,6 @@
 //@flow
 import React from 'react';
+/*:: import type {ComponentType} from 'react' */
 import styled, {keyframes} from 'styled-components';
 import styles from '../styles';
 import {bounceIn} from 'react-animations';
@@ -20,18 +21,29 @@ const Overlay = styled.div`
         }
     }
 `;
-export const PlayButton = styled(class extends React.Component {
+/*::
+type Props = {|
+    video: string,
+    className?: string,
+|}
+type State = {|
+    playing?: bool,
+|}
+*/
+export const PlayButton/*:ComponentType<Props>*/= styled(class extends React.Component/*::<Props, State>*/ {
     constructor() {
         super();
-        this.state = {};
+        this.state = (({}/*:any*/)/*:State*/);
         this.play = this.play.bind(this);
         this.stop = this.stop.bind(this);
     }
+    /*:: stop: (void => void) */
     stop(evt) {
         evt.preventDefault();
         evt.stopPropagation();
         this.setState({playing: false});
     }
+    /*:: play: (void => void) */
     play(evt) {
         evt.preventDefault();
         evt.stopPropagation();

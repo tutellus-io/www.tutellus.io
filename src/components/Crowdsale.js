@@ -1,10 +1,11 @@
 //@flow
-import React from 'react';
+import * as React from 'react';
+/*:: import type {ComponentType} from 'react' */
 import styled from 'styled-components';
 import styles from '../styles';
 import {CenteredBlock, AButton, LinkButton} from './';
 
-export const CrowdsaleCTA = ({href = "", children}) =>
+export const CrowdsaleCTA = ({href = "", children}/*:{href: string, children: React.Node}*/) =>
     <CenteredBlock>
         {
             (href.startsWith("http")
@@ -63,38 +64,6 @@ export const CrowdsaleSummary = styled.table`
             }
         }
     }
-/*
-    width: 100%;
-    margin: 0 15px;
-    padding: 0 15px;
-    margin-bottom: 40px;
-
-    & tr {
-        color: black;
-        line-height: 2.5em;
-        &.secondary td:nth-child(1):before {
-            margin-left: 4em;
-        }
-        &:nth-child(odd) {
-            background-color: ${ styles.colors.athens };
-        }
-        &:nth-child(even) {
-            background-color: white;
-        }
-    }
-    & td:before {
-        /*TODO: definir como helper "bullets" (copiado de DistributionTable)*//*
-        content: '';
-        display: inline-block;
-        border: solid .5em transparent;
-        border-left: solid .5em ${ styles.colors.lightblue };
-        position: relative;
-        top: .125em;
-        /* esto ya no es bullets *//*
-        margin-left: 2em;
-        margin-right: .5em;
-    }
-*/
 `;
 export const CrowdsalePurpose = styled.div`
     @media ${ styles.media.tablet } {
@@ -112,7 +81,19 @@ const DistributionTableTitle = styled.h4`
     text-align: center;
     margin-bottom: 1em;
 `;
-export const DistributionTable = styled(props =>
+/*::
+type DistributionTableStat = {|
+    value: number,
+    label: string,
+|}
+type DistributionTableProps = {|
+    className?: string,
+    graph: string,
+    title: string,
+    stats: Array<DistributionTableStat>,
+|}
+*/
+export const DistributionTable/*:ComponentType<DistributionTableProps>*/= styled((props/*:DistributionTableProps*/)=>
     <div className={ props.className } >
         <DistributionGraph src={ props.graph } />
         <DistributionTableTitle>{ props.title }</DistributionTableTitle>

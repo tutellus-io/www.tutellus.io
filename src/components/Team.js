@@ -1,5 +1,6 @@
 //@flow
 import * as React from 'react';
+/*:: import type {ComponentType} from 'react' */
 import styled from 'styled-components';
 import styles from '../styles';
 
@@ -47,7 +48,17 @@ const TeamMemberTitle = styled.i`
 	display: inline-block;
 	margin-bottom: 1em;
 `;
-export const TeamMember = styled(props =>
+/*::
+type TeamMemberProps = {|
+    className?: string,
+    name: string,
+    photo: string,
+    title: string,
+    children: React.Node,
+    socialProfiles?: Object,
+|}
+*/
+export const TeamMember/*:ComponentType<TeamMemberProps>*/= styled((props/*:TeamMemberProps*/) =>
     <div className={ props.className }>
         <TeamMemberAvatar src={ props.photo } />
         <TeamMemberName>{ props.name }</TeamMemberName>
@@ -109,7 +120,7 @@ export const TeamMember = styled(props =>
             width: 7em;
         }
     }
-    @media ${ styles.media.dektop } {
+    @media ${ styles.media.desktop } {
         font-size: 2em;
     }
 `;

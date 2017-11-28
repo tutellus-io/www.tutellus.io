@@ -1,3 +1,4 @@
+//@flow
 import React from 'react';
 import styled from 'styled-components';
 import {TextField, OneCheckbox, Button, PageTitle, Text, ColumnCenter, Box, Icon} from '../../components';

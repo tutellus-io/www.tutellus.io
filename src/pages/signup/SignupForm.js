@@ -1,3 +1,4 @@
+//@flow
 import React from 'react';
 import {TextField, Button, PageTitle, Text, ColumnCenter} from '../../components';
 import {Field, Form, Formik} from 'formik';
@@ -75,10 +76,12 @@ const SignupFormElement = props => {
     if (!initialValues.uid) {
         const MIN_PASSWD_LENGTH = 8;
         const MIN_PASSWD_STRENGTH = 55;
+        //$FlowFixMe
         validationObj.passwd = Yup.string()
         .required(t('signup:signup_passwd_required_err'))
         .min(MIN_PASSWD_LENGTH, t('signup:signup_passwd_min_err'))
         .passwdStrength(MIN_PASSWD_STRENGTH, t('signup:signup_passwd_strength_err'));
+        //$FlowFixMe
         validationObj.repasswd = Yup.string()
         .required(t('signup:signup_repasswd_required_err'))
         .sameAs(Yup.ref('passwd'), t('signup:signup_repasswd_sameas_err'));

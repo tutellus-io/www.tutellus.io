@@ -1,14 +1,30 @@
-import React, {Component} from 'react';
+//@flow
+import * as React from 'react';
 import {PageSection, SectionTitle, Text, ColumnCenter, LinkButton} from '../../components';
 
-export default class VerifyEmail extends Component {
+/*::
+type TranslateFn = (string => string)
+type VerifyEmailProps = {|
+    t: TranslateFn,
+    mgmt: {|
+        oobCode: void,
+    |},
+    db: any,
+|}
+type VerifyEmailState = {|
+    loading: bool,
+    verified: bool,
+    user: void,
+|}
+*/
+export default class VerifyEmail extends React.Component/*::<VerifyEmailProps, VerifyEmailState>*/ {
     constructor() {
         super();
 
-        this.state = {
+        this.state = ({
             loading: true,
             verified: false,
-        };
+        }/*:any*/);
     }
 
     componentWillMount() {
@@ -44,7 +60,7 @@ export default class VerifyEmail extends Component {
     }
 }
 
-const EmailVerified = ({t}) =>
+const EmailVerified = ({t}/*:{t: TranslateFn}*/) =>
     <div>
         <SectionTitle simple>{t('signup:verified_title')}</SectionTitle>
         <ColumnCenter>
@@ -53,7 +69,7 @@ const EmailVerified = ({t}) =>
     </div>
 ;
 
-const EmailNotVerified = ({t}) =>
+const EmailNotVerified = ({t}/*:{t: TranslateFn}*/) =>
     <div>
         <SectionTitle simple>{t('signup:not_verified_title')}</SectionTitle>
         <ColumnCenter>

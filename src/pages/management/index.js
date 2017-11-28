@@ -1,3 +1,4 @@
+//@flow
 import React from 'react';
 import {Redirect} from 'react-router-dom';
 import {parse} from 'query-string';

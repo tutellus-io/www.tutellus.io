@@ -1,5 +1,5 @@
 //@flow
-import React from 'react';
+import * as React from 'react';
 import {translate} from 'react-i18next';
 import {
     TopHeader,
@@ -8,7 +8,9 @@ import {
     SecondaryMenu,
 } from '../../components';
 
-class WindowScroll extends React.Component {
+/*:: type Scroll = {|x: number, y: number|} */
+/*:: type WindowScrollProps = {|children: (Scroll => React.Node)|} */
+class WindowScroll extends React.Component/*::<WindowScrollProps, Scroll>*/ {
     constructor() {
         super();
         //eslint-disable-next-line id-length
@@ -29,6 +31,7 @@ export const MainHeader = translate()(({i18n, socialLinks}) =>
     <WindowScroll>{ scroll =>
         <TopHeader small={ scroll.y > TOP_HEADER_HEIGHT.SMALL }
             logo="/images/white-logo.svg"
+            title="Tutellus.io"
         >
             <MainMenu />
             <SecondaryMenu onLanguage={ lang => i18n.changeLanguage(lang) }

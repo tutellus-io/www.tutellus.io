@@ -1,4 +1,6 @@
-import React from 'react';
+//@flow
+import * as React from 'react';
+/*:: import type {ComponentType} from 'react' */
 import Color from 'color';
 import styled from 'styled-components';
 import {colors} from '../../styles';
@@ -19,11 +21,19 @@ export const Hr = styled.div`
     height: 4em;
 `;
 
-export const IconElement = props =>
+export const IconElement = (props/*:{className: string, name: string}*/) =>
     <i className={`material-icons ${ props.className }`}>{props.name}</i>
 ;
 
-export const Icon = styled(IconElement)`
+/*::
+type IconProps = {|
+    name: string,
+    color?: string,
+    size?: string,
+    margin?: string,
+|}
+*/
+export const Icon/*:ComponentType<IconProps>*/ = styled(IconElement)`
     font-family: 'Material Icons';
     font-weight: normal;
     font-style: normal;
@@ -51,7 +61,12 @@ export const Icon = styled(IconElement)`
     ${ props => (props.margin ? `margin: ${ props.margin };` : '') }
 `;
 
-export const Label = styled.label`
+/*::
+type LabelProps = {
+    inline?: bool,
+}
+*/
+export const Label/*:ComponentType<LabelProps>*/ = styled.label`
     margin-bottom: ;
     display: ${ props => (props.inline ? 'inline' : 'block') };
     font-weight: bold;
@@ -59,8 +74,9 @@ export const Label = styled.label`
     margin: 0.5em 0
 `;
 
+/*:: type FieldProps = {no_margin: bool} */
 export const Field = styled.div`
-    margin-bottom: ${ props => (props.no_margin ? '' : '1.5em') };
+    margin-bottom: ${ (props/*:FieldProps*/) => (props.no_margin ? '' : '1.5em') };
     &.error {
         input,
         textarea {
@@ -74,7 +90,13 @@ export const Field = styled.div`
     }
 `;
 
-export const BoxTitle = styled.h3`
+/*::
+type BoxTitleProps = {|
+    margin?: string,
+    children: React.Node,
+|}
+*/
+export const BoxTitle/*:ComponentType<BoxTitleProps>*/ = styled.h3`
     font-weight: bold;
     font-size: 1.1em;
     text-align: center;
@@ -92,7 +114,13 @@ export const BoxInTitle = styled.div`
     margin-bottom: 0.75em;
 `;
 
-export const FlexCenter = styled.div`
+/*::
+type FlexCenterProps = {|
+    margin?: string,
+    children: React.Node,
+|}
+*/
+export const FlexCenter/*:ComponentType<FlexCenterProps>*/ = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -113,7 +141,15 @@ export const InnerBox = styled.div`
     padding: 1.75em;
 `;
 
-export const BoxElement = props =>
+/*::
+type BoxElementProps = {|
+    className: string,
+    preTitle?: string,
+    title?: string,
+    children?: React.Node,
+|}
+*/
+export const BoxElement = (props/*:BoxElementProps*/) =>
     <div className={props.className}>
         {props.preTitle && <BoxTitle>{props.preTitle}</BoxTitle>}
         <InnerBox>
@@ -126,7 +162,17 @@ export const Box = styled(BoxElement)`
     margin-bottom: 3em;
 `;
 
-export const Button = styled.button`
+/*::
+type ButtonProps = {|
+    full?: bool,
+    type?: string,
+    primary?: bool,
+    disabled?: bool,
+    children: React.Node,
+    onClick?: (void => void),
+|}
+*/
+export const Button/*:ComponentType<ButtonProps>*/ = styled.button`
     color: ${ colors.white };
     display: block;
     border: none;
@@ -154,5 +200,5 @@ export const Button = styled.button`
     }
 `;
 
-export const LinkButton = Button.withComponent(Link);
-export const AButton = Button.withComponent('a');
+export const LinkButton = (Button/*:any*/).withComponent(Link);
+export const AButton = (Button/*:any*/).withComponent('a');

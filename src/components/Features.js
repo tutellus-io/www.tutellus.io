@@ -1,5 +1,6 @@
 //@flow
 import * as React from 'react';
+/*:: import type {ComponentType} from 'react' */
 import styled from 'styled-components';
 
 import styles from '../styles';
@@ -18,7 +19,14 @@ export const Features = styled.ul`
     }
 `;
 export const FeatureTitle = styled.h4``;
-export const Feature = styled(props =>
+/*::
+type FeatureProps = {|
+    title: string,
+    children?: React.Node,
+    image: string,
+|}
+*/
+export const Feature/*:ComponentType<FeatureProps>*/= styled((props/*:FeatureProps*/) =>
     <li { ...props }>
         <FeatureTitle>{ props.title }</FeatureTitle>
         { props.children }

@@ -1,5 +1,6 @@
 //@flow
 import * as React from 'react';
+/*:: import type {ComponentType} from 'react' */
 import R from 'ramda';
 import styled from 'styled-components';
 
@@ -24,8 +25,15 @@ export const Text = styled.p`
 `;
 
 export const Col = styled.div``;
-
-export const Quote = styled(props =>
+/*::
+type QuoteProps = {|
+    className?: string,
+    href: string,
+    cite: string,
+    children: React.Node,
+|}
+*/
+export const Quote/*:ComponentType<QuoteProps>*/ = styled((props/*:QuoteProps*/) =>
     <blockquote cite={ props.href } className={ props.className }>
         &quot;{ props.children }&quot;
         <small>{ props.cite }</small>

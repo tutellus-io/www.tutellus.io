@@ -1,5 +1,6 @@
+//@flow
 /* global localStorage */
-import React, {Component} from 'react';
+import * as React from 'react';
 import styled from 'styled-components';
 import Rebase from 're-base';
 import _ from 'lodash';
@@ -14,9 +15,38 @@ import WalletForm from './WalletForm';
 import IdentityForm from './IdentityForm';
 import Summary from './Summary';
 
-class SignupElement extends Component {
+/*::
+type SignupStep = {|
+    //$FlowFixMe
+    component: any,
+    key?: string,
+    name: string,
+|}
+type SignupProps = {|
+    className?: string,
+    showAlert: void,
+    t: (string => string),
+    //$FlowFixMe
+    db: any,
+|}
+type SignupState = {|
+    user: {|
+        email_verified?: bool,
+        verification_email_sended?: bool,
+    |},
+    active_step: number,
+|}
+*/
+class SignupElement extends React.Component/*::<SignupProps, SignupState>*/ {
+    /*::
+    steps: Array<SignupStep>
+    interval: number
+    ref_user: void
+    base: any
+    */
     constructor() {
         super();
+        //$FlowFixMe
         this.state = {
             active_step: -1,
             user: {},
@@ -146,6 +176,7 @@ class SignupElement extends Component {
         return !propsEqual || !stateEqual;
     }
 
+    /*:: updateUser: (Object => void) */
     updateUser(updated_fields) {
         const user = _.mergeWith(this.state.user, updated_fields,
             (obj, other) => {
@@ -159,6 +190,7 @@ class SignupElement extends Component {
         });
     }
 
+    /*:: syncUser: (string => void) */
     syncUser(uid) {
         this.ref_user = this.base.syncState(`backers/${ uid }`, {
             context: this,
@@ -166,10 +198,12 @@ class SignupElement extends Component {
         });
     }
 
+    /*:: getUserInfo: (void => Object) */
     getUserInfo() {
         return _.get(this.state, 'user', {});
     }
 
+    /*:: keyDone: (?string => bool) */
     keyDone(key) {
         return _.get(this.state.user, key, false);
     }

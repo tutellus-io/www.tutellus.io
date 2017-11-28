@@ -1,13 +1,14 @@
-import React from 'react';
+//@flow
+import * as React from 'react';
 import {has} from 'lodash';
 import styled from 'styled-components';
 import {Label, Field} from './styled';
 
-export const Radio = props =>
+export const Radio = (props/*:mixed*/) =>
     <ItemField {...props} type='radio'/>;
 ;
 
-export const Checkbox = props =>
+export const Checkbox = (props/*:mixed*/) =>
     <ItemField {...props} value={true} type='checkbox'/>;
 ;
 
@@ -36,7 +37,16 @@ const ItemField = styled(ItemFieldElement)`
     display: inline;
 `;
 
-export const GroupField = props => {
+/*::
+type GroupFieldProps = {|
+    field: {|name: string|},
+    form: {|errors: Object|},
+    label: {|value: string|},
+    children?: React.Node,
+    className: string,
+|}
+*/
+export const GroupField = (props/*:GroupFieldProps*/) => {
     const {
         field,
         form,
@@ -59,7 +69,14 @@ export const GroupField = props => {
     );
 };
 
-export const OneCheckbox = props => {
+/*::
+type OneCheckboxProps = {|
+    field: {|name: string|},
+    form: {|errors: Object|},
+    className: string,
+|}
+*/
+export const OneCheckbox = (props/*:OneCheckboxProps*/) => {
     const {
         field,
         form,

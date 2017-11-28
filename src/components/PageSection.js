@@ -1,6 +1,7 @@
 //@flow
-import R from 'ramda';
 import * as React from 'react';
+/*:: import type {ComponentType} from 'react' */
+import R from 'ramda';
 import styled from 'styled-components';
 
 import {MAX_CONTENT_WIDTH, Text} from './Layout';
@@ -28,13 +29,28 @@ const colorSectionBackground = R.cond([
 const section_styles = `
     padding: 1em;
 `;
-const BackgroundVideo = styled(props =>
-    <video preload="true" mute="true" autoPlay="true" loop="true" playsInline="true" poster={ `${ props.src }.jpg` }>
+/*::
+type BackgroundVideoProps = {|
+    className?: string,
+    src: string,
+|}
+*/
+const BackgroundVideo /*:ComponentType<BackgroundVideoProps>*/= styled((props/*:BackgroundVideoProps*/) =>
+    <video className={ props.className } preload="true" mute="true" autoPlay="true" loop="true" playsInline="true" poster={ `${ props.src }.jpg` }>
         <source src={ props.src } />
     </video>
 )`
 `;
-export const PageBanner = styled(props =>
+/*::
+type PageBannerProps = {|
+    id: string,
+    className?: string,
+    dark: bool,
+    backgroundVideo: string,
+    children?: React.Node,
+|}
+*/
+export const PageBanner/*:ComponentType<PageBannerProps>*/ = styled((props/*:PageBannerProps*/) =>
     <section id={ props.id } className={ props.className }>
         <div>
             <BackgroundVideo src={ props.backgroundVideo } />
@@ -54,7 +70,7 @@ export const PageBanner = styled(props =>
     background-size: cover;
     color: white;
 
-    & > div > video {
+    & ${ BackgroundVideo } {
         display: none;
     }
     @media ${ styles.media.tablet } {
@@ -71,7 +87,8 @@ const colorSectionForeground = R.cond([
 ]);
 
 const TITLE_UNDERLINE_WIDTH = 5;//em
-export const SectionTitle = styled.h2`
+/*:: type SectionTitleProps = {simple?: bool} */
+export const SectionTitle /*:ComponentType<SectionTitleProps>*/= styled.h2`
     margin-bottom: 1em;
     font-size: 1.5em;
     line-height: 1.25em;
@@ -111,7 +128,19 @@ export const SectionImage = styled.img`
     max-width: 100%;
     margin: 0 auto;
 `;
-export const PageSection = styled(props =>
+/*::
+type PageSectionProps = {|
+    id?: string,
+    className?: string,
+    title?: string,
+    image?: string,
+    interstitialImage?: string,
+    dark?: bool,
+    light?: bool,
+    children?: React.Node,
+|}
+*/
+export const PageSection/*:ComponentType<PageSectionProps>*/ = styled((props/*:PageSectionProps*/) =>
     <section id={ props.id } className={ props.className }>
         { props.interstitialImage &&
             <InterstitialImage src={ props.interstitialImage } />
@@ -161,7 +190,7 @@ export const PageSection = styled(props =>
         }
     }
 `;
-export const PageTitle = SectionTitle.withComponent('h1');
+export const PageTitle /*:ComponentType<SectionTitleProps>*/= (SectionTitle/*:any*/).withComponent('h1');
 export const PageSubtitle = styled(Text)`
     text-shadow: 1px 1px 1px black;
 `;

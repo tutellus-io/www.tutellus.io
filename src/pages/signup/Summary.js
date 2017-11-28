@@ -1,3 +1,4 @@
+//@flow
 import React from 'react';
 import {translate} from 'react-i18next';
 import styled from 'styled-components';
@@ -64,7 +65,6 @@ const SummaryElement = props => {
         </div>
     );
 };
-
 
 export default styled(translate()(SummaryElement))`
 `;

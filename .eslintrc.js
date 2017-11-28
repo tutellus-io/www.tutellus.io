@@ -23,11 +23,12 @@ module.exports = {
         //en una arrow function debe indicarse con paréntesis el body si puede llevar
         //a confusión: ` a => (a ? b : c)`
         'no-confusing-arrow': ['error', {allowParens: true}],
-        'no-extra-parens': ['error', 'all', {
+        //solo es un warning, a veces son necesarios para hacer typecast en flowtype
+        'no-extra-parens': ['warn', 'all', {
             enforceForArrowConditionals: false,
             nestedBinaryExpressions: false,
         }],
-        'arrow-parens': ['error', 'as-needed'],
+        'arrow-parens': ['warn', 'as-needed'],
         'react/prop-types': 'warn',
         'react/display-name': 'warn',
         'class-methods-use-this': 'warn',

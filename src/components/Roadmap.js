@@ -1,5 +1,6 @@
 //@flow
 import * as React from 'react';
+/*:: import type {ComponentType} from 'react' */
 // $FlowFixMe: usamos moment/moment para que funcione el transpilado (se podría hacer con webpack)
 import moment from 'moment/moment';
 import styled from 'styled-components';
@@ -14,7 +15,16 @@ const milestone_marker = props => `
     border: solid 2px ${ styles.colors.lightblue };
     background: ${ props.done ? styles.colors.lightblue : 'white' };
 `;
-export const Milestone = styled(props =>
+/*::
+type MilestoneProps = {|
+    className?: string,
+    date: moment$Moment,
+    title: string,
+    children?: React.Node,
+    done?: boolean,
+|}
+*/
+export const Milestone/*:ComponentType<MilestoneProps>*/= styled((props/*:MilestoneProps*/) =>
     <li className={ props.className }>
         <div>
             <time dateTime={ moment(props.date).format('YYYY-MM-DD') }>{ moment(props.date).format('MMM YY') }</time>
