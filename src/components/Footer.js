@@ -16,11 +16,11 @@ export const NavCategory = styled(props =>
     <div className={ props.className }>
         <NavCategoryTitle>{ props.title }</NavCategoryTitle>
         <ul>
-        {
-            React.Children.map(props.children, navlink =>
-                <li>{ navlink }</li>
-            )
-        }
+            {
+                React.Children.map(props.children, navlink =>
+                    <li>{ navlink }</li>
+                )
+            }
         </ul>
     </div>
 )`
@@ -28,21 +28,26 @@ export const NavCategory = styled(props =>
 export const SocialIcon = styled.li`
     display: inline;
     margin: 0 .25em;
-/*
-    color: ${ styles.colors.athens };
     &:hover {
         color: ${ styles.colors.midgrey };
         transition: color .2s linear;
     }
+/*
+    color: ${ styles.colors.athens };
 */
 `;
 export const SocialIcons = styled(props =>
     <ul className={ props.className }>
-    {
-        Object.entries(props.networks).map(([network, link]) =>
-            <SocialIcon key={ network }><a className={ `socicon-${ network }` } href={ link }></a></SocialIcon>
-        )
-    }
+        {
+            Object.entries(props.networks).map(([network, link]) =>
+                <SocialIcon key={ network }>
+                    <a className={ `socicon-${ network }` }
+                        href={ link }
+                        target="_blank"
+                    />
+                </SocialIcon>
+            )
+        }
     </ul>
 )`
 
@@ -102,7 +107,7 @@ export const PageFooter = styled.footer`
     @media ${ styles.media.laptop } {
         display: grid;
         grid: "logo nav" / 1fr 1fr;
-        padding: 1em 2em;
+        padding: 2em 2em 4em;
     }
 /*
     display: grid;

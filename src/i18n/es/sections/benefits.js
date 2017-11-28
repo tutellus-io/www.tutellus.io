@@ -1,6 +1,6 @@
 //@flow
 export const the_benefits = {
-    title: 'Beneficios para Usuarios',
+    title: 'Beneficios para Todos',
     description: 'El nuevo Tutellus mejorará exponencialmente la experiencia de Profesores y Alumnos:',
     earn_studying: 'Gana dinero mientras estudia',
     learn_more: 'Aprende más y mejor',

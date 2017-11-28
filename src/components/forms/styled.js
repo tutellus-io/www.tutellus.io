@@ -130,11 +130,12 @@ export const Button = styled.button`
     color: ${ styles.colors.white };
     display: block;
     border: none;
-    padding: 0.8em 2em;
+    padding: 0.8em 1.2em;
     border-radius: 3px;
     font-size: 1.1em;
     cursor: pointer;
     letter-spacing: .035em;
+    text-align: center;
     background-color: ${ props=> (props.primary
         ? styles.colors.lightblue
         : styles.colors.midgrey)

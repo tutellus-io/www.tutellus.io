@@ -15,7 +15,7 @@ export const Layer = styled.div`
 `;
 export const TechIcon = styled.img`
     display: inline-block;
-    margin: 0 0.5em;
+    margin: 0.5em;
     height: 1.5em;
     & + span {
         position: relative;

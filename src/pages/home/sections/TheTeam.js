@@ -37,7 +37,7 @@ export const TheTeam = translate('the_team')(({t, id}) =>
             } }>
                 { t('jcalvo') }
             </TeamMember>
-            <TeamMember name="Karol Szymanczak" title="Designer" photo="/images/team/Karol.jpg" socialProfiles={ {
+            <TeamMember name="Karolina Szymanczak" title="Designer" photo="/images/team/Karol.jpg" socialProfiles={ {
                 linkedin: '//www.linkedin.com/in/karolina-szymańczak-18206838/',
             } }>
                 { t('karol') }
