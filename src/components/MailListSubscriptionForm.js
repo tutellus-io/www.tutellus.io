@@ -19,21 +19,22 @@ export const SubscriptionForm = translate('mailinglist')(({t, className}) => {
         .email(t('email_email_err')),
     });
 
-    const subscribe = async(form_data = {}, {setSubmitting, setErrors, resetForm}) => {
+    const SHOW_MS = 4000;
+    const subscribe = async(form_data = {}, {setSubmitting, setErrors, setStatus, resetForm}) => {
         try {
             const params = Object.entries(form_data).map(x =>
                 `${ x[0] }=${ encodeURIComponent(x[1]) }`
             );
             const subscribe_url = `${ SUBSCRIBE_URL }&${ params.join('&') }`;
-            const response = await fetch(subscribe_url, {mode: 'no-cors'});
-            if (!response.ok) {
-                throw new Error();
-            }
+            await fetch(subscribe_url, {mode: 'no-cors'});
+            setStatus({done: t('subscription_successful')});
+            setTimeout(() => {
+                resetForm();
+                setSubmitting(false);
+            }, SHOW_MS);
         } catch (error) {
             setErrors({EMAIL: t('subscription_failed')});
-        } finally {
             setSubmitting(false);
-            resetForm();
         }
     };
 
@@ -45,10 +46,16 @@ export const SubscriptionForm = translate('mailinglist')(({t, className}) => {
                 EMAIL: '',
                 b_fb6c7232ef9595533c37d1fc0_fa6bf30be0: "",
             } }
-            component={ ({isSubmitting}) =>
+            component={ ({isSubmitting, status = {}}) =>
                 <Form className = {className}>
                     <Field component={ TextField } name="EMAIL" placeholder={ t('email_address') } />
                     <Button full type="submit" primary disabled={ isSubmitting }>{ t('subscribe') }</Button>
+                    {
+                        status.done &&
+                        <div className='done_placeholder'>
+                            {status.done}
+                        </div>
+                    }
                 </Form>
             }
         />
