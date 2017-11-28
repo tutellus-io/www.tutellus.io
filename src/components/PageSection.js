@@ -48,7 +48,7 @@ const BackgroundVideo = styled(props =>
 export const PageBanner = styled(props =>
     <section id={ props.id } className={ props.className }>
         <div>
-            <BackgroundVideo src={ props.BackgroundVideo } />
+            <BackgroundVideo src={ props.backgroundVideo } />
             <SectionContent>
                 { props.title &&
                 <PageTitle>{ props.title }</PageTitle>
@@ -60,7 +60,7 @@ export const PageBanner = styled(props =>
 )`
     ${ section_styles }
     margin-top: ${ TOP_HEADER_HEIGHT.SMALL }px;
-    padding-top: 1em;
+    padding: 3em 0;
     background: url(${ props => `${ props.backgroundVideo }.jpg` }) no-repeat;
     background-size: cover;
     color: white;
@@ -131,14 +131,15 @@ export const SectionTitle = styled.h2`
             &:after {
                 content: "";
                 background: url('/images/underlined.svg') no-repeat;
+                background-size: 100% 100%;
                 display: block;
                 position: relative;
                 top: .5em;
-                height: 1em;
+                height: 0.5em;
                 width: ${ TITLE_UNDERLINE_WIDTH }em;
                 left: calc(50% - ${ TITLE_UNDERLINE_WIDTH / 2 }em);
             }`
-    }
+}
 
     @media ${ styles.media.tablet } {
         font-size: 2em;
@@ -189,7 +190,7 @@ export const PageSection = styled(props =>
     & ${ SectionImage } {
         display: block;
         max-width: 100%;
-        margin: 0 auto;
+        margin: 1.5em auto;
     }
 
     @media ${ styles.media.laptop } {
@@ -197,9 +198,13 @@ export const PageSection = styled(props =>
         & ${ InterstitialImage } {
             margin-top: -5.5em;
         }
+        & ${ SectionImage } {
+            width: 70%;
+            margin: 3em auto;
+        }
     }
 `;
 export const PageTitle = SectionTitle.withComponent('h1');
 export const PageSubtitle = styled(Text)`
     text-shadow: 1px 1px 1px black;
-`
+`;
