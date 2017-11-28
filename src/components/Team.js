@@ -1,14 +1,32 @@
 //@flow
 import * as React from 'react';
 import styled from 'styled-components';
-import {SectionContent} from './PageSection';
-import {SocialIcons, SocialIcon} from './Footer';
 import styles from '../styles';
 
 const childrenAsColumns = props => {
     const children_count = React.Children.count(props.children);
     return `repeat(${ children_count }, ${ 100 / children_count }%)`;
-}
+};
+
+const TeamIcon = styled.li`
+    width: 18%;
+    margin: 0.15em;
+`;
+
+const TeamIcons = styled(props =>
+    <ul className={ props.className }>
+        {
+            Object.entries(props.networks).map(([network, link]) =>
+                <TeamIcon key={ network }>
+                    <a href={ link }>
+                        <img src={`/images/icons/${ network }.svg`} alt=""/>
+                    </a>
+                </TeamIcon>
+            )
+        }
+    </ul>
+)``;
+
 const TeamMemberAvatar = styled.img`
     display: block;
     max-width: 80%;
@@ -16,12 +34,14 @@ const TeamMemberAvatar = styled.img`
     margin-bottom: 1em;
     border-radius: 50%;
 `;
+
 const TeamMemberName = styled.span`
     display: block;
     margin-bottom: 1em;
 	color: ${ styles.colors.darkblack };
     font-weight: bold;
 `;
+
 const TeamMemberTitle = styled.i`
 	color: ${ styles.colors.lightblue };
 	display: inline-block;
@@ -36,7 +56,7 @@ export const TeamMember = styled(props =>
             { props.children }
         </p>
         { props.socialProfiles &&
-        <SocialIcons networks={ props.socialProfiles } />
+            <TeamIcons networks={ props.socialProfiles } />
         }
     </div>
 )`
@@ -50,10 +70,12 @@ export const TeamMember = styled(props =>
         line-height: 1.5em;
         font-style: italic;
     }
-    & ${ SocialIcons } {
+    & ${ TeamIcons } {
         margin-top: 1em;
-        font-size: 1.2em;
-        & > ${ SocialIcon } {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;        
+        & > ${ TeamIcon } {
             color: ${ styles.colors.darkblack };
         }
     }
@@ -77,7 +99,7 @@ export const TeamMember = styled(props =>
         & > p {
             grid-area: bio;
         }
-        & > ${ SocialIcons } {
+        & > ${ TeamIcons } {
             grid-area: social-icons;
         }
     }
@@ -115,6 +137,7 @@ export const Team = styled.div`
         grid-column-gap: .5em;
         grid-auto-flow: column;
         font-size: .5em;
+        grid-template-columns: ${ childrenAsColumns };
     }
 /*
     display: grid;
