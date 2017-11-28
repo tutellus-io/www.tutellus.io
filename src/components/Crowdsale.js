@@ -148,4 +148,3 @@ export const DistributionTable/*:ComponentType<DistributionTableProps>*/= styled
               "graph table" / 40% 60%;
     }
 `;
-

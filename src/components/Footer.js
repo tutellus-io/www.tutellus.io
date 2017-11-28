@@ -108,10 +108,6 @@ export const FooterNav = styled.nav`
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
-/*
-    display: grid;
-    grid-template-columns: repeat(2, 50%);
-*/
 `;
 export const PageFooter = styled.footer`
     padding: 1em;
@@ -120,9 +116,4 @@ export const PageFooter = styled.footer`
         grid: "logo nav" / 1fr 1fr;
         padding: 2em 2em 4em;
     }
-/*
-    display: grid;
-    grid-template-columns: [logo] 50% [sitemap] 50%;
-    padding: 30px 50px;
-*/
 `;
