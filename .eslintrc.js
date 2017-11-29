@@ -16,9 +16,6 @@ module.exports = {
     extends: ['tutellus', "plugin:react/recommended"],
     plugins: ["react"],
     rules: {
-        //respetar los 80 caracteres es contraproducente en html (jsx)
-        //es mejor poner cada etiqueta en su propia línea y que ocupe lo que necesite
-        'max-len': 'warn',
         //poner espacios en las variables de los template string ayuda a verlas
         //más fácilmente, haciendo el código más legible.
         'template-curly-spacing': ['error', 'always'],
@@ -26,14 +23,18 @@ module.exports = {
         //en una arrow function debe indicarse con paréntesis el body si puede llevar
         //a confusión: ` a => (a ? b : c)`
         'no-confusing-arrow': ['error', {allowParens: true}],
-        'no-extra-parens': ['error', 'all', {
+        //solo es un warning, a veces son necesarios para hacer typecast en flowtype
+        'no-extra-parens': ['warn', 'all', {
             enforceForArrowConditionals: false,
             nestedBinaryExpressions: false,
         }],
-        //siempre poner paréntesis a los parámetros de las funciones, aunque sea
-        //solo para especificar su tipo con un comentario de flow
-        'arrow-parens': ['error', 'as-needed'],
+        'arrow-parens': ['warn', 'as-needed'],
         'react/prop-types': 'warn',
+        'react/display-name': 'warn',
         'class-methods-use-this': 'warn',
+        'max-lines': 'warn',
+        'prefer-arrow-callback': ['error', {
+            allowUnboundThis: true,
+        }],
     },
 };

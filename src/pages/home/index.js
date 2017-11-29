@@ -24,7 +24,7 @@ import {MainFooter} from './MainFooter';
 import {FloatingHelp} from '../../components';
 import {social_links} from '../../config';
 
-export class Home extends React.Component {
+export class Home extends React.Component/*::<void>*/ {
     componentDidMount() {
         injectGlobal`${ styles.global }`;
     }

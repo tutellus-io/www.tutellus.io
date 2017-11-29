@@ -12,34 +12,54 @@ export const TheTeam = translate('the_team')(({t, id}) =>
     <PageSection id={ id } title={ t('title') }>
         <Text center>{ t('description') }</Text>
         <Team>
-            <TeamMember name="Miguel Caballero" title="CEO" photo="/images/team/Miguel.jpg" socialProfiles={ {
-                linkedin: '//www.linkedin.com/in/micaballero/',
-                twitter: '//twitter.com/mcaballero',
-            } }>
+            <TeamMember name="Miguel Caballero"
+                title="CEO"
+                photo="/images/team/Miguel.jpg"
+                socialProfiles={ {
+                    linkedin: '//www.linkedin.com/in/micaballero/',
+                    twitter: '//twitter.com/mcaballero',
+                } }
+            >
                 { t('mcaballero') }
             </TeamMember>
-            <TeamMember name="Javier Ortiz" title="CTO" photo="/images/team/JaviSok.jpg" socialProfiles={ {
-                linkedin: '//www.linkedin.com/in/sokardys/',
-                github: '//github.com/sokardys',
-                twitter: '//twitter.com/sokardys',
-            } }>
+            <TeamMember name="Javier Ortiz"
+                title="CTO"
+                photo="/images/team/JaviSok.jpg"
+                socialProfiles={ {
+                    linkedin: '//www.linkedin.com/in/sokardys/',
+                    github: '//github.com/sokardys',
+                    twitter: '//twitter.com/sokardys',
+                } }
+            >
                 { t('jortiz') }
             </TeamMember>
-            <TeamMember name="Carlos López" title="Engineer" photo="/images/team/Carlos.jpg" socialProfiles={ {
-                linkedin: '//www.linkedin.com/in/carlos-lópez-46314962/',
-                github: '//github.com/carlos-lopez',
-                twitter: '//twitter.com/clpz84',
-            } }>
+            <TeamMember name="Carlos López"
+                title="Engineer"
+                photo="/images/team/Carlos.jpg"
+                socialProfiles={ {
+                    linkedin: '//www.linkedin.com/in/carlos-lópez-46314962/',
+                    github: '//github.com/carlos-lopez',
+                    twitter: '//twitter.com/clpz84',
+                } }
+            >
                 { t('clopez') }
             </TeamMember>
-            <TeamMember name="Javier Calvo" title="Data Scientist" photo="/images/team/JaviMat.jpg" socialProfiles={ {
-                linkedin: '//www.linkedin.com/in/jcalvo92/',
-            } }>
+            <TeamMember name="Javier Calvo"
+                title="Data Scientist"
+                photo="/images/team/JaviMat.jpg"
+                socialProfiles={ {
+                    linkedin: '//www.linkedin.com/in/jcalvo92/',
+                } }
+            >
                 { t('jcalvo') }
             </TeamMember>
-            <TeamMember name="Karolina Szymanczak" title="Designer" photo="/images/team/Karol.jpg" socialProfiles={ {
-                linkedin: '//www.linkedin.com/in/karolina-szymańczak-18206838/',
-            } }>
+            <TeamMember name="Karolina Szymanczak"
+                title="Designer"
+                photo="/images/team/Karol.jpg"
+                socialProfiles={ {
+                    linkedin: '//www.linkedin.com/in/karolina-szymańczak-18206838/',
+                } }
+            >
                 { t('karol') }
             </TeamMember>
         </Team>

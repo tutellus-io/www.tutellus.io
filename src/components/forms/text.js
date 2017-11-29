@@ -1,3 +1,4 @@
+//@flow
 import React from 'react';
 import {negate, isEmpty, has, omit} from 'lodash';
 
@@ -5,7 +6,21 @@ import {Input, Label, Field} from './styled';
 
 const nonEmpty = negate(isEmpty);
 
-export const TextField = (props) => {
+/*::
+type TextFieldProps = {|
+    field: {
+        name: string,
+    },
+    form: {
+        errors: Object,
+    },
+    className: string,
+    label?: {
+        value: string,
+    }
+|}
+*/
+export const TextField = (props/*:TextFieldProps*/) => {
     const {
         field,
         form,

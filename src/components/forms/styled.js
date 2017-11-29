@@ -1,16 +1,18 @@
-import React from 'react';
+//@flow
+import * as React from 'react';
+/*:: import type {ComponentType} from 'react' */
 import Color from 'color';
 import styled from 'styled-components';
-import styles from '../../styles';
+import {colors} from '../../styles';
 import {Link} from 'react-router-dom';
 
 export const Input = styled.input`
     display: block;
     padding: 0.6em 0.9em;
     width: 100%;
-    border: 1px solid ${ styles.colors.bluegrey };
+    border: 1px solid ${ colors.bluegrey };
     border-radius: 3px;
-    background-color: ${ styles.colors.white };
+    background-color: ${ colors.white };
     font-weight: 200;
     font-size: 1em;
 `;
@@ -19,11 +21,19 @@ export const Hr = styled.div`
     height: 4em;
 `;
 
-export const IconElement = props =>
+export const IconElement = (props/*:{className: string, name: string}*/) =>
     <i className={`material-icons ${ props.className }`}>{props.name}</i>
 ;
 
-export const Icon = styled(IconElement)`
+/*::
+type IconProps = {|
+    name: string,
+    color?: string,
+    size?: string,
+    margin?: string,
+|}
+*/
+export const Icon/*:ComponentType<IconProps>*/ = styled(IconElement)`
     font-family: 'Material Icons';
     font-weight: normal;
     font-style: normal;
@@ -35,15 +45,15 @@ export const Icon = styled(IconElement)`
     word-wrap: normal;
     white-space: nowrap;
     direction: ltr;
-    
+
     /* Support for all WebKit browsers. */
     -webkit-font-smoothing: antialiased;
     /* Support for Safari and Chrome. */
     text-rendering: optimizeLegibility;
-    
+
     /* Support for Firefox. */
     -moz-osx-font-smoothing: grayscale;
-    
+
     /* Support for IE. */
     font-feature-settings: 'liga';
     ${ props => (props.color ? `color: ${ props.color };` : '') }
@@ -51,7 +61,12 @@ export const Icon = styled(IconElement)`
     ${ props => (props.margin ? `margin: ${ props.margin };` : '') }
 `;
 
-export const Label = styled.label`
+/*::
+type LabelProps = {
+    inline?: bool,
+}
+*/
+export const Label/*:ComponentType<LabelProps>*/ = styled.label`
     margin-bottom: ;
     display: ${ props => (props.inline ? 'inline' : 'block') };
     font-weight: bold;
@@ -59,22 +74,29 @@ export const Label = styled.label`
     margin: 0.5em 0
 `;
 
+/*:: type FieldProps = {no_margin: bool} */
 export const Field = styled.div`
-    margin-bottom: ${ props => (props.no_margin ? '' : '1.5em') };
+    margin-bottom: ${ (props/*:FieldProps*/) => (props.no_margin ? '' : '1.5em') };
     &.error {
         input,
         textarea {
-            border-color: ${ styles.colors.googleplus };
+            border-color: ${ colors.googleplus };
         }
 
         > .error_placeholder {
             margin-top: 0.5em;
-            color: ${ styles.colors.googleplus };
+            color: ${ colors.googleplus };
         }
     }
 `;
 
-export const BoxTitle = styled.h3`
+/*::
+type BoxTitleProps = {|
+    margin?: string,
+    children: React.Node,
+|}
+*/
+export const BoxTitle/*:ComponentType<BoxTitleProps>*/ = styled.h3`
     font-weight: bold;
     font-size: 1.1em;
     text-align: center;
@@ -92,7 +114,13 @@ export const BoxInTitle = styled.div`
     margin-bottom: 0.75em;
 `;
 
-export const FlexCenter = styled.div`
+/*::
+type FlexCenterProps = {|
+    margin?: string,
+    children: React.Node,
+|}
+*/
+export const FlexCenter/*:ComponentType<FlexCenterProps>*/ = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -108,12 +136,20 @@ export const ImageGrid = styled.div`
 `;
 
 export const InnerBox = styled.div`
-    border: 2px solid ${ styles.colors.bluegrey };
-    background-color: ${ styles.colors.grey };
+    border: 2px solid ${ colors.bluegrey };
+    background-color: ${ colors.grey };
     padding: 1.75em;
 `;
 
-export const BoxElement = props =>
+/*::
+type BoxElementProps = {|
+    className: string,
+    preTitle?: string,
+    title?: string,
+    children?: React.Node,
+|}
+*/
+export const BoxElement = (props/*:BoxElementProps*/) =>
     <div className={props.className}>
         {props.preTitle && <BoxTitle>{props.preTitle}</BoxTitle>}
         <InnerBox>
@@ -126,8 +162,18 @@ export const Box = styled(BoxElement)`
     margin-bottom: 3em;
 `;
 
-export const Button = styled.button`
-    color: ${ styles.colors.white };
+/*::
+type ButtonProps = {|
+    full?: bool,
+    type?: string,
+    primary?: bool,
+    disabled?: bool,
+    children: React.Node,
+    onClick?: (void => void),
+|}
+*/
+export const Button/*:ComponentType<ButtonProps>*/ = styled.button`
+    color: ${ colors.white };
     display: block;
     border: none;
     padding: 0.8em 1.2em;
@@ -137,21 +183,22 @@ export const Button = styled.button`
     letter-spacing: .035em;
     text-align: center;
     background-color: ${ props=> (props.primary
-        ? styles.colors.lightblue
-        : styles.colors.midgrey)
-}; 
+        ? colors.lightblue
+        : colors.midgrey)
+};
     ${ props => (props.full ? 'width: 100%' : '') };
     transition: all 0.3s ease-in;
     text-align: center;
     text-transform: uppercase;
     &:hover {
         background-color: ${ props=> (props.primary
-        ? Color(styles.colors.lightblue).darken(0.2).string()
-        : Color(styles.colors.midgrey).darken(0.2).string())
+        ? Color(colors.lightblue)
+        .darken(colors.settings.hover_gap).string()
+        : Color(colors.midgrey).darken(colors.settings.hover_gap).string())
 };
 
     }
 `;
 
-export const LinkButton = Button.withComponent(Link);
-export const AButton = Button.withComponent('a');
+export const LinkButton = (Button/*:any*/).withComponent(Link);
+export const AButton = (Button/*:any*/).withComponent('a');
