@@ -1,3 +1,4 @@
+//@flow
 import React from 'react';
 import {Redirect} from 'react-router-dom';
 import {parse} from 'query-string';
@@ -13,7 +14,6 @@ const ManagementElement = props => {
         location: {
             search,
         },
-        history,
     } = props;
     const mgmt_params = pick(parse(search), ['mode', 'oobCode', 'continueUrl']);
 

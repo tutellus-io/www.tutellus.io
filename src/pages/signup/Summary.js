@@ -1,3 +1,4 @@
+//@flow
 import React from 'react';
 import {translate} from 'react-i18next';
 import styled from 'styled-components';
@@ -5,7 +6,14 @@ import _ from 'lodash';
 import {PageTitle, Text, ImageWithPoster, Box, ImageGrid, ColumnCenter} from '../../components';
 
 const LineElement = ({className, label, value}) =>
-    <div className={className}><span className="label">{label}:</span><span className="value">{value}</span></div>;
+    <div className={className}>
+        <span className="label">
+            {label}:
+        </span>
+        <span className="value">
+            {value}
+        </span>
+    </div>;
 
 const Line = styled(LineElement)`
     margin-bottom: 0.75em;
@@ -57,7 +65,6 @@ const SummaryElement = props => {
         </div>
     );
 };
-
 
 export default styled(translate()(SummaryElement))`
 `;

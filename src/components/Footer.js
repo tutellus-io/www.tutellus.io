@@ -1,6 +1,8 @@
 //@flow
-import React from 'react';
+import * as React from 'react';
+/*:: import type {ComponentType} from 'react' */
 import styled from 'styled-components';
+//$FlowFixMe
 import 'socicon/css/socicon.css';
 import styles from '../styles';
 
@@ -12,16 +14,21 @@ export const NavCategoryTitle = styled.h3`
     text-transform: uppercase;
     margin: 1em 0;
 `;
-export const NavCategory = styled(props =>
+/*::
+type NavCategoryProps = {|
+    className?: string,
+    title: string,
+    children?: React.Node,
+|}
+*/
+export const NavCategory/*:ComponentType<NavCategoryProps>*/ = styled((props/*:NavCategoryProps*/) =>
     <div className={ props.className }>
         <NavCategoryTitle>{ props.title }</NavCategoryTitle>
-        <ul>
-            {
-                React.Children.map(props.children, navlink =>
-                    <li>{ navlink }</li>
-                )
-            }
-        </ul>
+        <ul>{
+            React.Children.map(props.children, navlink =>
+                <li>{ navlink }</li>
+            )
+        }</ul>
     </div>
 )`
 `;
@@ -32,11 +39,14 @@ export const SocialIcon = styled.li`
         color: ${ styles.colors.midgrey };
         transition: color .2s linear;
     }
-/*
-    color: ${ styles.colors.athens };
-*/
 `;
-export const SocialIcons = styled(props =>
+/*::
+type SocialIconsProps = {|
+    className?: string,
+    networks: void,
+|}
+*/
+export const SocialIcons = styled((props/*:SocialIconsProps*/) =>
     <ul className={ props.className }>
         {
             Object.entries(props.networks).map(([network, link]) =>
@@ -49,16 +59,17 @@ export const SocialIcons = styled(props =>
             )
         }
     </ul>
-)`
+)``;
 
-/*
-    & > ${ SocialIcon } > a {
-        font-size: 1.5em;
-        letter-spacing: 8px;
-    }
+/*::
+type FooterBrandingProps = {|
+    className?: string,
+    logo: string,
+    about: string,
+    socialLinks: void,
+|}
 */
-`;
-export const FooterBranding = styled(props =>
+export const FooterBranding/*:ComponentType<FooterBrandingProps>*/ = styled((props/*:FooterBrandingProps*/) =>
     <div className={ props.className }>
         <img src={ props.logo } />
         <small>{ props.about }</small>
@@ -97,10 +108,6 @@ export const FooterNav = styled.nav`
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
-/*
-    display: grid;
-    grid-template-columns: repeat(2, 50%);
-*/
 `;
 export const PageFooter = styled.footer`
     padding: 1em;
@@ -109,9 +116,4 @@ export const PageFooter = styled.footer`
         grid: "logo nav" / 1fr 1fr;
         padding: 2em 2em 4em;
     }
-/*
-    display: grid;
-    grid-template-columns: [logo] 50% [sitemap] 50%;
-    padding: 30px 50px;
-*/
 `;

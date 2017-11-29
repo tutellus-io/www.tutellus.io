@@ -1,4 +1,5 @@
-import React from 'react';
+//@flow
+import * as React from 'react';
 import styled from 'styled-components';
 import {Button, FileUpload, PageTitle, ColumnCenter, Text, BoxTitle, FlexCenter} from '../../components';
 import {Form, Formik} from 'formik';
@@ -6,7 +7,22 @@ import _ from 'lodash';
 import Yup from '../../yup';
 import {translate} from 'react-i18next';
 
-const IdentityFormElement = props => {
+/*::
+type IdentityFormProps = {|
+    className: void,
+    user: {|
+        uid: string,
+        selfie: string,
+        residency: string,
+        identity_front: string,
+        identity_back: string,
+    |},
+    updateUser: (Object => void),
+    nextStep: (void => void),
+    t: (string => string),
+|}
+*/
+const IdentityFormElement = (props/*:IdentityFormProps*/) => {
     const {
         className,
         user,
@@ -56,13 +72,14 @@ const IdentityFormElement = props => {
         // 'application/pdf',
     ];
 
-    const max_size = 5 * 1024 * 1024; //5Mb;
+    //eslint-disable-next-line no-magic-numbers
+    const MAX_SIZE = 5 * 1024 * 1024; //5Mb;
 
     const IdentityFileUpload = props_fu =>
         <FileUpload
             {...props_fu}
             one_image
-            max_size = {max_size}
+            max_size = { MAX_SIZE }
             max_size_err ={t('signup:identity_fileupload_max_size_err')}
             allowed_types = {allowed_types}
             allowed_types_err ={t('signup:identity_fileupload_allowed_types_err')}
@@ -76,7 +93,7 @@ const IdentityFormElement = props => {
                 validationSchema = {validationSchema}
                 onSubmit={onSubmit}
                 initialValues={initialValues}
-                component={({setFieldValue, values}) =>
+                component={({setFieldValue}) =>
                     <ColumnCenter>
                         <Form>
                             <BoxTitle margin="0 0 0.5em 0">{t('signup:identity_proof_identity_title')}</BoxTitle>
@@ -120,7 +137,8 @@ const IdentityFormElement = props => {
     );
 };
 
-const IdentityForm = styled(translate()(IdentityFormElement))`
+//$FlowFixMe
+const IdentityForm /*:ComponentType<IdentityFormProps>*/= styled(translate()(IdentityFormElement))`
 `;
 
 export default IdentityForm;

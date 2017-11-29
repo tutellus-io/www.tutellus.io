@@ -1,5 +1,6 @@
 //@flow
 import * as React from 'react';
+/*:: import type {ComponentType} from 'react' */
 import styled from 'styled-components';
 import styles from '../styles';
 
@@ -47,7 +48,17 @@ const TeamMemberTitle = styled.i`
 	display: inline-block;
 	margin-bottom: 1em;
 `;
-export const TeamMember = styled(props =>
+/*::
+type TeamMemberProps = {|
+    className?: string,
+    name: string,
+    photo: string,
+    title: string,
+    children: React.Node,
+    socialProfiles?: Object,
+|}
+*/
+export const TeamMember/*:ComponentType<TeamMemberProps>*/= styled((props/*:TeamMemberProps*/) =>
     <div className={ props.className }>
         <TeamMemberAvatar src={ props.photo } />
         <TeamMemberName>{ props.name }</TeamMemberName>
@@ -74,7 +85,7 @@ export const TeamMember = styled(props =>
         margin-top: 1em;
         display: flex;
         flex-flow: row nowrap;
-        justify-content: center;        
+        justify-content: center;
         & > ${ TeamIcon } {
             color: ${ styles.colors.darkblack };
         }
@@ -109,23 +120,9 @@ export const TeamMember = styled(props =>
             width: 7em;
         }
     }
-    @media ${ styles.media.dektop } {
+    @media ${ styles.media.desktop } {
         font-size: 2em;
     }
-/*
-	padding: 15px;
-	background-color: ${ styles.colors.grey };
-	border-radius: ${ styles.border.radius.small };
-	margin-bottom: ${ styles.margin.small };
-	color: ${ styles.colors.softblack };
-    font-size: 1em;
-    & ${ TeamMemberName } {
-        font-size: 1.2em;
-    }
-    & ${ TeamMemberTitle } {
-        font-size: 1em;
-    }
-    */
 `;
 export const Team = styled.div`
     margin: 1em;
@@ -139,9 +136,4 @@ export const Team = styled.div`
         font-size: .5em;
         grid-template-columns: ${ childrenAsColumns };
     }
-/*
-    display: grid;
-    grid-template-columns: ${ childrenAsColumns };
-    grid-column-gap: 10px;
-    */
 `;

@@ -16,7 +16,7 @@ const media = {
     desktop: '(min-width: 1140px)',
 };
 
-const colors = {
+export const colors = {
     athens: '#E6E6E6',
     blacksea: '#3B4F58',
     bluegrey: '#CED3D9',
@@ -44,9 +44,12 @@ const colors = {
     twitter: '#00ADF0',
     watergrey: '#F7F9FA',
     white: '#FFFFFF',
+    settings: {
+        //Diferencia entre el color y el efecto :hover
+        hover_gap: 0.2, //eslint-disable-line no-magic-numbers
+    },
 };
 
-//TODO mover a S3?
 const fonts = `
     @font-face {
             font-family: 'Lato';
@@ -101,25 +104,6 @@ const fonts = `
       }
 `;
 export const styles = {
-    font: {
-        weight: {
-            normal: 300,
-        },
-    },
-    text: {
-        medium: `
-			font-size: 1.143em;
-			line-height: 1.251rem;`,
-        large: `
-			font-size: 1.286em;
-			line-height: 1.457rem;`,
-        xlarge: `
-            font-size: 1.571em;
-            line-height: 1.85rem;`,
-        huge: `
-			font-size: 2.357em;
-			line-height: 2.557rem;`,
-    },
     margin: {
         small: `10px`,
         medium: `20px`,
