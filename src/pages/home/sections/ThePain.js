@@ -7,11 +7,17 @@ import {
     SectionTitle,
     Text,
 } from '../../../components';
+import {Responsive} from '../../../hoc';
+import styles from '../../../styles';
 
 export const ThePain = translate('the_pain')(({t, id}) =>
     <PageSection id={ id }>
         <SectionTitle dangerouslySetInnerHTML={ {__html: t('title')} } />
         <Text center>{ t('description') }</Text>
-        <SectionImage big src="/images/thepain.svg" />
+        <Responsive queries={ {tablet: styles.media.tablet} }>
+            { device =>
+                <SectionImage big src={ device.tablet ? "/images/thepain.svg" : "/images/thepain.mobile.svg" } />
+            }
+        </Responsive>
     </PageSection>
 );

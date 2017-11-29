@@ -38,15 +38,15 @@ const TeamMemberAvatar = styled.img`
 
 const TeamMemberName = styled.span`
     display: block;
-    margin-bottom: 1em;
-	color: ${ styles.colors.darkblack };
+    color: ${ styles.colors.darkblack };
     font-weight: bold;
+    margin-bottom: .25em;
 `;
 
 const TeamMemberTitle = styled.i`
-	color: ${ styles.colors.lightblue };
-	display: inline-block;
-	margin-bottom: 1em;
+    color: ${ styles.colors.lightblue };
+    display: inline-block;
+    margin-bottom: .2em;
 `;
 /*::
 type TeamMemberProps = {|
@@ -72,9 +72,30 @@ export const TeamMember/*:ComponentType<TeamMemberProps>*/= styled((props/*:Team
     </div>
 )`
     padding: 1em;
-	border-radius: ${ styles.border.radius.small };
-	background-color: ${ styles.colors.grey };
-	text-align: center;
+    padding-top: 1.5em;
+    border-radius: ${ styles.border.radius.small };
+    background-color: ${ styles.colors.grey };
+    text-align: left;
+    display: grid;
+    grid: "avatar name"
+          "avatar title"
+          "avatar bio"
+          ". social-icons" / 40% 60%;
+    & > ${ TeamMemberAvatar } {
+        grid-area: avatar;
+    }
+    & > ${ TeamMemberName } {
+        grid-area: name;
+    }
+    & > ${ TeamMemberTitle } {
+        grid-area: title;
+    }
+    & > p {
+        grid-area: bio;
+    }
+    & > ${ TeamIcons } {
+        grid-area: social-icons;
+    }
 
     & p {
         font-size: 0.8em;
@@ -82,42 +103,28 @@ export const TeamMember/*:ComponentType<TeamMemberProps>*/= styled((props/*:Team
         font-style: italic;
     }
     & ${ TeamIcons } {
-        margin-top: 1em;
         display: flex;
         flex-flow: row nowrap;
-        justify-content: center;
+        justify-content: start;
         & > ${ TeamIcon } {
             color: ${ styles.colors.darkblack };
         }
     }
     @media ${ styles.media.tablet } {
         font-size: 1.5em;
-        display: grid;
-        grid: "avatar name"
-              "avatar title"
-              "avatar bio"
-              "avatar social-icons"
-              / 50% 50%;
-        & > ${ TeamMemberAvatar } {
-            grid-area: avatar;
-        }
-        & > ${ TeamMemberName } {
-            grid-area: name;
-        }
-        & > ${ TeamMemberTitle } {
-            grid-area: title;
-        }
-        & > p {
-            grid-area: bio;
-        }
-        & > ${ TeamIcons } {
-            grid-area: social-icons;
-        }
     }
     @media ${ styles.media.laptop } {
         display: block;
+        text-align: center;
         & > ${ TeamMemberAvatar } {
             width: 7em;
+        }
+        & > ${ TeamMemberTitle } {
+            margin: 1em 0;
+        }
+        & > ${ TeamIcons } {
+            margin-top: 1em;
+            justify-content: center;
         }
     }
     @media ${ styles.media.desktop } {

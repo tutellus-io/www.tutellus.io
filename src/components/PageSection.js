@@ -162,17 +162,16 @@ export const PageSection/*:ComponentType<PageSectionProps>*/ = styled((props/*:P
 
     & ${ InterstitialImage } {
         display: block;
-        width: 20em;
-        max-width: 100%;
+        max-width: 50%;
         margin: 0 auto;
-        margin-top: -3.5em;
+        margin-top: -2.5em;
         margin-bottom: 1.5em;
+        @media ${ styles.media.tablet } {
+            margin-top: -3.5em;
+            width: 20em;
+            max-width: 100%;
+        }
     }
-    ${ props => props.interstitialImage && `
-        /* make room for the image */
-        margin-top: 2em;
-    ` }
-
     & ${ SectionImage } {
         display: block;
         max-width: 100%;
