@@ -5,7 +5,8 @@ import styled from 'styled-components';
 import {translate} from 'react-i18next';
 import SmoothScroll from 'react-scroll';
 
-import {SocialIcons, LinkButton} from './';
+import {SocialIcons} from './Footer';
+import {LinkButton} from './';
 import styles from '../styles';
 
 const SMALL_HEADER_HEIGHT = 64;//px
