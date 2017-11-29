@@ -1,3 +1,4 @@
+//@flow
 import React from 'react';
 import styled from 'styled-components';
 import {Button, PageTitle, Text, ColumnCenter, Hr} from '../../components';
@@ -6,7 +7,19 @@ import _ from 'lodash';
 import Yup from '../../yup';
 import {translate} from 'react-i18next';
 
-const EmailFormElement = props => {
+/*::
+type EmailFormProps = {|
+    className?: string,
+    //$FlowFixMe
+    db: any,
+    user: void,
+    showAlert: (({|text: string|}) => void),
+    nextStep: (void => void),
+    updateUser: (void => void),
+    t: ((string, ?Object) => string),
+|}
+*/
+const EmailFormElement = (props/*:EmailFormProps*/) => {
     const {
         db,
         showAlert,
@@ -17,10 +30,10 @@ const EmailFormElement = props => {
         t,
     } = props;
 
-    const sendVerificationEmail = setFieldValue => {
-        const user = db.auth().currentUser;
-        if (user) {
-            return user.sendEmailVerification()
+    const sendVerification = setFieldValue => {
+        const current_user = db.auth().currentUser;
+        if (current_user) {
+            return current_user.sendEmailVerification()
             .then(() => {
                 showAlert({text: t('signup:emailform_send_email_sent')});
                 setFieldValue('verification_email_sended', true);
@@ -59,11 +72,18 @@ const EmailFormElement = props => {
                     <ColumnCenter>
                         <Form>
                             <Text>{t('signup:emailform_recieve_newsletter')}</Text>
-                            <Button full primary onClick={() => sendVerificationEmail(setFieldValue)}>{t('signup:emailform_send_email_btn')}</Button>
-                            <Field type="hidden" name="verification_email_sended" />
+                            <Button full primary
+                                onClick={() => sendVerification(setFieldValue)}>
+                                {t('signup:emailform_send_email_btn')}
+                            </Button>
+                            <Field type="hidden"
+                                name="verification_email_sended"
+                            />
                             <Hr/>
                             <Text>{t('signup:emailform_continue_signup')}</Text>
-                            <Button full type="submit">{t('signup:emailform_continue_btn')}</Button>
+                            <Button full type="submit">
+                                {t('signup:emailform_continue_btn')}
+                            </Button>
                         </Form>
                     </ColumnCenter>
                 }
@@ -72,7 +92,8 @@ const EmailFormElement = props => {
     );
 };
 
-const EmailForm = styled(translate()(EmailFormElement))`
+//$FlowFixMe
+const EmailForm /*:ComponentType<EmailFormProps>*/= styled(translate()(EmailFormElement))`
 `;
 
 export default EmailForm;

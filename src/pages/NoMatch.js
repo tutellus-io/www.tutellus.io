@@ -1,8 +1,9 @@
+//@flow
 import React from 'react';
 import {translate} from 'react-i18next';
 import {PageContent, SectionTitle, ColumnCenter, Text, LinkButton} from '../components';
 
-export const NoMatchElement = ({className, t}) =>
+export const NoMatchElement = ({className, t}/*:{className: string, t: (string => string)}*/) =>
     <PageContent className= {className}>
         <SectionTitle simple>{t('signup:404_title')}</SectionTitle>
         <ColumnCenter>

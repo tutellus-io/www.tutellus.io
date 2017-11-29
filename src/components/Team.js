@@ -1,5 +1,6 @@
 //@flow
 import * as React from 'react';
+/*:: import type {ComponentType} from 'react' */
 import styled from 'styled-components';
 import styles from '../styles';
 
@@ -37,17 +38,27 @@ const TeamMemberAvatar = styled.img`
 
 const TeamMemberName = styled.span`
     display: block;
-    margin-bottom: 1em;
-	color: ${ styles.colors.darkblack };
+    color: ${ styles.colors.darkblack };
     font-weight: bold;
+    margin-bottom: .25em;
 `;
 
 const TeamMemberTitle = styled.i`
-	color: ${ styles.colors.lightblue };
-	display: inline-block;
-	margin-bottom: 1em;
+    color: ${ styles.colors.lightblue };
+    display: inline-block;
+    margin-bottom: .2em;
 `;
-export const TeamMember = styled(props =>
+/*::
+type TeamMemberProps = {|
+    className?: string,
+    name: string,
+    photo: string,
+    title: string,
+    children: React.Node,
+    socialProfiles?: Object,
+|}
+*/
+export const TeamMember/*:ComponentType<TeamMemberProps>*/= styled((props/*:TeamMemberProps*/) =>
     <div className={ props.className }>
         <TeamMemberAvatar src={ props.photo } />
         <TeamMemberName>{ props.name }</TeamMemberName>
@@ -61,9 +72,30 @@ export const TeamMember = styled(props =>
     </div>
 )`
     padding: 1em;
-	border-radius: ${ styles.border.radius.small };
-	background-color: ${ styles.colors.grey };
-	text-align: center;
+    padding-top: 1.5em;
+    border-radius: ${ styles.border.radius.small };
+    background-color: ${ styles.colors.grey };
+    text-align: left;
+    display: grid;
+    grid: "avatar name"
+          "avatar title"
+          "avatar bio"
+          ". social-icons" / 40% 60%;
+    & > ${ TeamMemberAvatar } {
+        grid-area: avatar;
+    }
+    & > ${ TeamMemberName } {
+        grid-area: name;
+    }
+    & > ${ TeamMemberTitle } {
+        grid-area: title;
+    }
+    & > p {
+        grid-area: bio;
+    }
+    & > ${ TeamIcons } {
+        grid-area: social-icons;
+    }
 
     & p {
         font-size: 0.8em;
@@ -71,61 +103,33 @@ export const TeamMember = styled(props =>
         font-style: italic;
     }
     & ${ TeamIcons } {
-        margin-top: 1em;
         display: flex;
         flex-flow: row nowrap;
-        justify-content: center;        
+        justify-content: start;
         & > ${ TeamIcon } {
             color: ${ styles.colors.darkblack };
         }
     }
     @media ${ styles.media.tablet } {
         font-size: 1.5em;
-        display: grid;
-        grid: "avatar name"
-              "avatar title"
-              "avatar bio"
-              "avatar social-icons"
-              / 50% 50%;
-        & > ${ TeamMemberAvatar } {
-            grid-area: avatar;
-        }
-        & > ${ TeamMemberName } {
-            grid-area: name;
-        }
-        & > ${ TeamMemberTitle } {
-            grid-area: title;
-        }
-        & > p {
-            grid-area: bio;
-        }
-        & > ${ TeamIcons } {
-            grid-area: social-icons;
-        }
     }
     @media ${ styles.media.laptop } {
         display: block;
+        text-align: center;
         & > ${ TeamMemberAvatar } {
             width: 7em;
         }
+        & > ${ TeamMemberTitle } {
+            margin: 1em 0;
+        }
+        & > ${ TeamIcons } {
+            margin-top: 1em;
+            justify-content: center;
+        }
     }
-    @media ${ styles.media.dektop } {
+    @media ${ styles.media.desktop } {
         font-size: 2em;
     }
-/*
-	padding: 15px;
-	background-color: ${ styles.colors.grey };
-	border-radius: ${ styles.border.radius.small };
-	margin-bottom: ${ styles.margin.small };
-	color: ${ styles.colors.softblack };
-    font-size: 1em;
-    & ${ TeamMemberName } {
-        font-size: 1.2em;
-    }
-    & ${ TeamMemberTitle } {
-        font-size: 1em;
-    }
-    */
 `;
 export const Team = styled.div`
     margin: 1em;
@@ -139,9 +143,4 @@ export const Team = styled.div`
         font-size: .5em;
         grid-template-columns: ${ childrenAsColumns };
     }
-/*
-    display: grid;
-    grid-template-columns: ${ childrenAsColumns };
-    grid-column-gap: 10px;
-    */
 `;

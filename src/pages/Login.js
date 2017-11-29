@@ -1,4 +1,6 @@
-import React, {Component} from 'react';
+//@flow
+import * as React from 'react';
+/*:: import type {ComponentType} from 'react' */
 import {PageContent, TextField, Button, ColumnCenter} from '../components';
 import {Field, Form, Formik} from 'formik';
 import Yup from '../yup';
@@ -7,7 +9,18 @@ import styled from 'styled-components';
 import styles from '../styles';
 import {translate} from 'react-i18next';
 
-const LoginFormElement = props => {
+/*
+//$FlowFixMe
+type LoginFormProps = {|
+    className?: string,
+    //$FlowFixMe
+    db: any,
+    history: any,
+    t: (string => string),
+|}
+*/
+//$FlowFixMe
+const LoginFormElement = (props/*:LoginFormProps*/) => {
     const {
         db,
         className,
@@ -71,7 +84,7 @@ const LoginFormElement = props => {
     );
 };
 
-class LoginElement extends Component {
+class LoginElement extends React.Component/*::<LoginFormProps>*/ {
     componentWillMount() {
         const {
             db,
@@ -96,7 +109,7 @@ class LoginElement extends Component {
 }
 
 
-export const Login = styled(translate('signup')(LoginElement))`
+export const Login/*:ComponentType<LoginFormProps>*/ = styled(translate('signup')(LoginElement))`
     > {LoginFormElement} {
         margin-top: 10em;
     }

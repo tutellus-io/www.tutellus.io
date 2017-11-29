@@ -29,13 +29,14 @@ Yup.addMethod(Yup.string, 'ethWallet', function(message) {
     });
 });
 
+// Copied from https://github.com/ethereum/EIPs/blob/master/EIPS/eip-55.md
 function toChecksumAddress(address_in) {
     const address = address_in.toLowerCase().replace('0x', '');
     const hash = createKeccakHash('keccak256').update(address).digest('hex');
     let ret = '0x';
 
     for (let i = 0; i < address.length; i++) {
-        if (parseInt(hash[i], 16) >= 8) {
+        if (parseInt(hash[i], 16) >= 8) { //eslint-disable-line no-magic-numbers
             ret += address[i].toUpperCase();
         } else {
             ret += address[i];

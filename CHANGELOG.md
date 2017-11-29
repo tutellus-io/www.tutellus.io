@@ -1,3 +1,8 @@
+### 1.1.2 (2017-11-29)
+- fix(header): Corrige los iconos sociales en responsive. Elimina el enlace a github (2a8c08c)
+- fix(design): responsive team members, section images, and token sale tables (2e2ea47) Merge branch 'feature/redesign' into 'develop'
+- fix: fix most lint errors, document types (4254edf)
+
 ### 1.1.1 (2017-11-28)
 - fix(copys / style): Cambios de copys. Ajuste de estilos mobile / tablet / laptop  (aec3752)
 - fix(maillist): Muestro mensaje on success (d3a8ad6)

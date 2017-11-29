@@ -1,5 +1,6 @@
 //@flow
-import React from 'react';
+import * as React from 'react';
+/*:: import type {ComponentType as Component} from 'react' */
 import styled from 'styled-components';
 import styles from '../styles';
 export const Benefits = styled.div`
@@ -8,7 +9,15 @@ export const Benefits = styled.div`
         grid-template-columns: repeat(2, 50%);
     }
 `;
-export const UserGroup = styled(props =>
+/*::
+type UserGroupProps = {|
+    className?: string,
+    name: string,
+    icon: string,
+    children: React.Node,
+|}
+*/
+export const UserGroup/*:Component<UserGroupProps>*/= styled(props =>
     <div className={ props.className }>
         <h4>{ props.name }</h4>
         <div>{ props.children }</div>

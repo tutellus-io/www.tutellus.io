@@ -1,3 +1,4 @@
+//@flow
 import React from 'react';
 import styles from './styles';
 import {injectGlobal} from 'styled-components';
@@ -22,8 +23,11 @@ const SimpleHeader = translate()(props => {
     } = props;
 
     return (
-        <TopHeader logo="/images/white-logo.svg" small>
-            <SecondaryMenu onLanguage={ lang => i18n.changeLanguage(lang) } socialLinks={ social_links } locale={ i18n.language } />
+        <TopHeader logo="/images/white-logo.svg" small title="Tutellus.io">
+            <SecondaryMenu onLanguage={ lang => i18n.changeLanguage(lang) }
+                socialLinks={ social_links }
+                locale={ i18n.language }
+            />
         </TopHeader>
     );
 });
@@ -49,7 +53,8 @@ const WithHeaderLayout = header_props =>
         </Switch>
     </div>;
 
-class Master extends React.Component {
+class Master extends React.Component/*::<void, void>*/ {
+    /*:: alertContainer: AlertContainer */
     constructor() {
         super();
         this.showAlert = this.showAlert.bind(this);
@@ -59,6 +64,7 @@ class Master extends React.Component {
         injectGlobal`${ styles.global }`;
     }
 
+    /*:: showAlert: ({text: void, time: number, type: string, icon: void}) => void */
     showAlert({text, time = ALERT_TIME_MS, type = 'success', icon}) {
         this.alertContainer.show(text, {
             time,
@@ -88,7 +94,8 @@ class Master extends React.Component {
                 <BrowserRouter>
                     <div>
                         <Switch>
-                            <Route exact path='/' component={ withTracker(Home) }/>
+                            <Route exact path='/'
+                                component={ withTracker(Home) }/>
                             <Route component={ props =>
                                 <WithHeaderLayout {...props} {...all_props}/>
                             } />

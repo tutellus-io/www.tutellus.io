@@ -1,6 +1,7 @@
 //@flow
-/* global fetch: false, Headers: false */
+/* global fetch: false */
 import React from 'react';
+/*:: import type {ComponentType} from 'react' */
 import {translate} from 'react-i18next';
 import styled from 'styled-components';
 import Yup from '../yup';
@@ -14,7 +15,14 @@ import {
 } from './';
 
 const SUBSCRIBE_URL = "https://tutellus.us14.list-manage.com/subscribe/post-json?u=fb6c7232ef9595533c37d1fc0&id=fa6bf30be0&c=?";
-export const SubscriptionForm = translate('mailinglist')(({t, className}) => {
+/*
+//$FlowFixMe
+type FormProps = {|
+    className?: string,
+    t?: (string => string),
+|}
+*/
+export const SubscriptionForm/*:ComponentType<FormProps>*/ = translate('mailinglist')(({t, className}/*:FormProps*/) => {
     const validationSchema = Yup.object().shape({
         EMAIL: Yup.string().required(t('email_required_err'))
         .email(t('email_email_err')),
@@ -23,8 +31,9 @@ export const SubscriptionForm = translate('mailinglist')(({t, className}) => {
     const SHOW_MS = 4000;
     const subscribe = async(form_data = {}, {setSubmitting, setErrors, setStatus, resetForm}) => {
         try {
-            const params = Object.entries(form_data).map(x =>
-                `${ x[0] }=${ encodeURIComponent(x[1]) }`
+            const params = ((Object.entries(form_data)/*:any*/)/*:Array<[string, string]>*/)
+            .map(([field_name, field_value]) =>
+                `${ field_name }=${ encodeURIComponent(field_value) }`
             );
             const subscribe_url = `${ SUBSCRIBE_URL }&${ params.join('&') }`;
             await fetch(subscribe_url, {mode: 'no-cors'});
@@ -65,7 +74,8 @@ export const SubscriptionForm = translate('mailinglist')(({t, className}) => {
     );
 });
 
-export const MailListSubscriptionForm = styled(SubscriptionForm)`
+//$FlowFixMe
+export const MailListSubscriptionForm/*:ComponentType<FormProps>*/ = styled(SubscriptionForm)`
     @media ${ styles.media.tablet } {
         display: block;
         margin: 0 auto;
@@ -96,5 +106,4 @@ export const MailListSubscriptionForm = styled(SubscriptionForm)`
             width: calc(30% - 1em);
         }
     }
-`
-;
+`;

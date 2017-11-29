@@ -1,4 +1,6 @@
-import React, {Component} from 'react';
+//@flow
+import * as React from 'react';
+/*:: import type {ComponentType} from 'react' */
 import firebase from 'firebase';
 import _ from 'lodash';
 import styled from 'styled-components';
@@ -6,7 +8,17 @@ import numeral from 'numeral';
 import styles from '../../styles';
 
 
-const UploadButtonElement = props => {
+/*::
+type UploadButtonProps = {|
+    className?: string,
+    uploading: bool,
+    upload_progress: number,
+    handleUpload: (void => void),
+    clickButton: (void => void),
+    posterIcon: void,
+|}
+*/
+const UploadButtonElement = (props/*:UploadButtonProps*/) => {
     const {
         uploading,
         upload_progress,
@@ -21,15 +33,23 @@ const UploadButtonElement = props => {
                 !uploading &&
                 <label>
                     <img src={posterIcon}/>
-                    <input type = "file" onChange={handleUpload} onClick={clickButton}/>
+                    <input type = "file"
+                        onChange={handleUpload}
+                        onClick={clickButton}/>
                 </label>
             }
-            {uploading && <progress value={upload_progress} min="0" max="100"></progress>}
+            {
+                uploading &&
+                <progress value={upload_progress}
+                    min="0"
+                    max="100"
+                />
+            }
         </div>
     );
 };
 
-const UploadButton = styled(UploadButtonElement)`
+const UploadButton/*:ComponentType<UploadButtonProps>*/ = styled(UploadButtonElement)`
     > label {
         width: 100%;
         height: 100%;
@@ -67,7 +87,21 @@ const UploadButton = styled(UploadButtonElement)`
     }
 `;
 
-const GalleryElement = props => {
+/*::
+type GalleryImage = {|
+    url: string,
+    name: string,
+    original_name: string,
+    size: number,
+|}
+type GalleryProps = {|
+    className?: string,
+    images: Array<GalleryImage>,
+    buttonUpload: void,
+    one_image?: bool,
+|}
+*/
+const GalleryElement = (props/*:GalleryProps*/) => {
     const {
         className,
         images = [],
@@ -84,8 +118,11 @@ const GalleryElement = props => {
             {
                 all_images.map((image, index) =>
                     <figure key={`figure-${ index }`}>
-                        <img src={image.url} alt={image.name} title={`${ image.original_name } (${ numeral(image.size).format('0.0b') })`}/>
-                    </figure>)
+                        <img src={image.url}
+                            alt={image.name}
+                            title={`${ image.original_name } (${ numeral(image.size).format('0.0b') })`}/>
+                    </figure>
+                )
             }
             {
                 buttonUpload &&
@@ -97,7 +134,16 @@ const GalleryElement = props => {
     );
 };
 
-const ImageWithPosterElement = props => {
+/*::
+type ImageWithPosterProps = {|
+    className?: string,
+    src?: string,
+    posterIcon: string,
+    width: string,
+    height: string,
+|}
+*/
+const ImageWithPosterElement = (props/*:ImageWithPosterProps*/) => {
     const {
         posterIcon,
         className,
@@ -117,7 +163,7 @@ const ImageWithPosterElement = props => {
         </div>
     );
 };
-export const ImageWithPoster = styled(ImageWithPosterElement)`
+export const ImageWithPoster/*:ComponentType<ImageWithPosterProps>*/ = styled(ImageWithPosterElement)`
     width: ${ props => (props.width ? props.width : '100%') };
     height: ${ props => (props.height ? props.height : '100%') };
     border: 2px solid #DBDBDB;
@@ -137,17 +183,6 @@ export const ImageWithPoster = styled(ImageWithPosterElement)`
     }
 `;
 
-const croppedWith = height => `
-    > figure {
-        width: auto;
-        height: ${ height || '100px' };
-        > img {
-            height: 100%;
-            width: auto;
-            max-width: auto;
-        }
-    }
-`;
 const Gallery = styled(GalleryElement)`
     display: flex;
     flex-wrap: wrap;
@@ -173,7 +208,28 @@ const Gallery = styled(GalleryElement)`
     }
 `;
 
-class FileUploadElement extends Component {
+/*::
+type FeaturedInfo = {}
+type FileUploadProps = {|
+    posterIcon: void,
+    onFinish: (FeaturedInfo => void),
+    path: void,
+    one_image: void,
+    images_uploaded: Array<FeaturedInfo>,
+    className: string,
+    max_size_err: string,
+    max_size: number,
+    allowed_types: Array<void>,
+    allowed_types_err: string,
+|}
+type FileUploadElementState = {|
+    upload_progress: number,
+    uploading: bool,
+    images_uploaded: Array<FeaturedInfo>,
+    error: null,
+|}
+*/
+class FileUploadElement extends React.Component/*::<FileUploadProps, FileUploadElementState>*/ {
     constructor() {
         super();
         this.state = {
@@ -198,7 +254,9 @@ class FileUploadElement extends Component {
         if (max_size !== 0 && file.size > max_size) {
             throw new Error(max_size_err);
         }
-        if (_.size(allowed_types) > 0 && !_.includes(allowed_types, file.type)) {
+        const has_type_restrictions = _.size(allowed_types) > 0;
+        const is_type_allowed = _.includes(allowed_types, file.type);
+        if (has_type_restrictions && !is_type_allowed) {
             throw new Error(allowed_types_err);
         }
     }
@@ -208,7 +266,11 @@ class FileUploadElement extends Component {
         const storageRef = firebase.storage().ref(file_path);
         const task = storageRef.put(file);
         task.on('state_changed', snapshot => {
-            const upload_progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            const {
+                bytesTransferred,
+                totalBytes,
+            } = snapshot;
+            const upload_progress = (bytesTransferred / totalBytes) * 100;
             this.setState({
                 upload_progress,
             });
@@ -223,6 +285,7 @@ class FileUploadElement extends Component {
                     name,
                 },
                 task: {
+                    //$FlowFixMe
                     blob_: {
                         data_: {
                             name: original_name,
@@ -247,6 +310,7 @@ class FileUploadElement extends Component {
         });
     }
 
+    /*:: handleUpload: (void => void) */
     handleUpload(event) {
         const {
             path,
@@ -271,6 +335,7 @@ class FileUploadElement extends Component {
         }
     }
 
+    /*:: resetError: (void => void) */
     resetError() {
         this.setState({
             error: null,
