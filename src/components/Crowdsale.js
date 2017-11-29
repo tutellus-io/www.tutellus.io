@@ -194,8 +194,5 @@ export const DistributionTable/*:ComponentType<DistributionTableProps>*/= styled
         grid-column-gap: 1em;
         font-size: 1.25em;
         margin-bottom: 2em;
-        $ > table {
-            align-self: center;
-        }
     }
 `;
