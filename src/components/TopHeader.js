@@ -68,84 +68,24 @@ export const MainMenu = styled(translate()(({t, className}) =>
         </ul>
     </nav>
 ))`
-    display: none;
+    display: block;
+    margin-left: .5em;
 
-    @media ${ styles.media.tablet } {
-        display: block;
-        margin-left: .5em;
-
-        & li {
-            display: inline-block;
-            font-size: .5em;
-            font-weight: normal;
-            padding: 0 .5em;
-            text-transform: uppercase;
-            & ${ Link } {
-                display: block;
-                margin-top: -1.5em;
-            }
+    & li {
+        display: inline-block;
+        font-size: .5em;
+        font-weight: normal;
+        padding: 0 .5em;
+        text-transform: uppercase;
+        & ${ Link } {
+            display: block;
+            margin-top: -1.5em;
         }
     }
     @media ${ styles.media.laptop } {
         font-size: 1.25em;
         & li {
             padding: 0 1em;
-        }
-    }
-`;
-
-/*::
-type TopHeaderProps = {|
-    className?: string,
-    logo: string,
-    title: string,
-    small?: bool,
-    children?: React.Node,
-|}
-*/
-export const TopHeader/*:ComponentType<TopHeaderProps>*/ = styled((props/*:TopHeaderProps*/) =>
-    <header className={ props.className }>
-        <HeaderLogo logo={ props.logo } title={ props.title } />
-        { props.children }
-    </header>
-)`
-    position: fixed;
-    top: 0;
-    z-index: 3;
-    width: 100%;
-    padding: 0 1em;
-    font-size: 125%;
-    color: white;
-    ${ small_header_styles }
-    display: grid;
-    grid: "logo secondary-menu" / 30% 70%;
-    align-items: center;
-    justify-items: justify;
-    transition: all .5s linear;
-
-    & > ${ HeaderLogo } {
-        grid-area: logo;
-    }
-    $ > ${ MainMenu } {
-        grid-area: main-menu;
-    }
-
-    @media ${ styles.media.tablet } {
-        height: ${ TOP_HEADER_HEIGHT.BIG }px;
-        background: linear-gradient(black, transparent);
-        grid: "logo main-menu secondary-menu" / 10% 50% 40%;
-
-        ${ props => props.small && small_header_styles }
-
-    }
-    @media ${ styles.media.laptop } {
-        padding: 0 2em;
-        grid: "logo . main-menu . secondary-menu" / 15% 55% 30%;
-        & > ${ HeaderLogo } {
-            grid-area: logo;
-        }
-        $ > ${ MainMenu } {
-            grid-area: main-menu;
         }
     }
 `;
@@ -212,7 +152,6 @@ export const SecondaryMenu/*:ComponentType<SecondaryMenuProps>*/ = styled((props
         & > ${ LinkButton } {
             display: block;
             grid-area: cta;
-            grid-area: cta;
             padding: .5em;
             font-size: .8em;
             background: transparent;
@@ -236,5 +175,61 @@ export const SecondaryMenu/*:ComponentType<SecondaryMenuProps>*/ = styled((props
             font-size: .5em;
             padding: 1em;
         }
+    }
+`;
+
+/*::
+type TopHeaderProps = {|
+    className?: string,
+    logo: string,
+    title: string,
+    small?: bool,
+    children?: React.Node,
+|}
+*/
+export const TopHeader/*:ComponentType<TopHeaderProps>*/ = styled((props/*:TopHeaderProps*/) =>
+    <header className={ props.className }>
+        <HeaderLogo logo={ props.logo } title={ props.title } />
+        { props.children }
+    </header>
+)`
+    position: fixed;
+    top: 0;
+    z-index: 3;
+    width: 100%;
+    padding: 0 1em;
+    font-size: 125%;
+    color: white;
+    ${ small_header_styles }
+    display: grid;
+    grid: "logo secondary-menu" / 30% 70%;
+    align-items: center;
+    justify-items: justify;
+    transition: all .5s linear;
+
+    & > ${ HeaderLogo } {
+        grid-area: logo;
+    }
+    & > ${ MainMenu } {
+        display: none;
+        grid-area: main-menu;
+    }
+    & > ${ SecondaryMenu } {
+        grid-area: secondary-menu;
+    }
+
+    @media ${ styles.media.tablet } {
+        height: ${ TOP_HEADER_HEIGHT.BIG }px;
+        background: linear-gradient(black, transparent);
+        grid: "logo main-menu secondary-menu" / 10% 50% 40%;
+        & > ${ MainMenu } {
+            display: block;
+        }
+
+        ${ props => props.small && small_header_styles }
+
+    }
+    @media ${ styles.media.laptop } {
+        padding: 0 2em;
     }
 `;
