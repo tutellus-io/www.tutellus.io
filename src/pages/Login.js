@@ -1,7 +1,13 @@
 //@flow
 import * as React from 'react';
 /*:: import type {ComponentType} from 'react' */
-import {PageContent, TextField, Button, ColumnCenter} from '../components';
+import {
+    TOP_HEADER_HEIGHT,
+    PageContent,
+    TextField,
+    Button,
+    ColumnCenter,
+} from '../components';
 import {Field, Form, Formik} from 'formik';
 import Yup from '../yup';
 import {Link} from 'react-router-dom';
@@ -20,7 +26,7 @@ type LoginFormProps = {|
 |}
 */
 //$FlowFixMe
-const LoginFormElement = (props/*:LoginFormProps*/) => {
+const LoginForm = styled((props/*:LoginFormProps*/) => {
     const {
         db,
         className,
@@ -82,7 +88,7 @@ const LoginFormElement = (props/*:LoginFormProps*/) => {
             />
         </div>
     );
-};
+})``;
 
 class LoginElement extends React.Component/*::<LoginFormProps>*/ {
     componentWillMount() {
@@ -102,7 +108,8 @@ class LoginElement extends React.Component/*::<LoginFormProps>*/ {
         } = this.props;
         return (
             <PageContent className = {className}>
-                <LoginFormElement {...this.props}/>
+                <img src="/images/color-logo.svg" />
+                <LoginForm {...this.props}/>
             </PageContent>
         );
     }
@@ -110,8 +117,19 @@ class LoginElement extends React.Component/*::<LoginFormProps>*/ {
 
 
 export const Login/*:ComponentType<LoginFormProps>*/ = styled(translate('signup')(LoginElement))`
-    > {LoginFormElement} {
-        margin-top: 10em;
+    margin-top: ${ TOP_HEADER_HEIGHT.SMALL }px;
+    padding: 1em;
+    & > img {
+        display: block;
+        width: 50%;
+        max-width: 20em;
+        margin: 0 auto;
+        margin-top: 2em;
+    }
+    & > ${ LoginForm } {
+        max-width: 20em;
+        margin: 0 auto;
+        margin-top: 2em;
     }
     & .login {
         margin-top: 10px;
