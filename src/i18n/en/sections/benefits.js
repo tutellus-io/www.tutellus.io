@@ -11,5 +11,5 @@ export const the_benefits = {
     earn_via_best_students: 'Earn money with best Students',
     earn_via_relevance: 'Earn money with Relevance',
     earn_via_subscriptions: 'Earn money with Subscriptions',
-    exclusive_services: 'Acecss to VIP Promotional services',
+    exclusive_services: 'Access to VIP Promotional services',
 };
