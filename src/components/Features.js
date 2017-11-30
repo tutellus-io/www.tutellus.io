@@ -34,6 +34,7 @@ export const Feature/*:ComponentType<FeatureProps>*/= styled((props/*:FeaturePro
 )`
     height: 4em;
     padding-left: 5em;
+    text-transform: capitalize;
     & ${ FeatureTitle } {
         margin-left: -3em;
         padding-left: .2em;

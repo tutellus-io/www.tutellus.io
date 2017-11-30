@@ -132,7 +132,6 @@ const DistributionGraph = styled.img`
     margin-bottom: 1em;
 `;
 const DistributionTableTitle = styled.h4`
-    text-align: center;
     margin-bottom: 1em;
 `;
 /*::
