@@ -6,7 +6,12 @@ import Rebase from 're-base';
 import _ from 'lodash';
 import {translate} from 'react-i18next';
 
-import {PageContent, PageSection, SectionTitle} from '../../components';
+import {
+    PageContent,
+    PageSection,
+    SectionTitle,
+    TOP_HEADER_HEIGHT,
+} from '../../components';
 
 import Navigation from './Navigation';
 import SignupForm from './SignupForm';
@@ -275,6 +280,7 @@ class SignupElement extends React.Component/*::<SignupProps, SignupState>*/ {
 }
 
 export const Signup = styled(translate('signup')(SignupElement))`
+    margin-top: ${ TOP_HEADER_HEIGHT.SMALL }px;
     & .wizard {
         > div {
             display: flex;
