@@ -14,7 +14,18 @@ import {
     Input,
 } from './';
 
-const SUBSCRIBE_URL = "https://tutellus.us14.list-manage.com/subscribe/post-json?u=fb6c7232ef9595533c37d1fc0&id=fa6bf30be0&c=?";
+const MAIL_LIST_URL = ((process.env/*:any*/).REACT_APP_MAILCHIMP_URL/*:string*/);
+const GENERAL_MAIL_LIST = process.env.REACT_APP_MAILLIST_GENERAL;
+
+export const subscribeTo = async (list_id/*:string*/, form_data/*:Object*/)/*:Promise<void>*/=> {
+    const params = ((Object.entries(form_data)/*:any*/)/*:Array<[string, string]>*/)
+    .map(([field_name, field_value]) =>
+        `${ field_name }=${ encodeURIComponent(field_value) }`
+    );
+    const subscribe_url = `${ MAIL_LIST_URL }&id=${ list_id }&${ params.join('&') }`;
+    await fetch(subscribe_url, {mode: 'no-cors'});
+};
+
 /*
 //$FlowFixMe
 type FormProps = {|
@@ -27,21 +38,15 @@ export const SubscriptionForm/*:ComponentType<FormProps>*/ = translate('mailingl
         EMAIL: Yup.string().required(t('email_required_err'))
         .email(t('email_email_err')),
     });
-
-    const SHOW_MS = 4000;
     const subscribe = async(form_data = {}, {setSubmitting, setErrors, setStatus, resetForm}) => {
+        const form_reset_timeout = 4000;
         try {
-            const params = ((Object.entries(form_data)/*:any*/)/*:Array<[string, string]>*/)
-            .map(([field_name, field_value]) =>
-                `${ field_name }=${ encodeURIComponent(field_value) }`
-            );
-            const subscribe_url = `${ SUBSCRIBE_URL }&${ params.join('&') }`;
-            await fetch(subscribe_url, {mode: 'no-cors'});
+            await subscribeTo(GENERAL_MAIL_LIST, form_data);
             setStatus({done: t('subscription_successful')});
             setTimeout(() => {
                 resetForm();
                 setSubmitting(false);
-            }, SHOW_MS);
+            }, form_reset_timeout);
         } catch (error) {
             setErrors({EMAIL: t('subscription_failed')});
             setSubmitting(false);
