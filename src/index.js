@@ -6,12 +6,12 @@ import registerServiceWorker from './registerServiceWorker';
 import Master from './Master';
 
 const db = firebase.initializeApp({
-    apiKey: "AIzaSyB5KQp2UxY88zzPCBQfqwlE83xBuduArJ8",
-    authDomain: "tutellus-ico-production.firebaseapp.com",
-    databaseURL: "https://tutellus-ico-production.firebaseio.com",
-    projectId: "tutellus-ico-production",
-    storageBucket: "tutellus-ico-production.appspot.com",
-    messagingSenderId: "732584545649",
+    apiKey: process.env.REACT_APP_FIREBASE_APIKEY,
+    authDomain: process.env.REACT_APP_FIREBASE_AUTHDOMAIN,
+    databaseURL: process.env.REACT_APP_FIREBASE_DATABASEURL,
+    projectId: process.env.REACT_APP_FIREBASE_PROJECTID,
+    storageBucket: process.env.REACT_APP_FIREBASE_STORAGEBUCKET,
+    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGINGSENDERID,
 });
 
 
