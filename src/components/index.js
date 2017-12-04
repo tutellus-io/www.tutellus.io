@@ -13,3 +13,4 @@ export * from './FloatingHelp';
 export * from './Technology';
 export * from './Benefits';
 export * from './MailListSubscriptionForm';
+export * from './FBTracker';
