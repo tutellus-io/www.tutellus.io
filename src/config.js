@@ -1,6 +1,6 @@
 //@flow
 export const social_links = {
-    telegram: '//t.me/joinchat/GPjmiQvnBN8jJrJ6tP0R8A',
+    telegram: '//t.me/tutellus',
     medium: '//medium.com/tutellus-io',
     twitter: '//twitter.com/tutellusico',
 };

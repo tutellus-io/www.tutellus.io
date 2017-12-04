@@ -19,6 +19,6 @@ export const TechIcon = styled.img`
     height: 1.5em;
     & + span {
         position: relative;
-        bottom: .3em;
+        bottom: .75em;
     }
 `;
