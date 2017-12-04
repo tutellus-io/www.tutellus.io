@@ -1,13 +1,22 @@
 //@flow
 import React from 'react';
-import {TextField, Button, PageTitle, Text, ColumnCenter} from '../../components';
 import {Field, Form, Formik} from 'formik';
 import Yup from '../../yup';
 import _ from 'lodash';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import {translate} from 'react-i18next';
+import {
+    TextField,
+    Button,
+    PageTitle,
+    Text,
+    ColumnCenter,
+    subscribeTo,
+} from '../../components';
 import styles from '../../styles';
+
+const SIGNUP_MAIL_LIST = process.env.REACT_APP_MAILLIST_REGISTER;
 
 const SignupFormElement = props => {
     const {
@@ -45,6 +54,10 @@ const SignupFormElement = props => {
                 last_name,
                 email,
                 signup_ok: true,
+            });
+            subscribeTo(SIGNUP_MAIL_LIST, {
+                EMAIL: email,
+                b_fb6c7232ef9595533c37d1fc0_8a25bf4ebc: "",
             });
             nextStep();
         })
