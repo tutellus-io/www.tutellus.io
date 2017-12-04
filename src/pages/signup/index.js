@@ -20,6 +20,19 @@ import WalletForm from './WalletForm';
 import IdentityForm from './IdentityForm';
 import Summary from './Summary';
 
+const StepContent = styled((props) =>
+    <PageSection className={ props.className } light>
+        <div>
+            { props.children }
+        </div>
+    </PageSection>
+)`
+    & > div {
+        width: 80%;
+        max-width: 48em;
+        margin: 0 auto;
+    }
+`;
 /*::
 type SignupStep = {|
     //$FlowFixMe
@@ -267,11 +280,11 @@ class SignupElement extends React.Component/*::<SignupProps, SignupState>*/ {
                                     jumpToStep={jumpToStep}
                                 />
                             </PageSection>
-                            <PageSection className="content" light>
+                            <StepContent>
                                 { //eslint-disable-next-line max-len
                                     React.cloneElement(this.steps[this.state.active_step].component, cloneExtensions)
                                 }
-                            </PageSection>
+                            </StepContent>
                         </div>
                 }
             </PageContent>
@@ -281,16 +294,5 @@ class SignupElement extends React.Component/*::<SignupProps, SignupState>*/ {
 
 export const Signup = styled(translate('signup')(SignupElement))`
     margin-top: ${ TOP_HEADER_HEIGHT.SMALL }px;
-    & .wizard {
-        > div {
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-        }
-        & .content {
-            width: 400px;
-            margin: 0 auto;
-        }
-    }
 `;
 export default Signup;
