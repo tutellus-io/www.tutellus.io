@@ -9,7 +9,11 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import withTracker from './withTracker';
 
 import {Home, Signup, Management, Login, Dashboard, NoMatch} from './pages';
-import {TopHeader, SecondaryMenu} from './components';
+import {
+    FBTracker,
+    TopHeader,
+    SecondaryMenu,
+} from './components';
 
 import './i18n';
 import {social_links} from './config';
@@ -86,6 +90,8 @@ class Master extends React.Component/*::<void, void>*/ {
             showAlert: this.showAlert,
         }, this.props);
 
+        const fb_tracker_id = ((process.env/*:any*/).REACT_APP_FBTRACKERID/*:string*/);
+
         return (
             <div>
                 <AlertContainer {...alertOptions} ref={ref => {
@@ -102,6 +108,7 @@ class Master extends React.Component/*::<void, void>*/ {
                         </Switch>
                     </div>
                 </BrowserRouter>
+                <FBTracker id={ fb_tracker_id } />
             </div>
         );
     }
