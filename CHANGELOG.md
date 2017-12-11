@@ -1,3 +1,9 @@
+### 1.2.1 (2017-12-11)
+- fix(how it works): updated links to whitepaper v3.18 (4e93650)
+- feat(social-links): link to facebook page (faf4832)
+- feat(roadmap): use strings instead of moment instances for date attr (658ecb2)
+- chore: fode formatting and linting (f813ed5, caec9a6, fc117bf)
+
 ## 1.2.0 (2017-12-04)
 - fix(home): responsive mobile image for "how it works" (f4a5b3f)
 - fix(styles) more styling changes (bf81108)
