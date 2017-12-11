@@ -17,7 +17,7 @@ import {
 const MAIL_LIST_URL = ((process.env/*:any*/).REACT_APP_MAILCHIMP_URL/*:string*/);
 const GENERAL_MAIL_LIST = process.env.REACT_APP_MAILLIST_GENERAL;
 
-export const subscribeTo = async (list_id/*:string*/, form_data/*:Object*/)/*:Promise<void>*/=> {
+export const subscribeTo = async(list_id/*:string*/, form_data/*:Object*/)/*:Promise<void>*/=> {
     const params = ((Object.entries(form_data)/*:any*/)/*:Array<[string, string]>*/)
     .map(([field_name, field_value]) =>
         `${ field_name }=${ encodeURIComponent(field_value) }`
@@ -41,7 +41,7 @@ export const SubscriptionForm/*:ComponentType<FormProps>*/ = translate('mailingl
     const subscribe = async(form_data = {}, {setSubmitting, setErrors, setStatus, resetForm}) => {
         const form_reset_timeout = 4000;
         try {
-            await subscribeTo(GENERAL_MAIL_LIST, form_data);
+            await subscribeTo(((GENERAL_MAIL_LIST/*:any*/)/*:string*/), form_data);
             setStatus({done: t('subscription_successful')});
             setTimeout(() => {
                 resetForm();

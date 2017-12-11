@@ -18,7 +18,7 @@ const milestone_marker = props => `
 /*::
 type MilestoneProps = {|
     className?: string,
-    date: moment$Moment,
+    date: string,
     title: string,
     children?: React.Node,
     done?: boolean,

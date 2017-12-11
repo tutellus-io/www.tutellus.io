@@ -55,7 +55,7 @@ const SignupFormElement = props => {
                 email,
                 signup_ok: true,
             });
-            subscribeTo(SIGNUP_MAIL_LIST, {
+            subscribeTo(((SIGNUP_MAIL_LIST/*:any*/)/*:string*/), {
                 EMAIL: email,
                 b_fb6c7232ef9595533c37d1fc0_8a25bf4ebc: "",
             });
