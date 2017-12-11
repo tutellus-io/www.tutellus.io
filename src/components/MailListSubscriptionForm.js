@@ -17,7 +17,7 @@ import {
 const MAIL_LIST_URL = ((process.env/*:any*/).REACT_APP_MAILCHIMP_URL/*:string*/);
 const GENERAL_MAIL_LIST = process.env.REACT_APP_MAILLIST_GENERAL;
 
-export const subscribeTo = async (list_id/*:string*/, form_data/*:Object*/)/*:Promise<void>*/=> {
+export const subscribeTo = async(list_id/*:string*/, form_data/*:Object*/)/*:Promise<void>*/=> {
     const params = ((Object.entries(form_data)/*:any*/)/*:Array<[string, string]>*/)
     .map(([field_name, field_value]) =>
         `${ field_name }=${ encodeURIComponent(field_value) }`
