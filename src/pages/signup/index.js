@@ -229,6 +229,7 @@ class SignupElement extends React.Component/*::<SignupProps, SignupState>*/ {
     render() {
         const {
             className = '',
+            embed = false,
             db,
             showAlert,
             t,
@@ -272,7 +273,9 @@ class SignupElement extends React.Component/*::<SignupProps, SignupState>*/ {
                         </PageSection>
                         : <div>
                             <PageSection>
+                                { embed ||
                                 <SectionTitle simple>{t('signup:title')}</SectionTitle>
+                                }
                                 <Navigation
                                     active_step = {this.state.active_step}
                                     steps={this.steps}
@@ -294,5 +297,8 @@ class SignupElement extends React.Component/*::<SignupProps, SignupState>*/ {
 
 export const Signup = styled(translate('signup')(SignupElement))`
     margin-top: ${ TOP_HEADER_HEIGHT.SMALL }px;
+    ${ props => props.embed && `
+        margin-top: 0;
+    ` }
 `;
 export default Signup;
