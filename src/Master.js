@@ -54,7 +54,7 @@ const WithHeaderLayout = header_props =>
             <Route exact path='/management' component={withTracker(props =>
                 <Management {...props} {...header_props}/>
             )}/>
-            <Route exact path='/dashboard' component={withTracker(props =>
+            <Route path='/dashboard' component={withTracker(props =>
                 <Dashboard {...props} {...header_props}/>
             )}/>
             <Route exact path='/login' component={withTracker(props =>

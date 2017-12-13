@@ -4,6 +4,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 import {translate} from 'react-i18next';
 import SmoothScroll from 'react-scroll';
+import {Link} from 'react-router-dom';
 
 import {SocialIcons} from './Footer';
 import {LinkButton} from './';
@@ -27,9 +28,9 @@ type HeaderLogoProps = {|
 |}
 */
 const HeaderLogo/*:ComponentType<HeaderLogoProps>*/ = styled((props/*:HeaderLogoProps*/) =>
-    <a className={ props.className }>
+    <Link to="/" className={ props.className }>
         <img src={ props.logo } alt={ props.title } />
-    </a>
+    </Link>
 )`
     display: block;
     max-width: 7em;
@@ -40,7 +41,7 @@ type LinkProps = {|
     children?: React.Node,
 |}
 */
-const Link/*:ComponentType<LinkProps>*/ = styled((props/*:LinkProps*/) =>
+const MenuLink/*:ComponentType<LinkProps>*/ = styled((props/*:LinkProps*/) =>
     <SmoothScroll.Link { ...props }
         spy={ true }
         smooth={ true }
@@ -61,10 +62,10 @@ const Link/*:ComponentType<LinkProps>*/ = styled((props/*:LinkProps*/) =>
 export const MainMenu = styled(translate()(({t, className}) =>
     <nav className={ className }>
         <ul>
-            <li><Link to="howitworks">{ t('Whitepaper') }</Link></li>
-            <li><Link to="platform">{ t('Platform') }</Link></li>
-            <li><Link to="team">{ t('the_team:title') }</Link></li>
-            <li><Link to="crowdsale">{ t('crowdsale:title') }</Link></li>
+            <li><MenuLink to="howitworks">{ t('Whitepaper') }</MenuLink></li>
+            <li><MenuLink to="platform">{ t('Platform') }</MenuLink></li>
+            <li><MenuLink to="team">{ t('the_team:title') }</MenuLink></li>
+            <li><MenuLink to="crowdsale">{ t('crowdsale:title') }</MenuLink></li>
         </ul>
     </nav>
 ))`
@@ -77,7 +78,7 @@ export const MainMenu = styled(translate()(({t, className}) =>
         font-weight: normal;
         padding: 0 .5em;
         text-transform: uppercase;
-        & ${ Link } {
+        & ${ MenuLink } {
             display: block;
             margin-top: -1.5em;
         }
@@ -123,7 +124,7 @@ type SecondaryMenuProps = {|
 export const SecondaryMenu/*:ComponentType<SecondaryMenuProps>*/ = styled((props/*:SecondaryMenuProps*/) =>
     <div className={ props.className }>
         <SocialIcons networks={ props.socialLinks } />
-        <LinkButton to="/signup">Whitelist</LinkButton>
+        <LinkButton to="/dashboard/home">Whitelist</LinkButton>
         <LangSelect onLanguage={ props.onLanguage } locale={ props.locale } />
     </div>
 )`

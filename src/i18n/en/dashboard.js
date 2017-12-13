@@ -1,0 +1,15 @@
+export const dashboard = {
+    Inicio: 'Home',
+    copied_to_clipboard: 'Address copied to your clipboard',
+    title: 'pre-Sale ICO, get a greater discount',
+    your_tokens: 'Your tokens',
+    instructions: 'Send ETH to buy tokens',
+    contract_address: 'Send to this address',
+    gas_limit: 'Gas limit',
+    gas_limit_explained: 'Gas is the amount being charged for the transaction to be saved to the Blockchain.',
+    help: 'Help',
+    help_url: 'https://tutellusico.zendesk.com/hc/en',
+    terms_url: 'https://2tel.us/2B4hWQP',
+    terms: 'Terms and conditions',
+    how_to_buy: 'How to buy tokens?',
+};
