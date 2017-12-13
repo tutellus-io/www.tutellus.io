@@ -1,3 +1,6 @@
+### 1.3.1 (2017-12-13)
+- fix(service worker): unregister to solve cache issues (b243183)
+
 ## 1.3.0 (2017-12-13)
 - fix(roadmap): update dates for presale and ICO (97aca84)
 - feat(dashboard): allows registered users to monitor the token sale (68509f7)

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import firebase from 'firebase';
-import registerServiceWorker from './registerServiceWorker';
+import {unregister} from './registerServiceWorker';
 
 import Master from './Master';
 
@@ -16,4 +16,4 @@ const db = firebase.initializeApp({
 
 
 ReactDOM.render(<Master db={db}/>, document.getElementById('root'));
-registerServiceWorker();
+unregister();
