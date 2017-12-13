@@ -45,7 +45,7 @@ const LoginForm = styled((props/*:LoginFormProps*/) => {
 
         db.auth().signInWithEmailAndPassword(email, passwd)
         .then(() => {
-            history.push('/dashboard');
+            history.push('/dashboard/home');
         })
         .catch(() => {
             setSubmitting(false);
@@ -99,7 +99,7 @@ class LoginElement extends React.Component/*::<LoginFormProps>*/ {
 
         const user = localStorage.getItem(`firebase:authUser:${ db.options.apiKey }:[DEFAULT]`);
         if (user) {
-            history.push('/dashboard');
+            history.push('/dashboard/home');
         }
     }
     render() {

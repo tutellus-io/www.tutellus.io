@@ -5,7 +5,12 @@ import {injectGlobal} from 'styled-components';
 import AlertContainer from 'react-alert';
 import {translate} from 'react-i18next';
 
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import {
+    BrowserRouter,
+    Redirect,
+    Route,
+    Switch,
+} from 'react-router-dom';
 import withTracker from './withTracker';
 
 import {Home, Signup, Management, Login, Dashboard, NoMatch} from './pages';
@@ -40,13 +45,16 @@ const WithHeaderLayout = header_props =>
     <div>
         <SimpleHeader/>
         <Switch>
+            <Route exact path='/tokensale'>
+                <Redirect to="/signup" />
+            </Route>
             <Route exact path='/signup' component={withTracker(props =>
                 <Signup {...props} {...header_props}/>
             )}/>
             <Route exact path='/management' component={withTracker(props =>
                 <Management {...props} {...header_props}/>
             )}/>
-            <Route exact path='/dashboard' component={withTracker(props =>
+            <Route path='/dashboard' component={withTracker(props =>
                 <Dashboard {...props} {...header_props}/>
             )}/>
             <Route exact path='/login' component={withTracker(props =>

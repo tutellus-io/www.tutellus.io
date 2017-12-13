@@ -1,9 +1,14 @@
 //@flow
+/* eslint indent: off */
 import * as React from 'react';
 import Rebase from 're-base';
 import _ from 'lodash';
-import {translate} from 'react-i18next';
-import {PageContent, PageSection} from '../components';
+import {
+    PageContent,
+    PageSection,
+    DashboardComponent,
+} from '../components';
+import {Signup} from './signup';
 
 /*::
 type DashboardProps = {|
@@ -17,7 +22,7 @@ type DashboardState = {|
     |},
 |}
 */
-class DashboardElement extends React.Component/*::<DashboardProps, DashboardState>*/ {
+export class Dashboard extends React.Component/*::<DashboardProps, DashboardState>*/ {
     /*:: base: any */
     /*:: ref_user: void */
     constructor() {
@@ -53,16 +58,6 @@ class DashboardElement extends React.Component/*::<DashboardProps, DashboardStat
         });
     }
 
-    componentWillUpdate(nextProps, nextState) {
-        const {
-            history,
-        } = this.props;
-        const verified = _.get(nextState, 'user.verified_ok', false);
-        if (!verified) {
-            history.push('/signup');
-        }
-    }
-
     componentWillUnmount() {
         if (this.ref_user) {
             this.base.removeBinding(this.ref_user);
@@ -87,13 +82,11 @@ class DashboardElement extends React.Component/*::<DashboardProps, DashboardStat
             <PageContent className={className}>
                 {
                     _.isEmpty(user) ? <PageSection>Loading....</PageSection>
-                        : <PageSection>
-                            Esto es el Dashboard! {user.first_name}
-                        </PageSection>
+                                    : <DashboardComponent { ...this.props }
+                                                          user={ user }
+                                                          KYC={ Signup } />
                 }
             </PageContent>
         );
     }
 }
-
-export const Dashboard = translate()(DashboardElement);

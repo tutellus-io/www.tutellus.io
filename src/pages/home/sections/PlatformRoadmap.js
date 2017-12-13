@@ -33,7 +33,7 @@ export const PlatformRoadmap = translate('the_roadmap')(({t, id}) =>
                     <li>{ t("tokens") }</li>
                 </ul>
             </Milestone>
-            <Milestone title={ t("ico") } date='2018-01' />
+            <Milestone title={ t("ico") } date='2018-02' />
             <Milestone title={ t("core_features") } date='2018-06'>
                 <ul>
                     <li>{ t("wallets") }</li>

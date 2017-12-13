@@ -1,3 +1,8 @@
+## 1.3.0 (2017-12-13)
+- fix(roadmap): update dates for presale and ICO (97aca84)
+- feat(dashboard): allows registered users to monitor the token sale (68509f7)
+- feat(signup): redirects from /tokensale (40667a9)
+
 ### 1.2.1 (2017-12-11)
 - fix(how it works): updated links to whitepaper v3.18 (4e93650)
 - feat(social-links): link to facebook page (faf4832)
