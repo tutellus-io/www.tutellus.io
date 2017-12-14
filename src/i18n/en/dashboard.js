@@ -1,7 +1,7 @@
 export const dashboard = {
     Inicio: 'Home',
     copied_to_clipboard: 'Address copied to your clipboard',
-    title: 'pre-Sale ICO, get a greater discount',
+    title: "STATUS: we've paused the smartcontract to optimize Gas management. It will restart ASAP, we'll keep you informed. Thanks!",
     your_tokens: 'Your tokens',
     instructions: 'Send ETH to buy tokens',
     contract_address: 'Send to this address',
