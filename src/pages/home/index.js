@@ -21,7 +21,6 @@ import {
 
 } from './sections';
 import {MainFooter} from './MainFooter';
-import {FloatingHelp} from '../../components';
 import {social_links} from '../../config';
 
 export class Home extends React.Component/*::<void>*/ {
@@ -47,7 +46,6 @@ export class Home extends React.Component/*::<void>*/ {
                     <SubscribeToMailList />
                 </main>
                 <MainFooter socialLinks={ social_links } />
-                <FloatingHelp icon="/images/telegram-logo.svg"/>
             </div>
         );
     }

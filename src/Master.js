@@ -18,6 +18,7 @@ import {
     FBTracker,
     TopHeader,
     SecondaryMenu,
+    FloatingHelp,
 } from './components';
 
 import './i18n';
@@ -116,6 +117,7 @@ class Master extends React.Component/*::<void, void>*/ {
                         </Switch>
                     </div>
                 </BrowserRouter>
+                <FloatingHelp icon="/images/telegram-logo.svg"/>
                 <FBTracker id={ fb_tracker_id } />
             </div>
         );
