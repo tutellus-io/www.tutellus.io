@@ -1,5 +1,6 @@
 //@flow
 import React from 'react';
+import R from 'ramda';
 import {injectGlobal} from 'styled-components';
 
 import styles from '../../styles';
@@ -30,7 +31,7 @@ export class Home extends React.Component/*::<void>*/ {
     render() {
         return (
             <div>
-                <MainHeader socialLinks={ social_links } />
+                <MainHeader socialLinks={ R.pick(R.take(3, R.keys(social_links)), social_links) } />
                 <main>
                     <ICOIntro />
                     <ThePain />
