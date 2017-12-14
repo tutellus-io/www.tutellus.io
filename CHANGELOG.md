@@ -1,3 +1,7 @@
+### 1.3.2 (2017-12-14)
+- fix(dashboard): hide contract address and inform users of maintainance mode (0c46119)
+- feat(floating help): keep it always visible on any page (2b90de0)
+
 ### 1.3.1 (2017-12-13)
 - fix(service worker): unregister to solve cache issues (b243183)
 
