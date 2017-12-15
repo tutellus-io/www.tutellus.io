@@ -3,7 +3,6 @@ import * as React from 'react';
 /*:: import type {ComponentType} from 'react' */
 import styled from 'styled-components';
 //$FlowFixMe
-import 'socicon/css/socicon.css';
 import styles from '../styles';
 
 export const NavLink = styled.a`
@@ -51,7 +50,7 @@ export const SocialIcons = styled((props/*:SocialIconsProps*/) =>
         {
             Object.entries(props.networks).map(([network, link]) =>
                 <SocialIcon key={ network }>
-                    <a className={ `socicon-${ network }` }
+                    <a className={ `icon-${ network }` }
                         href={ link }
                         target="_blank"
                     />

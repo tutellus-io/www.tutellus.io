@@ -116,14 +116,16 @@ const LangSelect/*:ComponentType<LangSelectProps>*/ = styled((props/*:LangSelect
 /*::
 type SecondaryMenuProps = {|
     className?: string,
-    socialLinks: Object,
+    socialLinks?: Object,
     onLanguage: (string => void),
     locale: string,
 |}
 */
 export const SecondaryMenu/*:ComponentType<SecondaryMenuProps>*/ = styled((props/*:SecondaryMenuProps*/) =>
     <div className={ props.className }>
+        { props.socialLinks &&
         <SocialIcons networks={ props.socialLinks } />
+        }
         <LinkButton to="/dashboard/home">Whitelist</LinkButton>
         <LangSelect onLanguage={ props.onLanguage } locale={ props.locale } />
     </div>
