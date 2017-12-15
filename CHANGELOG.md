@@ -1,3 +1,6 @@
+### 1.3.3 (2017-12-15)
+- feat(social icons): new icon font, networks and layouts for header & footer (c757b80)
+
 ### 1.3.2 (2017-12-14)
 - fix(dashboard): hide contract address and inform users of maintainance mode (0c46119)
 - feat(floating help): keep it always visible on any page (2b90de0)
