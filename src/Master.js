@@ -22,7 +22,6 @@ import {
 } from './components';
 
 import './i18n';
-import {social_links} from './config';
 
 const ALERT_TIME_MS = 5000;
 const ALERT_OFFSET = 20;
@@ -35,7 +34,6 @@ const SimpleHeader = translate()(props => {
     return (
         <TopHeader logo="/images/white-logo.svg" small title="Tutellus.io">
             <SecondaryMenu onLanguage={ lang => i18n.changeLanguage(lang) }
-                socialLinks={ social_links }
                 locale={ i18n.language }
             />
         </TopHeader>

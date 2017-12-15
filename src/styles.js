@@ -102,6 +102,35 @@ const fonts = `
           url(/fonts/material-icon/MaterialIcons-Regular.woff) format('woff'),
           url(/fonts/material-icon/MaterialIcons-Regular.ttf) format('truetype');
       }
+    @font-face {
+        font-family: 'socialIcons';
+        src: url('/fonts/socialIcons.eot');
+        src: url('/fonts/socialIcons.eot?#iefix') format('embedded-opentype'),
+             url('/fonts/socialIcons.woff') format('woff'),
+             url('/fonts/socialIcons.ttf') format('truetype'),
+             url('/fonts/socialIcons.svg#socialIcons') format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+`;
+const icons = `
+    [class*='icon-']:before{
+       display: inline-block;
+       font-family: 'socialIcons';
+       font-style: normal;
+       font-weight: normal;
+       line-height: 1;
+       -webkit-font-smoothing: antialiased;
+       -moz-osx-font-smoothing: grayscale
+    }
+    .icon-bitcoin:before{content:'\\0042';}
+    .icon-github:before{content:'\\0047';}
+    .icon-linkedin:before{content:'\\004c';}
+    .icon-medium:before{content:'\\004d';}
+    .icon-telegram:before{content:'\\0054';}
+    .icon-youtube:before{content:'\\0059';}
+    .icon-facebook:before{content:'\\0066';}
+    .icon-twitter:before{content:'\\0074';}
 `;
 export const styles = {
     margin: {
@@ -151,6 +180,7 @@ export const styles = {
             &::-webkit-details-marker { display: none; }
             &:focus {outline: none;}
         }
+        ${ icons }
     `,
     helpers,
     media,
