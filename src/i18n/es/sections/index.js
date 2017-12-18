@@ -1,5 +1,6 @@
 //@flow
 export * from './intro';
+export * from './partners';
 export * from './the_pain';
 export * from './the_solution';
 export * from './benefits';

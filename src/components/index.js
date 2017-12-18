@@ -1,5 +1,6 @@
 //@flow
 export * from './forms';
+export * from './PartnerList';
 export * from './TopHeader';
 export * from './PageSection';
 export * from './Layout';

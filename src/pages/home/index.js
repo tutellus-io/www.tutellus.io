@@ -9,6 +9,7 @@ import {MainHeader} from './MainHeader';
 import {
     Advisors,
     ICOIntro,
+    Partners,
     ThePain,
     HowItWorks,
     ThePlatform,
@@ -46,6 +47,7 @@ export class Home extends React.Component/*::<void>*/ {
                     <PlatformRoadmap />
                     <TechnologyStack />
                     <Advisors />
+                    <Partners />
                     <SubscribeToMailList />
                 </main>
                 <MainFooter socialLinks={ social_links } />
