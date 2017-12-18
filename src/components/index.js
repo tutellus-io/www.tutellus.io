@@ -1,4 +1,5 @@
 //@flow
+export * from './Documents';
 export * from './forms';
 export * from './PartnerList';
 export * from './TopHeader';
