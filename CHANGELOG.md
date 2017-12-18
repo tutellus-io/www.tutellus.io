@@ -1,3 +1,9 @@
+## 1.4.0 (2017-12-18)
+- fix: update dates to reflect smart contract launch (fc59d7d, 819cf39, ef8cf3f, cdc01b9)
+- feat(documentation): new section with multiple links to external docs (a7a8faf)
+- feat(partners): section for the home page (ea59bcd)
+- feat(advisors): board of advisors as homepage section (e224f98)
+
 ### 1.3.3 (2017-12-15)
 - feat(social icons): new icon font, networks and layouts for header & footer (c757b80)
 
@@ -35,7 +41,7 @@
 
 ### 1.1.2 (2017-11-29)
 - fix(header): Corrige los iconos sociales en responsive. Elimina el enlace a github (2a8c08c)
-- fix(design): responsive team members, section images, and token sale tables (2e2ea47) Merge branch 'feature/redesign' into 'develop'
+- fix(design): responsive team members, section images, and token sale tables (2e2ea47)
 - fix: fix most lint errors, document types (4254edf)
 
 ### 1.1.1 (2017-11-28)
