@@ -1,4 +1,6 @@
 //@flow
+export * from './Advisors';
+export * from './Documents';
 export * from './Partners';
 export * from './PlatformBenefits';
 export * from './PlatformRoadmap';
@@ -12,4 +14,3 @@ export * from './TheTeam';
 export * from './Crowdsale';
 export * from './TechnologyStack';
 export * from './SubscribeToMailList';
-export * from './Advisors';

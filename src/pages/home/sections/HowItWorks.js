@@ -16,6 +16,5 @@ export const HowItWorks = translate('how_it_works')(({t, id}) =>
         <Responsive queries={ {tablet: styles.media.tablet} }>{ device =>
             <SectionImage src={ device.tablet ? "/images/howitworks.svg" : "/images/howitworks.mobile.svg" } />
         }</Responsive>
-        <CrowdsaleCTA href={ t("whitepaper_url") }>{ t('download_whitepaper') }</CrowdsaleCTA>
     </PageSection>
 );

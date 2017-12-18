@@ -1,4 +1,5 @@
 //@flow
+export * from './documents';
 export * from './intro';
 export * from './partners';
 export * from './the_pain';
