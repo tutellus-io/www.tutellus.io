@@ -1,4 +1,5 @@
 //@flow
+export * from './Partners';
 export * from './PlatformBenefits';
 export * from './PlatformRoadmap';
 export * from './HowItWorks';
