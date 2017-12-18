@@ -11,3 +11,4 @@ export * from './TheTeam';
 export * from './Crowdsale';
 export * from './TechnologyStack';
 export * from './SubscribeToMailList';
+export * from './Advisors';

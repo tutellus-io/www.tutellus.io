@@ -40,7 +40,7 @@ const TeamMemberName = styled.span`
     display: block;
     color: ${ styles.colors.darkblack };
     font-weight: bold;
-    margin-bottom: .25em;
+    margin-bottom: 1.25em;
 `;
 
 const TeamMemberTitle = styled.i`
@@ -62,7 +62,9 @@ export const TeamMember/*:ComponentType<TeamMemberProps>*/= styled((props/*:Team
     <div className={ props.className }>
         <TeamMemberAvatar src={ props.photo } />
         <TeamMemberName>{ props.name }</TeamMemberName>
+        { props.title &&
         <TeamMemberTitle>{ props.title }</TeamMemberTitle>
+        }
         <p>
             { props.children }
         </p>
@@ -91,6 +93,7 @@ export const TeamMember/*:ComponentType<TeamMemberProps>*/= styled((props/*:Team
         grid-area: title;
     }
     & > p {
+        margin-top: .25em;
         grid-area: bio;
     }
     & > ${ TeamIcons } {
@@ -118,9 +121,6 @@ export const TeamMember/*:ComponentType<TeamMemberProps>*/= styled((props/*:Team
         text-align: center;
         & > ${ TeamMemberAvatar } {
             width: 7em;
-        }
-        & > ${ TeamMemberTitle } {
-            margin: 1em 0;
         }
         & > ${ TeamIcons } {
             margin-top: 1em;
