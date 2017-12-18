@@ -207,6 +207,7 @@ const DashboardHomeForm = translate('dashboard')(styled(props =>
                 <input disabled onChange={ () => false } value={ props.address } />
             </Clipboard>
             &nbsp;
+            <a href={ `https://etherscan.io/address/${ props.address }` } target="_blank">{ props.t('View') }</a>
         </fieldset>
         <fieldset>
             <label>{ props.t('gas_limit') }</label>
@@ -270,17 +271,25 @@ const DashboardHomeForm = translate('dashboard')(styled(props =>
     & input {
         padding: .25em;
     }
+    /* clipboard */
+    & button {
+        border: 0;
+        background: transparent;
+        padding: 0;
+        margin: 0;
+        font-size: 1em;
+    }
 `);
 const DashboardHome = translate('dashboard')(({t, showAlert}) =>
     <DashboardHomeContent light>
-        <RoundStatus endDate="2017-12-26"
+        <RoundStatus endDate="2018-01-15"
                      rate="1500"
                      bonus="50%"
-                     minETH="10" />
+                     minETH="5" />
         <DashboardHomeForm balance="0"
                            rate="1500"
                            gas="1.000.000"
-                           address=""
+                           address="0x0F3D5562cA6084F7d59CE10Dc5aB672257573dE6"
                            showAlert={ showAlert } />
         <div>
             <HelpLink href={ t('help_url') }>{ t('help') }</HelpLink>

@@ -4,7 +4,7 @@ export const dashboard = {
     copied_to_clipboard: 'Dirección copiada a tu portapapeles',
     days: 'días',
     your_tokens: 'Tus tokens',
-    title: 'STATUS: hemos pausado el smartcontract para optimizar la gestión del Gas. Se reiniciará ASAP, te mantendremos informado. Gracias!',
+    title: 'ICO pre-Sale, benefíciate de un mayor descuento',
     calculator: 'Calculadora',
     instructions: 'Envía ETH para la compra de tokens',
     contract_address: 'Dirección de envío',
