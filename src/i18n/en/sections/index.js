@@ -11,3 +11,4 @@ export * from './crowdsale';
 export * from './roadmap';
 export * from './technology_stack';
 export * from './mailinglist';
+export * from './advisors';

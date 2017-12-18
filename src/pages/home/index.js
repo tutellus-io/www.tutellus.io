@@ -7,6 +7,7 @@ import styles from '../../styles';
 
 import {MainHeader} from './MainHeader';
 import {
+    Advisors,
     ICOIntro,
     ThePain,
     HowItWorks,
@@ -44,6 +45,7 @@ export class Home extends React.Component/*::<void>*/ {
                     <Crowdsale id="crowdsale" />
                     <PlatformRoadmap />
                     <TechnologyStack />
+                    <Advisors />
                     <SubscribeToMailList />
                 </main>
                 <MainFooter socialLinks={ social_links } />
