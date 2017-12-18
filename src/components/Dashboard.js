@@ -282,10 +282,10 @@ const DashboardHomeForm = translate('dashboard')(styled(props =>
 `);
 const DashboardHome = translate('dashboard')(({t, showAlert}) =>
     <DashboardHomeContent light>
-        <RoundStatus endDate="2017-12-26"
+        <RoundStatus endDate="2018-01-15"
                      rate="1500"
                      bonus="50%"
-                     minETH="10" />
+                     minETH="5" />
         <DashboardHomeForm balance="0"
                            rate="1500"
                            gas="1.000.000"
