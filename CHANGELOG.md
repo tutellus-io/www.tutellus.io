@@ -1,3 +1,10 @@
+### 1.4.1 (2017-12-19)
+- fix(partners): Dianel Díez instead of Cellero (c2beae4)
+- fix(main menu): scroll to documents section (f19f7ec)
+- fix: various design details (c2d1459)
+- fix(main menu): link to documents instead of how it works as whitepaper (581f5a8)
+- feat(social-icons): link to youtube channel (1155300)
+
 ## 1.4.0 (2017-12-18)
 - fix: update dates to reflect smart contract launch (fc59d7d, 819cf39, ef8cf3f, cdc01b9)
 - feat(documentation): new section with multiple links to external docs (a7a8faf)
