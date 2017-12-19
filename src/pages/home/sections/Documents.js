@@ -42,8 +42,8 @@ const documentsForLanguage = flip(prop)(documents);
 const hasDocuments = compose(complement(isNil), documentsForLanguage);
 const findDocuments = compose(documentsForLanguage, find(hasDocuments));
 
-const DocumentsComponent = ({t, i18n}) =>
-    <PageSection title={ t('title') } light>
+const DocumentsComponent = ({id, t, i18n}) =>
+    <PageSection id={ id } title={ t('title') } light>
         <Text center>{ t('description') }</Text>
         <DocumentList documents={ findDocuments(i18n.languages) } />
     </PageSection>;
