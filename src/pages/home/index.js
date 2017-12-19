@@ -39,8 +39,8 @@ export class Home extends React.Component/*::<void>*/ {
                     <ThePain />
                     <TheSolution />
                     <PlatformBenefits />
-                    <HowItWorks id="howitworks" />
-                    <Documents />
+                    <HowItWorks />
+                    <Documents id="documents" />
                     <ThePlatform id="platform" />
                     <PraiseQuotes />
                     <TheTeam id="team" />
