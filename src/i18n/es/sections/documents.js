@@ -1,4 +1,4 @@
 export const documents = {
-    title: 'Documentación',
+    title: 'Documentos',
     description: 'Accede desde aquí a los documentos que más te interesen',
 };
