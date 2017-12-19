@@ -288,7 +288,7 @@ const DashboardHome = translate('dashboard')(({t, showAlert}) =>
                      minETH="5" />
         <DashboardHomeForm balance="0"
                            rate="1500"
-                           gas="1.000.000"
+                           gas="200.000"
                            address="0x0F3D5562cA6084F7d59CE10Dc5aB672257573dE6"
                            showAlert={ showAlert } />
         <div>

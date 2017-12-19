@@ -23,7 +23,7 @@ export const PartnerList = styled(props =>
     margin: 0 auto;
 
     & > li {
-        padding: 1em;
+        padding: 2em;
 
         & > img {
             max-width: 100%;
