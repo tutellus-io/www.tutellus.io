@@ -62,7 +62,7 @@ const MenuLink/*:ComponentType<LinkProps>*/ = styled((props/*:LinkProps*/) =>
 export const MainMenu = styled(translate()(({t, className}) =>
     <nav className={ className }>
         <ul>
-            <li><MenuLink to="howitworks">{ t('Whitepaper') }</MenuLink></li>
+            <li><MenuLink to="documents">{ t('documents:title') }</MenuLink></li>
             <li><MenuLink to="platform">{ t('Platform') }</MenuLink></li>
             <li><MenuLink to="team">{ t('the_team:title') }</MenuLink></li>
             <li><MenuLink to="crowdsale">{ t('crowdsale:title') }</MenuLink></li>

@@ -1,4 +1,4 @@
 export const documents = {
-    title: 'Documentation',
+    title: 'Documents',
     description: 'Here are the most relevant documents',
 };
