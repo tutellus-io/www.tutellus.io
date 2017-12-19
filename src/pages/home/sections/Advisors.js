@@ -22,7 +22,7 @@ export const Advisors = translate('advisors')(({t}) =>
                         photo="/images/advisors/rodrigo_de_la_cruz.jpg">
                 { t('delacruz') }
             </TeamMember>
-            <TeamMember name="Dani Cellero"
+            <TeamMember name="Daniel Diéz"
                         photo="/images/advisors/dani_cellero.jpg">
                 { t('cellero') }
             </TeamMember>
