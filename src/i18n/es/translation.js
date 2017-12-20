@@ -13,4 +13,5 @@ export const translation = {
     Blog: 'Blog',
     help_url: '//tutellusico.zendesk.com/hc/es',
     tos_url: 'https://2tel.us/2iHc8WL',
+    download: 'descargar',
 };

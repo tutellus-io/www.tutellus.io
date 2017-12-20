@@ -17,24 +17,72 @@ import {
 
 const documents = {
     es: {
-        Whitepaper: 'http://2tel.us/2BFt4rp',
-        "Token Launch": 'http://2tel.us/2BIzEgK',
-        'One Pager': 'http://2tel.us/2BDmbXP',
-        'Short Deck (english)': 'http://2tel.us/2BFgtEB',
-        'Full Deck (english)': 'http://2tel.us/2AToK4q',
-        Ayuda: 'http://2tel.us/2AUqc6p',
-        Términos: 'https://2tel.us/2iHc8WL',
-        "Cómo comprar tokens": 'http://2tel.us/2klVR9N',
+        Whitepaper: {
+            description: 'Detalle completo de tokens, negocio y gobernanza',
+            url: 'http://2tel.us/2BFt4rp',
+        },
+        "Token Launch": {
+            description: 'Características de la preICO e ICO',
+            url: 'http://2tel.us/2BIzEgK',
+        },
+        'One Pager': {
+            description: 'Síntesis del negocio y la ICO',
+            url: 'http://2tel.us/2BDmbXP',
+        },
+        'Short Deck (english)': {
+            description: 'Presentación de la compañía',
+            url: 'http://2tel.us/2BFgtEB',
+        },
+        'Full Deck (english)': {
+            description: 'Presentación completa de compañía e ICO',
+            url: 'http://2tel.us/2AToK4q',
+        },
+        Ayuda: {
+            description: 'Repositorio de Preguntas Más Frecuentes',
+            url: 'http://2tel.us/2AUqc6p',
+        },
+        Términos: {
+            description: 'Términos y Condiciones de la Token Sale',
+            url: 'https://2tel.us/2iHc8WL',
+        },
+        "Cómo comprar tokens": {
+            description: 'Manual para iniciarse',
+            url: 'http://2tel.us/2klVR9N',
+        },
     },
     en: {
-        Whitepaper: 'http://2tel.us/2AV1dA4',
-        "Token Launch": 'http://2tel.us/2AWEZxG',
-        'One Pager': 'http://2tel.us/2AVaQP9',
-        'Short Deck': 'http://2tel.us/2BFgtEB',
-        'Full Deck': 'http://2tel.us/2AToK4q',
-        Help: 'http://2tel.us/2BDmx0D',
-        Terms: 'https://2tel.us/2B4hWQP',
-        "How to buy Tokens (spanish)": 'http://2tel.us/2klVR9N',
+        Whitepaper: {
+            description: 'Full detail of tokens, business and governance',
+            url: 'http://2tel.us/2AV1dA4',
+        },
+        "Token Launch": {
+            description: 'Characteristics of preSales and ICO',
+            url: 'http://2tel.us/2AWEZxG',
+        },
+        'One Pager': {
+            description: 'Shynthesis of Business and ICO',
+            url: 'http://2tel.us/2AVaQP9',
+        },
+        'Short Deck': {
+            description: 'Presentation of the company',
+            url: 'http://2tel.us/2BFgtEB',
+        },
+        'Full Deck': {
+            description: 'Full presentation of company & ICO',
+            url: 'http://2tel.us/2AToK4q',
+        },
+        Help: {
+            description: 'FAQ (Frequented Asked Questions) repository',
+            url: 'http://2tel.us/2BDmx0D',
+        },
+        Terms: {
+            description: 'Terms and Conditions of Token Sale',
+            url: 'https://2tel.us/2B4hWQP',
+        },
+        "How to buy Tokens (spanish)": {
+            description: 'Guide (Spanish) for dummies',
+            url: 'http://2tel.us/2klVR9N',
+        },
     },
 };
 
