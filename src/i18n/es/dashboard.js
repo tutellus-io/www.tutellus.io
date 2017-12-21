@@ -1,4 +1,3 @@
-
 export const dashboard = {
     today: 'Hoy',
     copied_to_clipboard: 'Dirección copiada a tu portapapeles',
@@ -16,4 +15,8 @@ export const dashboard = {
     terms: 'Términos y condiciones',
     how_to_buy: '¿Cómo comprar tokens TUT?',
     View: 'Ver',
+    gas_price: 'Precio del Gas',
+    gas_price_explained: 'El precio del gas es el valor en wei de cada unidad de gas que se consuma.',
+    gas_price_help: '¿Qué significa esto?',
+    gas_price_help_url: 'https://tutellusico.zendesk.com/hc/es/articles/115003581592-Qu%C3%A9-es-el-Gas-en-una-transacci%C3%B3n-de-Blockchain-',
 };
