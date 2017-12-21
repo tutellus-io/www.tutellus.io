@@ -1,3 +1,6 @@
+### 1.4.2 (2017-12-21)
+- feat(dashboard): include also gas price and some instructions for users (01f6bb1)
+
 ### 1.4.1 (2017-12-19)
 - fix(partners): Dianel Díez instead of Cellero (c2beae4)
 - fix(main menu): scroll to documents section (f19f7ec)
