@@ -216,6 +216,17 @@ const DashboardHomeForm = translate('dashboard')(styled(props =>
                 <small>{ props.t('gas_limit_explained') }</small>
             </span>
         </fieldset>
+        <fieldset>
+            <label>{ props.t('gas_price') }</label>
+            <span>
+                { props.gasPrice }
+                <small>
+                    { props.t('gas_price_explained') }
+                    &nbsp;
+                    <a href={ props.t('gas_price_help_url') } target="_blank">{ props.t('gas_price_help') }</a>
+                </small>
+            </span>
+        </fieldset>
     </form>
 )`
     & > fieldset {
@@ -289,6 +300,7 @@ const DashboardHome = translate('dashboard')(({t, showAlert}) =>
         <DashboardHomeForm balance="0"
                            rate="1500"
                            gas="200.000"
+                           gasPrice="40 Gwei"
                            address="0x0F3D5562cA6084F7d59CE10Dc5aB672257573dE6"
                            showAlert={ showAlert } />
         <div>

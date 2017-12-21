@@ -12,4 +12,8 @@ export const dashboard = {
     terms_url: 'https://2tel.us/2B4hWQP',
     terms: 'Terms and conditions',
     how_to_buy: 'How to buy tokens?',
+    gas_price: 'Gas price',
+    gas_price_explained: 'Gas price is the wei cost of each gas unit used by the transaction.',
+    gas_price_help: 'What does it mean?',
+    gas_price_help_url: 'https://tutellusico.zendesk.com/hc/en-us/articles/115003581592-What-means-Gas-in-a-Blockchain-transaction-',
 };
