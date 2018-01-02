@@ -14,15 +14,14 @@ import {
     Input,
 } from './';
 
-const MAIL_LIST_URL = ((process.env/*:any*/).REACT_APP_MAILCHIMP_URL/*:string*/);
-const GENERAL_MAIL_LIST = process.env.REACT_APP_MAILLIST_GENERAL;
+import {cfg} from '../config';
 
 export const subscribeTo = async(list_id/*:string*/, form_data/*:Object*/)/*:Promise<void>*/=> {
     const params = ((Object.entries(form_data)/*:any*/)/*:Array<[string, string]>*/)
     .map(([field_name, field_value]) =>
         `${ field_name }=${ encodeURIComponent(field_value) }`
     );
-    const subscribe_url = `${ MAIL_LIST_URL }&id=${ list_id }&${ params.join('&') }`;
+    const subscribe_url = `${ cfg.MAILCHIMP_URL }&id=${ list_id }&${ params.join('&') }`;
     await fetch(subscribe_url, {mode: 'no-cors'});
 };
 
@@ -33,15 +32,16 @@ type FormProps = {|
     t?: (string => string),
 |}
 */
-export const SubscriptionForm/*:ComponentType<FormProps>*/ = translate('mailinglist')(({t, className}/*:FormProps*/) => {
+export const SubscriptionForm/*:ComponentType<FormProps>*/ = translate('mailinglist')(({t, className}/*:FormProps*/, context) => {
     const validationSchema = Yup.object().shape({
         EMAIL: Yup.string().required(t('email_required_err'))
         .email(t('email_email_err')),
     });
     const subscribe = async(form_data = {}, {setSubmitting, setErrors, setStatus, resetForm}) => {
         const form_reset_timeout = 4000;
+        const general_mail_list = context.cfg.MAILLIST_GENERAL;
         try {
-            await subscribeTo(((GENERAL_MAIL_LIST/*:any*/)/*:string*/), form_data);
+            await subscribeTo(((general_mail_list/*:any*/)/*:string*/), form_data);
             setStatus({done: t('subscription_successful')});
             setTimeout(() => {
                 resetForm();
