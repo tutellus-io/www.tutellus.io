@@ -1,4 +1,11 @@
 //@flow
+import R from 'ramda';
+//$FlowFixMe
+const mapKeys = R.curry((fn, obj) =>
+    R.fromPairs(R.map(R.adjust(fn, 0), R.toPairs(obj))));
+
+export const cfg = mapKeys(R.replace(/^REACT_APP_/, ''), process.env);
+
 export const social_links = {
     telegram: 'https://t.me/tutellus',
     medium: 'https://medium.com/tutellus-io',

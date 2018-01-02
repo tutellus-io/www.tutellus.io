@@ -1,21 +1,29 @@
 //@flow
 import React from 'react';
 /*:: import type {ComponentType} from 'react' */
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import {social_links} from '../config';
 import styles from '../styles';
+
 /*::
-type FloatingHelpProps = {|
+type Props = {|
     className?: string,
     icon: string,
 |}
 */
-export const FloatingHelp/*:ComponentType<FloatingHelpProps>*/ = styled((props/*:FloatingHelpProps*/) =>
+const FloatingHelpComponent = (props/*:Props*/, context) =>
     <a className={ props.className }
-        href={ social_links.telegram }
-        target="_blank"
-    />
-)`
+        href={ context.social_links.telegram }
+        target="_blank" />;
+
+FloatingHelpComponent.propTypes = {
+    className: PropTypes.string,
+};
+FloatingHelpComponent.contextTypes = {
+    social_links: PropTypes.any,
+};
+
+export const FloatingHelp = styled(FloatingHelpComponent)`
     position: fixed;
     z-index: 3;
     bottom: 0;

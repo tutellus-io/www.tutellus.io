@@ -1,5 +1,6 @@
 //@flow
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './styles';
 import {injectGlobal} from 'styled-components';
 import AlertContainer from 'react-alert';
@@ -12,6 +13,7 @@ import {
     Switch,
 } from 'react-router-dom';
 import withTracker from './withTracker';
+import {withAppConfig} from './hoc';
 
 import {Home, Signup, Management, Login, Dashboard, NoMatch} from './pages';
 import {
@@ -26,7 +28,7 @@ import './i18n';
 const ALERT_TIME_MS = 5000;
 const ALERT_OFFSET = 20;
 
-const SimpleHeader = translate()(props => {
+const SimpleHeaderComponent = props => {
     const {
         i18n,
     } = props;
@@ -38,7 +40,11 @@ const SimpleHeader = translate()(props => {
             />
         </TopHeader>
     );
-});
+};
+SimpleHeaderComponent.propTypes = {
+    i18n: PropTypes.any,
+};
+const SimpleHeader = translate()(SimpleHeaderComponent);
 
 const WithHeaderLayout = header_props =>
     <div>
@@ -97,8 +103,6 @@ class Master extends React.Component/*::<void, void>*/ {
             showAlert: this.showAlert,
         }, this.props);
 
-        const fb_tracker_id = ((process.env/*:any*/).REACT_APP_FBTRACKERID/*:string*/);
-
         return (
             <div>
                 <AlertContainer {...alertOptions} ref={ref => {
@@ -116,10 +120,13 @@ class Master extends React.Component/*::<void, void>*/ {
                     </div>
                 </BrowserRouter>
                 <FloatingHelp icon="/images/telegram-logo.svg"/>
-                <FBTracker id={ fb_tracker_id } />
+                <FBTracker id={ this.context.cfg.FBTRACKERID } />
             </div>
         );
     }
 }
+Master.contextTypes = {
+    cfg: PropTypes.any,
+};
 
-export default translate()(Master);
+export default translate()(withAppConfig(Master));
