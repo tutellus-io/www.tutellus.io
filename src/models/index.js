@@ -2,6 +2,7 @@ import firebase, {config} from './firebase';
 import {types} from 'mobx-state-tree';
 import {pick, omit} from 'lodash';
 import Backer from './Backer';
+import Config from './Config';
 
 const Store = types.model({
     has_cookie: types.optional(types.boolean, false),
@@ -9,9 +10,11 @@ const Store = types.model({
     backer: types.maybe(Backer),
     showModal: types.optional(types.boolean, true),
     modal_show_times: types.optional(types.number, 0),
+    config: types.maybe(Config),
 })
 .actions(self => ({
     afterCreate: () => {
+        self.createConfig();
         const user = localStorage.getItem(`firebase:authUser:${ config.apiKey }:[DEFAULT]`);
 
         if (user) {
@@ -48,10 +51,14 @@ const Store = types.model({
         .then(snapshot => {
             self.createBacker(snapshot.val());
         }),
+    createConfig: () => {
+        const new_config = Config.create({});
+        self.config = new_config;
+    },
     createBacker: backer_info => {
-        const backer = Backer.create(backer_info);
+        const new_backer = Backer.create(backer_info);
         self.setLogged(true);
-        self.setBacker(backer);
+        self.setBacker(new_backer);
     },
     register: async user_info => {
         const {
