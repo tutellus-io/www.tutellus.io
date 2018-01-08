@@ -79,9 +79,9 @@ const documents = {
             description: 'Terms and Conditions of Token Sale',
             url: 'https://2tel.us/2B4hWQP',
         },
-        "How to buy Tokens (spanish)": {
-            description: 'Guide (Spanish) for dummies',
-            url: 'http://2tel.us/2klVR9N',
+        "How to buy Tokens": {
+            description: 'Guide for dummies',
+            url: 'http://2tel.us/2lJcYDg',
         },
     },
 };

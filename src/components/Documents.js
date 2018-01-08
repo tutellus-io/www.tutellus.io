@@ -40,6 +40,7 @@ export const DocumentList = translate()(styled(props =>
                     margin-top: 1em;
                     font-size: .8em;
                     line-height: 1.25em;
+                    height: 3em;
                 }
             }
             & > button {
@@ -58,6 +59,18 @@ export const DocumentList = translate()(styled(props =>
                     color: white;
                     width: 100%;
                     margin-top: 1.5em;
+
+                    &:before {
+                        content: '\\E2C0';
+                        font-family: 'Material Icons';
+                        display: inline;
+                        line-height: 0;
+                        color: white;
+                        font-size: 1.5em;
+                        padding-right: .25em;
+                        position: relative;
+                        top: .25em;
+                    }
                 }
             }
 
@@ -74,16 +87,7 @@ export const DocumentList = translate()(styled(props =>
                 right: 1em;
 
                 @media ${ styles.media.tablet } {
-                    font-size: .75em;
-                    display: block;
-                    margin: 0 auto;
-                    margin-bottom: 1em;
-                    border-radius: 50%;
-                    width: 1em;
-                    line-height: 1em;
-                    position: initial;
-                    background: white;
-                    color: black;
+                    display: none;
                 }
             }
         }
@@ -97,10 +101,9 @@ export const DocumentList = translate()(styled(props =>
         grid-template-columns: repeat(3, 33%);
         grid-column-gap: .5em;
     }
-    @media ${ styles.media.laptop } {
+    @media ${ styles.media.desktop } {
         display: grid;
         grid-template-columns: repeat(4, 25%);
         grid-column-gap: .5em;
     }
 `);
-
