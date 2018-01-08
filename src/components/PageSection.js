@@ -65,17 +65,43 @@ export const PageBanner/*:ComponentType<PageBannerProps>*/ = styled((props/*:Pag
 )`
     ${ section_styles }
     margin-top: ${ TOP_HEADER_HEIGHT.SMALL }px;
-    padding: 3em 0;
     background: url(${ props => `${ props.backgroundVideo }.jpg` }) no-repeat;
     background-size: cover;
     color: white;
 
+    & > ${ SectionContent } {
+        padding: 3em;
+    }
     & ${ BackgroundVideo } {
         display: none;
     }
+
     @media ${ styles.media.tablet } {
-        margin-top: 0;
-        padding-top: calc(${ TOP_HEADER_HEIGHT.BIG }px + 1em);
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        position: relative;
+        max-height: 500px;
+        overflow: hidden;
+        & > div {
+            width: 100%;
+            height: 100%;
+            max-height: 28em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: ${ styles.colors.white };
+            & ${ BackgroundVideo } {
+                display: block;
+                width: 100%;
+            }
+            & > ${ SectionContent } {
+                padding-top: ${ TOP_HEADER_HEIGHT.BIG }px;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+            }
+        }
     }
 `;
 
