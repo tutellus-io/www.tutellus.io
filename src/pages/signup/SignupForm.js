@@ -16,9 +16,7 @@ import {
 } from '../../components';
 import styles from '../../styles';
 
-const SIGNUP_MAIL_LIST = process.env.REACT_APP_MAILLIST_REGISTER;
-
-const SignupFormElement = props => {
+const SignupFormElement = (props, context) => {
     const {
         db,
         syncUser,
@@ -28,6 +26,7 @@ const SignupFormElement = props => {
         user,
         t,
     } = props;
+    const registration_mail_list = context.cfg.MAILLIST_REGISTER;
 
     const onSubmit = (values = {}, {
         setSubmitting,
@@ -55,7 +54,7 @@ const SignupFormElement = props => {
                 email,
                 signup_ok: true,
             });
-            subscribeTo(((SIGNUP_MAIL_LIST/*:any*/)/*:string*/), {
+            subscribeTo(registration_mail_list, {
                 EMAIL: email,
                 b_fb6c7232ef9595533c37d1fc0_8a25bf4ebc: "",
             });

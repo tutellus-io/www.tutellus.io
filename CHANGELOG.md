@@ -1,3 +1,11 @@
+## 1.5.0 (2018-01-08)
+- fix(documents): new styles and english guide for dummies link (7a2c479)
+- fix: typo "criptomenda" => "criptomoneda" (ec351a8)
+- feat(home): background video for the first section (page banner) (51ac697)
+- feat(docs): restyling of home section, bigger docs with description (c47c6f6)
+- feat(configuration): allows static build-time values in components context (beea7c0)
+- docs: updated README, CONTRIBUTING, and DEVELOPERS (e7caf03)
+
 ### 1.4.2 (2017-12-21)
 - feat(dashboard): include also gas price and some instructions for users (01f6bb1)
 

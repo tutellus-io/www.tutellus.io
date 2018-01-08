@@ -5,13 +5,15 @@ import {unregister} from './registerServiceWorker';
 
 import Master from './Master';
 
+import {cfg} from './config';
+
 const db = firebase.initializeApp({
-    apiKey: process.env.REACT_APP_FIREBASE_APIKEY,
-    authDomain: process.env.REACT_APP_FIREBASE_AUTHDOMAIN,
-    databaseURL: process.env.REACT_APP_FIREBASE_DATABASEURL,
-    projectId: process.env.REACT_APP_FIREBASE_PROJECTID,
-    storageBucket: process.env.REACT_APP_FIREBASE_STORAGEBUCKET,
-    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGINGSENDERID,
+    apiKey: cfg.FIREBASE_APIKEY,
+    authDomain: cfg.FIREBASE_AUTHDOMAIN,
+    databaseURL: cfg.FIREBASE_DATABASEURL,
+    projectId: cfg.FIREBASE_PROJECTID,
+    storageBucket: cfg.FIREBASE_STORAGEBUCKET,
+    messagingSenderId: cfg.FIREBASE_MESSAGINGSENDERID,
 });
 
 
