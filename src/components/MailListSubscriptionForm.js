@@ -2,6 +2,7 @@
 /* global fetch: false */
 import React from 'react';
 /*:: import type {ComponentType} from 'react' */
+import PropTypes from 'prop-types';
 import {translate} from 'react-i18next';
 import styled from 'styled-components';
 import Yup from '../yup';
@@ -32,7 +33,7 @@ type FormProps = {|
     t?: (string => string),
 |}
 */
-export const SubscriptionForm/*:ComponentType<FormProps>*/ = translate('mailinglist')(({t, className}/*:FormProps*/, context) => {
+const SubscriptionFormComponent = ({t, className}/*:FormProps*/, context) => {
     const validationSchema = Yup.object().shape({
         EMAIL: Yup.string().required(t('email_required_err'))
         .email(t('email_email_err')),
@@ -77,7 +78,14 @@ export const SubscriptionForm/*:ComponentType<FormProps>*/ = translate('mailingl
             }
         />
     );
-});
+};
+SubscriptionFormComponent.propTypes = {
+    className: PropTypes.string,
+};
+SubscriptionFormComponent.contextTypes = {
+    cfg: PropTypes.any,
+};
+export const SubscriptionForm/*:ComponentType<FormProps>*/ = translate('mailinglist')(SubscriptionFormComponent);
 
 //$FlowFixMe
 export const MailListSubscriptionForm/*:ComponentType<FormProps>*/ = styled(SubscriptionForm)`
