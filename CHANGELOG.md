@@ -1,3 +1,6 @@
+### 1.5.1 (2018-01-09)
+- fix: context prop types validation in subscription forms (6a8d92e)
+
 ## 1.5.0 (2018-01-08)
 - fix(documents): new styles and english guide for dummies link (7a2c479)
 - fix: typo "criptomenda" => "criptomoneda" (ec351a8)
