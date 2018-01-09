@@ -1,5 +1,6 @@
 //@flow
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Field, Form, Formik} from 'formik';
 import Yup from '../../yup';
 import _ from 'lodash';
@@ -140,6 +141,18 @@ const SignupFormElement = (props, context) => {
             />
         </div>
     );
+};
+SignupFormElement.propTypes = {
+    db: PropTypes.any,
+    syncUser: PropTypes.any,
+    updateUser: PropTypes.any,
+    nextStep: PropTypes.any,
+    className: PropTypes.string,
+    user: PropTypes.any,
+    t: PropTypes.any,
+};
+SignupFormElement.contextTypes = {
+    cfg: PropTypes.any,
 };
 
 const SignupForm = styled(translate()(SignupFormElement))`
