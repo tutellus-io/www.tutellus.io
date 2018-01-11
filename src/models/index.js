@@ -7,6 +7,7 @@ const Store = types.model({
     has_cookie: types.optional(types.boolean, false),
     logged: types.optional(types.boolean, false),
     backer: types.maybe(Backer),
+    showModal: types.optional(types.boolean, true),
 })
 .actions(self => ({
     afterCreate: () => {
@@ -84,6 +85,9 @@ const Store = types.model({
             self.setLogged(false);
             destroy(self.backer);
         });
+    },
+    toggleShowModal: () => {
+        self.showModal = !self.showModal;
     },
 }))
 .views(self => ({

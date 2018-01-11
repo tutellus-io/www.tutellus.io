@@ -58,7 +58,6 @@ const IcoModal = styled.div`
 /*::
 type DashboardProps = {|
     className?: string,
-    history: any,
     store: any,
     t: any,
 |}
@@ -66,25 +65,12 @@ type DashboardProps = {|
 const DashboardObserver = inject('store')(observer(class Dashboard extends React.Component/*::<DashboardProps>*/ {
     /*:: base: any */
     /*:: ref_user: void */
-    constructor() {
-        super();
-        this.state = {
-            showModal: true,
-        };
-    }
-
     render() {
         const {
             store,
             t,
             className,
         } = this.props;
-
-        const toggleShowModal = () => {
-            this.setState({
-                showModal: !this.state.showModal,
-            });
-        };
 
         return (
             <PageContent className={className}>
@@ -111,7 +97,7 @@ const DashboardObserver = inject('store')(observer(class Dashboard extends React
                     : <Loading/>
                 }
                 <Modal
-                    visible={this.state.showModal}
+                    visible={store.showModal}
                     width="750"
                     effect="fadeInUp"
                 >
@@ -125,7 +111,7 @@ const DashboardObserver = inject('store')(observer(class Dashboard extends React
                                 <li>{t('modal_step_3')}</li>
                             </ol>
                             <Button primary full
-                                onClick={toggleShowModal}
+                                onClick={store.toggleShowModal}
                             >
                                 {t('modal_button')}
                             </Button>
