@@ -126,7 +126,7 @@ export const SecondaryMenu/*:ComponentType<SecondaryMenuProps>*/ = styled((props
         { props.socialLinks &&
         <SocialIcons networks={ props.socialLinks } />
         }
-        <LinkButton to="/dashboard/home">Whitelist</LinkButton>
+        <LinkButton to="/dashboard/home">Join ICO</LinkButton>
         <LangSelect onLanguage={ props.onLanguage } locale={ props.locale } />
     </div>
 )`

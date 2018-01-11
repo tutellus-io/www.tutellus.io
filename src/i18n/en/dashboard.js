@@ -1,5 +1,5 @@
 export const dashboard = {
-    Inicio: 'Home',
+    Inicio: 'Dashboard',
     copied_to_clipboard: 'Address copied to your clipboard',
     title: 'pre-Sale ICO, get a greater discount',
     your_tokens: 'Your tokens',
@@ -16,4 +16,9 @@ export const dashboard = {
     gas_price_explained: 'Gas price is the wei cost of each gas unit used by the transaction.',
     gas_price_help: 'What does it mean?',
     gas_price_help_url: 'https://tutellusico.zendesk.com/hc/en-us/articles/115003581592-What-means-Gas-in-a-Blockchain-transaction-',
+    modal_title: 'You can now buy tokens!',
+    modal_step_1: 'Send your ETH during the pre-ICO for a great discount (minimum 5ETH during pre-ICO).',
+    modal_step_2: 'Finish your KYC so we can verify your information.',
+    modal_step_3: 'After the end of the ICO we will get in contact to give you your TUT tokens.',
+    modal_button: 'Ok, got it!',
 };

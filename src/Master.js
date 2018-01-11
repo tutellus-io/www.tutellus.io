@@ -15,7 +15,16 @@ import {
 import withTracker from './withTracker';
 import {withAppConfig} from './hoc';
 
-import {Home, Signup, Management, Login, Dashboard, NoMatch} from './pages';
+import {
+    Home,
+    Signup,
+    Management,
+    Login,
+    Dashboard,
+    Join,
+    NoMatch,
+} from './pages';
+
 import {
     FBTracker,
     TopHeader,
@@ -51,7 +60,10 @@ const WithHeaderLayout = header_props =>
         <SimpleHeader/>
         <Switch>
             <Route exact path='/tokensale'>
-                <Redirect to="/signup" />
+                <Redirect to="/join/signup" />
+            </Route>
+            <Route exact path='/signup'>
+                <Redirect to="/join/signup" />
             </Route>
             <Route exact path='/signup' component={withTracker(props =>
                 <Signup {...props} {...header_props}/>
@@ -62,13 +74,17 @@ const WithHeaderLayout = header_props =>
             <Route path='/dashboard' component={withTracker(props =>
                 <Dashboard {...props} {...header_props}/>
             )}/>
+            <Route path='/join' component={withTracker(props =>
+                <Join {...props} {...header_props}/>
+            )}/>
             <Route exact path='/login' component={withTracker(props =>
                 <Login {...props} {...header_props}/>
             )}/>
             <Route path='/404' component={withTracker(NoMatch)}/>
             <Route component={NoMatch}/>
         </Switch>
-    </div>;
+    </div>
+;
 
 class Master extends React.Component/*::<void, void>*/ {
     /*:: alertContainer: AlertContainer */

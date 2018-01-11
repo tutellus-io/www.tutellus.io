@@ -5,6 +5,7 @@ import Color from 'color';
 import styled from 'styled-components';
 import {colors} from '../../styles';
 import {Link} from 'react-router-dom';
+import {ErrorField} from '../index';
 
 export const Input = styled.input`
     display: block;
@@ -15,6 +16,9 @@ export const Input = styled.input`
     background-color: ${ colors.white };
     font-weight: 200;
     font-size: 1em;
+    &[disabled] {
+        background-color: ${ colors.grey };
+    }
 `;
 
 export const Hr = styled.div`
@@ -122,8 +126,12 @@ type FlexCenterProps = {|
 */
 export const FlexCenter/*:ComponentType<FlexCenterProps>*/ = styled.div`
     display: flex;
+    flex-flow: row wrap;
     align-items: center;
     justify-content: center;
+    & ${ ErrorField }{
+        width: 100%
+    }
     ${ props => (props.margin ? `margin: ${ props.margin };` : '') }
 `;
 
@@ -160,6 +168,9 @@ export const BoxElement = (props/*:BoxElementProps*/) =>
 
 export const Box = styled(BoxElement)`
     margin-bottom: 3em;
+    & a {
+        text-decoration: underline;
+    }
 `;
 
 /*::
