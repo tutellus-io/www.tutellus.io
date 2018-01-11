@@ -19,7 +19,6 @@ import {
     Home,
     Signup,
     Management,
-    Login,
     Dashboard,
     Join,
     NoMatch,
@@ -65,6 +64,9 @@ const WithHeaderLayout = header_props =>
             <Route exact path='/signup'>
                 <Redirect to="/join/signup" />
             </Route>
+            <Route exact path='/login'>
+                <Redirect to="/join/login" />
+            </Route>
             <Route exact path='/signup' component={withTracker(props =>
                 <Signup {...props} {...header_props}/>
             )}/>
@@ -76,9 +78,6 @@ const WithHeaderLayout = header_props =>
             )}/>
             <Route path='/join' component={withTracker(props =>
                 <Join {...props} {...header_props}/>
-            )}/>
-            <Route exact path='/login' component={withTracker(props =>
-                <Login {...props} {...header_props}/>
             )}/>
             <Route path='/404' component={withTracker(NoMatch)}/>
             <Route component={NoMatch}/>
