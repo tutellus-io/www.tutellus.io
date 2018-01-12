@@ -8,11 +8,18 @@ export const Radio = (props/*:mixed*/) =>
     <ItemField {...props} type='radio'/>;
 ;
 
-export const Checkbox = (props/*:mixed*/) =>
-    <ItemField {...props} value={true} type='checkbox'/>;
-;
+export const Checkbox = (props/*:mixed*/) => {
+    const {
+        field: {
+            value,
+        },
+    } = props;
+    return (
+        <ItemField {...props} checked={value} type='checkbox'/>
+    );
+};
 
-const ItemFieldElement = ({className, field, form, label, value, type}) => {
+const ItemFieldElement = ({className, field, form, label, value, type, checked}) => {
     const uid = `${ field.name }-${ value }`;
     return (
         <div className={className}>
@@ -28,6 +35,7 @@ const ItemFieldElement = ({className, field, form, label, value, type}) => {
                 onBlur={ event => {
                     form.handleBlur(event);
                 } }
+                checked={checked}
             />
             <Label inline htmlFor={uid}>{ label }</Label>
         </div>
@@ -82,10 +90,11 @@ export const OneCheckbox = (props/*:OneCheckboxProps*/) => {
         form,
         className = '',
     } = props;
+    field.value = form.values[field.name];
     const has_error = has(form, `errors.${ field.name }`) && has(form, `touched.${ field.name }`);
     return (
         <Field no_margin className={ `${ className } ${ has_error ? 'error' : '' }` } >
-            <ItemField {...props} value={true} type='checkbox'/>
+            <Checkbox {...props}/>
             {
                 has_error &&
                 <div className='error_placeholder'>

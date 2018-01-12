@@ -183,7 +183,7 @@ export const ImageWithPoster/*:ComponentType<ImageWithPosterProps>*/ = styled(Im
     }
 `;
 
-const Gallery = styled(GalleryElement)`
+export const Gallery = styled(GalleryElement)`
     display: flex;
     flex-wrap: wrap;
 

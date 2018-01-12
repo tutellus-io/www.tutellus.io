@@ -1,6 +1,8 @@
 import Yup from 'yup';
 import passwordMeter from 'passwordmeter';
-import createKeccakHash from 'keccak';
+import Web3 from 'web3';
+
+const web3 = new Web3(Web3.givenProvider);
 
 Yup.addMethod(Yup.string, 'passwdStrength', function(level, message) {
     return this.test('passwdStrength', message, value => {
@@ -21,30 +23,11 @@ Yup.addMethod(Yup.mixed, 'sameAs', function(ref, message) {
 
 Yup.addMethod(Yup.string, 'ethWallet', function(message) {
     return this.test('ethWallet', message, value => {
-        if (value.match(/^0x[a-fA-F0-9]{40}$/)) {
-            const checksumed = toChecksumAddress(value);
-            return checksumed === value;
+        if (value && value.match(/^0x[a-fA-F0-9]{40}$/)) {
+            return web3.utils.checkAddressChecksum(value);
         }
         return false;
     });
 });
-
-// Copied from https://github.com/ethereum/EIPs/blob/master/EIPS/eip-55.md
-function toChecksumAddress(address_in) {
-    const address = address_in.toLowerCase().replace('0x', '');
-    const hash = createKeccakHash('keccak256').update(address).digest('hex');
-    let ret = '0x';
-
-    for (let i = 0; i < address.length; i++) {
-        if (parseInt(hash[i], 16) >= 8) { //eslint-disable-line no-magic-numbers
-            ret += address[i].toUpperCase();
-        } else {
-            ret += address[i];
-        }
-    }
-
-    return ret;
-}
-
 
 export default Yup;
