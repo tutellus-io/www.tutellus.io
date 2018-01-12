@@ -22,12 +22,17 @@ import {DashboardHome} from './DashboardHome';
 import {
     Loading,
 } from '../';
+import styles from '../../styles';
 
 const IcoModal = styled.div`
     display: flex;
     height: 450px;
     & > img {
+        display: none;
         height: inherit;
+        @media ${ styles.media.tablet } {
+            display: initial;
+        }
     }
     & > div {
         padding: 2em;
@@ -47,12 +52,7 @@ const IcoModal = styled.div`
                 line-height: 1.4em;
             }
         }
-        & ${ Button } {
-            
-        }
     }
-
-
 `;
 
 /*::

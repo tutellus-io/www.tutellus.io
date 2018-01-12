@@ -26,6 +26,7 @@ import {
 
 const TextDiv = styled.div`
     > a {
+        cursor: pointer;
         color : ${ styles.colors.emerald };
         &:hover {
             text-decoration: underline
