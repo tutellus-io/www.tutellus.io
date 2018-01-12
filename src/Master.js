@@ -5,6 +5,7 @@ import styles from './styles';
 import {injectGlobal} from 'styled-components';
 import AlertContainer from 'react-alert';
 import {translate} from 'react-i18next';
+import {observer, inject} from 'mobx-react';
 
 import {
     BrowserRouter,
@@ -13,7 +14,6 @@ import {
     Switch,
 } from 'react-router-dom';
 import withTracker from './withTracker';
-import {withAppConfig} from './hoc';
 
 import {
     Home,
@@ -81,7 +81,7 @@ const WithHeaderLayout = header_props =>
     </div>
 ;
 
-class Master extends React.Component/*::<void, void>*/ {
+const Master = inject('config')(observer(class extends React.Component/*::<void, void>*/ {
     /*:: alertContainer: AlertContainer */
     constructor() {
         super();
@@ -131,13 +131,10 @@ class Master extends React.Component/*::<void, void>*/ {
                     </div>
                 </BrowserRouter>
                 <FloatingHelp icon="/images/telegram-logo.svg"/>
-                <FBTracker id={ this.context.cfg.FBTRACKERID } />
+                <FBTracker id={ this.props.config.cfg.FBTRACKERID } />
             </div>
         );
     }
-}
-Master.contextTypes = {
-    cfg: PropTypes.any,
-};
+}));
 
-export default translate()(withAppConfig(Master));
+export default translate()(Master);

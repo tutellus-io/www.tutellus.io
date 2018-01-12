@@ -25,13 +25,14 @@ import {
     Documents,
 } from './sections';
 import {MainFooter} from './MainFooter';
+import {observer, inject} from 'mobx-react';
 
-export class Home extends React.Component/*::<void>*/ {
+export const Home = inject('config')(observer(class extends React.Component/*::<void>*/ {
     componentDidMount() {
         injectGlobal`${ styles.global }`;
     }
     render() {
-        const social_links = this.context.social_links;
+        const social_links = this.props.config.social_links;
         return (
             <div>
                 <MainHeader socialLinks={ R.pick(R.take(3, R.keys(social_links)), social_links) } 
@@ -58,7 +59,4 @@ export class Home extends React.Component/*::<void>*/ {
             </div>
         );
     }
-}
-Home.contextTypes = {
-    social_links: PropTypes.any,
-};
+}));
