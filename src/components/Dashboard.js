@@ -1,6 +1,7 @@
 //@flow
 /* eslint indent: off */
 import React from 'react';
+import R from 'ramda';
 import styled from 'styled-components';
 import moment from 'moment';
 import {translate} from 'react-i18next';
@@ -27,7 +28,6 @@ export const Tab = styled(NavLink)`
     }
     & + & {
         margin-left: 3em;
-        
     }
 `;
 export const Tabs = styled.div`
@@ -35,27 +35,52 @@ export const Tabs = styled.div`
     padding-top: 1em;
 `;
 
-export const RoundStatus = translate('dashboard')(styled(props =>
-    <div className={ props.className }>
-        <h1>{ props.t('status') } { props.t('pre-sale') }</h1>
+const PRESALE = 'pre-sale';
+const ICO = 'ico';
+const stages = R.map(R.evolve({
+    end_date: end_date => moment(`${ end_date } 20:00:00 GMT+0100`).valueOf(),
+}), [
+    //important: keep in end_date order, RoundStatus will show the first one
+    //that hasn't ended yet.
+    {end_date: '2018-01-15', status: PRESALE, bonus: 0.5, min_eth_purchase: 5},
+    {end_date: '2018-01-29', status: PRESALE, bonus: 0.45, min_eth_purchase: 5},
+    {end_date: '2018-02-12', status: PRESALE, bonus: 0.4, min_eth_purchase: 5},
+    {end_date: '2018-02-28', status: PRESALE, bonus: 0.35, min_eth_purchase: 5},
+    {end_date: '2018-03-08', status: ICO, bonus: 0.2, min_eth_purchase: 0.05},
+    {end_date: '2018-03-15', status: ICO, bonus: 0.1, min_eth_purchase: 0.05},
+    {end_date: '2018-03-22', status: ICO, bonus: 0.05, min_eth_purchase: 0.05},
+    {end_date: '2018-03-31', status: ICO, bonus: 0, min_eth_purchase: 0.05},
+]);
+const isStillOpen = R.propSatisfies(
+    end_date => end_date > moment().valueOf(),
+    'end_date'
+);
+const findCurrent = R.find(isStillOpen);
+const TUTS_PER_ETH = 1500;
+const stageRate = R.compose(R.multiply(TUTS_PER_ETH), R.add(1), R.prop('bonus'));
+const currentRate = R.compose(stageRate, findCurrent);
+
+const RoundStage = translate('dashboard')(styled(({className, stage, t}) =>
+    <div className={ className }>
+        <h1>{ t('status') } { t(stage.status) }</h1>
         <div>
             <div>
-                { moment(props.endDate).endOf('day').diff(moment(), 'days') }
-                <span>{ props.t('days') }</span>
+                { moment(stage.end_date).diff(moment(), 'days') }
+                <span>{ t('days') }</span>
             </div>
             <div>
-                { props.bonus }
-                <span>{ props.t('bonus') }</span>
+                { stage.bonus * 100 }%
+                <span>{ t('bonus') }</span>
             </div>
             <div>
-                { props.minETH }
-                <span>{ props.t('min') }&nbsp;ETH</span>
+                { stage.min_eth_purchase }
+                <span>{ t('min') }&nbsp;ETH</span>
             </div>
         </div>
         <hr/>
         <div>
-            <span>{ props.t('today') }</span>
-            1ETH&nbsp;=&nbsp;{ props.rate }TUT
+            <span>{ t('today') }</span>
+            1ETH&nbsp;=&nbsp;{ stageRate(stage) }TUT
         </div>
     </div>
 )`
@@ -99,6 +124,14 @@ export const RoundStatus = translate('dashboard')(styled(props =>
         }
     }
 `);
+export const RoundStatus = styled(() => {
+    const stage = findCurrent(stages);
+    if (stage) {
+        return <RoundStage stage={ stage } />
+    }
+    return null;
+})``;
+
 export const HelpLink = styled.a`
     text-decoration: underline;
     color: ${ styles.colors.lightblue };
@@ -108,6 +141,7 @@ export const HelpLink = styled.a`
 export const TokenCalculator = styled(class extends React.Component {
     constructor() {
         super();
+        this.rate = currentRate(stages);
         this.state = {
             tut: '',
             eth: '',
@@ -117,14 +151,14 @@ export const TokenCalculator = styled(class extends React.Component {
     }
     calculateETH(event) {
         this.setState({
-            eth: event.target.value / this.props.rate,
+            eth: event.target.value / this.rate,
             tut: event.target.value,
         });
         return true;
     }
     calculateTUT(event) {
         this.setState({
-            tut: this.props.rate * event.target.value,
+            tut: this.rate * event.target.value,
             eth: event.target.value,
         });
         return true;
