@@ -35,6 +35,7 @@ const Store = types.model({
         self.logged = false;
         self.showModal = true;
         self.backer = null;
+        self.modal_show_times = 0;
     },
     setBacker: backer => {
         self.backer = backer;
@@ -87,7 +88,10 @@ const Store = types.model({
         .then(() => true)
         .catch(() => false),
     login: async(email, passwd) => {
-        await firebase.auth().signInWithEmailAndPassword(email, passwd);
+        self.initialize();
+        const user_logged = await firebase.auth().signInWithEmailAndPassword(email, passwd);
+        self.setLogged(true);
+        await self.syncLogin(user_logged.uid);
     },
     logout: async() => {
         await firebase.auth().signOut();
