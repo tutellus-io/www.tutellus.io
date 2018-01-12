@@ -52,7 +52,8 @@ const KYCContent = styled(PageSection)`
 
 const ButtonWarn = styled(Button)`
     &.errors {
-        background-color: ${ styles.colors.googleplus } 
+        background-color: ${ styles.colors.googleplus };
+        cursor: not-allowed;
 }
 `;
 
@@ -76,12 +77,8 @@ export const KYC = inject('store')(observer(props => {
         'email',
         'eth_adress',
         'eth_confirm',
-        'identity_front',
         'identity_front_uploaded',
-        'identity_back',
-        'selfie',
         'selfie_uploaded',
-        'residency',
         'residency_uploaded',
     ]);
 
@@ -197,13 +194,13 @@ export const KYC = inject('store')(observer(props => {
                             <Text center>{t('signup:identity_proof_identity_requirements')}</Text>
                             <FlexCenter margin="0 0 0.5em 0">
                                 <IdentityFileUpload
-                                    images_uploaded= {values.identity_front}
-                                    path={`/backers/${ values.user_id }/identity_front`}
+                                    images_uploaded= {backer_data.identity_front}
+                                    path={`/backers/${ backer_data.user_id }/identity_front`}
                                     posterIcon="/images/dni_front.svg"
                                     onFinish={file_uploaded => onFinish(setFieldValue, 'identity_front', file_uploaded)}/>
                                 <IdentityFileUpload
-                                    images_uploaded= {values.identity_back}
-                                    path={`/backers/${ values.user_id }/identity_back`}
+                                    images_uploaded= {backer_data.identity_back}
+                                    path={`/backers/${ backer_data.user_id }/identity_back`}
                                     posterIcon="/images/dni_back.svg"
                                     onFinish={file_uploaded => onFinish(setFieldValue, 'identity_back', file_uploaded)}/>
                                 <Field component={ErrorField} name="identity_front_uploaded"/>
@@ -212,8 +209,8 @@ export const KYC = inject('store')(observer(props => {
                             <Text center>{t('signup:identity_proof_selfie_requirements')}</Text>
                             <FlexCenter margin="0 0 0.5em 0">
                                 <IdentityFileUpload
-                                    images_uploaded= {values.selfie}
-                                    path={`/backers/${ values.user_id }/selfie`}
+                                    images_uploaded= {backer_data.selfie}
+                                    path={`/backers/${ backer_data.user_id }/selfie`}
                                     posterIcon="/images/selfie.svg"
                                     onFinish={file_uploaded => onFinish(setFieldValue, 'selfie', file_uploaded)} />
                                 <Field component={ErrorField} name="selfie_uploaded"/>
@@ -222,8 +219,8 @@ export const KYC = inject('store')(observer(props => {
                             <Text center>{t('signup:identity_proof_residency_requirements')}</Text>
                             <FlexCenter margin="0 0 0.5em 0">
                                 <IdentityFileUpload
-                                    images_uploaded= {values.residency}
-                                    path={`/backers/${ values.user_id }/residency`}
+                                    images_uploaded= {backer_data.residency}
+                                    path={`/backers/${ backer_data.user_id }/residency`}
                                     posterIcon="/images/doc.svg"
                                     onFinish={file_uploaded => onFinish(setFieldValue, 'residency', file_uploaded)}/>
                                 <Field component={ErrorField} name="residency_uploaded"/>

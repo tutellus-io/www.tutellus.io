@@ -63,9 +63,11 @@ export const signup = {
     '404_link': 'Go back',
     identity_fileupload_max_size_err: 'The file exceeds 5Mb in size',
     identity_fileupload_allowed_types_err: 'The format of the file is not allowed, it must be .jpg, .gif or .png',
-    signup_email_already_err: 'Este email ya está registrado',
+    signup_email_already_err: 'This email is already registered',
     wallet_eth_address_eth_waller_err: 'Write a valid wallet',
     summary_title: 'Verification process status',
     summary_alert_title: 'Account validated',
     summary_alert: 'All your information has been verified. You can send ETH until the end of the ICO. Once the ICO is finished we will get in contact for the TUT token transfer.',
+    signup_already_registered: "Registered?",
+    signup_login_link: "Login",
 };

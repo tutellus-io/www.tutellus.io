@@ -5,10 +5,12 @@ import styled from 'styled-components';
 import {translate} from 'react-i18next';
 import SmoothScroll from 'react-scroll';
 import {Link} from 'react-router-dom';
+import {observer, inject} from 'mobx-react';
 
 import {SocialIcons} from './Footer';
-import {LinkButton} from './';
+import {LinkButton, Button} from './';
 import styles from '../styles';
+import {get} from 'lodash';
 
 const SMALL_HEADER_HEIGHT = 64;//px
 export const TOP_HEADER_HEIGHT = {
@@ -121,15 +123,30 @@ type SecondaryMenuProps = {|
     locale: string,
 |}
 */
-export const SecondaryMenu/*:ComponentType<SecondaryMenuProps>*/ = styled((props/*:SecondaryMenuProps*/) =>
-    <div className={ props.className }>
-        { props.socialLinks &&
-        <SocialIcons networks={ props.socialLinks } />
-        }
-        <LinkButton to="/dashboard/home">Join ICO</LinkButton>
-        <LangSelect onLanguage={ props.onLanguage } locale={ props.locale } />
-    </div>
-)`
+const SecondaryMenuElement/*:ComponentType<SecondaryMenuProps>*/ = inject('store')(observer((props/*:SecondaryMenuProps*/) => {
+    const {
+        store,
+        history = {},
+    } = props;
+    const path = get(history, 'location.pathname');
+    const isHome = path === "/";
+
+    return (
+        <div className={ props.className }>
+            { props.socialLinks &&
+            <SocialIcons networks={ props.socialLinks } />
+            }
+            {
+                (isHome
+                    ? <LinkButton to="/dashboard/home">{store.logged ? 'Dashboard' : 'Join ICO'}</LinkButton>
+                    : store.logged && <Button onClick={()=> store.logout()}> Logout </Button>)
+            }
+            <LangSelect onLanguage={ props.onLanguage } locale={ props.locale } />
+        </div>
+    );
+}));
+
+export const SecondaryMenu/*:ComponentType<SecondaryMenuProps>*/ = styled(SecondaryMenuElement)`
     display: grid;
     grid: "social lang-select" / 3fr 1fr;
     align-items: center;
@@ -138,7 +155,7 @@ export const SecondaryMenu/*:ComponentType<SecondaryMenuProps>*/ = styled((props
         grid-area: social;
     }
 
-    & > ${ LinkButton } {
+    & > ${ LinkButton }, & > ${ Button }  {
         display: none;
     }
 
@@ -152,7 +169,7 @@ export const SecondaryMenu/*:ComponentType<SecondaryMenuProps>*/ = styled((props
         & > ${ SocialIcons } {
             display: none;
         }
-        & > ${ LinkButton } {
+        & > ${ LinkButton }, & > ${ Button } {
             display: block;
             grid-area: cta;
             padding: .5em;
@@ -173,7 +190,7 @@ export const SecondaryMenu/*:ComponentType<SecondaryMenuProps>*/ = styled((props
         & > ${ SocialIcons } {
             display: block;
         }
-        & > ${ LinkButton } {
+        & > ${ LinkButton }, & > ${ Button }  {
             margin: 0 1em;
             font-size: .5em;
             padding: 1em;

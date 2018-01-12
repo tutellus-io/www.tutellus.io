@@ -45,8 +45,8 @@ const SignupFormElement = inject('store')(observer(props => {
         first_name: '',
         last_name: '',
         email: '',
-        passwd: 'Kambiame12345',
-        repasswd: 'Kambiame12345',
+        passwd: '',
+        repasswd: '',
     };
 
     const MIN_PASSWD_LENGTH = 8;

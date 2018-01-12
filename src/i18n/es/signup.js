@@ -68,4 +68,6 @@ export const signup = {
     summary_title: 'Status del proceso de verificación',
     summary_alert_title: 'Cuenta validada',
     summary_alert: 'Tu información ha sido verificada correctamente. Puedes seguir enviando más ETH hasta el cierre de la ICO. Una vez cerrada la ICO te informaremos para la transferencia de tokens.',
+    signup_already_registered: "¿Estás registrado?",
+    signup_login_link: "Lógate",
 };

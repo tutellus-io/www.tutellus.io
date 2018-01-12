@@ -17,7 +17,6 @@ import {withAppConfig} from './hoc';
 
 import {
     Home,
-    Signup,
     Management,
     Dashboard,
     Join,
@@ -67,9 +66,6 @@ const WithHeaderLayout = header_props =>
             <Route exact path='/login'>
                 <Redirect to="/join/login" />
             </Route>
-            <Route exact path='/signup' component={withTracker(props =>
-                <Signup {...props} {...header_props}/>
-            )}/>
             <Route exact path='/management' component={withTracker(props =>
                 <Management {...props} {...header_props}/>
             )}/>

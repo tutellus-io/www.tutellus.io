@@ -19,7 +19,7 @@ const BackerModel = types.model({
     email: types.maybe(types.string),
     email_verified: types.optional(types.boolean, false),
 
-    eth_adress: types.maybe(types.string),
+    eth_adress: types.optional(types.string, ''),
     eth_confirm: types.optional(types.boolean, false),
 
     identity_front: types.optional(types.array(FileModel), []),

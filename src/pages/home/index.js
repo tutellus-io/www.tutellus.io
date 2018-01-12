@@ -34,7 +34,9 @@ export class Home extends React.Component/*::<void>*/ {
         const social_links = this.context.social_links;
         return (
             <div>
-                <MainHeader socialLinks={ R.pick(R.take(3, R.keys(social_links)), social_links) } />
+                <MainHeader socialLinks={ R.pick(R.take(3, R.keys(social_links)), social_links) } 
+                    history= {this.props.history}
+                />
                 <main>
                     <ICOIntro />
                     <ThePain />

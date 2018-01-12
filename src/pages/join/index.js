@@ -40,7 +40,7 @@ const JoinElement = inject('store')(observer(props => {
                     ? <Redirect to="/dashboard/home"/>
                     : <Switch>
                         <Route exact path="/join/login" render={ () =>
-                            <LoginForm { ...props } />
+                            <LoginForm { ...props } onSubmit={store.login}/>
                         } />
                         <Route exact path="/join/signup" render={ () =>
                             <SignupForm { ...props } />

@@ -15,7 +15,7 @@ export const Checkbox = (props/*:mixed*/) => {
         },
     } = props;
     return (
-        <ItemField {...props} value={true} type='checkbox' checked={value.toString()}/>
+        <ItemField {...props} checked={value} type='checkbox'/>
     );
 };
 

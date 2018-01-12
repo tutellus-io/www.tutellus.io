@@ -29,6 +29,12 @@ const Store = types.model({
             });
         }
     },
+    initialize: () => {
+        self.has_cookie = false;
+        self.logged = false;
+        self.showModal = true;
+        self.backer = null;
+    },
     setBacker: backer => {
         self.backer = backer;
     },
@@ -79,12 +85,12 @@ const Store = types.model({
         await firebase.auth().applyActionCode(oobCode)
         .then(() => true)
         .catch(() => false),
-    logout: () => {
-        firebase.auth().signOut()
-        .then(() => {
-            self.setLogged(false);
-            destroy(self.backer);
-        });
+    login: async(email, passwd) => {
+        await firebase.auth().signInWithEmailAndPassword(email, passwd);
+    },
+    logout: async() => {
+        await firebase.auth().signOut();
+        self.initialize();
     },
     toggleShowModal: () => {
         self.showModal = !self.showModal;
