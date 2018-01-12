@@ -26,7 +26,7 @@ export const Hr = styled.div`
 `;
 
 export const IconElement = (props/*:{className: string, name: string}*/) =>
-    <i className={`material-icons ${ props.className }`}>{props.name}</i>
+    <i title={props.title} className={`material-icons ${ props.className }`}>{props.name}</i>
 ;
 
 /*::

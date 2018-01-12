@@ -24,6 +24,15 @@ import {
     Summary,
 } from './Summary';
 
+const TextDiv = styled.div`
+    > a {
+        color : ${ styles.colors.emerald };
+        &:hover {
+            text-decoration: underline
+        }
+    }
+`;
+
 const FlexEmail = styled(FlexCenter)`
     flex-wrap: nowrap;
     align-items: flex-end;
@@ -38,11 +47,12 @@ const FlexEmail = styled(FlexCenter)`
         margin-bottom: 1.1em;
         margin-left: 0.5em;
     }
-    & ${ Button } {
+    & ${ TextDiv } {
         width: calc(50% - 50px);
         flex-shrink: 1;
         padding: 0.546em 1.2em;
-        margin-bottom: 1.4em;
+        font-size: 0.9em;
+        margin-bottom: 2.2em;
     }
 `;
 
@@ -172,16 +182,21 @@ export const KYC = inject('store')(observer(props => {
                                     required: "required",
                                     value: t('signup:signup_email_label'),
                                 } }/>
-                                <Icon name={email_verified ? "check" : "close"}
+                                <Icon name="email"
+                                    title = {email_verified ? t('signup:signup_email_verified') : t('signup:signup_email_not_verified')}
                                     size="1.8em" margin="0 0.25em 0 0"
                                     color={email_verified ? styles.colors.emerald : styles.colors.googleplus}/>
                                 {
-                                    !email_verified && <Button onClick={sendVerification}>
-                                        {t('signup:emailform_send_email_btn')}
-                                    </Button>
+                                    !email_verified && 
+                                    <TextDiv>
+                                        {t('signup:emailform_send_email_not_received')}
+                                        &nbsp;
+                                        <a onClick={sendVerification}>
+                                            {t('signup:emailform_send_email_link')}
+                                        </a>
+                                    </TextDiv>
                                 }
                             </FlexEmail>
-
                             <Field component={TextField}
                                 name="eth_adress"
                                 placeholder={t('signup:wallet_eth_address_placeholder')}
