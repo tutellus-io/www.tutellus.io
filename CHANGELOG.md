@@ -1,3 +1,6 @@
+## 1.6.0 (2018-01-12)
+- New KYC (4603760)
+
 ### 1.5.1 (2018-01-09)
 - fix: context prop types validation in subscription forms (6a8d92e)
 
