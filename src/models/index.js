@@ -1,5 +1,5 @@
 import firebase, {config} from './firebase';
-import {types, destroy} from 'mobx-state-tree';
+import {types} from 'mobx-state-tree';
 import {pick, omit} from 'lodash';
 import Backer from './Backer';
 
@@ -8,6 +8,7 @@ const Store = types.model({
     logged: types.optional(types.boolean, false),
     backer: types.maybe(Backer),
     showModal: types.optional(types.boolean, true),
+    modal_show_times: types.optional(types.number, 0),
 })
 .actions(self => ({
     afterCreate: () => {
@@ -94,11 +95,20 @@ const Store = types.model({
     },
     toggleShowModal: () => {
         self.showModal = !self.showModal;
+        self.modal_show_times += 1;
     },
 }))
 .views(self => ({
     isBackerLoaded: () => self.logged && self.backer !== null,
     isAutoLoggable: () => self.has_cookie || self.logged,
+    isVisibleModal: () => {
+        const backer_verified = self.backer && self.backer.verified_ok;
+        const first_time = self.modal_show_times === 0;
+        if (!self.isBackerLoaded()) {
+            return false;
+        }
+        return !backer_verified && self.showModal && first_time;
+    },
 }));
 
 const store_instance = Store.create({});

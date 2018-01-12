@@ -97,7 +97,7 @@ const DashboardObserver = inject('store')(observer(class Dashboard extends React
                     : <Loading/>
                 }
                 <Modal
-                    visible={store.showModal}
+                    visible={store.isVisibleModal()}
                     width="750"
                     effect="fadeInUp"
                 >
