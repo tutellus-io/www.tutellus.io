@@ -148,15 +148,27 @@ const SecondaryMenuElement/*:ComponentType<SecondaryMenuProps>*/ = inject('store
 
 export const SecondaryMenu/*:ComponentType<SecondaryMenuProps>*/ = styled(SecondaryMenuElement)`
     display: grid;
-    grid: "social lang-select" / 3fr 1fr;
+    grid: "cta lang-select" / 3fr 1fr;
     align-items: center;
     justify-items: end;
     & > ${ SocialIcons } {
+        display: none;
         grid-area: social;
     }
 
     & > ${ LinkButton }, & > ${ Button }  {
-        display: none;
+        grid-area: cta;
+        padding: .5em;
+        font-size: .8em;
+        background: transparent;
+        border: solid 1px white;
+        color: white;
+
+        &:hover {
+            background: white;
+            color: black;
+            transition: all .2s linear;
+        }
     }
 
     & > ${ LangSelect } {
@@ -164,27 +176,6 @@ export const SecondaryMenu/*:ComponentType<SecondaryMenuProps>*/ = styled(Second
         color: white;
     }
 
-    @media ${ styles.media.tablet } {
-        grid: "cta lang-select" / 3fr 1fr;
-        & > ${ SocialIcons } {
-            display: none;
-        }
-        & > ${ LinkButton }, & > ${ Button } {
-            display: block;
-            grid-area: cta;
-            padding: .5em;
-            font-size: .8em;
-            background: transparent;
-            border: solid 1px white;
-            color: white;
-
-            &:hover {
-                background: white;
-                color: black;
-                transition: all .2s linear;
-            }
-        }
-    }
     @media ${ styles.media.laptop } {
         grid: "social cta lang-select" / 6fr 2fr 1fr;
         & > ${ SocialIcons } {
