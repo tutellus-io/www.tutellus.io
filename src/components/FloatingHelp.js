@@ -4,6 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import styles from '../styles';
+import {observer, inject} from 'mobx-react';
 
 /*::
 type Props = {|
@@ -11,16 +12,14 @@ type Props = {|
     icon: string,
 |}
 */
-const FloatingHelpComponent = (props/*:Props*/, context) =>
+const FloatingHelpComponent = inject('config')(observer((props/*:Props*/) =>
     <a className={ props.className }
-        href={ context.social_links.telegram }
-        target="_blank" />;
+        href={ props.config.social_links.telegram }
+        target="_blank" />
+));
 
 FloatingHelpComponent.propTypes = {
     className: PropTypes.string,
-};
-FloatingHelpComponent.contextTypes = {
-    social_links: PropTypes.any,
 };
 
 export const FloatingHelp = styled(FloatingHelpComponent)`

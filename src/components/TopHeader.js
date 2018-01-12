@@ -5,10 +5,12 @@ import styled from 'styled-components';
 import {translate} from 'react-i18next';
 import SmoothScroll from 'react-scroll';
 import {Link} from 'react-router-dom';
+import {observer, inject} from 'mobx-react';
 
 import {SocialIcons} from './Footer';
-import {LinkButton} from './';
+import {LinkButton, Button} from './';
 import styles from '../styles';
+import {get} from 'lodash';
 
 const SMALL_HEADER_HEIGHT = 64;//px
 export const TOP_HEADER_HEIGHT = {
@@ -121,25 +123,52 @@ type SecondaryMenuProps = {|
     locale: string,
 |}
 */
-export const SecondaryMenu/*:ComponentType<SecondaryMenuProps>*/ = styled((props/*:SecondaryMenuProps*/) =>
-    <div className={ props.className }>
-        { props.socialLinks &&
-        <SocialIcons networks={ props.socialLinks } />
-        }
-        <LinkButton to="/dashboard/home">Whitelist</LinkButton>
-        <LangSelect onLanguage={ props.onLanguage } locale={ props.locale } />
-    </div>
-)`
+const SecondaryMenuElement/*:ComponentType<SecondaryMenuProps>*/ = inject('store')(observer((props/*:SecondaryMenuProps*/) => {
+    const {
+        store,
+        history = {},
+    } = props;
+    const path = get(history, 'location.pathname');
+    const isHome = path === "/";
+
+    return (
+        <div className={ props.className }>
+            { props.socialLinks &&
+            <SocialIcons networks={ props.socialLinks } />
+            }
+            {
+                (isHome
+                    ? <LinkButton to="/dashboard/home">{store.logged ? 'Dashboard' : 'Join ICO'}</LinkButton>
+                    : store.logged && <Button onClick={()=> store.logout()}> Logout </Button>)
+            }
+            <LangSelect onLanguage={ props.onLanguage } locale={ props.locale } />
+        </div>
+    );
+}));
+
+export const SecondaryMenu/*:ComponentType<SecondaryMenuProps>*/ = styled(SecondaryMenuElement)`
     display: grid;
-    grid: "social lang-select" / 3fr 1fr;
+    grid: "cta lang-select" / 3fr 1fr;
     align-items: center;
     justify-items: end;
     & > ${ SocialIcons } {
+        display: none;
         grid-area: social;
     }
 
-    & > ${ LinkButton } {
-        display: none;
+    & > ${ LinkButton }, & > ${ Button }  {
+        grid-area: cta;
+        padding: .5em;
+        font-size: .8em;
+        background: transparent;
+        border: solid 1px white;
+        color: white;
+
+        &:hover {
+            background: white;
+            color: black;
+            transition: all .2s linear;
+        }
     }
 
     & > ${ LangSelect } {
@@ -147,33 +176,12 @@ export const SecondaryMenu/*:ComponentType<SecondaryMenuProps>*/ = styled((props
         color: white;
     }
 
-    @media ${ styles.media.tablet } {
-        grid: "cta lang-select" / 3fr 1fr;
-        & > ${ SocialIcons } {
-            display: none;
-        }
-        & > ${ LinkButton } {
-            display: block;
-            grid-area: cta;
-            padding: .5em;
-            font-size: .8em;
-            background: transparent;
-            border: solid 1px white;
-            color: white;
-
-            &:hover {
-                background: white;
-                color: black;
-                transition: all .2s linear;
-            }
-        }
-    }
     @media ${ styles.media.laptop } {
         grid: "social cta lang-select" / 6fr 2fr 1fr;
         & > ${ SocialIcons } {
             display: block;
         }
-        & > ${ LinkButton } {
+        & > ${ LinkButton }, & > ${ Button }  {
             margin: 0 1em;
             font-size: .5em;
             padding: 1em;

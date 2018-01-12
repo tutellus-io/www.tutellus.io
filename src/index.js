@@ -1,21 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import firebase from 'firebase';
+import {Provider} from 'mobx-react';
 import {unregister} from './registerServiceWorker';
+import * as config from './config';
 
 import Master from './Master';
+import store from './models';
 
-import {cfg} from './config';
-
-const db = firebase.initializeApp({
-    apiKey: cfg.FIREBASE_APIKEY,
-    authDomain: cfg.FIREBASE_AUTHDOMAIN,
-    databaseURL: cfg.FIREBASE_DATABASEURL,
-    projectId: cfg.FIREBASE_PROJECTID,
-    storageBucket: cfg.FIREBASE_STORAGEBUCKET,
-    messagingSenderId: cfg.FIREBASE_MESSAGINGSENDERID,
-});
-
-
-ReactDOM.render(<Master db={db}/>, document.getElementById('root'));
+ReactDOM.render(
+    <Provider store={store} config={config}>
+        <Master />
+    </Provider>, document.getElementById('root'));
 unregister();

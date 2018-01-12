@@ -16,6 +16,7 @@ import {
 } from './';
 
 import {cfg} from '../config';
+import {observer, inject} from 'mobx-react';
 
 export const subscribeTo = async(list_id/*:string*/, form_data/*:Object*/)/*:Promise<void>*/=> {
     const params = ((Object.entries(form_data)/*:any*/)/*:Array<[string, string]>*/)
@@ -33,14 +34,14 @@ type FormProps = {|
     t?: (string => string),
 |}
 */
-const SubscriptionFormComponent = ({t, className}/*:FormProps*/, context) => {
+const SubscriptionFormComponent = inject('config')(observer(({t, config, className}/*:FormProps*/) => {
     const validationSchema = Yup.object().shape({
         EMAIL: Yup.string().required(t('email_required_err'))
         .email(t('email_email_err')),
     });
     const subscribe = async(form_data = {}, {setSubmitting, setErrors, setStatus, resetForm}) => {
         const form_reset_timeout = 4000;
-        const general_mail_list = context.cfg.MAILLIST_GENERAL;
+        const general_mail_list = config.MAILLIST_GENERAL;
         try {
             await subscribeTo(((general_mail_list/*:any*/)/*:string*/), form_data);
             setStatus({done: t('subscription_successful')});
@@ -78,13 +79,11 @@ const SubscriptionFormComponent = ({t, className}/*:FormProps*/, context) => {
             }
         />
     );
-};
+}));
 SubscriptionFormComponent.propTypes = {
     className: PropTypes.string,
 };
-SubscriptionFormComponent.contextTypes = {
-    cfg: PropTypes.any,
-};
+
 export const SubscriptionForm/*:ComponentType<FormProps>*/ = translate('mailinglist')(SubscriptionFormComponent);
 
 //$FlowFixMe

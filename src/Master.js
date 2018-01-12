@@ -5,6 +5,7 @@ import styles from './styles';
 import {injectGlobal} from 'styled-components';
 import AlertContainer from 'react-alert';
 import {translate} from 'react-i18next';
+import {observer, inject} from 'mobx-react';
 
 import {
     BrowserRouter,
@@ -13,9 +14,15 @@ import {
     Switch,
 } from 'react-router-dom';
 import withTracker from './withTracker';
-import {withAppConfig} from './hoc';
 
-import {Home, Signup, Management, Login, Dashboard, NoMatch} from './pages';
+import {
+    Home,
+    Management,
+    Dashboard,
+    Join,
+    NoMatch,
+} from './pages';
+
 import {
     FBTracker,
     TopHeader,
@@ -51,26 +58,30 @@ const WithHeaderLayout = header_props =>
         <SimpleHeader/>
         <Switch>
             <Route exact path='/tokensale'>
-                <Redirect to="/signup" />
+                <Redirect to="/join/signup" />
             </Route>
-            <Route exact path='/signup' component={withTracker(props =>
-                <Signup {...props} {...header_props}/>
-            )}/>
+            <Route exact path='/signup'>
+                <Redirect to="/join/signup" />
+            </Route>
+            <Route exact path='/login'>
+                <Redirect to="/join/login" />
+            </Route>
             <Route exact path='/management' component={withTracker(props =>
                 <Management {...props} {...header_props}/>
             )}/>
             <Route path='/dashboard' component={withTracker(props =>
                 <Dashboard {...props} {...header_props}/>
             )}/>
-            <Route exact path='/login' component={withTracker(props =>
-                <Login {...props} {...header_props}/>
+            <Route path='/join' component={withTracker(props =>
+                <Join {...props} {...header_props}/>
             )}/>
             <Route path='/404' component={withTracker(NoMatch)}/>
             <Route component={NoMatch}/>
         </Switch>
-    </div>;
+    </div>
+;
 
-class Master extends React.Component/*::<void, void>*/ {
+const Master = inject('config')(observer(class extends React.Component/*::<void, void>*/ {
     /*:: alertContainer: AlertContainer */
     constructor() {
         super();
@@ -120,13 +131,10 @@ class Master extends React.Component/*::<void, void>*/ {
                     </div>
                 </BrowserRouter>
                 <FloatingHelp icon="/images/telegram-logo.svg"/>
-                <FBTracker id={ this.context.cfg.FBTRACKERID } />
+                <FBTracker id={ this.props.config.cfg.FBTRACKERID } />
             </div>
         );
     }
-}
-Master.contextTypes = {
-    cfg: PropTypes.any,
-};
+}));
 
-export default translate()(withAppConfig(Master));
+export default translate()(Master);

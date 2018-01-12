@@ -1,19 +1,14 @@
 //@flow
 import * as React from 'react';
-/*:: import type {ComponentType} from 'react' */
+import {Field, Form, Formik} from 'formik';
+import Yup from '../../yup';
+import styled from 'styled-components';
+import {Link} from 'react-router-dom';
 import {
-    TOP_HEADER_HEIGHT,
-    PageContent,
     TextField,
     Button,
     ColumnCenter,
-} from '../components';
-import {Field, Form, Formik} from 'formik';
-import Yup from '../yup';
-import {Link} from 'react-router-dom';
-import styled from 'styled-components';
-import styles from '../styles';
-import {translate} from 'react-i18next';
+} from '../../components';
 
 /*
 //$FlowFixMe
@@ -26,9 +21,8 @@ type LoginFormProps = {|
 |}
 */
 //$FlowFixMe
-const LoginForm = styled((props/*:LoginFormProps*/) => {
+export const LoginForm = styled(props => {
     const {
-        db,
         className,
         history,
         t,
@@ -43,7 +37,7 @@ const LoginForm = styled((props/*:LoginFormProps*/) => {
             passwd,
         } = values;
 
-        db.auth().signInWithEmailAndPassword(email, passwd)
+        props.onSubmit(email, passwd)
         .then(() => {
             history.push('/dashboard/home');
         })
@@ -53,17 +47,17 @@ const LoginForm = styled((props/*:LoginFormProps*/) => {
         });
     };
 
-    const validationObj = {
+    const validationSchema = Yup.object().shape({
         email: Yup.string().email(t('login_email_email_err'))
         .required(t('login_email_required_err')),
         passwd: Yup.string()
         .required(t('login_passwd_required_err')),
-    };
+    });
 
     return (
         <div className = {className}>
             <Formik
-                validationSchema = {Yup.object().shape(validationObj)}
+                validationSchema = {validationSchema}
                 onSubmit={onSubmit}
                 initialValues={{
                     email: '',
@@ -89,56 +83,3 @@ const LoginForm = styled((props/*:LoginFormProps*/) => {
         </div>
     );
 })``;
-
-class LoginElement extends React.Component/*::<LoginFormProps>*/ {
-    componentWillMount() {
-        const {
-            db,
-            history,
-        } = this.props;
-
-        const user = localStorage.getItem(`firebase:authUser:${ db.options.apiKey }:[DEFAULT]`);
-        if (user) {
-            history.push('/dashboard/home');
-        }
-    }
-    render() {
-        const {
-            className,
-        } = this.props;
-        return (
-            <PageContent className = {className}>
-                <img src="/images/color-logo.svg" />
-                <LoginForm {...this.props}/>
-            </PageContent>
-        );
-    }
-}
-
-
-export const Login/*:ComponentType<LoginFormProps>*/ = styled(translate('signup')(LoginElement))`
-    margin-top: ${ TOP_HEADER_HEIGHT.SMALL }px;
-    padding: 1em;
-    & > img {
-        display: block;
-        width: 50%;
-        max-width: 20em;
-        margin: 0 auto;
-        margin-top: 2em;
-    }
-    & > ${ LoginForm } {
-        max-width: 20em;
-        margin: 0 auto;
-        margin-top: 2em;
-    }
-    & .login {
-        margin-top: 10px;
-        font-weight: 200;
-        > a {
-            color : ${ styles.colors.emerald };
-            &:hover {
-                text-decoration: underline
-            }
-        }
-    }
-`;
