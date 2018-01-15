@@ -102,7 +102,7 @@ const DashboardObserver = inject('store')(observer(class Dashboard extends React
                     effect="fadeInUp"
                 >
                     <IcoModal>
-                        <img src="http://lib.tutellus.com/ico/images/modal.jpg" alt="Join ICO!"/>
+                        <img src="//lib.tutellus.com/ico/images/modal.jpg" alt="Join ICO!"/>
                         <div>
                             <h1>{t('modal_title')}</h1>
                             <ol>

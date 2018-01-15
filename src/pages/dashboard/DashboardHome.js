@@ -52,7 +52,7 @@ const DashboardHomeForm = translate('dashboard')(styled(props =>
         <p>{ props.t('title') }</p>
         <fieldset>
             <label>{ props.t('calculator') }</label>
-            <TokenCalculator rate="1500" />
+            <TokenCalculator />
         </fieldset>
         <p>{ props.t('instructions') }</p>
         <fieldset>
@@ -151,12 +151,8 @@ const DashboardHomeForm = translate('dashboard')(styled(props =>
 
 export const DashboardHome = ({t, showAlert}) =>
     <DashboardHomeContent light>
-        <RoundStatus endDate="2018-01-15"
-            rate="1500"
-            bonus="50%"
-            minETH="5" />
+        <RoundStatus />
         <DashboardHomeForm balance="0"
-            rate="1500"
             gas="200.000"
             gasPrice="40 Gwei"
             address="0x0F3D5562cA6084F7d59CE10Dc5aB672257573dE6"
