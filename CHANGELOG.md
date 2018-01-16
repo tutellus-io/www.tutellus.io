@@ -1,3 +1,6 @@
+### 1.6.3 (2018-01-16)
+- fix(dashboard): corrects formatting of end_date to properly include timezone (cea721e)
+
 ### 1.6.2 (2018-01-15)
 - feat(dashboard): RoundStatus and DashboardForm are now aware of ICO stages (dfc38f4)
 - fix(dashboard): https modal image to prevent security warnings (b27870b)
