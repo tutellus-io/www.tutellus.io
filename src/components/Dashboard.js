@@ -38,7 +38,7 @@ export const Tabs = styled.div`
 const PRESALE = 'pre-sale';
 const ICO = 'ico';
 const stages = R.map(R.evolve({
-    end_date: end_date => moment(`${ end_date } 20:00:00 GMT+0100`).valueOf(),
+    end_date: end_date => new Date(`${ end_date }T19:00:00Z`).valueOf(),
 }), [
     //important: keep in end_date order, RoundStatus will show the first one
     //that hasn't ended yet.
