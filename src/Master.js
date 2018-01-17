@@ -104,7 +104,7 @@ const Master = inject('config')(observer(class extends React.Component/*::<void,
     }
 
     componentWillUnmount() {
-        i18next.removeListener('loaded_from', this.setProvider);
+        i18next.off('loaded_from', this.setProvider);
     }
 
     shouldComponentUpdate(newPprops, newState) {
