@@ -76,5 +76,8 @@ const BackerModel = types.model({
 
 export default types.compose(
     BackerModel,
-    createStorable('backers', 'user_id')
+    createStorable({
+        collection: 'backers',
+        attribute: 'user_id',
+    })
 );

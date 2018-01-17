@@ -25,6 +25,7 @@ import {
     Documents,
 } from './sections';
 import {MainFooter} from './MainFooter';
+import {NotifyBar} from '../../components';
 import {observer, inject} from 'mobx-react';
 
 export const Home = inject('config')(observer(class extends React.Component/*::<void>*/ {
@@ -38,6 +39,7 @@ export const Home = inject('config')(observer(class extends React.Component/*::<
                 <MainHeader socialLinks={ R.pick(R.take(3, R.keys(social_links)), social_links) } 
                     history= {this.props.history}
                 />
+                <NotifyBar />
                 <main>
                     <ICOIntro />
                     <ThePain />

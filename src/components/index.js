@@ -1,6 +1,7 @@
 //@flow
 export * from './Documents';
 export * from './forms';
+export * from './NotifyBar';
 export * from './PartnerList';
 export * from './TopHeader';
 export * from './PageSection';
