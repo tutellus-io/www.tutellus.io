@@ -1,3 +1,9 @@
+## 1.7.0 (2018-01-17)
+- fix: event listener deregistration for i18next (7d71f78)
+- feat(notifybar): shows a notification bar in the header to draw users attention (afb3e75)
+- feat(i18n): backed by firebase (be476ca)
+- feat(kyc): show confirmation on save (2ab852a)
+
 ### 1.6.3 (2018-01-16)
 - fix(dashboard): corrects formatting of end_date to properly include timezone (cea721e)
 
