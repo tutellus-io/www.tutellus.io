@@ -3,11 +3,16 @@ import Rebase from 're-base';
 import {types, onSnapshot, getSnapshot, applySnapshot} from 'mobx-state-tree';
 import {isEmpty, assign} from 'lodash';
 
-export function createStorable(collection, attribute) {
+export function createStorable({collection, attribute, read_only = false}) {
     const database = Rebase.createClass(firebase.database());
     return types.model({}).actions(self => {
         let ref;
-        const endpoint = `${ collection }/${ self[attribute] }`;
+
+        let endpoint = `${ collection }`;
+        if (attribute) {
+            endpoint = `${ collection }/${ self[attribute] }`;
+        }
+
         return {
             bind: () => {
                 ref = database.listenTo(endpoint, {
@@ -25,13 +30,17 @@ export function createStorable(collection, attribute) {
                 const snapshot = assign({}, old_values, new_values);
                 applySnapshot(self, snapshot);
             },
-            save: async() =>
-                await database.update(endpoint, {
-                    data: getSnapshot(self), //eslint-disable-line id-blacklist
-                }),
+            save: async() => {
+                const own_values = getSnapshot(self);
+                return await database.update(endpoint, {
+                    data: own_values, //eslint-disable-line id-blacklist
+                });
+            },
             afterCreate: () => {
                 self.bind();
-                onSnapshot(self, self.save);
+                if (!read_only) {
+                    onSnapshot(self, self.save);
+                }
             },
             beforeDestroy: () => {
                 database.removeBinding(ref);

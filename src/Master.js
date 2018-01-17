@@ -21,6 +21,7 @@ import {
     Dashboard,
     Join,
     NoMatch,
+    Loading,
 } from './pages';
 
 import {
@@ -30,7 +31,7 @@ import {
     FloatingHelp,
 } from './components';
 
-import './i18n';
+import i18next from './i18n';
 
 const ALERT_TIME_MS = 5000;
 const ALERT_OFFSET = 20;
@@ -85,7 +86,29 @@ const Master = inject('config')(observer(class extends React.Component/*::<void,
     /*:: alertContainer: AlertContainer */
     constructor() {
         super();
+
         this.showAlert = this.showAlert.bind(this);
+        this.setProvider = this.setProvider.bind(this);
+        this.state = {loading: true};
+    }
+
+    setProvider(provider) {
+        this.setState({
+            loading: false,
+            provider,
+        });
+    }
+
+    componentWillMount() {
+        i18next.on('loaded_from', this.setProvider);
+    }
+
+    componentWillUnmount() {
+        i18next.off('loaded_from', this.setProvider);
+    }
+
+    shouldComponentUpdate(newPprops, newState) {
+        return newState.provider !== this.state.provider;
     }
 
     componentDidMount() {
@@ -102,6 +125,10 @@ const Master = inject('config')(observer(class extends React.Component/*::<void,
     }
 
     render() {
+        const {
+            loading,
+        } = this.state;
+
         const alertOptions = {
             offset: ALERT_OFFSET,
             position: 'top right',
@@ -114,6 +141,9 @@ const Master = inject('config')(observer(class extends React.Component/*::<void,
             showAlert: this.showAlert,
         }, this.props);
 
+        if (loading) {
+            return <Loading/>;
+        }
         return (
             <div>
                 <AlertContainer {...alertOptions} ref={ref => {

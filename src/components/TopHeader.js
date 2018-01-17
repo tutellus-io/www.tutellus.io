@@ -213,7 +213,8 @@ export const TopHeader/*:ComponentType<TopHeaderProps>*/ = styled((props/*:TopHe
     color: white;
     ${ small_header_styles }
     display: grid;
-    grid: "logo secondary-menu" / 30% 70%;
+    grid: "logo secondary-menu"
+          / 30%            70%;
     align-items: center;
     justify-items: justify;
     transition: all .5s linear;
@@ -232,7 +233,8 @@ export const TopHeader/*:ComponentType<TopHeaderProps>*/ = styled((props/*:TopHe
     @media ${ styles.media.tablet } {
         height: ${ TOP_HEADER_HEIGHT.BIG }px;
         background: linear-gradient(black, transparent);
-        grid: "logo main-menu secondary-menu" / 10% 50% 40%;
+        grid: "logo main-menu secondary-menu"
+              / 10%       50%            40%;
         & > ${ MainMenu } {
             display: block;
         }
