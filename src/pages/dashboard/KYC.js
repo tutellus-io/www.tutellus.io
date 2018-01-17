@@ -98,6 +98,7 @@ export const KYC = inject('store')(observer(props => {
     }) => {
         store.backer.updateValues(values);
         setSubmitting(false);
+        showAlert({text: t('signup:kyc_saved_ok')});
     };
 
     const validationSchema = Yup.object().shape({
