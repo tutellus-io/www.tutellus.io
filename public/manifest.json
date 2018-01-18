@@ -8,8 +8,9 @@
       "type": "image/png"
     }
   ],
-  "start_url": "./index.html",
+  "start_url": "/",
   "display": "standalone",
+  "gcm_sender_id": "482941778795",
   "theme_color": "#000000",
   "background_color": "#ffffff"
 }
