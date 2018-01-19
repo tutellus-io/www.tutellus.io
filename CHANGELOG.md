@@ -1,3 +1,8 @@
+## 1.8.0 (2018-01-19)
+- feat(modal): Close modal when click outside (25aa76c)
+- feat(push): notifications using OneSignal (22d0dd2)
+- refactor: Decouple MST from firebase. (d27b365)
+
 ## 1.7.0 (2018-01-17)
 - fix: event listener deregistration for i18next (7d71f78)
 - feat(notifybar): shows a notification bar in the header to draw users attention (afb3e75)
