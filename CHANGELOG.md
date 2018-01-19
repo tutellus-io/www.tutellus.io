@@ -1,3 +1,6 @@
+### 1.8.1 (2018-01-19)
+- fix(push): Hide opensignal button (cfd5e3d)
+
 ## 1.8.0 (2018-01-19)
 - feat(modal): Close modal when click outside (25aa76c)
 - feat(push): notifications using OneSignal (22d0dd2)
