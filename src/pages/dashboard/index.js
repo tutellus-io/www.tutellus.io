@@ -100,6 +100,7 @@ const DashboardObserver = inject('store')(observer(class Dashboard extends React
                     visible={store.isVisibleModal()}
                     width="750"
                     effect="fadeInUp"
+                    onClickAway={store.modal.toggleShowModal}
                 >
                     <IcoModal>
                         <img src="//lib.tutellus.com/ico/images/modal.jpg" alt="Join ICO!"/>
@@ -111,7 +112,7 @@ const DashboardObserver = inject('store')(observer(class Dashboard extends React
                                 <li>{t('modal_step_3')}</li>
                             </ol>
                             <Button primary full
-                                onClick={store.toggleShowModal}
+                                onClick={store.modal.toggleShowModal}
                             >
                                 {t('modal_button')}
                             </Button>
