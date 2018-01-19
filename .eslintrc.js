@@ -36,6 +36,5 @@ module.exports = {
         'prefer-arrow-callback': ['error', {
             allowUnboundThis: true,
         }],
-        'no-param-reassign': 'warn',
     },
 };

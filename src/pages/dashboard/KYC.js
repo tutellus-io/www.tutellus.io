@@ -137,7 +137,7 @@ export const KYC = inject('store')(observer(props => {
             allowed_types_err ={t('signup:identity_fileupload_allowed_types_err')}
         />;
     const sendVerification = async() => {
-        const sended = await store.sendVerification();
+        const sended = await store.sendEmailVerification();
         if (sended) {
             showAlert({text: t('signup:emailform_send_email_sent')});
         } else {
