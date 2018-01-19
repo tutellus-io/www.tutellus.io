@@ -18,6 +18,8 @@ import withTracker from './withTracker';
 import {
     Home,
     Management,
+    EmailVerified,
+    EmailNotVerified,
     Dashboard,
     Join,
     NoMatch,
@@ -69,6 +71,12 @@ const WithHeaderLayout = header_props =>
             </Route>
             <Route exact path='/management' component={withTracker(props =>
                 <Management {...props} {...header_props}/>
+            )}/>
+            <Route exact path='/management/verified-email' component={withTracker(props =>
+                <EmailVerified {...props} {...header_props}/>
+            )}/>
+            <Route exact path='/management/not-verified-email' component={withTracker(props =>
+                <EmailNotVerified {...props} {...header_props}/>
             )}/>
             <Route path='/dashboard' component={withTracker(props =>
                 <Dashboard {...props} {...header_props}/>

@@ -1,11 +1,10 @@
-import firebase, {config} from './firebase';
 import {types} from 'mobx-state-tree';
-import {pick, omit} from 'lodash';
+import {createManagement} from './firebase_mng';
 import Backer from './Backer';
 import Config from './Config';
 
-const Store = types.model({
-    has_cookie: types.optional(types.boolean, false),
+const StoreModel = types.model({
+    autoLogged: types.optional(types.boolean, false),
     logged: types.optional(types.boolean, false),
     backer: types.maybe(Backer),
     showModal: types.optional(types.boolean, true),
@@ -15,30 +14,16 @@ const Store = types.model({
 .actions(self => ({
     afterCreate: () => {
         self.createConfig();
-        const user = localStorage.getItem(`firebase:authUser:${ config.apiKey }:[DEFAULT]`);
-
-        if (user) {
-            self.has_cookie = true;
-            firebase.auth().onAuthStateChanged(auth_info => {
-                if (auth_info) {
-                    // No funciona ({uid = null, emailVerified = null} = {})
-                    const {
-                        uid,
-                    } = pick(auth_info, ['uid']);
-
-                    if (!self.logged) {
-                        self.syncLogin(uid);
-                    }
-                }
-            });
-        }
     },
     initialize: () => {
-        self.has_cookie = false;
+        self.autoLogged = false;
         self.logged = false;
         self.showModal = true;
         self.backer = null;
         self.modal_show_times = 0;
+    },
+    setAutoLogged: () =>{
+        self.autoLogged = true;
     },
     setBacker: backer => {
         self.backer = backer;
@@ -46,63 +31,14 @@ const Store = types.model({
     setLogged: logged => {
         self.logged = logged;
     },
-    syncLogin: async user_id =>
-        await firebase.database().ref(`/backers/${ user_id }`).once('value')
-        .then(snapshot => {
-            self.createBacker(snapshot.val());
-        }),
     createConfig: () => {
         const new_config = Config.create({});
         self.config = new_config;
     },
     createBacker: backer_info => {
+        self.setLogged(true);
         const new_backer = Backer.create(backer_info);
-        self.setLogged(true);
         self.setBacker(new_backer);
-    },
-    register: async user_info => {
-        const {
-            email,
-            passwd,
-        } = user_info;
-
-        const logged_info = await firebase.auth()
-        .createUserWithEmailAndPassword(email, passwd);
-
-        const create_data = {
-            user_id: logged_info.uid,
-            ...omit(user_info, ['passwd', 'repasswd']),
-        };
-        await firebase.database()
-        .ref(`/backers/${ logged_info.uid }`).set(create_data);
-
-        await self.syncLogin(logged_info.uid);
-    },
-    sendVerification: async() => {
-        const current_user = firebase.auth().currentUser;
-        if (current_user) {
-            try {
-                await current_user.sendEmailVerification();
-                return true;
-            } catch (ex) {
-                return false;
-            }
-        }
-        return false;
-    },
-    applyActionCode: async oobCode =>
-        await firebase.auth().applyActionCode(oobCode)
-        .then(() => true)
-        .catch(() => false),
-    login: async(email, passwd) => {
-        self.initialize();
-        const user_logged = await firebase.auth().signInWithEmailAndPassword(email, passwd);
-        self.setLogged(true);
-        await self.syncLogin(user_logged.uid);
-    },
-    logout: async() => {
-        await firebase.auth().signOut();
-        self.initialize();
     },
     toggleShowModal: () => {
         self.showModal = !self.showModal;
@@ -111,7 +47,7 @@ const Store = types.model({
 }))
 .views(self => ({
     isBackerLoaded: () => self.logged && self.backer !== null,
-    isAutoLoggable: () => self.has_cookie || self.logged,
+    isAutoLoggable: () => self.autoLogged || self.logged,
     isVisibleModal: () => {
         const backer_verified = self.backer && self.backer.verified_ok;
         const first_time = self.modal_show_times === 0;
@@ -121,6 +57,16 @@ const Store = types.model({
         return !backer_verified && self.showModal && first_time;
     },
 }));
+
+const Store = types.compose(
+    StoreModel,
+    createManagement({
+        collection: 'backers',
+        loadUser: 'createBacker',
+        reset: 'initialize',
+        autoLogged: 'setAutoLogged',
+    })
+);
 
 const store_instance = Store.create({});
 
