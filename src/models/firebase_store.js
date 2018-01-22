@@ -5,7 +5,9 @@ import {isEmpty, assign} from 'lodash';
 
 export function createStorable({collection, attribute, read_only = false}) {
     const database = Rebase.createClass(firebase.database());
-    return types.model({}).actions(self => {
+    return types.model({
+        storage_loading: types.optional(types.boolean, true),
+    }).actions(self => {
         let ref;
 
         let endpoint = `${ collection }`;
@@ -19,7 +21,9 @@ export function createStorable({collection, attribute, read_only = false}) {
                     context: self,
                     then(payload) {
                         if (!isEmpty(payload)) {
-                            self.updateValues(payload);
+                            self.updateValues(assign({}, payload, {
+                                storage_loading: false,
+                            }));
                         }
                     },
                 });
@@ -46,5 +50,8 @@ export function createStorable({collection, attribute, read_only = false}) {
                 database.removeBinding(ref);
             },
         };
-    });
+    })
+    .views(self => ({
+        isStorageLoading: () => self.storage_loading,
+    }));
 }

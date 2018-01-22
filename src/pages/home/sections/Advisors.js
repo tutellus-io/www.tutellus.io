@@ -1,31 +1,32 @@
 //@flow
 import React from 'react';
 import {translate} from 'react-i18next';
+import {inject, observer} from 'mobx-react';
 import {
     PageSection,
     Team,
     TeamMember,
+    Loading,
 } from '../../../components';
 
-export const Advisors = translate('advisors')(({t}) =>
+const Advisor = translate('advisors')(({t, name, photo, description_i18n}) =>
+    <TeamMember name={name}
+                photo={photo}>
+        { t(description_i18n) }
+    </TeamMember>
+);
+
+export const Advisors = translate('advisors')(inject('store')(observer(({t, store}) =>
     <PageSection title={ t('title') }>
         <Team>
-            <TeamMember name="Miguel Solana"
-                        photo="/images/advisors/miguel_solana.jpg">
-                { t('solana') }
-            </TeamMember>
-            <TeamMember name="Jesús Pérez"
-                        photo="/images/advisors/jesus_perez.jpg">
-                { t('jesus_perez') }
-            </TeamMember>
-            <TeamMember name="Rodrigo de la Cruz"
-                        photo="/images/advisors/rodrigo_de_la_cruz.jpg">
-                { t('delacruz') }
-            </TeamMember>
-            <TeamMember name="Daniel Diéz"
-                        photo="/images/advisors/dani_cellero.jpg">
-                { t('cellero') }
-            </TeamMember>
+            {
+                store.config.isStorageLoading()
+                    ? <Loading/>
+                    : store.config.hasAdvisors() &&
+                      store.config.advisors.map((advisor, index) => <Advisor key={index} {...advisor}/>)
+                    
+            }
         </Team>
     </PageSection>
-);
+
+)));
