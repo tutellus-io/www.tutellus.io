@@ -15,5 +15,6 @@ export const social_links = {
     github: 'https://github.com/tutellus-io',
     youtube: 'https://www.youtube.com/channel/UCocRxY2k1Oxsh5cn9bKmoLw',
     linkedin: 'https://www.linkedin.com/company/27141306/',
+    reddit: 'https://www.reddit.com/r/Tutellus/',
 };
 export const S3 = 'https://lib.tutellus.com/ico';

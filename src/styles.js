@@ -123,19 +123,21 @@ const icons = `
        -webkit-font-smoothing: antialiased;
        -moz-osx-font-smoothing: grayscale
     }
-    .icon-bitcoin:before{content:'\\0042';}
-    .icon-github:before{content:'\\0047';}
-    .icon-linkedin:before{content:'\\004c';}
-    .icon-medium:before{content:'\\004d';}
-    .icon-telegram:before{content:'\\0054';}
+
+	.icon-facebook:before{content:'\\0041';}
+	.icon-github:before{content:'\\0042';}
+	.icon-linkedin:before{content:'\\0043';}
+	.icon-bitcoin:before{content:'\\0044';}
+	.icon-medium:before{content:'\\0045';}
+	.icon-reddit:before{content:'\\0046';}
+	.icon-telegram:before{content:'\\0047';}
+	.icon-twitter:before{content:'\\0048';}
     .icon-youtube:before{
-        content:'\\0059';
+        content:'\\0049';
         font-size: 2em;
         position: relative;
         top: .25em;
     }
-    .icon-facebook:before{content:'\\0066';}
-    .icon-twitter:before{content:'\\0074';}
 `;
 export const styles = {
     margin: {
