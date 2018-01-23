@@ -1,3 +1,8 @@
+## 1.9.0 (2018-01-23)
+- feat(Loading): Step parametrized loading (bf17cc2)
+- feat(advisors): Loading advisors from DB (03caa61)
+- feat(social links): Tutellus subreddit linked from header (433703a)
+
 ### 1.8.1 (2018-01-19)
 - fix(push): Hide opensignal button (cfd5e3d)
 
