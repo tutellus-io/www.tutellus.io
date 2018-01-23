@@ -53,7 +53,7 @@ type TeamMemberProps = {|
     className?: string,
     name: string,
     photo: string,
-    title: string,
+    title?: string,
     children: React.Node,
     socialProfiles?: Object,
 |}
