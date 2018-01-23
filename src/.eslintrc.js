@@ -1,6 +1,7 @@
 module.exports = {
     rules: {
         'max-len': 'warn',
+        'indent': 'warn',
         'id-length': ['error', {
             exceptions: [
                 //TODO: quitar lodash y forzar destructuring?

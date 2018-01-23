@@ -1,6 +1,12 @@
 import {types} from 'mobx-state-tree';
 import {createStorable} from './firebase_store';
 
+const Advisor = types.model({
+    name: types.string,
+    photo: types.string,
+    description_i18n: types.string,
+});
+
 const ConfigModel = types.model({
     notifybar: types.optional(types.model({
         enabled: types.optional(types.boolean, false),
@@ -9,7 +15,11 @@ const ConfigModel = types.model({
             background: types.maybe(types.string),
         }), {}),
     }), {}),
-});
+    advisors: types.optional(types.array(Advisor), []),
+})
+.views(self => ({
+    hasAdvisors: () => self.advisors.length > 0,
+}));
 
 export default types.compose(
     ConfigModel,

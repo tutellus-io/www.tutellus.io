@@ -18,3 +18,4 @@ export * from './Benefits';
 export * from './MailListSubscriptionForm';
 export * from './FBTracker';
 export * from './Dashboard';
+export * from './Loading';
