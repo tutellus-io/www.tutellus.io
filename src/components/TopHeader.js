@@ -121,13 +121,14 @@ type SecondaryMenuProps = {|
     socialLinks?: Object,
     onLanguage: (string => void),
     locale: string,
+    history?: void,
 |}
 */
 const SecondaryMenuElement/*:ComponentType<SecondaryMenuProps>*/ = inject('store')(observer((props/*:SecondaryMenuProps*/) => {
     const {
         store,
         history = {},
-    } = props;
+    } = (props/*:any*/);
     const path = get(history, 'location.pathname');
     const isHome = path === "/";
 
@@ -196,6 +197,7 @@ type TopHeaderProps = {|
     title: string,
     small?: bool,
     children?: React.Node,
+    notify?: bool,
 |}
 */
 export const TopHeader/*:ComponentType<TopHeaderProps>*/ = styled((props/*:TopHeaderProps*/) =>

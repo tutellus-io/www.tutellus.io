@@ -1,3 +1,4 @@
+//@flow
 import * as React from 'react';
 import {Field, Form, Formik} from 'formik';
 import Yup from '../../yup';
@@ -151,7 +152,7 @@ export const KYC = inject('store')(observer(props => {
                 validationSchema = {validationSchema}
                 onSubmit={onSubmit}
                 initialValues={initialValues}
-                component={({values, errors, isSubmitting, setFieldValue}) =>
+                component={({errors, isSubmitting, setFieldValue}) => //eslint-disable-line complexity
                     <ColumnCenter>
                         <BoxTitle margin="0 0 1em 0">{t('signup:title')}</BoxTitle>
                         <Form >
@@ -189,7 +190,7 @@ export const KYC = inject('store')(observer(props => {
                                     size="1.8em" margin="0 0.25em 0 0"
                                     color={email_verified ? styles.colors.emerald : styles.colors.googleplus}/>
                                 {
-                                    !email_verified && 
+                                    !email_verified &&
                                     <TextDiv>
                                         {t('signup:emailform_send_email_not_received')}
                                         &nbsp;

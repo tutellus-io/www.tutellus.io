@@ -1,8 +1,7 @@
 //@flow
 import * as React from 'react';
 /*:: import type {ComponentType} from 'react' */
-// $FlowFixMe: usamos moment/moment para que funcione el transpilado (se podría hacer con webpack)
-import moment from 'moment/moment';
+import moment from 'moment';
 import styled from 'styled-components';
 
 import styles from '../styles';

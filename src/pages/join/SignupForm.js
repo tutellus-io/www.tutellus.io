@@ -30,7 +30,7 @@ const SignupFormElement = inject('store')(observer(props => {
         setErrors,
     }) => {
         try {
-            subscribeTo(SIGNUP_MAIL_LIST/*:any*//*:string*/, {
+            subscribeTo(((SIGNUP_MAIL_LIST/*:any*/)/*:string*/), {
                 EMAIL: values.email,
                 b_fb6c7232ef9595533c37d1fc0_8a25bf4ebc: "",
             });

@@ -1,5 +1,6 @@
 //@flow
 import * as React from 'react';
+/*:: import type {ComponentType} from 'react' */
 /*:: type Scroll = {|x: number, y: number|} */
 /*:: type WindowScrollProps = {|children: (Scroll => React.Node)|} */
 export class WindowScroll extends React.Component/*::<WindowScrollProps, Scroll>*/ {
@@ -18,7 +19,8 @@ export class WindowScroll extends React.Component/*::<WindowScrollProps, Scroll>
         return this.props.children(this.state);
     }
 };
-export const withWindowScroll = (Component/*:React.Component*/) => props =>
-    <WindowScroll>{ scroll =>
-        <Component { ...props } scroll={ scroll } />
-    }</WindowScroll>;
+export const withWindowScroll = (Component/*:ComponentType<*>*/) =>
+    (props/*:mixed*/) =>
+        <WindowScroll>{ scroll =>
+            <Component { ...props } scroll={ scroll } />
+        }</WindowScroll>;

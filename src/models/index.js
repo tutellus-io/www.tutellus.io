@@ -1,3 +1,4 @@
+//@flow
 import {types} from 'mobx-state-tree';
 import {createManagement} from './firebase_mng';
 import Backer from './Backer';

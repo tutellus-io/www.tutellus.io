@@ -1,3 +1,4 @@
+//@flow
 import Yup from 'yup';
 import passwordMeter from 'passwordmeter';
 import Web3 from 'web3';

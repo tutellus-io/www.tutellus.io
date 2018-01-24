@@ -1,5 +1,6 @@
 //@flow
 import React from 'react';
+/*:: import type {ComponentType} from 'react' */
 import {Redirect} from 'react-router-dom';
 import {parse} from 'query-string';
 import {pick, includes} from 'lodash';
@@ -9,14 +10,23 @@ import {
     Loading,
 } from '../';
 
-export const Management = inject('store')(observer(class extends React.Component {
+/*::
+type Props = {
+    location: {search: string},
+}
+type State = {
+    loading: bool,
+    view: string,
+}
+*/
+export const Management = inject('store')(observer(class extends React.Component/*::<Props, State>*/ {
     constructor() {
         super();
 
-        this.state = {
+        this.state = ({
             loading: true,
             view: '',
-        }/*:any*/;
+        }/*:any*/);
     }
 
     componentWillMount() {
@@ -25,7 +35,7 @@ export const Management = inject('store')(observer(class extends React.Component
             location: {
                 search,
             },
-        } = this.props;
+        } = (this.props/*:any*/);
 
         const mgmt_params = pick(parse(search), ['mode', 'oobCode', 'continueUrl']);
 

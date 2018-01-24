@@ -1,3 +1,4 @@
+//@flow
 import styled, {keyframes, css} from 'styled-components';
 
 const rotate360 = keyframes`

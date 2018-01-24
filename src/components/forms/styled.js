@@ -25,18 +25,20 @@ export const Hr = styled.div`
     height: 4em;
 `;
 
-export const IconElement = (props/*:{className: string, name: string}*/) =>
-    <i title={props.title} className={`material-icons ${ props.className }`}>{props.name}</i>
-;
-
 /*::
 type IconProps = {|
     name: string,
     color?: string,
     size?: string,
     margin?: string,
+    title?: string,
 |}
 */
+export const IconElement = (props/*:IconProps*/) =>
+    <i title={props.title} className={`material-icons ${ (props/*:any*/).className }`}>
+        {props.name}
+    </i>;
+
 export const Icon/*:ComponentType<IconProps>*/ = styled(IconElement)`
     font-family: 'Material Icons';
     font-weight: normal;

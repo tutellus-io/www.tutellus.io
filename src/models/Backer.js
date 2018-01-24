@@ -1,3 +1,4 @@
+//@flow
 import {types} from 'mobx-state-tree';
 import {createStorable} from './firebase_store';
 import firebase from './firebase';

@@ -1,5 +1,6 @@
 //@flow
 import * as React from 'react';
+/*:: import type {ComponentType} from 'react' */
 import {Field, Form, Formik} from 'formik';
 import Yup from '../../yup';
 import styled from 'styled-components';
@@ -10,18 +11,16 @@ import {
     ColumnCenter,
 } from '../../components';
 
-/*
-//$FlowFixMe
+/*::
 type LoginFormProps = {|
     className?: string,
-    //$FlowFixMe
     db: any,
     history: any,
     t: (string => string),
+    onSubmit: (string, string) => Promise<void>,
 |}
 */
-//$FlowFixMe
-export const LoginForm = styled(props => {
+export const LoginForm/*:ComponentType<LoginFormProps>*/ = styled((props/*:LoginFormProps*/) => {
     const {
         className,
         history,

@@ -285,7 +285,7 @@ class FileUploadElement extends React.Component/*::<FileUploadProps, FileUploadE
                     name,
                 },
                 task: {
-                    //$FlowFixMe
+                    //$FlowFixMe update firebase npm definitions
                     blob_: {
                         data_: {
                             name: original_name,

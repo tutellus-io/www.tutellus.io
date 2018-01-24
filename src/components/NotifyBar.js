@@ -1,6 +1,7 @@
 //@flow
 import * as React from 'react';
 /*:: import type {ComponentType} from 'react' */
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {inject, observer} from 'mobx-react';
 import {translate} from 'react-i18next';
@@ -27,9 +28,10 @@ const Notification/*:ComponentType<NotificationProps>*/ = withWindowScroll(style
     </div>
 )`
     position: fixed;
-    top: ${ props =>
-        (props.scroll.y > TOP_HEADER_HEIGHT.SMALL) ? `${ TOP_HEADER_HEIGHT.SMALL }px`
-                                                   : 0 };
+    top: ${ props => (
+        props.scroll.y > TOP_HEADER_HEIGHT.SMALL ? `${ TOP_HEADER_HEIGHT.SMALL }px`
+                                                 : 0
+    ) };
     z-index: 999;
     width: 100%;
     background: ${ props => props.theme.background || styles.colors.lightblue };
@@ -53,16 +55,18 @@ const Notification/*:ComponentType<NotificationProps>*/ = withWindowScroll(style
     }
 `);
 
-export const NotifyBar = translate()(inject('store')(observer(class extends React.Component {
+class Notify extends React.Component/*::<{store: any, t: any}, {open: boolean}>*/ {
     constructor() {
         super();
         this.state = {open: true};
         this.isOpen = this.isOpen.bind(this);
         this.close = this.close.bind(this);
     }
+    /*:: isOpen: void => bool */
     isOpen() {
         return this.state.open && this.props.store.logged;
     }
+    /*:: close: void => void */
     close() {
         this.setState(() => ({open: false}));
     }
@@ -79,4 +83,10 @@ export const NotifyBar = translate()(inject('store')(observer(class extends Reac
             </Notification>
         );
     }
-})));
+}
+Notify.propTypes = {
+    store: PropTypes.object,
+    t: PropTypes.func,
+};
+
+export const NotifyBar = translate()(inject('store')(observer(Notify)));

@@ -1,6 +1,6 @@
 //@flow
 import R from 'ramda';
-//$FlowFixMe
+//$FlowFixMe typing mapKeys is not worth the effort
 const mapKeys = R.curry((fn, obj) =>
     R.fromPairs(R.map(R.adjust(fn, 0), R.toPairs(obj))));
 

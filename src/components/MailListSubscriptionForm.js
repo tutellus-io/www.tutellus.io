@@ -27,14 +27,14 @@ export const subscribeTo = async(list_id/*:string*/, form_data/*:Object*/)/*:Pro
     await fetch(subscribe_url, {mode: 'no-cors'});
 };
 
-/*
-//$FlowFixMe
+/*::
 type FormProps = {|
+    config: any,
     className?: string,
-    t?: (string => string),
+    t: string => string,
 |}
 */
-const SubscriptionFormComponent = inject('config')(observer(({t, config, className}/*:FormProps*/) => {
+const SubscriptionFormComponent/*:ComponentType<*>*/ = inject('config')(observer(({t, config, className}/*:FormProps*/) => {
     const validationSchema = Yup.object().shape({
         EMAIL: Yup.string().required(t('email_required_err'))
         .email(t('email_email_err')),
@@ -84,10 +84,9 @@ SubscriptionFormComponent.propTypes = {
     className: PropTypes.string,
 };
 
-export const SubscriptionForm/*:ComponentType<FormProps>*/ = translate('mailinglist')(SubscriptionFormComponent);
+export const SubscriptionForm/*:ComponentType<*>*/ = translate('mailinglist')(SubscriptionFormComponent);
 
-//$FlowFixMe
-export const MailListSubscriptionForm/*:ComponentType<FormProps>*/ = styled(SubscriptionForm)`
+export const MailListSubscriptionForm/*:ComponentType<*>*/ = styled(SubscriptionForm)`
     @media ${ styles.media.tablet } {
         display: block;
         margin: 0 auto;
