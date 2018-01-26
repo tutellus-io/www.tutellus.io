@@ -1,25 +1,10 @@
 //@flow
 import * as React from 'react';
 /*:: import type {ComponentType} from 'react' */
-import Color from 'color';
 import styled from 'styled-components';
-import {colors} from '../../styles';
-import {Link} from 'react-router-dom';
-import {ErrorField} from '../index';
 
-export const Input = styled.input`
-    display: block;
-    padding: 0.6em 0.9em;
-    width: 100%;
-    border: 1px solid ${ colors.bluegrey };
-    border-radius: 3px;
-    background-color: ${ colors.white };
-    font-weight: 200;
-    font-size: 1em;
-    &[disabled] {
-        background-color: ${ colors.grey };
-    }
-`;
+import {colors} from '../../../styles';
+import {ErrorField} from '../../index';
 
 export const Hr = styled.div`
     height: 4em;
@@ -67,34 +52,6 @@ export const Icon/*:ComponentType<IconProps>*/ = styled(IconElement)`
     ${ props => (props.margin ? `margin: ${ props.margin };` : '') }
 `;
 
-/*::
-type LabelProps = {
-    inline?: bool,
-}
-*/
-export const Label/*:ComponentType<LabelProps>*/ = styled.label`
-    margin-bottom: ;
-    display: ${ props => (props.inline ? 'inline' : 'block') };
-    font-weight: bold;
-    font-size: 1em;
-    margin: 0.5em 0
-`;
-
-/*:: type FieldProps = {no_margin: bool} */
-export const Field = styled.div`
-    margin-bottom: ${ (props/*:FieldProps*/) => (props.no_margin ? '' : '1.5em') };
-    &.error {
-        input,
-        textarea {
-            border-color: ${ colors.googleplus };
-        }
-
-        > .error_placeholder {
-            margin-top: 0.5em;
-            color: ${ colors.googleplus };
-        }
-    }
-`;
 
 /*::
 type BoxTitleProps = {|
@@ -174,44 +131,3 @@ export const Box = styled(BoxElement)`
         text-decoration: underline;
     }
 `;
-
-/*::
-type ButtonProps = {|
-    full?: bool,
-    type?: string,
-    primary?: bool,
-    disabled?: bool,
-    children: React.Node,
-    onClick?: (void => void),
-|}
-*/
-export const Button/*:ComponentType<ButtonProps>*/ = styled.button`
-    color: ${ colors.white };
-    display: block;
-    border: none;
-    padding: 0.8em 1.2em;
-    border-radius: 3px;
-    font-size: 1.1em;
-    cursor: pointer;
-    letter-spacing: .035em;
-    text-align: center;
-    background-color: ${ props=> (props.primary
-        ? colors.lightblue
-        : colors.midgrey)
-};
-    ${ props => (props.full ? 'width: 100%' : '') };
-    transition: all 0.3s ease-in;
-    text-align: center;
-    text-transform: uppercase;
-    &:hover {
-        background-color: ${ props=> (props.primary
-        ? Color(colors.lightblue)
-        .darken(colors.settings.hover_gap).string()
-        : Color(colors.midgrey).darken(colors.settings.hover_gap).string())
-};
-
-    }
-`;
-
-export const LinkButton = (Button/*:any*/).withComponent(Link);
-export const AButton = (Button/*:any*/).withComponent('a');
