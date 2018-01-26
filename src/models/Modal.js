@@ -1,3 +1,4 @@
+//@flow
 import {types} from 'mobx-state-tree';
 
 const Modal = types.model({

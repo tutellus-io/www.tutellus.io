@@ -1,6 +1,8 @@
 //@flow
-/* eslint indent: off */
+/* eslint no-magic-numbers: off */
 import React from 'react';
+/*::import type {ComponentType} from 'react'*/
+import PropTypes from 'prop-types';
 import R from 'ramda';
 import styled from 'styled-components';
 import moment from 'moment';
@@ -52,7 +54,7 @@ const stages = R.map(R.evolve({
     {end_date: '2018-03-31', status: ICO, bonus: 0, min_eth_purchase: 0.05},
 ]);
 const isStillOpen = R.propSatisfies(
-    end_date => end_date > moment().valueOf(),
+    end_date => ((end_date/*:any*/)/*:number*/) > moment().valueOf(),
     'end_date'
 );
 const findCurrent = R.find(isStillOpen);
@@ -127,7 +129,7 @@ const RoundStage = translate('dashboard')(styled(({className, stage, t}) =>
 export const RoundStatus = styled(() => {
     const stage = findCurrent(stages);
     if (stage) {
-        return <RoundStage stage={ stage } />
+        return <RoundStage stage={ stage } />;
     }
     return null;
 })``;
@@ -138,17 +140,23 @@ export const HelpLink = styled.a`
     margin-left: 1em;
 `;
 
-export const TokenCalculator = styled(class extends React.Component {
+/*::
+type CalculatorProps = {| className?: string |}
+type CalculatorState = {| tut: number, eth: number |}
+*/
+class UnstyledCalculator extends React.Component/*::<CalculatorProps, CalculatorState>*/ {
+    /*:: rate: number */
     constructor() {
         super();
         this.rate = currentRate(stages);
-        this.state = {
+        this.state = ({
             tut: '',
             eth: '',
-        };
+        }/*:any*/);
         this.calculateETH = this.calculateETH.bind(this);
         this.calculateTUT = this.calculateTUT.bind(this);
     }
+    /*:: calculateETH: Event => bool */
     calculateETH(event) {
         this.setState({
             eth: event.target.value / this.rate,
@@ -156,6 +164,7 @@ export const TokenCalculator = styled(class extends React.Component {
         });
         return true;
     }
+    /*:: calculateTUT: Event => bool */
     calculateTUT(event) {
         this.setState({
             tut: this.rate * event.target.value,
@@ -175,7 +184,11 @@ export const TokenCalculator = styled(class extends React.Component {
             <span>&nbsp;TUT</span>
         </div>;
     }
-})`
+}
+UnstyledCalculator.propTypes = {
+    className: PropTypes.string,
+};
+export const TokenCalculator/*:ComponentType<CalculatorProps>*/ = styled(UnstyledCalculator)`
     & > span {
         font-weight: bold;
     }

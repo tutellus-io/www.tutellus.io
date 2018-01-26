@@ -1,5 +1,6 @@
 //@flow
 import * as React from 'react';
+/*:: import type {ComponentType} from 'react'*/
 import {has} from 'lodash';
 import styled from 'styled-components';
 import {Label, Field} from './styled';
@@ -8,7 +9,14 @@ export const Radio = (props/*:mixed*/) =>
     <ItemField {...props} type='radio'/>;
 ;
 
-export const Checkbox = (props/*:mixed*/) => {
+/*::
+type CheckboxProps = {
+    field: {
+        value: void,
+    },
+}
+*/
+export const Checkbox/*:ComponentType<CheckboxProps>*/ = (props/*:CheckboxProps*/) => {
     const {
         field: {
             value,
@@ -79,8 +87,14 @@ export const GroupField = (props/*:GroupFieldProps*/) => {
 
 /*::
 type OneCheckboxProps = {|
-    field: {|name: string|},
-    form: {|errors: Object|},
+    field: {
+        name: string,
+        value: void,
+    },
+    form: {
+        errors: Object,
+        values: Object,
+    },
     className: string,
 |}
 */
@@ -94,7 +108,7 @@ export const OneCheckbox = (props/*:OneCheckboxProps*/) => {
     const has_error = has(form, `errors.${ field.name }`) && has(form, `touched.${ field.name }`);
     return (
         <Field no_margin className={ `${ className } ${ has_error ? 'error' : '' }` } >
-            <Checkbox {...props}/>
+            <Checkbox { ...props }/>
             {
                 has_error &&
                 <div className='error_placeholder'>

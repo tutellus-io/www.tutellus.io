@@ -1,4 +1,6 @@
+//@flow
 import * as React from 'react';
+/*:: import type {ComponentType} from 'react' */
 import {translate} from 'react-i18next';
 import styled from 'styled-components';
 import styles from '../../styles';
@@ -149,7 +151,13 @@ const DashboardHomeForm = translate('dashboard')(styled(props =>
     }
 `);
 
-export const DashboardHome = ({t, showAlert}) =>
+/*::
+type DashboardHomeProps = {
+    showAlert: void,
+    t: string => string,
+}
+*/
+export const DashboardHome/*:ComponentType<DashboardHomeProps>*/ = ({t, showAlert}/*:DashboardHomeProps*/) =>
     <DashboardHomeContent light>
         <RoundStatus />
         <DashboardHomeForm balance="0"
@@ -162,5 +170,4 @@ export const DashboardHome = ({t, showAlert}) =>
             <HelpLink href="http://2tel.us/2klVR9N">{ t('how_to_buy') }</HelpLink>
             <HelpLink href={ t('terms_url') }>{ t('terms') }</HelpLink>
         </div>
-    </DashboardHomeContent>
-;
+    </DashboardHomeContent>;

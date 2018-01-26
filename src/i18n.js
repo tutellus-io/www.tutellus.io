@@ -13,7 +13,7 @@ const loadLng = async lng => {
 
 const load_from_storage = lng => {
     try {
-        const str_res = localStorage.getItem(`i18next_res_${ lng }`);
+        const str_res /*:string*/ = localStorage.getItem(`i18next_res_${ lng }`) || "{}";
         return JSON.parse(str_res);
     } catch (ex) {
         return {};
@@ -37,11 +37,11 @@ const i18nextConfig = () => {
         },
         cache: {
             enabled: true,
-            //10 min tiempo de expiración 
-            expirationTime: 10 * 60 * 1000, //eslint-disable-line no-magic-numbers 
+            //10 min tiempo de expiración
+            expirationTime: 10 * 60 * 1000, //eslint-disable-line no-magic-numbers
         },
     });
-    
+
     if (Object.keys(en || {}).length > 0) {
         setTimeout(()=> i18next.emit('loaded_from', 'localStorage'), 0);
     }

@@ -1,5 +1,5 @@
-// flow-typed signature: a336604fc39e7934f8153f0496da10eb
-// flow-typed version: 656f69c1c8/ramda_v0.x.x/flow_>=v0.49.x
+// flow-typed signature: bd8e51b6c0c8ba360e9621e1661849f0
+// flow-typed version: dd2e8d3c25/ramda_v0.x.x/flow_>=v0.49.x
 
 /* eslint-disable no-unused-vars, no-redeclare */
 
@@ -643,9 +643,9 @@ declare module ramda {
     input: A
   ): R;
 
-  declare function indexOf<E>(x: E, xs: Array<E>): number;
+  declare function indexOf<E>(x: ?E, xs: Array<E>): number;
   declare function indexOf<E>(
-    x: E,
+    x: ?E,
     ...rest: Array<void>
   ): (xs: Array<E>) => number;
 
@@ -979,21 +979,21 @@ declare module ramda {
 
   declare function reverse<T, V: Array<T> | string>(xs: V): V;
 
-  declare function reduce<A, B>(
-    fn: (acc: A, elem: B) => A,
-    ...rest: Array<void>
-  ): ((init: A, xs: Array<B>) => A) &
-    ((init: A, ...rest: Array<void>) => (xs: Array<B>) => A);
-  declare function reduce<A, B>(
-    fn: (acc: A, elem: B) => A,
-    init: A,
-    ...rest: Array<void>
-  ): (xs: Array<B>) => A;
-  declare function reduce<A, B>(
-    fn: (acc: A, elem: B) => A,
-    init: A,
-    xs: Array<B>
-  ): A;
+  declare type Reduce = (<A, B>(
+    fn: (acc: A, elm: B) => A
+  ) => ((init: A) => (xs: Array<B> | $ReadOnlyArray<B>) => A) &
+    ((init: A, xs: Array<B> | $ReadOnlyArray<B>) => A)) &
+    (<A, B>(
+      fn: (acc: A, elm: B) => A,
+      init: A
+    ) => (xs: Array<B> | $ReadOnlyArray<B>) => A) &
+    (<A, B>(
+      fn: (acc: A, elm: B) => A,
+      init: A,
+      xs: Array<B> | $ReadOnlyArray<B>
+    ) => A);
+
+  declare var reduce: Reduce;
 
   declare function reduceBy<A, B>(
     fn: (acc: B, elem: A) => B,

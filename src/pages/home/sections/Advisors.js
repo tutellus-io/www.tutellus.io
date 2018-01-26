@@ -23,8 +23,10 @@ export const Advisors = translate('advisors')(inject('store')(observer(({t, stor
                 store.config.isStorageLoading()
                     ? <Loading/>
                     : store.config.hasAdvisors() &&
-                      store.config.advisors.map((advisor, index) => <Advisor key={index} {...advisor}/>)
-                    
+                      store.config.advisors.map((advisor, index) =>
+                          <Advisor key={index} {...advisor} />
+                      )
+
             }
         </Team>
     </PageSection>

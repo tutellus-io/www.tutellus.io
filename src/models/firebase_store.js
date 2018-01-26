@@ -1,9 +1,17 @@
+//@flow
 import firebase from './firebase';
 import Rebase from 're-base';
 import {types, onSnapshot, getSnapshot, applySnapshot} from 'mobx-state-tree';
 import {isEmpty, assign} from 'lodash';
 
-export function createStorable({collection, attribute, read_only = false}) {
+/*::
+type createStorableParams = {|
+    collection: string,
+    attribute?: string,
+    read_only?: bool,
+|}
+*/
+export function createStorable({collection, attribute, read_only = false}/*:createStorableParams*/) {
     const database = Rebase.createClass(firebase.database());
     return types.model({
         storage_loading: types.optional(types.boolean, true),

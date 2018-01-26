@@ -2,7 +2,6 @@
 import * as React from 'react';
 /*:: import type {ComponentType} from 'react' */
 import styled from 'styled-components';
-//$FlowFixMe
 import styles from '../styles';
 
 export const NavLink = styled.a`
