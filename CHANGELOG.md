@@ -1,3 +1,6 @@
+### 1.9.1 (2018-01-30)
+- fix(seo) seo description changed (ed0806c)
+
 ## 1.9.0 (2018-01-23)
 - feat(Loading): Step parametrized loading (bf17cc2)
 - feat(advisors): Loading advisors from DB (03caa61)
