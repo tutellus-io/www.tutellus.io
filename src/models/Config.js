@@ -8,6 +8,12 @@ const Advisor = types.model({
     description_i18n: types.string,
 });
 
+const Show = types.model({
+    done: types.optional(types.boolean, false),
+    photo: types.string,
+    description_i18n: types.string,
+});
+
 const ConfigModel = types.model({
     notifybar: types.optional(types.model({
         enabled: types.optional(types.boolean, false),
@@ -17,9 +23,11 @@ const ConfigModel = types.model({
         }), {}),
     }), {}),
     advisors: types.optional(types.array(Advisor), []),
+    shows: types.optional(types.array(Show), []),
 })
 .views(self => ({
     hasAdvisors: () => self.advisors.length > 0,
+    hasShows: () => self.shows.length > 0,
 }));
 
 export default types.compose(
