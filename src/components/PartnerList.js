@@ -24,6 +24,7 @@ export const PartnerList = styled(props =>
 
     & > li {
         padding: 2em;
+        align-self: center;
 
         & > img {
             max-width: 100%;

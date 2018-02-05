@@ -11,8 +11,8 @@ export const Partners = translate('partners')(({t}) =>
     <PageSection title={ t('title') } light>
         <Text center>{ t('description') }</Text>
         <PartnerList entities={ {
+            coinsilium: "/images/partners/coinsilium.svg",
             MIT: "/images/partners/mit.svg",
-            "Spain Business School": "/images/partners/spainbs.svg",
             Finnovating: "/images/partners/finnovating.svg",
             "Cremades & Calvo-Sotelo Abogados": "/images/partners/cremades_calvosotelo.svg",
         } } />
