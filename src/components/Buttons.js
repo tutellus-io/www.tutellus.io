@@ -55,8 +55,10 @@ export const PlayButton/*:ComponentType<Props>*/= styled(class extends React.Com
             <div className={ props.className }>
                 { this.state.playing
                     ? <Overlay onClick={ this.stop }>
-    -            <iframe src={ `${ props.video }?autoplay=1&loop=1` } frameBorder="0" allowFullScreen="allowfullscreen" />
-                    </Overlay>
+                        <iframe src={ `${ props.video }?autoplay=1&loop=1` }
+                                frameBorder="0"
+                                allowFullScreen="allowfullscreen" />
+                      </Overlay>
                     : <button onClick={ this.play } />
                 }
             </div>

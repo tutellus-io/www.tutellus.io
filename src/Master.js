@@ -46,8 +46,7 @@ const SimpleHeaderComponent = props => {
     return (
         <TopHeader logo="/images/white-logo.svg" small title="Tutellus.io">
             <SecondaryMenu onLanguage={ lang => i18n.changeLanguage(lang) }
-                locale={ i18n.language }
-            />
+                           locale={ i18n.language } />
         </TopHeader>
     );
 };
@@ -90,7 +89,13 @@ const WithHeaderLayout = header_props =>
     </div>
 ;
 
-const Master = inject('config')(observer(class extends React.Component/*::<void, void>*/ {
+/*::
+type MasterState = {|
+    loading: bool,
+    provider?: void,
+|}
+*/
+class Master extends React.Component/*::<void, MasterState>*/ {
     /*:: alertContainer: AlertContainer */
     constructor() {
         super();
@@ -100,6 +105,7 @@ const Master = inject('config')(observer(class extends React.Component/*::<void,
         this.state = {loading: true};
     }
 
+    /*:: setProvider: string => void */
     setProvider(provider) {
         this.setState({
             loading: false,
@@ -169,10 +175,10 @@ const Master = inject('config')(observer(class extends React.Component/*::<void,
                     </div>
                 </BrowserRouter>
                 <FloatingHelp icon="/images/telegram-logo.svg"/>
-                <FBTracker id={ this.props.config.cfg.FBTRACKERID } />
+                <FBTracker id={ (this.props/*:any*/).config.cfg.FBTRACKERID } />
             </div>
         );
     }
-}));
+}
 
-export default translate()(Master);
+export default translate()(inject('config')(observer(Master)));

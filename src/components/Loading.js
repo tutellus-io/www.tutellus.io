@@ -22,7 +22,6 @@ const moving = keyframes`
 `;
 
 const Step = styled.span`
-    background-color: ${ styles.colors.dark };
     width: 10px;
     height: 5px;
 `;
@@ -42,7 +41,7 @@ export const Loading/*:ComponentType<LoadingProps>*/ = styled(({className, steps
     sleep: DEFAULT_ANIMATION_SLEEP,
 })`
     display: grid;
-    grid-template-columns: ${ ({steps}) => `repeat(${ steps }, 10px)` };   
+    grid-template-columns: ${ ({steps}) => `repeat(${ steps }, 10px)` };
     grid-gap: 1px;
     justify-content: center;
     height: 2em;
@@ -54,7 +53,7 @@ export const Loading/*:ComponentType<LoadingProps>*/ = styled(({className, steps
         animation-timing-function: ease-in-out;
         ${
             ({steps, duration}) => R.range(2, steps + 1).map(i => `&:nth-of-type(${ i }) {
-                animation-delay: ${ duration * (i - 1) }s;    
+                animation-delay: ${ duration * (i - 1) }s;
             }`).join('')
         }
     }

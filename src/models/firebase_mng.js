@@ -1,9 +1,17 @@
+//@flow
 import firebase, {config} from './firebase';
 import {types} from 'mobx-state-tree';
 import {get, omit} from 'lodash';
 
-
-export function createManagement({loadUser, reset, autoLogged, collection}) {
+/*::
+type creteManagementParams = {|
+    loadUser: string,
+    reset: string,
+    autoLogged: string,
+    collection: string,
+|}
+*/
+export function createManagement({loadUser, reset, autoLogged, collection}/*:creteManagementParams*/) {
     return types.model({}).actions(self => ({
         afterCreate: () => {
             const logged_info = localStorage.getItem(`firebase:authUser:${ config.apiKey }:[DEFAULT]`);

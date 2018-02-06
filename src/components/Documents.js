@@ -1,13 +1,21 @@
 //@flow
 import React from 'react';
+/*:: import type {ComponentType} from 'react' */
 import styled from 'styled-components';
 import {translate} from 'react-i18next';
 import {omit} from 'ramda';
 
 import styles from '../styles';
 
-export const DocumentList = translate()(styled(props =>
-    <ol { ...omit('documents', props) }>{
+/*::
+type Document = {description: string, url: string}
+type Props = {|
+    documents: Array<Document>,
+|}
+*/
+export const DocumentList/*:ComponentType<Props>*/ = translate()(styled((props/*:(Props & {t: any})*/) =>
+    <ol { ...omit(['documents', 't'], props) }>{
+        //$FlowFixMe typecast to Array<Document>
         Object.entries(props.documents || {}).map(([name, {description, url}]) =>
             <li key={ name }>
                 <a target="_blank" href={ url }>

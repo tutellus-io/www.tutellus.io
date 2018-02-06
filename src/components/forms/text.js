@@ -72,7 +72,15 @@ export const ViewField = styled(props => {
     }
 `;
 
-export const ErrorField = props => {
+/*::
+type ErroFieldProps = {|
+    field: {name: string},
+    form: {errors: any},
+    className?: string,
+|}
+*/
+
+export const ErrorField = (props/*:ErroFieldProps*/) => {
     const {
         field,
         form,

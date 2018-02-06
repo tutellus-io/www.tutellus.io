@@ -1,7 +1,7 @@
 //@flow
 import React from 'react';
+/*:: import type {ComponentType} from 'react' */
 import R from 'ramda';
-import PropTypes from 'prop-types';
 import {injectGlobal} from 'styled-components';
 
 import styles from '../../styles';
@@ -21,6 +21,7 @@ import {
     TechnologyStack,
     TheTeam,
     Crowdsale,
+    TheRoadshow,
     SubscribeToMailList,
     Documents,
 } from './sections';
@@ -28,7 +29,17 @@ import {MainFooter} from './MainFooter';
 import {NotifyBar} from '../../components';
 import {observer, inject} from 'mobx-react';
 
-export const Home = inject('config')(observer(class extends React.Component/*::<void>*/ {
+const MAX_SOCIAL_LINKS_IN_HEADER = 3;
+const pickMostRelevant = social_links =>
+    R.pick(R.take(MAX_SOCIAL_LINKS_IN_HEADER, R.keys(social_links)), social_links);
+
+/*::
+type Props = {|
+    config: {social_links: any},
+    history: any,
+|}
+*/
+export const Home/*:ComponentType<Props>*/= inject('config')(observer(class extends React.Component/*::<Props>*/ {
     componentDidMount() {
         injectGlobal`${ styles.global }`;
     }
@@ -36,9 +47,8 @@ export const Home = inject('config')(observer(class extends React.Component/*::<
         const social_links = this.props.config.social_links;
         return (
             <div>
-                <MainHeader socialLinks={ R.pick(R.take(3, R.keys(social_links)), social_links) } 
-                    history= {this.props.history}
-                />
+                <MainHeader socialLinks={ pickMostRelevant(social_links) }
+                            history={ this.props.history } />
                 <NotifyBar />
                 <main>
                     <ICOIntro />
@@ -50,8 +60,9 @@ export const Home = inject('config')(observer(class extends React.Component/*::<
                     <ThePlatform id="platform" />
                     <PraiseQuotes />
                     <TheTeam id="team" />
-                    <Crowdsale id="crowdsale" />
+                    <TheRoadshow/>
                     <PlatformRoadmap />
+                    <Crowdsale id="crowdsale" />
                     <TechnologyStack />
                     <Advisors />
                     <Partners />
