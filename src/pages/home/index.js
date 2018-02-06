@@ -21,6 +21,7 @@ import {
     TechnologyStack,
     TheTeam,
     Crowdsale,
+    TheRoadshow,
     SubscribeToMailList,
     Documents,
 } from './sections';
@@ -59,8 +60,9 @@ export const Home/*:ComponentType<Props>*/= inject('config')(observer(class exte
                     <ThePlatform id="platform" />
                     <PraiseQuotes />
                     <TheTeam id="team" />
-                    <Crowdsale id="crowdsale" />
+                    <TheRoadshow/>
                     <PlatformRoadmap />
+                    <Crowdsale id="crowdsale" />
                     <TechnologyStack />
                     <Advisors />
                     <Partners />

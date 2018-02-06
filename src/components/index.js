@@ -8,6 +8,7 @@ export * from './PageSection';
 export * from './Layout';
 export * from './Features';
 export * from './Team';
+export * from './Roadshow';
 export * from './Crowdsale';
 export * from './Roadmap';
 export * from './Buttons';
