@@ -1,3 +1,11 @@
+## 1.10.0 (2018-02-06)
+- fix(PlayButton): remove a dash character from DOM (0e6e1e6)
+- fix(documents): fix error in <ol> with `t` property (f63fccf)
+- feat(intro): new PageBanner design without background video and 50% layout (f0d90c5)
+- feat(roadshow): Adding roadshow section to Home page (10958bc)
+- feat(partner): Adding coinsilium as partner (dc382f0)
+- refactor: big files into smaller individual component modules (c7e9232)
+
 ### 1.9.1 (2018-01-30)
 - fix(seo) seo description changed (ed0806c)
 
