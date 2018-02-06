@@ -6,6 +6,7 @@ import {Text} from '../Layout';
 import styles from '../../styles';
 
 const TITLE_UNDERLINE_WIDTH = 5;//em
+
 /*:: type SectionTitleProps = {simple?: bool} */
 export const SectionTitle /*:ComponentType<SectionTitleProps>*/= styled.h2`
     margin-bottom: 1em;
@@ -40,7 +41,13 @@ export const SectionTitle /*:ComponentType<SectionTitleProps>*/= styled.h2`
         font-size: 2.3em;
     }
 `;
-export const PageTitle /*:ComponentType<SectionTitleProps>*/= (SectionTitle/*:any*/).withComponent('h1');
+export const PageTitle /*:ComponentType<SectionTitleProps>*/= styled((SectionTitle/*:any*/).withComponent('h1'))`
+    text-transform: none;
+    font-weight: 700;
+    & em {
+        font-weight: 300;
+    }
+`;
 export const PageSubtitle = styled(Text)`
     text-shadow: 1px 1px 1px black;
 `;
