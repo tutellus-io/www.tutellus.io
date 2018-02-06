@@ -14,7 +14,7 @@ type Props = {|
 |}
 */
 export const DocumentList/*:ComponentType<Props>*/ = translate()(styled((props/*:(Props & {t: any})*/) =>
-    <ol { ...omit(['documents'], props) }>{
+    <ol { ...omit(['documents', 't'], props) }>{
         //$FlowFixMe typecast to Array<Document>
         Object.entries(props.documents || {}).map(([name, {description, url}]) =>
             <li key={ name }>
