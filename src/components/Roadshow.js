@@ -39,7 +39,7 @@ const ShowName = styled.div`
     color: ${ styles.colors.midgrey };
     text-transform: uppercase;
     margin: 0.25em 0 0.75em;
-    white-space: nowrap;
+    text-align: center;
 `;
 
 const ShowDate = styled.div`
