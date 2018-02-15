@@ -24,6 +24,7 @@ const ConfigModel = types.model({
     }), {}),
     advisors: types.optional(types.array(Advisor), []),
     shows: types.optional(types.array(Show), []),
+    documents: types.optional(types.array(types.string), []),
 })
 .views(self => ({
     hasAdvisors: () => self.advisors.length > 0,
