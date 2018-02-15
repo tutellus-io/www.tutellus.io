@@ -7,20 +7,24 @@ import {omit} from 'ramda';
 
 import styles from '../styles';
 
+import {
+    withLoading,
+} from '../hoc';
+
 /*::
-type Document = {description: string, url: string}
+type Document = {name: string, description: string, url: string}
 type Props = {|
     documents: Array<Document>,
 |}
 */
-export const DocumentList/*:ComponentType<Props>*/ = translate()(styled((props/*:(Props & {t: any})*/) =>
+export const DocumentList/*:ComponentType<Props>*/ = withLoading(translate("documents")(styled((props/*:(Props & {t: any})*/) =>
     <ol { ...omit(['documents', 't'], props) }>{
-        //$FlowFixMe typecast to Array<Document>
-        Object.entries(props.documents || {}).map(([name, {description, url}]) =>
-            <li key={ name }>
-                <a target="_blank" href={ url }>
-                    { name }
-                    <small>{ description }</small>
+        //$FlowFixMe typecast to Array<String>
+        props.documents.map((name, index) => 
+            <li key={ index }>
+                <a target="_blank" href={ props.t(`${ name }_url`) }>
+                    { props.t(`${ name }_name`) }
+                    <small>{ props.t(`${ name }_description`) }</small>
                     <button>{ props.t('download') }</button>
                 </a>
             </li>
@@ -114,4 +118,4 @@ export const DocumentList/*:ComponentType<Props>*/ = translate()(styled((props/*
         grid-template-columns: repeat(4, 25%);
         grid-column-gap: .5em;
     }
-`);
+`));

@@ -1,3 +1,6 @@
+## 1.11.0 (2018-02-15)
+- feat(docs): adding Documents to i18n (de5ef6b)
+
 ## 1.10.0 (2018-02-06)
 - fix(PlayButton): remove a dash character from DOM (0e6e1e6)
 - fix(documents): fix error in <ol> with `t` property (f63fccf)
