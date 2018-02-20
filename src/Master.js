@@ -17,6 +17,7 @@ import withTracker from './withTracker';
 
 import {
     Home,
+    Ambassadors,
     Management,
     EmailVerified,
     EmailNotVerified,
@@ -168,6 +169,8 @@ class Master extends React.Component/*::<void, MasterState>*/ {
                         <Switch>
                             <Route exact path='/'
                                 component={ withTracker(Home) }/>
+                            <Route exact path='/ambassadors'
+                                component={ withTracker(Ambassadors) }/>
                             <Route component={ props =>
                                 <WithHeaderLayout {...props} {...all_props}/>
                             } />

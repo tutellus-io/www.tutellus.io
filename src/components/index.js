@@ -1,12 +1,15 @@
 //@flow
+export * from './BigOrderedList';
 export * from './BulletList';
 export * from './Documents';
+export * from './FeatureList';
 export * from './forms';
 export * from './Landing';
 export * from './MainHeader';
 export * from './MainFooter';
 export * from './NotifyBar';
 export * from './PartnerList';
+export * from './Powered';
 export * from './TopHeader';
 export * from './PageSection';
 export * from './Layout';
