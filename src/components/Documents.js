@@ -3,7 +3,6 @@ import React from 'react';
 /*:: import type {ComponentType} from 'react' */
 import styled from 'styled-components';
 import {translate} from 'react-i18next';
-import {omit} from 'ramda';
 
 import styles from '../styles';
 
@@ -19,7 +18,7 @@ type Props = {|
 |}
 */
 export const DocumentList/*:ComponentType<Props>*/ = withLoading(translate("documents")(styled((props/*:(Props & {t: any})*/) =>
-    <ol { ...omit(['documents', 't'], props) }>{
+    <ol className={ props.className }>{
         //$FlowFixMe typecast to Array<String>
         props.documents.map((name/*:string*/, index) =>
             <li key={ index }>

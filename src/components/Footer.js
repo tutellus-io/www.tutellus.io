@@ -78,7 +78,7 @@ type FooterBrandingProps = {|
 */
 export const FooterBranding/*:ComponentType<FooterBrandingProps>*/ = styled((props/*:FooterBrandingProps*/) =>
     <div className={ props.className }>
-        <img src={ props.logo } />
+        <img src={ props.logo } alt="Tutellus.io"/>
         <small>{ props.about }</small>
         <SocialIcons networks={ props.socialLinks } />
     </div>
