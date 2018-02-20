@@ -49,7 +49,7 @@ const ShowDate = styled.div`
 /*::
 type RoadshowEventProps = {|
     className?: string,
-    name: string,
+    title: string,
     date: string,
     photo: string,
     done: boolean,

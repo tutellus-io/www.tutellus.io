@@ -4,6 +4,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 import {observer, inject} from 'mobx-react';
 import {get} from 'lodash';
+import {withRouter} from 'react-router-dom';
 
 import {SocialIcons} from '../Footer';
 import {LinkButton, Button} from '../';
@@ -32,37 +33,32 @@ const LangSelect/*:ComponentType<LangSelectProps>*/ = styled((props/*:LangSelect
     color: white;
 `;
 
+const isHome = url => url === '/';
+const LoginButton = withRouter(props => (
+    isHome(get(props.history, 'location.pathname'))
+        ? <LinkButton to="/dashboard/home">
+              { props.logged ? 'Dashboard' : 'Join ICO' }
+          </LinkButton>
+        : props.logged && <Button onClick={ props.logout }>Logout</Button>
+));
 /*::
 type SecondaryMenuProps = {|
     className?: string,
     socialLinks?: Object,
     onLanguage: (string => void),
     locale: string,
-    history?: void,
 |}
 */
-const SecondaryMenuElement/*:ComponentType<SecondaryMenuProps>*/ = inject('store')(observer((props/*:SecondaryMenuProps*/) => {
-    const {
-        store,
-        history = {},
-    } = (props/*:any*/);
-    const path = get(history, 'location.pathname');
-    const isHome = path === "/";
-
-    return (
-        <div className={ props.className }>
-            { props.socialLinks &&
-            <SocialIcons networks={ props.socialLinks } />
-            }
-            {
-                (isHome
-                    ? <LinkButton to="/dashboard/home">{store.logged ? 'Dashboard' : 'Join ICO'}</LinkButton>
-                    : store.logged && <Button onClick={()=> store.logout()}> Logout </Button>)
-            }
-            <LangSelect onLanguage={ props.onLanguage } locale={ props.locale } />
-        </div>
-    );
-}));
+const SecondaryMenuElement/*:ComponentType<SecondaryMenuProps>*/ = inject('store')(observer(props =>
+    <div className={ props.className }>
+        { props.socialLinks &&
+        <SocialIcons networks={ props.socialLinks } />
+        }
+        <LoginButton logged={ props.store.logged }
+                     logout={ () => props.store.logout() } />
+        <LangSelect onLanguage={ props.onLanguage } locale={ props.locale } />
+    </div>
+));
 
 export const SecondaryMenu/*:ComponentType<SecondaryMenuProps>*/ = styled(SecondaryMenuElement)`
     display: grid;

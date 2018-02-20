@@ -2,7 +2,9 @@
 import * as React from 'react';
 /*:: import type {ComponentType as Component} from 'react' */
 import styled from 'styled-components';
+
 import styles from '../styles';
+
 export const Benefits = styled.div`
     @media ${ styles.media.tablet } {
         display:grid;
@@ -43,17 +45,5 @@ export const UserGroup/*:Component<UserGroupProps>*/= styled(props =>
         grid-column-gap: 1em;
         grid-template-columns: 33% 67%;
         align-items: center;
-    }
-`;
-export const BulletList = styled.ul``;
-export const BulletPoint = styled.li`
-    line-height: 2em;
-    &:before {
-        content: '';
-        display: inline-block;
-        border: solid 5px transparent;
-        border-left-color: ${ styles.colors.lightblue };
-        border-right: none;
-        margin: 0 10px;
     }
 `;
