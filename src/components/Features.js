@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 import styles from '../styles';
 
-export const Features = styled.ul`
+export const ProductFeatures = styled.ul`
     margin-top: 1em;
 
     @media ${ styles.media.tablet } {
@@ -18,15 +18,15 @@ export const Features = styled.ul`
         font-size: 1.2em;
     }
 `;
-export const FeatureTitle = styled.h4``;
+const FeatureTitle = styled.h4``;
 /*::
-type FeatureProps = {|
+type Props = {|
     title: string,
     children?: React.Node,
     image: string,
 |}
 */
-export const Feature/*:ComponentType<FeatureProps>*/= styled((props/*:FeatureProps*/) =>
+export const ProductFeature/*:ComponentType<Props>*/= styled((props/*:Props*/) =>
     <li { ...props }>
         <FeatureTitle>{ props.title }</FeatureTitle>
         { props.children }
