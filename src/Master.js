@@ -14,6 +14,7 @@ import {
     Switch,
 } from 'react-router-dom';
 import withTracker from './withTracker';
+import ScrollToTop from './ScrollToTop';
 
 import {
     Home,
@@ -165,7 +166,7 @@ class Master extends React.Component/*::<void, MasterState>*/ {
                     this.alertContainer = ref;
                 }} />
                 <BrowserRouter>
-                    <div>
+                    <ScrollToTop>
                         <Switch>
                             <Route exact path='/'
                                 component={ withTracker(Home) }/>
@@ -175,7 +176,7 @@ class Master extends React.Component/*::<void, MasterState>*/ {
                                 <WithHeaderLayout {...props} {...all_props}/>
                             } />
                         </Switch>
-                    </div>
+                    </ScrollToTop>
                 </BrowserRouter>
                 <FloatingHelp icon="/images/telegram-logo.svg"/>
                 <FBTracker id={ (this.props/*:any*/).config.cfg.FBTRACKERID } />
