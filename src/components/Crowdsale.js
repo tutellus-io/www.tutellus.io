@@ -11,10 +11,10 @@ export const CrowdsaleCTA = ({href = "", children}/*:{href: string, children: Re
         {
             (href.startsWith("http")
                 ? <AButton href={href}
-                    target="_blank" primary>
+                    target="_blank" primary="primary">
                     { children }
                 </AButton>
-                : <LinkButton to={href} primary>
+                : <LinkButton to={href} primary="primary">
                     { children }
                 </LinkButton>)
         }
