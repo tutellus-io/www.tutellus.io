@@ -67,6 +67,8 @@ export const Milestone/*:ComponentType<MilestoneProps>*/= styled((props/*:Milest
     }
     &:after {
         ${ milestone_marker }
+        margin-top: -1.125em;
+        z-index: 2;
     }
     &:nth-child(even) {
         position: relative;
@@ -79,9 +81,7 @@ export const Milestone/*:ComponentType<MilestoneProps>*/= styled((props/*:Milest
             grid-row-start: 1;
             align-self: start;
             justify-self: start;
-            position: relative;
-            top: calc(-1em - 1px);
-            left: calc(-1em - 1px);
+            margin-left: -1.125em;
         }
         &:before {
             grid-column-start: 1;
@@ -97,9 +97,7 @@ export const Milestone/*:ComponentType<MilestoneProps>*/= styled((props/*:Milest
             grid-row-start: 1;
             align-self: start;
             justify-self: end;
-            position: relative;
-            top: calc(-1em - 1px);
-            right: calc(-1em - 3px);
+            margin-right: -1.125em;
         }
         &:before {
             grid-column-start: 2;
@@ -115,7 +113,7 @@ export const Milestone/*:ComponentType<MilestoneProps>*/= styled((props/*:Milest
 `;
 export const Roadmap = styled.ol`
     display: grid;
-    grid-template-columns: repeat(2, 50%);
+    grid-template-columns: 1fr 1fr;
     padding-top: 2em;
     margin-bottom: 2em;
     overflow: hidden;
