@@ -15,12 +15,13 @@ import {
 type Document = {name: string, description: string, url: string}
 type Props = {|
     documents: Array<Document>,
+    loading: bool,
 |}
 */
 export const DocumentList/*:ComponentType<Props>*/ = withLoading(translate("documents")(styled((props/*:(Props & {t: any})*/) =>
     <ol { ...omit(['documents', 't'], props) }>{
         //$FlowFixMe typecast to Array<String>
-        props.documents.map((name, index) => 
+        props.documents.map((name/*:string*/, index) =>
             <li key={ index }>
                 <a target="_blank" href={ props.t(`${ name }_url`) }>
                     { props.t(`${ name }_name`) }

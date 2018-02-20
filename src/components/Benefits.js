@@ -2,7 +2,9 @@
 import * as React from 'react';
 /*:: import type {ComponentType as Component} from 'react' */
 import styled from 'styled-components';
+
 import styles from '../styles';
+
 export const Benefits = styled.div`
     @media ${ styles.media.tablet } {
         display:grid;
