@@ -45,15 +45,3 @@ export const UserGroup/*:Component<UserGroupProps>*/= styled(props =>
         align-items: center;
     }
 `;
-export const BulletList = styled.ul``;
-export const BulletPoint = styled.li`
-    line-height: 2em;
-    &:before {
-        content: '';
-        display: inline-block;
-        border: solid 5px transparent;
-        border-left-color: ${ styles.colors.lightblue };
-        border-right: none;
-        margin: 0 10px;
-    }
-`;

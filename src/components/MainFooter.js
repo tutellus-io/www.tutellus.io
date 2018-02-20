@@ -7,7 +7,7 @@ import {
     FooterNav,
     NavCategory,
     NavLink,
-} from '../../components';
+} from './Footer';
 
 export const MainFooter = translate()(({t, socialLinks}) =>
     <PageFooter>
@@ -17,10 +17,11 @@ export const MainFooter = translate()(({t, socialLinks}) =>
         />
         <FooterNav>
             <NavCategory title={ t('About') }>
-                <NavLink href={ t('help_url') }>{ t('Help') }</NavLink>
-                <NavLink href={ socialLinks.medium }>{ t('Blog') }</NavLink>
-                <NavLink href="//www.tutellus.com">Tutellus</NavLink>
-                <NavLink href={ t('tos_url') }>{ t('terms_of_sale') }</NavLink>
+                <NavLink href={ t('help_url') } target="_blank">{ t('Help') }</NavLink>
+                <NavLink href={ socialLinks.medium } target="_blank">{ t('Blog') }</NavLink>
+                <NavLink href="/ambassadors">{ t('Ambassadors') }</NavLink>
+                <NavLink href="//www.tutellus.com" target="_blank">Tutellus</NavLink>
+                <NavLink href={ t('tos_url') } target="_blank">{ t('terms_of_sale') }</NavLink>
             </NavCategory>
             <NavCategory title={ t('Contact') }>
                 <NavLink href="mailto:ico@tutellus.com">

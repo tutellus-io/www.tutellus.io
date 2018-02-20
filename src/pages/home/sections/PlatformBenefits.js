@@ -7,7 +7,6 @@ import {
     Benefits,
     UserGroup,
     BulletList,
-    BulletPoint,
 } from '../../../components';
 
 export const PlatformBenefits = translate('the_benefits')(({t, id}) =>
@@ -16,20 +15,20 @@ export const PlatformBenefits = translate('the_benefits')(({t, id}) =>
         <Benefits>
             <UserGroup name={ t('translation:students') } icon="/images/student.svg">
                 <BulletList>
-                    <BulletPoint>{ t('earn_studying') }</BulletPoint>
-                    <BulletPoint>{ t('learn_more') }</BulletPoint>
-                    <BulletPoint>{ t('relevance') }</BulletPoint>
-                    <BulletPoint>{ t('use_crypto') }</BulletPoint>
-                    <BulletPoint>{ t('wordwide_payments') }</BulletPoint>
+                    <li>{ t('earn_studying') }</li>
+                    <li>{ t('learn_more') }</li>
+                    <li>{ t('relevance') }</li>
+                    <li>{ t('use_crypto') }</li>
+                    <li>{ t('wordwide_payments') }</li>
                 </BulletList>
             </UserGroup>
             <UserGroup name={ t('translation:teachers') } icon="/images/teacher.svg">
                 <BulletList>
-                    <BulletPoint>{ t('instant_payments') }</BulletPoint>
-                    <BulletPoint>{ t('earn_via_best_students') }</BulletPoint>
-                    <BulletPoint>{ t('earn_via_relevance') }</BulletPoint>
-                    <BulletPoint>{ t('earn_via_subscriptions') }</BulletPoint>
-                    <BulletPoint>{ t('exclusive_services') }</BulletPoint>
+                    <li>{ t('instant_payments') }</li>
+                    <li>{ t('earn_via_best_students') }</li>
+                    <li>{ t('earn_via_relevance') }</li>
+                    <li>{ t('earn_via_subscriptions') }</li>
+                    <li>{ t('exclusive_services') }</li>
                 </BulletList>
             </UserGroup>
         </Benefits>

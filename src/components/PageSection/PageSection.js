@@ -25,6 +25,14 @@ export const SectionImage = styled.img`
     margin: 0 auto;
 `;
 
+export const section_styles = `
+    padding: 1em;
+
+    @media ${ styles.media.laptop } {
+        padding: 3em;
+    }
+`;
+
 /*::
 type PageSectionProps = {|
     id?: string,
@@ -35,6 +43,7 @@ type PageSectionProps = {|
     dark?: bool,
     light?: bool,
     children?: React.Node,
+    backgroundImage?: string,
 |}
 */
 export const PageSection/*:ComponentType<PageSectionProps>*/ = styled((props/*:PageSectionProps*/) =>
@@ -53,8 +62,12 @@ export const PageSection/*:ComponentType<PageSectionProps>*/ = styled((props/*:P
         </SectionContent>
     </section>
 )`
-    padding: 1em;
+    ${ section_styles }
     background: ${ colorSectionBackground };
+    ${ props => props.backgroundImage && `
+        background-image: url(${ props.backgroundImage });
+        background-size: cover;
+    ` }
     color: ${ colorSectionForeground };
 
     & ${ InterstitialImage } {
@@ -76,7 +89,6 @@ export const PageSection/*:ComponentType<PageSectionProps>*/ = styled((props/*:P
     }
 
     @media ${ styles.media.laptop } {
-        padding: 3em;
         & ${ InterstitialImage } {
             margin-top: -5.5em;
         }
