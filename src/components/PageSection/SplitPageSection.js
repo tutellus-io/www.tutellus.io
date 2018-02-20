@@ -41,8 +41,8 @@ export const SplitPageSection = styled(props =>
         }
         & ${ SectionImage } {
             display: block;
-            position: relative;
-            bottom: -1em;
+            align-self: end;
+            margin-bottom: -1em;
         }
         & ${ SectionTitle } {
             ${ props => props.right && `
@@ -56,7 +56,7 @@ export const SplitPageSection = styled(props =>
 
     @media ${ styles.media.laptop } {
         & ${ SectionImage } {
-            bottom: -3em;
+            margin-bottom: -3em;
         }
         & ${ SectionContent } {
             margin-top: -3em;
