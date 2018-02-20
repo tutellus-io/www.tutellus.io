@@ -40,6 +40,12 @@ const i18nextConfig = () => {
             //10 min tiempo de expiración
             expirationTime: 10 * 60 * 1000, //eslint-disable-line no-magic-numbers
         },
+        react: {
+            wait: false,
+            bindI18n: 'languageChanged loaded',
+            bindStore: 'added removed',
+            nsMode: 'default',
+        },
     });
 
     if (Object.keys(en || {}).length > 0) {
