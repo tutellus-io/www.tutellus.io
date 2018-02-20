@@ -1,3 +1,6 @@
+### 1.12.1 (2018-02-20)
+- fix(SplitPageSection): correct positioning of side images (d760eeb)
+
 ## 1.12.0 (2018-02-20)
 - feat(Ambassadors): landing page for volunteer recruiting (18730fd)
 - feat(ScrollTop): HOC to automatically scroll to top of the page on navigation (18730fd)
