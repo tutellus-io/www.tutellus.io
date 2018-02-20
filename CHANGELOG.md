@@ -1,3 +1,15 @@
+## 1.12.0 (2018-02-20)
+- feat(Ambassadors): landing page for volunteer recruiting (18730fd)
+- feat(ScrollTop): HOC to automatically scroll to top of the page on navigation (18730fd)
+- feat(Landing): refactor of common page stucture (MainHeader and Footer) (18730fd)
+- feat(NavLink): allows for external hrefs and internal navigation (anchors) (18730fd)
+
+- refactor(LoginButton): to simplify its API and centralize its responsabilities (18730fd)
+- refactor(ProductFeatures): to be more specific than a simple feature list (18730fd)
+- refactor(BulletList): styled `<ul>` for bulleted lists (18730fd)
+
+- chore: fix flow lint errors and format code (0bf3286)
+
 ## 1.11.0 (2018-02-15)
 - feat(docs): adding Documents to i18n (de5ef6b)
 
