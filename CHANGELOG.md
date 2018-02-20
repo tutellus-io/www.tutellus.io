@@ -1,3 +1,8 @@
+### 1.12.2 (2018-02-20)
+- fix(roadmap) marker positioning (427df87)
+- fix(console.errors) fix some components details shown on console (fe5a2b29)
+- fix(i18n) waiting for load resources before show (de7b25b)
+
 ### 1.12.1 (2018-02-20)
 - fix(SplitPageSection): correct positioning of side images (d760eeb)
 
