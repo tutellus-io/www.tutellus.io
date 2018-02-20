@@ -4,6 +4,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 import styles from '../styles';
 import {CenteredBlock, AButton, LinkButton} from './';
+import {bullet_styles} from './BulletList';
 
 export const CrowdsaleCTA = ({href = "", children}/*:{href: string, children: React.Node}*/) =>
     <CenteredBlock>
@@ -19,14 +20,6 @@ export const CrowdsaleCTA = ({href = "", children}/*:{href: string, children: Re
         }
     </CenteredBlock>;
 
-const bullets = `
-    content: '';
-    display: inline-block;
-    border: solid .5em transparent;
-    border-left: solid .5em ${ styles.colors.lightblue };
-    position: relative;
-    top: .125em;
-`;
 export const CrowdsaleSummary = styled.table`
     width: 100%;
     margin-bottom: 2em;
@@ -51,7 +44,7 @@ export const CrowdsaleSummary = styled.table`
                 &:nth-child(1) {
                     text-align: left;
                     &:before {
-                        ${ bullets }
+                        ${ bullet_styles }
                         margin-left: .5em;
                     }
                 }
@@ -108,7 +101,7 @@ export const CrowdsaleSummary = styled.table`
     @media ${ styles.media.laptop } {
         & td {
             &:before {
-                ${ bullets }
+                ${ bullet_styles }
             }
             &.secondary:before {
                 margin-left: 2em;

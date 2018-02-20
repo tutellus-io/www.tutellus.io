@@ -1,4 +1,5 @@
 //@flow
+export * from './BulletList';
 export * from './Documents';
 export * from './forms';
 export * from './NotifyBar';
