@@ -35,6 +35,9 @@ export const Crowdsale = translate('crowdsale')(({t, id}) =>
                     <td>{ t('total_supply') }</td><td>{ t('total_supply_value') }</td>
                 </tr>
                 <tr>
+                    <td>{ t('scholarships') }</td><td>{ t('scholarships_value') }</td>
+                </tr>
+                <tr>
                     <td>{ t('amount_for_sale') }</td><td>{ t('amount_for_sale_value') }</td>
                 </tr>
                 <tr>
