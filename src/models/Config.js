@@ -13,6 +13,11 @@ const Show = types.model({
     photo: types.string,
     description_i18n: types.string,
 });
+const Milestone = types.model({
+    done: types.optional(types.boolean, false),
+    date: types.string,
+    goal_count: types.number,
+});
 
 const ConfigModel = types.model({
     notifybar: types.optional(types.model({
@@ -25,6 +30,7 @@ const ConfigModel = types.model({
     advisors: types.optional(types.array(Advisor), []),
     shows: types.optional(types.array(Show), []),
     documents: types.optional(types.array(types.string), []),
+    milestones: types.optional(types.array(Milestone), []),
 })
 .views(self => ({
     hasAdvisors: () => self.advisors.length > 0,
