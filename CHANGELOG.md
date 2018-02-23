@@ -1,3 +1,8 @@
+## 1.13.0 (2018-02-23)
+- feat(crowdsale): details about the scholarships to be granted with the ICO funds (3a7cae9, 9109fba)
+- feat(techstack): based on NEM blockchain instead of Ethereum (a565549)
+- feat(roadmap): load milestones from mobx store (c65f755)
+
 ### 1.12.2 (2018-02-20)
 - fix(roadmap) marker positioning (427df87)
 - fix(console.errors) fix some components details shown on console (fe5a2b29)

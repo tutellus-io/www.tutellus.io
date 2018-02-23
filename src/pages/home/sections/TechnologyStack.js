@@ -31,11 +31,11 @@ export const TechnologyStack = translate('technology_stack')(({t, id}) =>
             </Layer>
             <Layer>
                 <TechIcon src="/images/technologies/erc20.svg" />
-                <span>ERC20</span>
+                <span>TUT Token</span>
             </Layer>
             <Layer>
-                <TechIcon src="/images/technologies/ether.svg" />
-                <span>Ethereum</span>
+                <TechIcon src="/images/technologies/nem.svg" />
+                <span>NEM Blockchain</span>
             </Layer>
         </Layers>
         <CrowdsaleCTA href="/signup">{ t('crowdsale:register_for_the_crowdsale') }</CrowdsaleCTA>
