@@ -1,6 +1,9 @@
 //@flow
 import React from 'react';
+import R from 'ramda';
 import {translate} from 'react-i18next';
+import {inject, observer} from 'mobx-react';
+
 import {
     PageSection,
     Roadmap,
@@ -8,60 +11,27 @@ import {
     Text,
 } from '../../../components';
 
-export const PlatformRoadmap = translate('the_roadmap')(({t, id}) =>
+import {
+    withLoading,
+} from '../../../hoc';
+
+const RoadmapMilestone = t => (milestone, i) =>
+    <Milestone key={ i }
+               done={ milestone.done }
+               title={ t(`milestone_${ i }`) }
+               date={ milestone.date }>
+		{ milestone.goal_count > 0 &&
+        <ul>{ R.range(0, milestone.goal_count).map(goal =>
+            <li key={ goal }>{ t(`milestone_${ i }_goal_${ goal }`) }</li>
+        ) }</ul>
+		}
+    </Milestone>;
+
+const LoadingRoadmap = withLoading(Roadmap);
+
+export const PlatformRoadmap = translate('the_roadmap')(inject('store')(observer(({t, id, store}) =>
     <PageSection id={ id } title={ t("title") }>
         <Text center>{ t("description") }</Text>
-        <Roadmap>
-            <Milestone done title={ t("mvp") } date='2014-01'>
-                <ul>
-                    <li>{ t("usercount_100k") }</li>
-                    <li>{ t("coursecount_20k") }</li>
-                    <li>{ t("university_count_20") }</li>
-                </ul>
-            </Milestone>
-            <Milestone done title={ t("new_platform") } date='2015-05'>
-                <ul>
-                    <li>{ t("api_plus_mean_fw") }</li>
-                    <li>{ t("usercount_300k") }</li>
-                    <li>{ t("coursecount_40k") }</li>
-                </ul>
-            </Milestone>
-            <Milestone done title={ t("crowdsale") } date='2017-09'>
-                <ul>
-                    <li>{ t("usercount_800k") }</li>
-                    <li>{ t("decentralization") }</li>
-                    <li>{ t("tokens") }</li>
-                </ul>
-            </Milestone>
-            <Milestone title={ t("ico") } date='2018-03' />
-            <Milestone title={ t("core_features") } date='2018-06'>
-                <ul>
-                    <li>{ t("wallets") }</li>
-                    <li>{ t("token_interop") }</li>
-                    <li>{ t("active_cryptocurrency") }</li>
-                </ul>
-            </Milestone>
-            <Milestone title={ t("value_services") } date='2018-12'>
-                <ul>
-                    <li>{ t("full_offchain_interop") }</li>
-                    <li>{ t("teacher_services") }</li>
-                    <li>{ t("erc20_multifunctionality") }</li>
-                </ul>
-            </Milestone>
-            <Milestone title={ t("third_entities") } date="2019-06">
-                <ul>
-                    <li>{ t("entities_design") }</li>
-                    <li>{ t("product_management") }</li>
-                    <li>{ t("multiuser_features") }</li>
-                </ul>
-            </Milestone>
-            <Milestone title={ t("value_features") } date="2019-12">
-                <ul>
-                    <li>{ t("deep_learning") }</li>
-                    <li>{ t("full_integration") }</li>
-                    <li>{ t("tokenomics_optimization") }</li>
-                </ul>
-            </Milestone>
-        </Roadmap>
+        <LoadingRoadmap loading={store.config.isStorageLoading()}>{ store.config.milestones.map(RoadmapMilestone(t)) }</LoadingRoadmap>
     </PageSection>
-);
+)));
