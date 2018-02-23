@@ -35,16 +35,16 @@ export const Crowdsale = translate('crowdsale')(({t, id}) =>
                     <td>{ t('total_supply') }</td><td>{ t('total_supply_value') }</td>
                 </tr>
                 <tr>
-                    <td>{ t('scholarships') }</td><td>{ t('scholarships_value') }</td>
-                </tr>
-                <tr>
                     <td>{ t('amount_for_sale') }</td><td>{ t('amount_for_sale_value') }</td>
                 </tr>
                 <tr>
                     <td>{ t('hard_cap') }</td><td>{ t('hard_cap_value') }</td>
                 </tr>
                 <tr>
-                    <td>{ t('accepted_currencies') }</td><td>ETH</td>
+                    <td>{ t('scholarships') }</td><td>{ t('scholarships_value') }</td>
+                </tr>
+                <tr>
+                    <td>{ t('accepted_currencies') }</td><td>{ t('accepted_currencies_value') }</td>
                 </tr>
                 <tr>
                     <td>{ t('preico_date') }</td><td>{ t('preico_date_value') }</td>
