@@ -1,14 +1,38 @@
 //@flow
 import React from 'react';
+import R from 'ramda';
+import {inject, observer} from 'mobx-react';
 import {translate} from 'react-i18next';
 import {
     PageSection,
+    SectionTitle,
+    Subsection,
     Text,
     Layers,
     Layer,
     TechIcon,
-    CrowdsaleCTA,
+    Traits,
+    Trait,
 } from '../../../components';
+import {withLoading} from '../../../hoc';
+
+const map = R.addIndex(R.map);
+
+const DeferredTraits = withLoading(Traits);
+
+const TechnologyCriteria = translate('technology_stack')(inject('store')(observer(({t, store}) =>
+    <DeferredTraits loading={ store.config.isStorageLoading() }
+                    columns="3">
+    { map((criteria, i) =>
+        <Trait key={ i }
+               title={ t(`${ criteria.i18n }_title`) }
+               icon={ criteria.icon }>
+            { t(`${ criteria.i18n }_description`) }
+        </Trait>
+    , store.config.technologies) }
+    </DeferredTraits>
+)));
+
 
 export const TechnologyStack = translate('technology_stack')(({t, id}) =>
     <PageSection id={ id } light title={ t('title') }>
@@ -38,6 +62,12 @@ export const TechnologyStack = translate('technology_stack')(({t, id}) =>
                 <span>NEM Blockchain</span>
             </Layer>
         </Layers>
-        <CrowdsaleCTA href="/signup">{ t('crowdsale:register_for_the_crowdsale') }</CrowdsaleCTA>
+        <Subsection>
+            <SectionTitle>
+                Powered by <strong>NEM</strong><img src="/images/technologies/nem.svg" alt="NEM Logo"/>
+            </SectionTitle>
+            <Text center>{ t('why_this_blockchain') }</Text>
+            <TechnologyCriteria />
+        </Subsection>
     </PageSection>
 );
