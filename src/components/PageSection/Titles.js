@@ -20,6 +20,12 @@ export const SectionTitle /*:ComponentType<SectionTitleProps>*/= styled.h2`
         font-size: 1.2em;
     }
 
+    & img {
+        display: inline-block;
+        width: 1em;
+        margin: 0 .25em;
+    }
+
     ${ props =>
         props.simple || `
             &:after {
