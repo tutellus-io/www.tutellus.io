@@ -16,8 +16,9 @@ type Props = {|
     documents: Array<Document>,
     loading: bool,
 |}
+type HOCProps = {className: string, t: string => string}
 */
-export const DocumentList/*:ComponentType<Props>*/ = withLoading(translate("documents")(styled((props/*:(Props & {t: any})*/) =>
+export const DocumentList/*:ComponentType<Props>*/ = withLoading(translate("documents")(styled((props/*:(Props & HOCProps)*/) =>
     <ol className={ props.className }>{
         //$FlowFixMe typecast to Array<String>
         props.documents.map((name/*:string*/, index) =>

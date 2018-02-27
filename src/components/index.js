@@ -11,6 +11,7 @@ export * from './NotifyBar';
 export * from './PartnerList';
 export * from './Powered';
 export * from './TopHeader';
+export * from './Traits';
 export * from './PageSection';
 export * from './Layout';
 export * from './Features';

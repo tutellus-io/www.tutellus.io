@@ -18,6 +18,10 @@ const Milestone = types.model({
     date: types.string,
     goal_count: types.number,
 });
+const TechCriteria = types.model({
+    icon: types.string,
+    i18n: types.string,
+});
 
 const ConfigModel = types.model({
     notifybar: types.optional(types.model({
@@ -31,6 +35,7 @@ const ConfigModel = types.model({
     shows: types.optional(types.array(Show), []),
     documents: types.optional(types.array(types.string), []),
     milestones: types.optional(types.array(Milestone), []),
+    technologies: types.optional(types.array(TechCriteria), []),
 })
 .views(self => ({
     hasAdvisors: () => self.advisors.length > 0,

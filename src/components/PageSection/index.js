@@ -1,4 +1,5 @@
 //@flow
+export * from './Subsection';
 export * from './Titles';
 export * from './PageSection.js';
 export * from './SplitPageSection.js';
