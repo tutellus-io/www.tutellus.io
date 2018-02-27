@@ -1,3 +1,10 @@
+## 1.14.0 (2018-02-27)
+- fix: flowtype errors (f1ede55)
+- feat(TechnologyStack): showcase of technical concerns solved by NEM (be51f24)
+- feat(Traits): responsive grid `<ul>` to showcase features, explanations, etc. (be51f24)
+- feat(Subsection): allows creating nested titles and content in PageSection's (be51f24)
+- feat(SectionTitle): allows for inline img to be used as logos in titles (be51f24)
+
 ## 1.13.0 (2018-02-23)
 - feat(crowdsale): details about the scholarships to be granted with the ICO funds (3a7cae9, 9109fba)
 - feat(techstack): based on NEM blockchain instead of Ethereum (a565549)
