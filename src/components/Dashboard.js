@@ -38,7 +38,6 @@ export const Tabs = styled.div`
 `;
 
 const PRESALE = 'pre-sale';
-const ICO = 'ico';
 const stages = R.map(R.evolve({
     end_date: end_date => new Date(`${ end_date }T19:00:00Z`).valueOf(),
 }), [
@@ -47,11 +46,7 @@ const stages = R.map(R.evolve({
     {end_date: '2018-01-15', status: PRESALE, bonus: 0.5, min_eth_purchase: 5},
     {end_date: '2018-01-29', status: PRESALE, bonus: 0.45, min_eth_purchase: 5},
     {end_date: '2018-02-12', status: PRESALE, bonus: 0.4, min_eth_purchase: 5},
-    {end_date: '2018-02-28', status: PRESALE, bonus: 0.35, min_eth_purchase: 5},
-    {end_date: '2018-03-08', status: ICO, bonus: 0.2, min_eth_purchase: 0.05},
-    {end_date: '2018-03-15', status: ICO, bonus: 0.1, min_eth_purchase: 0.05},
-    {end_date: '2018-03-22', status: ICO, bonus: 0.05, min_eth_purchase: 0.05},
-    {end_date: '2018-03-31', status: ICO, bonus: 0, min_eth_purchase: 0.05},
+    {end_date: '2018-03-31', status: PRESALE, bonus: 0.35, min_eth_purchase: 5},
 ]);
 const isStillOpen = R.propSatisfies(
     end_date => ((end_date/*:any*/)/*:number*/) > moment().valueOf(),
@@ -82,7 +77,7 @@ const RoundStage = translate('dashboard')(styled(({className, stage, t}) =>
         <hr/>
         <div>
             <span>{ t('today') }</span>
-            1ETH&nbsp;=&nbsp;{ stageRate(stage) }TUT
+            1ETH&nbsp;=&nbsp;{ Math.round(stageRate(stage)) }TUT
         </div>
     </div>
 )`

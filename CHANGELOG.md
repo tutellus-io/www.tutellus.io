@@ -1,3 +1,6 @@
+### 1.14.1 (2018-03-01)
+- fix(dashboard) Update Pre-ICO calendar & contract address (80af455)
+
 ## 1.14.0 (2018-02-27)
 - fix: flowtype errors (f1ede55)
 - feat(TechnologyStack): showcase of technical concerns solved by NEM (be51f24)
