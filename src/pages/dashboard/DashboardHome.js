@@ -163,7 +163,7 @@ export const DashboardHome/*:ComponentType<DashboardHomeProps>*/ = ({t, showAler
         <DashboardHomeForm balance="0"
             gas="200.000"
             gasPrice="40 Gwei"
-            address="0x0F3D5562cA6084F7d59CE10Dc5aB672257573dE6"
+            address="0xA296D5BE6d1afDD8B102907B663f82CC86b020ce"
             showAlert={ showAlert } />
         <div>
             <HelpLink href={ t('help_url') }>{ t('help') }</HelpLink>
