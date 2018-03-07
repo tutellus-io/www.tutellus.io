@@ -18,7 +18,6 @@ import {
     TOP_HEADER_HEIGHT,
 } from '../../components';
 import {KYC} from './KYC';
-import {DashboardHome} from './DashboardHome';
 import {
     Loading,
 } from '../';
@@ -90,7 +89,7 @@ const DashboardObserver = inject('store')(observer(class Dashboard extends React
                     store.isBackerLoaded()
                     ? <Switch>
                         <Route exact path="/dashboard/home" render={ () =>
-                            <DashboardHome { ...(this.props/*:any*/) } />
+                            <Redirect to="/dashboard/kyc"/>
                         } />
                         <Route exact path="/dashboard/kyc" render={ () => <KYC { ...this.props }/>} />
                     </Switch>
