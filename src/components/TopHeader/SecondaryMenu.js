@@ -37,7 +37,7 @@ const isHome = url => url === '/';
 const LoginButton = withRouter(props => (
     isHome(get(props.history, 'location.pathname'))
         ? <LinkButton to="/dashboard/home">
-              { props.logged ? 'Dashboard' : 'Join ICO' }
+              { props.logged ? 'Dashboard' : 'Whitelist' }
           </LinkButton>
         : props.logged && <Button onClick={ props.logout }>Logout</Button>
 ));
