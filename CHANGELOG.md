@@ -1,3 +1,7 @@
+### 1.14.2 (2018-03-07)
+- fix(header) Changing header text: from dashboard to whitelist (8cbccad)
+- feat(Dashboard) Lock the dashboard screen (ee4f0bd)
+
 ### 1.14.1 (2018-03-01)
 - fix(dashboard) Update Pre-ICO calendar & contract address (80af455)
 
