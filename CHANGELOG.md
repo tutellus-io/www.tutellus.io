@@ -1,3 +1,6 @@
+### 1.14.3 (2018-03-14)
+- fix(logo) Changing logos and favicon (4a843c49)
+
 ### 1.14.2 (2018-03-07)
 - fix(header) Changing header text: from dashboard to whitelist (8cbccad)
 - feat(Dashboard) Lock the dashboard screen (ee4f0bd)
