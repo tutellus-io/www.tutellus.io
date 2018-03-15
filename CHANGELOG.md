@@ -1,3 +1,6 @@
+### 1.14.4 (2018-03-15)
+- fix(team) Fix grid for members_number > 5 (256ef7d)
+
 ### 1.14.3 (2018-03-14)
 - fix(logo) Changing logos and favicon (4a843c49)
 

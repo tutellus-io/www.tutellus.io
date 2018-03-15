@@ -4,13 +4,8 @@ import * as React from 'react';
 import styled from 'styled-components';
 import styles from '../styles';
 
-const childrenAsColumns = props => {
-    const children_count = React.Children.count(props.children);
-    return `repeat(${ children_count }, ${ 100 / children_count }%)`;
-};
-
 const TeamIcon = styled.li`
-    width: 18%;
+    width: 35px;
     margin: 0.15em;
 `;
 
@@ -32,21 +27,21 @@ const TeamMemberAvatar = styled.img`
     display: block;
     max-width: 80%;
     margin: 0 auto;
-    margin-bottom: 1em;
     border-radius: 50%;
+    align-self: center;
 `;
 
 const TeamMemberName = styled.span`
     display: block;
     color: ${ styles.colors.darkblack };
     font-weight: bold;
-    margin-bottom: 1.25em;
+    margin-bottom: 1em;
 `;
 
 const TeamMemberTitle = styled.i`
     color: ${ styles.colors.lightblue };
     display: inline-block;
-    margin-bottom: .2em;
+    margin-bottom: .5em;
 `;
 /*::
 type TeamMemberProps = {|
@@ -61,51 +56,49 @@ type TeamMemberProps = {|
 export const TeamMember/*:ComponentType<TeamMemberProps>*/= styled((props/*:TeamMemberProps*/) =>
     <div className={ props.className }>
         <TeamMemberAvatar src={ props.photo } />
-        <TeamMemberName>{ props.name }</TeamMemberName>
-        { props.title &&
-        <TeamMemberTitle>{ props.title }</TeamMemberTitle>
-        }
-        <p>
-            { props.children }
-        </p>
-        { props.socialProfiles &&
-            <TeamIcons networks={ props.socialProfiles } />
-        }
+        <div>
+            <TeamMemberName>{ props.name }</TeamMemberName>
+            { props.title &&
+                <TeamMemberTitle>{ props.title }</TeamMemberTitle>
+            }
+            <p>
+                { props.children }
+            </p>
+            { props.socialProfiles &&
+                <TeamIcons networks={ props.socialProfiles } />
+            }
+        </div>
     </div>
 )`
-    padding: 1em;
-    padding-top: 1.5em;
+    padding: 0.5em;
+    font-size: 0.9em;
     border-radius: ${ styles.border.radius.small };
     background-color: ${ styles.colors.grey };
     text-align: left;
     display: grid;
-    grid: "avatar name"
-          "avatar title"
-          "avatar bio"
-          ". social-icons" / 40% 60%;
-    & > ${ TeamMemberAvatar } {
-        grid-area: avatar;
-    }
-    & > ${ TeamMemberName } {
-        grid-area: name;
-    }
-    & > ${ TeamMemberTitle } {
-        grid-area: title;
+    grid-template-columns: 3fr 7fr;
+    grid-gap: 0.5em 0.5em;
+    align-content: start;
+    
+    & > div {
+        display: grid;
     }
     & > p {
         margin-top: .25em;
-        grid-area: bio;
-    }
-    & > ${ TeamIcons } {
-        grid-area: social-icons;
     }
 
     & p {
-        font-size: 0.8em;
+        font-size: 0.9em;
         line-height: 1.5em;
         font-style: italic;
     }
+    
+    & ${ TeamMemberTitle } {
+        font-size: 0.9em;
+    }
+    
     & ${ TeamIcons } {
+        margin-top: .5em;
         display: flex;
         flex-flow: row nowrap;
         justify-content: start;
@@ -114,33 +107,21 @@ export const TeamMember/*:ComponentType<TeamMemberProps>*/= styled((props/*:Team
         }
     }
     @media ${ styles.media.tablet } {
-        font-size: 1.5em;
-    }
-    @media ${ styles.media.laptop } {
-        display: block;
+        padding: 1em;
+        grid-template-columns: 1fr;
+        grid-gap: 1em 1em;
         text-align: center;
-        & > ${ TeamMemberAvatar } {
+        & ${ TeamMemberAvatar } {
             width: 7em;
         }
-        & > ${ TeamIcons } {
-            margin-top: 1em;
+        & ${ TeamIcons } {
             justify-content: center;
         }
     }
-    @media ${ styles.media.desktop } {
-        font-size: 2em;
-    }
 `;
 export const Team = styled.div`
-    margin: 1em;
-    & ${ TeamMember } {
-        margin-bottom: 1em;
-    }
-    @media ${ styles.media.laptop } {
-        display: grid;
-        grid-column-gap: .5em;
-        grid-auto-flow: column;
-        font-size: .5em;
-        grid-template-columns: ${ childrenAsColumns };
-    }
+    display: grid;
+    grid-gap: 1em 1em;
+    font-size: 1em;
+    grid-template-columns: repeat(auto-fit, minmax(11em, 1fr));
 `;
