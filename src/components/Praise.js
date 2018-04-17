@@ -3,17 +3,15 @@ import React from 'react';
 import {translate} from 'react-i18next';
 import styled from 'styled-components';
 
-import {
-    AButton,
-    LazyImage,
-} from '.';
+import {CTAButton} from './CTAButton';
+import {LazyImage} from './LazyImage';
 
 export const Praise = styled(translate('praises')(props =>
-    <div className={ props.className }>
+    <a className={ props.className } href={ props.href } target="_blank">
         <LazyImage src={ props.logo } alt={ props.name } />
         <blockquote cite={ props.href }>&ldquo;{ props.children }&rdquo;</blockquote>
-        <AButton href={ props.href } primary full={true}>{ props.t('read_more') }</AButton>
-    </div>
+        <CTAButton>{ props.t('read_more') }</CTAButton>
+    </a>
 ))`
     background: white;
     color: black;
@@ -32,10 +30,7 @@ export const Praise = styled(translate('praises')(props =>
         font-style: italic;
         text-align: center;
     }
-
-    & ${ AButton } {
-        padding: 0.7em;
-        font-size: 0.9em;
-
+    & > ${ CTAButton } {
+        margin-top: 1em;
     }
 `;
