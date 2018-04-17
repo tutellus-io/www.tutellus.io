@@ -1,4 +1,3 @@
-//@flow
 import * as React from 'react';
 import {Field, Form, Formik} from 'formik';
 import Yup from '../../yup';

@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import styles from '../styles';
 import {CenteredBlock, AButton, LinkButton} from './';
 import {bullet_styles} from './BulletList';
+import {LazyImage} from './LazyImage';
 
 export const CrowdsaleCTA = ({href = "", children}/*:{href: string, children: React.Node}*/) =>
     <CenteredBlock>
@@ -116,9 +117,10 @@ export const CrowdsalePurpose = styled.div`
     @media ${ styles.media.tablet } {
         display: grid;
         grid-template-columns: 1fr 1fr;
+        margin-top: 3em;
     }
 `;
-const DistributionGraph = styled.img`
+const DistributionGraph = styled(LazyImage)`
     display: block;
     width: 80%;
     margin: 0 auto;

@@ -2,39 +2,31 @@
 /* eslint no-magic-numbers: off */
 import React from 'react';
 import {translate} from 'react-i18next';
-import {inject, observer} from 'mobx-react';
+import styled from 'styled-components';
+
 import {
     PageSection,
     Text,
     Roadshow,
-    RoadshowEvent,
+    ImageCarousel,
 } from '../../../components';
 
-import {
-    withLoading,
-} from '../../../hoc';
+const Carousel = styled(ImageCarousel)`
+    margin-top: 1.5em;
+`;
 
-const LoadingRoadshow = withLoading(translate('roadshow')(({t, className, events}) =>
-    <Roadshow className={ className }>
-        {
-            events.map(({photo, description_i18n, done}, index) =>
-                <RoadshowEvent key={ index }
-                    photo={ photo }
-                    title={ t(`${ description_i18n }_title`) }
-                    date={ t(`${ description_i18n }_date`) }
-                    done={ done }/>
-            )
-        }
-    </Roadshow>
-));
-
-export const TheRoadshow = translate('roadshow')(inject('store')(observer(({t, store}) =>
-    <PageSection dark title={ t('title') }>
+export const TheRoadshow = translate('roadshow')(({t, id}) =>
+    <PageSection darker id={ id } title={ t('title') }>
         <Text center>{ t('description') }</Text>
-        {
-            <LoadingRoadshow loading={ store.config.isStorageLoading() }
-                events={ store.config.shows}
-            />
-        }
+        <Roadshow events={ JSON.parse(t('events')).map(event => ({
+            address: t(`${ event }_address`),
+            date: t(`${ event }_date`),
+            end_date: t(`${ event }_end_date`),
+            description: t(`${ event }_description`),
+            place: t(`${ event }_place`),
+            title: t(`${ event }_title`),
+            url: t(`${ event }_url`),
+        })) } />
+        <Carousel slidesToShow={ 3 } images={ JSON.parse(t('pics')) } />
     </PageSection>
-)));
+);

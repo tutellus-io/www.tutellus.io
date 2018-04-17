@@ -1,4 +1,3 @@
-//@flow
 import * as React from 'react';
 /*:: import type {ComponentType} from 'react' */
 import firebase from 'firebase';
@@ -12,7 +11,7 @@ import styles from '../../../styles';
 /*::
 type FeaturedInfo = {}
 type FileUploadProps = {|
-    posterIcon: void,
+    posterIcon: string,
     onFinish: (FeaturedInfo => void),
     path: void,
     one_image: void,

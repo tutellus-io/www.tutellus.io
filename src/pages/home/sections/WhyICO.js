@@ -1,21 +1,20 @@
 //@flow
+/* eslint no-magic-numbers: off */
 import React from 'react';
 import {translate} from 'react-i18next';
 import {
     PageSection,
     ResponsiveGrid,
     Feature,
-    SectionTitle,
     Text,
 } from '../../../components';
 
-export const ThePain = translate('the_pain')(({t, id}) =>
-    <PageSection id={ id }>
-        <SectionTitle dangerouslySetInnerHTML={ {__html: t('title')} } />
+export const WhyICO = translate('why_ico')(({t}) =>
+    <PageSection dark title={ t('title') }>
         <Text center>{ t('description') }</Text>
-        <ResponsiveGrid minWidth="8em">
+        <ResponsiveGrid gap="2em 2em">
             {
-                JSON.parse(t('problems')).map((name, index) =>
+                JSON.parse(t('features_order')).map((name, index) =>
                     <Feature key={ index }
                         icon={ t(`${ name }_icon`) }
                         title={ t(`${ name }_title`) }>

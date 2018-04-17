@@ -32,35 +32,58 @@ const MenuLink/*:ComponentType<LinkProps>*/ = styled((props/*:LinkProps*/) =>
         color: ${ styles.colors.lightblue };
     }
 `;
+MenuLink.displayName = 'MenuLink';
 
-export const MainMenu = styled(translate()(({t, className}) =>
-    <nav className={ className }>
-        <ul>
-            <li><MenuLink to="documents">{ t('documents:title') }</MenuLink></li>
-            <li><MenuLink to="platform">{ t('Platform') }</MenuLink></li>
-            <li><MenuLink to="team">{ t('the_team:title') }</MenuLink></li>
-            <li><MenuLink to="crowdsale">{ t('crowdsale:title') }</MenuLink></li>
+export const Menu = styled(({className, children}) =>
+    <nav>
+        <ul className={ className }>
+            { children }
         </ul>
     </nav>
-))`
+)`
     display: block;
-    margin-left: .5em;
+
+    & > * {
+        display: inline-block;
+    }
+
+    @media ${ styles.media.tablet } {
+        margin-top: 0.8em;
+    }
+`;
+Menu.displayName = 'Menu';
+
+export const MainMenu = styled(translate('menu')(({t, className}) =>
+    <Menu className={ className }>
+        <li><MenuLink to="platform">{ t('solution') }</MenuLink></li>
+        <li><MenuLink to="team">{ t('the_team:title') }</MenuLink></li>
+        <li><MenuLink to="roadshow">{ t('roadshow') }</MenuLink></li>
+        <li><MenuLink to="crowdsale">{ t('crowdsale:title') }</MenuLink></li>
+        <li><MenuLink to="documents">{ t('documents:title') }</MenuLink></li>
+    </Menu>
+))`
+    font-size: 1em;
 
     & li {
-        display: inline-block;
-        font-size: .5em;
         font-weight: normal;
-        padding: 0 .5em;
         text-transform: uppercase;
         & ${ MenuLink } {
             display: block;
-            margin-top: -1.5em;
         }
     }
-    @media ${ styles.media.laptop } {
-        font-size: 1.25em;
+    
+    @media ${ styles.media.tablet } {
+        font-size: 0.6em;
         & li {
-            padding: 0 1em;
+            padding: 0 .5em;
+        }
+    }
+
+    @media ${ styles.media.laptop } {
+        font-size: 0.7em;
+        & li {
+            padding: 0 .75em;
         }
     }
 `;
+MainMenu.displayName = 'MainMenu';

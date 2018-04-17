@@ -2,12 +2,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import {LazyImage} from './LazyImage';
 import {styles} from '../styles';
 import {Roadshow} from './Roadshow';
 
 export const Feature = styled(props =>
     <li className={ props.className }>
-        <img src={ props.icon } alt={ props.title }/>
+        <LazyImage src={ props.icon } alt={ props.title }/>
         <strong>{ props.title }</strong>
         <span>{ props.children }</span>
     </li>
@@ -28,10 +29,32 @@ export const Feature = styled(props =>
     }
 
     & > span {
-        font-size: 0.8em;
+        font-size: 0.9em;
         text-align: center
     }
+
+    ${ ({landscape = false}) =>
+        landscape &&
+        `
+            grid-template-columns: 60px 1fr;
+            grid-template-rows: 27px 27px;
+            grid-column-gap: 0.8em;
+            grid-row-gap: 6px;
+            justify-items: start;
+            align-items: start;
+
+            & > img {
+                grid-row: 1 / -1;
+                margin: 0;
+            } 
+            & > strong {
+                margin-bottom: 0;
+                align-self: end;
+            }
+        `
+    }
 `;
+Feature.displayName = 'Feature';
 
 export const FeatureList = Roadshow.withComponent('ul').extend`
     display: grid;

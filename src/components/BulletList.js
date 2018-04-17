@@ -13,7 +13,7 @@ export const bullet_styles = `
 `;
 
 export const BulletList = styled.ul`
-    padding-top: 1em;
+    
     & > li {
         margin: 0.5em 0;
         line-height: 1.3em;

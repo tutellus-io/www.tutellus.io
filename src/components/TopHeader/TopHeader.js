@@ -2,17 +2,42 @@
 import * as React from 'react';
 /*:: import type {ComponentType} from 'react' */
 import styled from 'styled-components';
-
-import {HeaderLogo} from './HeaderLogo';
-import {MainMenu} from './MainMenu';
-import {SecondaryMenu} from './SecondaryMenu';
+import MediaQuery from 'react-responsive';
+import {
+    HeaderLogo,
+} from './';
+import {
+    SectionContent,
+    MobileMenu,
+} from '../';
 import {TOP_HEADER_HEIGHT} from './styles';
 import styles from '../../styles';
 
 const small_header_styles = `
     height: ${ TOP_HEADER_HEIGHT.SMALL }px;
-    background: black;
+    background-color: black;
+`;
+
+const Header = styled.header`
+    position: fixed;
+    top: 0;
+    z-index: 11;
+    width: 100%;
+    padding: 0 1em;
+    font-size: 1em;
+    color: white;
     transition: all .5s linear;
+    ${ small_header_styles }
+    
+    @media ${ styles.media.tablet } {
+        height: ${ TOP_HEADER_HEIGHT.BIG }px;
+        background: linear-gradient(black, transparent);
+        ${ props => props.small && small_header_styles }
+    }
+    
+    @media ${ styles.media.laptop } {
+        padding: 0 2em;
+    }
 `;
 
 /*::
@@ -22,54 +47,43 @@ type TopHeaderProps = {|
     title: string,
     small?: bool,
     children?: React.Node,
-    notify?: bool,
 |}
 */
-export const TopHeader/*:ComponentType<TopHeaderProps>*/ = styled((props/*:TopHeaderProps*/) =>
-    <header className={ props.className }>
-        <HeaderLogo logo={ props.logo } title={ props.title } />
-        { props.children }
-    </header>
+export const TopHeader/*:ComponentType<TopHeaderProps>*/ = styled(({className, small, logo, title, children}/*:TopHeaderProps*/) =>
+    <Header className={ className } small={ small }>
+        <SectionContent>
+            <HeaderLogo logo={ logo } title={ title } />
+            <MediaQuery query="(min-width: 768px)">
+                { children }
+            </MediaQuery>
+            <MediaQuery query="(max-width: 767px)">
+                <MobileMenu top_margin={ TOP_HEADER_HEIGHT.SMALL }>
+                    {children}
+                </MobileMenu>
+            </MediaQuery>
+        </SectionContent>
+    </Header>
 )`
-    position: fixed;
-    top: 0;
-    z-index: 3;
-    width: 100%;
-    padding: 0 1em;
-    font-size: 125%;
-    color: white;
-    ${ small_header_styles }
-    display: grid;
-    grid: "logo secondary-menu"
-          / 30%            70%;
-    align-items: center;
-    justify-items: justify;
-    transition: all .5s linear;
+    & > div {
+        display: grid;
+        grid-template-columns: 7fr 4fr;
+        grid-column-gap: 1em;
+        align-items: center;
+        justify-items: start;
+        height: ${ TOP_HEADER_HEIGHT.SMALL }px;
 
-    & > ${ HeaderLogo } {
-        grid-area: logo;
-    }
-    & > ${ MainMenu } {
-        display: none;
-        grid-area: main-menu;
-    }
-    & > ${ SecondaryMenu } {
-        grid-area: secondary-menu;
-    }
+        @media ${ styles.media.tablet } {
+            grid-template-columns: 7em 2fr 1fr;
+        };
 
-    @media ${ styles.media.tablet } {
-        height: ${ TOP_HEADER_HEIGHT.BIG }px;
-        background: linear-gradient(black, transparent);
-        grid: "logo main-menu secondary-menu"
-              / 10%       50%            40%;
-        & > ${ MainMenu } {
-            display: block;
+        @media ${ styles.media.laptop } {
+            grid-template-columns: 7em 4fr 2.5fr;
+            grid-column-gap: 1.2em;
         }
 
-        ${ props => props.small && small_header_styles }
-
-    }
-    @media ${ styles.media.laptop } {
-        padding: 0 2em;
+        & > div:nth-child(2) {
+            justify-self: end;
+        }
     }
 `;
+TopHeader.displayName = 'TopHeader';

@@ -32,9 +32,9 @@ export const FloatingHelp = styled(FloatingHelpComponent)`
         content: '';
         background: url(${ props => props.icon }) center center no-repeat;
         display: block;
-        width: 3em;
-        height: 3em;
-        margin: 1em;
+        width: 2.5em;
+        height: 2.5em;
+        margin: 0.5em;
         @media ${ styles.media.tablet } {
             width: 3em;
             height: 3em;

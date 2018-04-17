@@ -11,9 +11,8 @@ import store from './models';
 ReactDOM.render(
     <Provider store={store} config={config}>
         <Master />
-    </Provider>, document.getElementById('root'));
-unregister();
+    </Provider>
+//$FlowFixMe #root existe
+, document.getElementById('root'));
 
-if (module.hot) {
-      module.hot.accept();
-}
+unregister();

@@ -33,6 +33,7 @@ export const Button/*:ComponentType<ButtonProps>*/ = styled.button`
     transition: all 0.3s ease-in;
     text-align: center;
     text-transform: uppercase;
+    line-height: 1.4em;
     &:hover {
         background-color: ${ props =>
             colors.modify(props.primary ? colors.lightblue

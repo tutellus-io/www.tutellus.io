@@ -1,4 +1,3 @@
-//@flow
 import * as React from 'react';
 /*:: import type {ComponentType} from 'react' */
 import styled from 'styled-components';
@@ -26,7 +25,7 @@ const UploadButtonElement = (props/*:UploadButtonProps*/) => {
             {
                 !uploading &&
                 <label>
-                    <img src={posterIcon}/>
+                    <img alt="" src={ posterIcon } />
                     <input type = "file"
                         onChange={handleUpload}
                         onClick={clickButton}/>

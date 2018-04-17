@@ -12,7 +12,7 @@ import {
 } from '../../../components';
 
 export const Crowdsale = translate('crowdsale')(({t, id}) =>
-    <PageSection id={ id } dark title={ t('title') }>
+    <PageSection id={ id } darker title={ t('title') }>
         <Text center>{ t('description') }</Text>
         <CrowdsalePurpose>
             <DistributionTable title={ t('funds_allocation') } stats={ [
