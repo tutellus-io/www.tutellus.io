@@ -45,9 +45,13 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.2.3",
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
     "eslint-config-tutellus": "^2.1.0",
     "eslint-plugin-react": "^7.4.0",
-    "flow-bin": "^0.56.0",
+    "flow-bin": "^0.70.0",
     "flow-typed": "^2.1.5",
     "npm-check": "^5.5.2"
   }
