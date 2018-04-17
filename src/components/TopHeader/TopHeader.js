@@ -73,11 +73,10 @@ export const TopHeader/*:ComponentType<TopHeaderProps>*/ = styled(({className, s
         height: ${ TOP_HEADER_HEIGHT.SMALL }px;
 
         @media ${ styles.media.tablet } {
-            grid-template-columns: 7em 2fr 1fr;
+            grid-template-columns: auto 1fr auto;
         };
 
         @media ${ styles.media.laptop } {
-            grid-template-columns: 7em 4fr 2.5fr;
             grid-column-gap: 1.2em;
         }
 
