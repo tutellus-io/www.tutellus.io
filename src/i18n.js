@@ -4,26 +4,17 @@ import i18next from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import Cache from 'i18next-localstorage-cache';
 import {reactI18nextModule} from 'react-i18next';
+import * as hash from 'json-hash';
+
 import firebase from './models/firebase';
+import {es, en} from './i18n.json';
 
 const loadLng = async lng => {
     const snapshot = await firebase.database().ref(`/locales/${ lng }`).once('value');
     return snapshot.val();
 };
 
-const load_from_storage = lng => {
-    try {
-        const str_res /*:string*/ = localStorage.getItem(`i18next_res_${ lng }`) || "{}";
-        return JSON.parse(str_res);
-    } catch (ex) {
-        return {};
-    }
-};
-
 const i18nextConfig = () => {
-    const en = load_from_storage('en');
-    const es = load_from_storage('es');
-
     i18next
     .use(LanguageDetector)
     .use(Cache)
@@ -31,6 +22,7 @@ const i18nextConfig = () => {
     .init({
         debug: false,
         fallbackLng: 'en',
+        defaultNS: 'translation',
         resources: {
             en,
             es,
@@ -48,10 +40,6 @@ const i18nextConfig = () => {
         },
     });
 
-    if (Object.keys(en || {}).length > 0) {
-        setTimeout(()=> i18next.emit('loaded_from', 'localStorage'), 0);
-    }
-
     return i18next;
 };
 
@@ -61,10 +49,16 @@ Promise.all([
     loadLng('es'),
     loadLng('en'),
 ])
-.then(([es, en]) => {
-    Object.keys(en).forEach(key => {
-        i18n.addResources('es', key, es[key]);
-        i18n.addResources('en', key, en[key]);
+.then(([remote_es, remote_en]) => {
+    const local_hash = hash.digest({es, en});
+    const remote_hash = hash.digest({es: remote_es, en: remote_en});
+    if (remote_hash === local_hash) {
+        return;
+    }
+
+    Object.keys(remote_en).forEach(key => {
+        i18n.addResources('es', key, remote_es[key]);
+        i18n.addResources('en', key, remote_en[key]);
     });
     i18n.emit('loaded_from', 'remote');
 });

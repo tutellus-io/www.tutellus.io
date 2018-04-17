@@ -10,6 +10,7 @@
     "i18next": "^10.0.7",
     "i18next-browser-languagedetector": "^2.1.0",
     "i18next-localstorage-cache": "^1.1.1",
+    "json-hash": "^1.2.0",
     "lodash": "^4.17.4",
     "mobx": "^3.4.1",
     "mobx-react": "^4.3.5",
@@ -39,6 +40,7 @@
     "yup": "^0.23.0"
   },
   "scripts": {
+    "pull": "node -r babel-register -r dotenv/config scripts/firebase",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
