@@ -1,6 +1,5 @@
 //@flow
 /*:: import type {ComponentType} from 'react' */
-import Color from 'color';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 
@@ -35,12 +34,11 @@ export const Button/*:ComponentType<ButtonProps>*/ = styled.button`
     text-align: center;
     text-transform: uppercase;
     &:hover {
-        background-color: ${ props=> (props.primary
-        ? Color(colors.lightblue)
-        .darken(colors.settings.hover_gap).string()
-        : Color(colors.midgrey).darken(colors.settings.hover_gap).string())
-};
-
+        background-color: ${ props =>
+            colors.modify(props.primary ? colors.lightblue
+                                        : colors.midgrey)
+                  .darken(0.2)//eslint-disable-line no-magic-numbers
+                  .hex() }
     }
 `;
 

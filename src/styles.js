@@ -1,5 +1,6 @@
 //@flow
 import reset from 'styled-reset';
+import Color from 'color';
 
 const helpers = {
     clearfix: `
@@ -23,6 +24,7 @@ export const colors = {
     caribbean: '#21b3a7',
     darkblack: '#42474D',
     darkblue: '#202933',
+    dark: '#283542',
     darkgrey: '#7F8A94',
     emerald: '#33c17a',
     facebook: '#3C599B',
@@ -35,15 +37,17 @@ export const colors = {
     lemonade: '#efba50',
     lightblue: '#24a9bd',
     linkedin: '#007bb6',
-    midgrey: '#A2AAB3',
+    midgrey: '#BABABA',
     paypal: '#179bd7',
     pumpkin: '#F48C37',
-    seablue: '#34495E',
+    seablue: '#3C444B',
     softblack: '#555C63',
     softgrey: '#DFE2E6',
     twitter: '#00ADF0',
     watergrey: '#F7F9FA',
     white: '#FFFFFF',
+    modify: (color/*:string*/) =>
+        Color(color),
     settings: {
         //Diferencia entre el color y el efecto :hover
         hover_gap: 0.2, //eslint-disable-line no-magic-numbers
