@@ -13,3 +13,7 @@ ReactDOM.render(
         <Master />
     </Provider>, document.getElementById('root'));
 unregister();
+
+if (module.hot) {
+      module.hot.accept();
+}
