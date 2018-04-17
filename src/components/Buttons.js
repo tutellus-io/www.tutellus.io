@@ -99,6 +99,3 @@ export const PlayButton/*:ComponentType<Props>*/= styled(class extends React.Com
         }
     }
 `;
-export const CTAButton = styled.button`
-    text-transform: uppercase;
-`;

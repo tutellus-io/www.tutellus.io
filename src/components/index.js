@@ -3,6 +3,7 @@ export * from './Advisor';
 export * from './BigOrderedList';
 export * from './BulletList';
 export * from './Carousel';
+export * from './CTAButton';
 export * from './FeatureList';
 export * from './forms';
 export * from './Landing';
