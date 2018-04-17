@@ -140,8 +140,11 @@ const icons = `
         content:'\\0049';
         font-size: 2em;
         position: relative;
-        top: .25em;
+        top: -.2em;
+        padding-right: 4px;
     }
+    .icon-map:before{content:'\\004a';}
+    .icon-mas:before{content:'\\004b';}
 `;
 export const styles = {
     margin: {
