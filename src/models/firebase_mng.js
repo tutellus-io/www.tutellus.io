@@ -75,5 +75,9 @@ export function createManagement({loadUser, reset, autoLogged, collection}/*:cre
             await firebase.auth().signOut();
             self[reset]();
         },
+        getServerTime: () =>
+            firebase.database().ref('/.info/serverTimeOffset')
+            .once('value')
+            .then(serverOffset => serverOffset.val() + Date.now()),
     }));
 };

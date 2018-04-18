@@ -1,22 +1,27 @@
 //@flow
 import React from 'react';
 import {translate} from 'react-i18next';
+
 import {
     PageSection,
-    Quote,
-    CrowdsaleCTA,
+    Carousel,
+    Text,
+    Praise,
 } from '../../../components';
 
-export const PraiseQuotes = translate('quotes')(({id, t}) => {
-    const url = "https://elpais.com/economia/2015/07/10/actualidad/1436521761_125197.html";
-    return (
-        <PageSection id={ id } light>
-            <Quote href={url} cite="El País, 2016">
-                { t('the_leading_platform') }
-            </Quote>
-            <CrowdsaleCTA href="https://www.tutellus.com">
-                { t('goto_tutellus') }
-            </CrowdsaleCTA>
-        </PageSection>
-    );
-});
+
+export const PraiseQuotes = translate('praises')(({id, t}) =>
+    <PageSection id={ id } darker title={ t('title') }>
+        <Text center>{ t('description') }</Text>
+        <Carousel>{
+            JSON.parse(t('praises')).map((praise, key) =>
+                <Praise key={ key }
+                        name={ t(`${ praise }_name`) }
+                        logo={ t(`${ praise }_logo`) }
+                        href={ t(`${ praise }_url`) }>
+                    { t(`${ praise }_headline`) }
+                </Praise>
+            )
+        }</Carousel>
+    </PageSection>
+);

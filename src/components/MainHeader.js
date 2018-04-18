@@ -20,11 +20,8 @@ type MainHeaderProps = {
 export const MainHeader/*:ComponentType<MainHeaderProps>*/ = withWindowScroll(withRouter(translate()((({scroll, i18n, history, socialLinks}) =>
     <TopHeader small={ scroll.y > TOP_HEADER_HEIGHT.SMALL }
                logo="/images/white-logo.svg"
-               title="Tutellus.io"
-               notify>
-        { history.location.pathname === '/' &&
-        <MainMenu />
-        }
+               title="Tutellus.io">
+        { history.location.pathname === '/' && <MainMenu /> }
         <SecondaryMenu onLanguage={ lang => i18n.changeLanguage(lang) }
                        socialLinks={ socialLinks }
                        locale={ i18n.language } />

@@ -2,27 +2,6 @@
 import {types} from 'mobx-state-tree';
 import {createStorable} from './firebase_store';
 
-const Advisor = types.model({
-    name: types.string,
-    photo: types.string,
-    description_i18n: types.string,
-});
-
-const Show = types.model({
-    done: types.optional(types.boolean, false),
-    photo: types.string,
-    description_i18n: types.string,
-});
-const Milestone = types.model({
-    done: types.optional(types.boolean, false),
-    date: types.string,
-    goal_count: types.number,
-});
-const TechCriteria = types.model({
-    icon: types.string,
-    i18n: types.string,
-});
-
 const ConfigModel = types.model({
     notifybar: types.optional(types.model({
         enabled: types.optional(types.boolean, false),
@@ -31,14 +10,10 @@ const ConfigModel = types.model({
             background: types.maybe(types.string),
         }), {}),
     }), {}),
-    advisors: types.optional(types.array(Advisor), []),
-    shows: types.optional(types.array(Show), []),
-    documents: types.optional(types.array(types.string), []),
-    milestones: types.optional(types.array(Milestone), []),
-    technologies: types.optional(types.array(TechCriteria), []),
+    locales: types.optional(types.array(types.string), []),
+    timer_limit: types.optional(types.number, 0),
 })
 .views(self => ({
-    hasAdvisors: () => self.advisors.length > 0,
     hasShows: () => self.shows.length > 0,
 }));
 

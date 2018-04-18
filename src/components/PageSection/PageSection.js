@@ -6,20 +6,24 @@ import styled from 'styled-components';
 
 import {SectionTitle} from './Titles';
 import {SectionContent} from './Layout';
+import {LazyImage} from '../LazyImage';
 import styles from '../../styles';
 
 const colorSectionBackground = R.cond([
-    [R.has('dark'), R.always(styles.colors.darkblue)],
+    [R.has('darker'), R.always(styles.colors.darkblue)],
+    [R.has('dark'), R.always(styles.colors.dark)],
     [R.has('light'), R.always(styles.colors.athens)],
     [R.T, R.always(styles.colors.white)],
 ]);
 const colorSectionForeground = R.cond([
     [R.has('dark'), R.always(styles.colors.athens)],
+    [R.has('darker'), R.always(styles.colors.athens)],
     [R.T, R.always('inherit')],
 ]);
 
 export const InterstitialImage = styled.img``;
-export const SectionImage = styled.img`
+
+export const SectionImage = styled(LazyImage)`
     display: block;
     max-width: 100%;
     margin: 0 auto;
@@ -27,6 +31,10 @@ export const SectionImage = styled.img`
 
 export const section_styles = `
     padding: 1em;
+
+    @media ${ styles.media.tablet } {
+        padding: 2em;
+    }
 
     @media ${ styles.media.laptop } {
         padding: 3em;
@@ -40,6 +48,7 @@ type PageSectionProps = {|
     title?: string,
     image?: string,
     interstitialImage?: string,
+    darker?: bool,
     dark?: bool,
     light?: bool,
     children?: React.Node,

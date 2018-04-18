@@ -1,73 +1,76 @@
 //@flow
-import React from 'react';
-import R from 'ramda';
-import {inject, observer} from 'mobx-react';
+import * as React from 'react';
+import styled from 'styled-components';
 import {translate} from 'react-i18next';
+import styles from '../../../styles';
 import {
     PageSection,
+    Triangle,
     SectionTitle,
-    Subsection,
     Text,
+    ResponsiveGrid,
+    Feature,
     Layers,
     Layer,
     TechIcon,
-    Traits,
-    Trait,
 } from '../../../components';
-import {withLoading} from '../../../hoc';
 
-const map = R.addIndex(R.map);
+export const LayerSection = translate('technology_stack')(({t}) => {
+    const loadIcons = key =>
+        JSON.parse(t(key)).map((icon, index) =>
+            <TechIcon key={ index} src={ icon }/>
+        );
 
-const DeferredTraits = withLoading(Traits);
+    return (
+        <PageSection light title={ t('title') }>
+            <Text center>{ t('description') }</Text>
+            <Layers>
+                <Layer>
+                    { loadIcons('layer_1') }
+                </Layer>
+                <Layer>
+                    { loadIcons('layer_2') }
+                </Layer>
+                <Layer>
+                    { loadIcons('layer_3') }
+                    <span>TUT Token</span>
+                </Layer>
+                <Layer>
+                    { loadIcons('layer_4') }
+                    <span>NEM Blockchain</span>
+                </Layer>
+            </Layers>
+        </PageSection>
+    );
+});
 
-const TechnologyCriteria = translate('technology_stack')(inject('store')(observer(({t, store}) =>
-    <DeferredTraits loading={ store.config.isStorageLoading() }
-                    columns="3">
-    { map((criteria, i) =>
-        <Trait key={ i }
-               title={ t(`${ criteria.i18n }_title`) }
-               icon={ criteria.icon }>
-            { t(`${ criteria.i18n }_description`) }
-        </Trait>
-    , store.config.technologies) }
-    </DeferredTraits>
-)));
-
-
-export const TechnologyStack = translate('technology_stack')(({t, id}) =>
-    <PageSection id={ id } light title={ t('title') }>
-        <Text center>{ t('description') }</Text>
-        <Layers>
-            <Layer>
-                <TechIcon src="/images/technologies/react.svg" />
-                <TechIcon src="/images/technologies/ios.svg" />
-                <TechIcon src="/images/technologies/graphql.svg" />
-                <TechIcon src="/images/technologies/android.svg" />
-                <TechIcon src="/images/technologies/html5.svg" />
-            </Layer>
-            <Layer>
-                <TechIcon src="/images/technologies/mongodb.svg" />
-                <TechIcon src="/images/technologies/docker.svg" />
-                <TechIcon src="/images/technologies/tensorflow.svg" />
-                <TechIcon src="/images/technologies/r.svg" />
-                <TechIcon src="/images/technologies/redis.svg" />
-                <TechIcon src="/images/technologies/nodejs.svg" />
-            </Layer>
-            <Layer>
-                <TechIcon src="/images/technologies/erc20.svg" />
-                <span>TUT Token</span>
-            </Layer>
-            <Layer>
-                <TechIcon src="/images/technologies/nem.svg" />
-                <span>NEM Blockchain</span>
-            </Layer>
-        </Layers>
-        <Subsection>
-            <SectionTitle>
-                Powered by <strong>NEM</strong><img src="/images/technologies/nem.svg" alt="NEM Logo"/>
-            </SectionTitle>
-            <Text center>{ t('why_this_blockchain') }</Text>
-            <TechnologyCriteria />
-        </Subsection>
+export const NemSection = translate('technology_stack')(styled(({className, t}) =>
+    <PageSection className={ className }>
+        <SectionTitle dangerouslySetInnerHTML={ {__html: t("powered_nem")} } />
+        <Text center>{ t('why_this_blockchain') }</Text>
+        <ResponsiveGrid gap="2em 2em">
+            {
+                JSON.parse(t('features')).map((name, index) =>
+                    <Feature key={ index }
+                        icon={ t(`${ name }_icon`) }
+                        title={ t(`${ name }_title`) }>
+                        { t(`${ name }_description`) }
+                    </Feature>
+                )
+            }
+        </ResponsiveGrid>
     </PageSection>
-);
+)`
+    & ${ ResponsiveGrid } {
+        @media ${ styles.media.laptop } {
+            grid-template-columns: repeat(auto-fit,minmax( 15em,1fr));
+        }
+    }
+`);
+
+export const TechnologyStack = () =>
+    <React.Fragment>
+        <LayerSection />
+        <Triangle color={ styles.colors.athens }/>
+        <NemSection/>
+    </React.Fragment>;

@@ -1,4 +1,4 @@
-// flow-typed signature: b81e7f5f0bdb5b00d3d43e16844aba07
+// flow-typed signature: d74f1dde8147916c527a0e9d1eb9ba6a
 // flow-typed version: <<STUB>>/react-scroll_v^1.6.4/flow_v0.56.0
 
 /**
@@ -82,11 +82,19 @@ declare module 'react-scroll/modules/mixins/passive-event-listeners' {
   declare module.exports: any;
 }
 
+declare module 'react-scroll/modules/mixins/scroll-element' {
+  declare module.exports: any;
+}
+
 declare module 'react-scroll/modules/mixins/scroll-events' {
   declare module.exports: any;
 }
 
 declare module 'react-scroll/modules/mixins/scroll-hash' {
+  declare module.exports: any;
+}
+
+declare module 'react-scroll/modules/mixins/scroll-link' {
   declare module.exports: any;
 }
 
@@ -152,11 +160,17 @@ declare module 'react-scroll/modules/mixins/Helpers.js' {
 declare module 'react-scroll/modules/mixins/passive-event-listeners.js' {
   declare module.exports: $Exports<'react-scroll/modules/mixins/passive-event-listeners'>;
 }
+declare module 'react-scroll/modules/mixins/scroll-element.js' {
+  declare module.exports: $Exports<'react-scroll/modules/mixins/scroll-element'>;
+}
 declare module 'react-scroll/modules/mixins/scroll-events.js' {
   declare module.exports: $Exports<'react-scroll/modules/mixins/scroll-events'>;
 }
 declare module 'react-scroll/modules/mixins/scroll-hash.js' {
   declare module.exports: $Exports<'react-scroll/modules/mixins/scroll-hash'>;
+}
+declare module 'react-scroll/modules/mixins/scroll-link.js' {
+  declare module.exports: $Exports<'react-scroll/modules/mixins/scroll-link'>;
 }
 declare module 'react-scroll/modules/mixins/scroll-spy.js' {
   declare module.exports: $Exports<'react-scroll/modules/mixins/scroll-spy'>;

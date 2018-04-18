@@ -2,7 +2,6 @@
 import React from 'react';
 import R from 'ramda';
 import {translate} from 'react-i18next';
-import {inject, observer} from 'mobx-react';
 
 import {
     PageSection,
@@ -11,27 +10,36 @@ import {
     Text,
 } from '../../../components';
 
-import {
-    withLoading,
-} from '../../../hoc';
+const RoadmapMilestone = t => (name, index) => {
+    const goals = parseInt(t(`${ name }_goals`));
+    const done = t(`${ name }_done`) === "true";
+    return (
+        <Milestone key={ index }
+            done={ done }
+            title={ t(name) }
+            date={ name }>
+            { goals > 0 &&
+                <ul>
+                    {
+                        R.range(0, goals).map(goal =>
+                            <li key={ goal }>{ t(`${ name }_goal_${ goal }`) }</li>
+                        )
+                    }
+                </ul>
+            }
+        </Milestone>
+    );
+};
 
-const RoadmapMilestone = t => (milestone, i) =>
-    <Milestone key={ i }
-               done={ milestone.done }
-               title={ t(`milestone_${ i }`) }
-               date={ milestone.date }>
-		{ milestone.goal_count > 0 &&
-        <ul>{ R.range(0, milestone.goal_count).map(goal =>
-            <li key={ goal }>{ t(`milestone_${ i }_goal_${ goal }`) }</li>
-        ) }</ul>
-		}
-    </Milestone>;
-
-const LoadingRoadmap = withLoading(Roadmap);
-
-export const PlatformRoadmap = translate('the_roadmap')(inject('store')(observer(({t, id, store}) =>
-    <PageSection id={ id } title={ t("title") }>
+export const PlatformRoadmap = translate('the_roadmap')(({t, id}) =>
+    <PageSection id={ id } dark
+        title={ t("title") }>
         <Text center>{ t("description") }</Text>
-        <LoadingRoadmap loading={store.config.isStorageLoading()}>{ store.config.milestones.map(RoadmapMilestone(t)) }</LoadingRoadmap>
+        <Roadmap>
+            {
+                JSON.parse(t('milestones')).map(RoadmapMilestone(t))
+            }
+        </Roadmap>
     </PageSection>
-)));
+);
+PlatformRoadmap.displayName = 'PlatformRoadmap';

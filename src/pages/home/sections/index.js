@@ -1,6 +1,8 @@
 //@flow
 export * from './Advisors';
 export * from './Documents';
+export * from './Investors';
+export * from './OurOffice';
 export * from './Partners';
 export * from './PlatformBenefits';
 export * from './PlatformRoadmap';
@@ -15,3 +17,5 @@ export * from './Crowdsale';
 export * from './TheRoadshow';
 export * from './TechnologyStack';
 export * from './SubscribeToMailList';
+export * from './VideoFrame';
+export * from './WhyICO';

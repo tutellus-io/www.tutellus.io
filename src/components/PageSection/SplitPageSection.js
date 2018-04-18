@@ -1,5 +1,5 @@
 //@flow
-import React from 'react';
+import * as React from 'react';
 import styled from 'styled-components';
 
 import {SectionContent} from './Layout';
@@ -7,7 +7,17 @@ import {SectionImage, section_styles} from './PageSection';
 import {SectionTitle} from './Titles';
 import styles from '../../styles';
 
-export const SplitPageSection = styled(props =>
+/*::
+type Props = {|
+    className?: string,
+    left?: bool,
+    right?: bool,
+    image: string,
+    title: string,
+    children: React.Node,
+|}
+*/
+export const SplitPageSection = styled((props/*:Props*/) =>
     <section className={ props.className }>
         <SectionContent>
             { props.right &&

@@ -10,7 +10,7 @@ import {Responsive} from '../../../hoc';
 import styles from '../../../styles';
 
 export const HowItWorks = translate('how_it_works')(({t, id}) =>
-    <PageSection id={ id } dark title={ t('title') } >
+    <PageSection id={ id } darker title={ t('title') } >
         <Text center>{ t('description') }</Text>
         <Responsive queries={ {tablet: styles.media.tablet} }>{ device =>
             <SectionImage src={ device.tablet ? "/images/howitworks.svg" : "/images/howitworks.mobile.svg" }

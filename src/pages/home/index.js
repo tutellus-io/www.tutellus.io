@@ -22,6 +22,10 @@ import {
     TheRoadshow,
     SubscribeToMailList,
     Documents,
+    WhyICO,
+    VideoFrame,
+    OurOffice,
+    Investors,
 } from './sections';
 import {
     AmbassadorsJoinSection,
@@ -41,21 +45,25 @@ export const Home/*:ComponentType<Props>*/= class extends React.Component/*::<Pr
         return (
             <Landing>
                 <ICOIntro />
-                <ThePain />
+                <ThePlatform/>
+                <Partners />
+                <WhyICO/>
+                <PraiseQuotes />
+                <ThePain id="platform"/>
                 <TheSolution />
                 <PlatformBenefits />
                 <HowItWorks />
-                <Documents id="documents" />
-                <ThePlatform id="platform" />
-                <PraiseQuotes />
                 <TheTeam id="team" />
-                <TheRoadshow/>
+                <VideoFrame/>
+                <OurOffice/>
+                <Advisors />
+                <Investors/>
+                <TheRoadshow id="roadshow"/>
                 <AmbassadorsJoinSection link="/ambassadors" />
+                <TechnologyStack />
                 <PlatformRoadmap />
                 <Crowdsale id="crowdsale" />
-                <TechnologyStack />
-                <Advisors />
-                <Partners />
+                <Documents id="documents" />
                 <SubscribeToMailList />
             </Landing>
         );
