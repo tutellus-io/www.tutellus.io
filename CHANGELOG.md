@@ -1,3 +1,16 @@
+## 1.15.0 (2018-04-18)
+- fix(i18n) Update i18n and package-lock (df473a2)
+- fix(Praises): open in a new tab (6090289)
+- feat(CTAButton): proper button with its own styles (1b82149)
+- fix(TopHeader) responsive styles to properly distribute space in /ambassadors (8d74d20)
+- feat(restyling) new home sections as suggested by Cryptonomos (c89a5a3)
+- feat(icons): new icons for plus sign and map location (b5045d3)
+- fix(Benefits): simplify styles and sizing (aa1cf9f)
+- fix(seo): new meta tags content (1888bcc)
+- feat(styles): new colors and color utils (887906c)
+- feat(i18n): devtools and support for bundled locales (1aa4354)
+- chore: update development tools to newer versions (cc00259)
+
 ### 1.14.4 (2018-03-15)
 - fix(team) Fix grid for members_number > 5 (256ef7d)
 
