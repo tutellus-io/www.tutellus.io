@@ -25,7 +25,6 @@ import {
     Dashboard,
     Join,
     NoMatch,
-    Loading,
 } from './pages';
 
 import {
@@ -93,7 +92,6 @@ const WithHeaderLayout = header_props =>
 
 /*::
 type MasterState = {|
-    loading: bool,
     provider?: void,
 |}
 */
@@ -104,15 +102,12 @@ class Master extends React.Component/*::<void, MasterState>*/ {
 
         this.showAlert = this.showAlert.bind(this);
         this.setProvider = this.setProvider.bind(this);
-        this.state = {loading: true};
+        this.state = {provider: undefined};
     }
 
     /*:: setProvider: string => void */
     setProvider(provider) {
-        this.setState({
-            loading: false,
-            provider,
-        });
+        this.setState({provider});
     }
 
     componentWillMount() {
@@ -141,10 +136,6 @@ class Master extends React.Component/*::<void, MasterState>*/ {
     }
 
     render() {
-        const {
-            loading,
-        } = this.state;
-
         const alertOptions = {
             offset: ALERT_OFFSET,
             position: 'top right',
@@ -157,9 +148,6 @@ class Master extends React.Component/*::<void, MasterState>*/ {
             showAlert: this.showAlert,
         }, this.props);
 
-        if (loading) {
-            return <Loading/>;
-        }
         return (
             <div>
                 <AlertContainer {...alertOptions} ref={ref => {

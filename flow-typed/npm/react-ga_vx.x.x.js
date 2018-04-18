@@ -1,4 +1,4 @@
-// flow-typed signature: fb1d809abdd6e5d079a10a1c3e502a0a
+// flow-typed signature: f739f6ff5f48731dc2e69497c364dd07
 // flow-typed version: <<STUB>>/react-ga_v^2.3.5/flow_v0.56.0
 
 /**
@@ -22,6 +22,26 @@ declare module 'react-ga' {
  * require those files directly. Feel free to delete any files that aren't
  * needed.
  */
+declare module 'react-ga/demo/app/Events' {
+  declare module.exports: any;
+}
+
+declare module 'react-ga/demo/app/index' {
+  declare module.exports: any;
+}
+
+declare module 'react-ga/demo/app/Router' {
+  declare module.exports: any;
+}
+
+declare module 'react-ga/demo/app/withTracker' {
+  declare module.exports: any;
+}
+
+declare module 'react-ga/demo/index' {
+  declare module.exports: any;
+}
+
 declare module 'react-ga/dist/react-ga' {
   declare module.exports: any;
 }
@@ -62,6 +82,10 @@ declare module 'react-ga/src/utils/removeLeadingSlash' {
   declare module.exports: any;
 }
 
+declare module 'react-ga/src/utils/testModeAPI' {
+  declare module.exports: any;
+}
+
 declare module 'react-ga/src/utils/toTitleCase' {
   declare module.exports: any;
 }
@@ -75,6 +99,21 @@ declare module 'react-ga/version-bower' {
 }
 
 // Filename aliases
+declare module 'react-ga/demo/app/Events.jsx' {
+  declare module.exports: $Exports<'react-ga/demo/app/Events'>;
+}
+declare module 'react-ga/demo/app/index.jsx' {
+  declare module.exports: $Exports<'react-ga/demo/app/index'>;
+}
+declare module 'react-ga/demo/app/Router.jsx' {
+  declare module.exports: $Exports<'react-ga/demo/app/Router'>;
+}
+declare module 'react-ga/demo/app/withTracker.jsx' {
+  declare module.exports: $Exports<'react-ga/demo/app/withTracker'>;
+}
+declare module 'react-ga/demo/index.jsx' {
+  declare module.exports: $Exports<'react-ga/demo/index'>;
+}
 declare module 'react-ga/dist/react-ga.js' {
   declare module.exports: $Exports<'react-ga/dist/react-ga'>;
 }
@@ -104,6 +143,9 @@ declare module 'react-ga/src/utils/mightBeEmail.js' {
 }
 declare module 'react-ga/src/utils/removeLeadingSlash.js' {
   declare module.exports: $Exports<'react-ga/src/utils/removeLeadingSlash'>;
+}
+declare module 'react-ga/src/utils/testModeAPI.js' {
+  declare module.exports: $Exports<'react-ga/src/utils/testModeAPI'>;
 }
 declare module 'react-ga/src/utils/toTitleCase.js' {
   declare module.exports: $Exports<'react-ga/src/utils/toTitleCase'>;

@@ -1,11 +1,11 @@
 //@flow
 import styled from 'styled-components';
+import {LazyImage} from './LazyImage';
 
 export const Layers = styled.div`
     max-width: 90%;
     margin: 0 auto;
     font-size: 1.25em;
-    margin-bottom: 2em;
 `;
 export const Layer = styled.div`
     background: white;
@@ -13,7 +13,8 @@ export const Layer = styled.div`
     text-align: center;
     margin-bottom: 0.5em;
 `;
-export const TechIcon = styled.img`
+
+export const TechIcon = styled(LazyImage)`
     display: inline-block;
     margin: 0.5em;
     height: 1.5em;

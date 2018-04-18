@@ -13,7 +13,12 @@ export const NavLink = styled(props => {
     }
     return <RouteNavLink { ...omit(props, ['href']) } to={ props.href } />;
 })`
-    line-height: 1.5em;
+    line-height: 1.4em;
+    font-size: 0.9em;
+    &:hover {
+        color: ${ styles.colors.lightblue };
+        transition: color .2s linear;
+    }
 `;
 
 export const NavCategoryTitle = styled.h3`
@@ -24,29 +29,43 @@ export const NavCategoryTitle = styled.h3`
 /*::
 type NavCategoryProps = {|
     className?: string,
-    title: string,
     children?: React.Node,
 |}
 */
 export const NavCategory/*:ComponentType<NavCategoryProps>*/ = styled((props/*:NavCategoryProps*/) =>
-    <div className={ props.className }>
-        <NavCategoryTitle>{ props.title }</NavCategoryTitle>
-        <ul>{
-            React.Children.map(props.children, navlink =>
-                <li>{ navlink }</li>
-            )
-        }</ul>
-    </div>
+    <ul className={ props.className }>{
+        React.Children.map(props.children, navlink =>
+            <li>{ navlink }</li>
+        )
+    }</ul>
 )`
+    justify-self: start;
+    @media ${ styles.media.tablet } {
+        justify-self: center;
+    }
+
+    & > * {
+        font-size: 0.95em;
+
+        @media ${ styles.media.tablet } {
+            font-size: 1em;
+            display: inline-block;
+            padding: 0 0.5em;
+            border-left: 1px solid black;
+
+            &:first-of-type {
+                border-left: none;
+            }
+        }
+
+    }
 `;
+
 export const SocialIcon = styled.li`
     display: inline;
     margin: 0 .25em;
-    &:hover {
-        color: ${ styles.colors.midgrey };
-        transition: color .2s linear;
-    }
 `;
+
 /*::
 type SocialIconsProps = {|
     className?: string,
@@ -66,24 +85,36 @@ export const SocialIcons = styled((props/*:SocialIconsProps*/) =>
             )
         }
     </ul>
-)``;
+)`
+    font-size: 1.2em;
+
+    footer & {
+        display: grid;
+        grid-auto-flow: column;
+        grid-gap: 0.7em;
+        justify-items: center;
+        align-items: start;
+        & ${ SocialIcon } {
+            margin: 0;
+        }
+    }
+`;
 
 /*::
 type FooterBrandingProps = {|
     className?: string,
     logo: string,
     about: string,
-    socialLinks: void,
 |}
 */
 export const FooterBranding/*:ComponentType<FooterBrandingProps>*/ = styled((props/*:FooterBrandingProps*/) =>
     <div className={ props.className }>
         <img src={ props.logo } alt="Tutellus.io"/>
         <small>{ props.about }</small>
-        <SocialIcons networks={ props.socialLinks } />
     </div>
 )`
     text-align: center;
+
     & img {
         display: block;
         margin: 1em auto;
@@ -92,35 +123,8 @@ export const FooterBranding/*:ComponentType<FooterBrandingProps>*/ = styled((pro
     & small {
         display: block;
         font-size: .8em;
-        max-width: 15em;
+        line-height: 1.3em;
         font-style: italic;
         margin: 0 auto;
-        margin-bottom: 1em;
-    }
-    & ${ SocialIcons } {
-        font-size: 120%;
-    }
-    @media ${ styles.media.laptop } {
-        text-align: left;
-        & img {
-            margin-left: 0;
-        }
-        & small {
-            margin-left: 0;
-        }
-    }
-`;
-export const FooterNav = styled.nav`
-    @media ${ styles.media.tablet } {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
-`;
-export const PageFooter = styled.footer`
-    padding: 1em;
-    @media ${ styles.media.laptop } {
-        display: grid;
-        grid: "logo nav" / 1fr 1fr;
-        padding: 2em 2em 4em;
     }
 `;

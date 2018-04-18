@@ -19,7 +19,8 @@ export const Landing = inject('config')(observer(styled(({className, config, chi
     <div className={ className }>
         <MainHeader socialLinks={ pickMostRelevant(config.social_links) } />
         <NotifyBar />
-        <main>{ children }</main> <MainFooter socialLinks={ config.social_links } />
+        <main>{ children }</main>
+        <MainFooter socialLinks={ config.social_links } />
     </div>
 )`
     & ${ PageSection }:first-child {

@@ -5,7 +5,7 @@ import {PageContent, SectionTitle, ColumnCenter, Text, LinkButton} from '../comp
 
 export const NoMatchElement = ({className, t}/*:{className: string, t: (string => string)}*/) =>
     <PageContent className= {className}>
-        <SectionTitle simple>{t('signup:404_title')}</SectionTitle>
+        <SectionTitle>{ t('signup:404_title') }</SectionTitle>
         <ColumnCenter>
             <Text center>{t('signup:404_text')}</Text>
             <LinkButton to="/" full>{t('signup:404_link')}</LinkButton>

@@ -19,7 +19,7 @@ import {
 } from '../components';
 
 export const AmbassadorsJoinSection = translate('ambassadors')(({t, link}) =>
-    <PageSection light title={ t("join_title") }>
+    <PageSection dark title={ t("join_title") }>
         <Text center>{ t("join_description") }</Text>
         <CrowdsaleCTA href={ link }>{ t("cta_title") }</CrowdsaleCTA>
     </PageSection>

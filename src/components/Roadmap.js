@@ -12,7 +12,25 @@ const milestone_marker = props => `
     padding: 1em;
     border-radius: 50%;
     border: solid 2px ${ styles.colors.lightblue };
-    background: ${ props.done ? styles.colors.lightblue : 'white' };
+    background: ${ props.done ? styles.colors.lightblue : styles.colors.dark };
+`;
+
+const left_side = `
+    top: 6em;
+    grid-template-columns: 20% 80%;
+    text-align: left;
+    & > * { grid-column-start: 2; padding-left: 2em;}
+    &:after {
+        grid-column-start: 1;
+        grid-row-start: 1;
+        align-self: start;
+        justify-self: start;
+        margin-left: -1.125em;
+    }
+    &:before {
+        grid-column-start: 1;
+        border-right: 0;
+    }
 `;
 /*::
 type MilestoneProps = {|
@@ -42,18 +60,18 @@ export const Milestone/*:ComponentType<MilestoneProps>*/= styled((props/*:Milest
         }
         & > time {
             font-size: 1.5em;
-            color: black;
+            color: ${ styles.colors.lightblue };
             font-weight: bold;
         }
         & > span {
-            color: black;
+            color: white;
             margin: 0.5em 0;
         }
         & > div {
             font-size: 0.8em;
             line-height: 1.5em;
             margin-bottom: 2em;
-            color: ${ styles.colors.softblack };
+            color: ${ styles.colors.midgrey };
         }
     }
     &:before {
@@ -63,47 +81,45 @@ export const Milestone/*:ComponentType<MilestoneProps>*/= styled((props/*:Milest
         grid-row-end: span 3;
         border: solid 2px ${ styles.colors.lightblue };
         border-bottom: 0;
-        min-height: 12em;
+        min-height: 9em;
+        @media ${ styles.media.tablet } {
+            min-height: 12em;
+        }
     }
     &:after {
         ${ milestone_marker }
         margin-top: -1.125em;
         z-index: 2;
     }
-    &:nth-child(even) {
-        position: relative;
-        top: 6em;
-        grid-template-columns: 20% 80%;
-        text-align: left;
-        & > * { grid-column-start: 2; padding-left: 2em;}
-        &:after {
-            grid-column-start: 1;
-            grid-row-start: 1;
-            align-self: start;
-            justify-self: start;
-            margin-left: -1.125em;
-        }
-        &:before {
-            grid-column-start: 1;
-            border-right: 0;
-        }
+    &:nth-child(n) {
+        ${ left_side }
+        margin-left: 1.1em;
     }
-    &:nth-child(odd) {
-        text-align: right;
-        grid-template-columns: 80% 20%;
-        & > * { grid-column-start: 1; padding-right: 2em;}
-        &:after {
-            grid-column-start: 2;
-            grid-row-start: 1;
-            align-self: start;
-            justify-self: end;
-            margin-right: -1.125em;
+    @media ${ styles.media.tablet } {
+        &:nth-child(even) {
+            position: relative;
+            ${ left_side }
+            margin-left: 0;
         }
-        &:before {
-            grid-column-start: 2;
-            height: 100%;
-            width: 100%;
-            border-left: 0;
+        &:nth-child(odd) {
+            margin-left: 0;
+            text-align: right;
+            grid-template-columns: 80% 20%;
+            & > * { grid-column-start: 1; padding-right: 2em;}
+            &:after {
+                grid-column-start: 2;
+                grid-row-start: 1;
+                align-self: start;
+                justify-self: end;
+                margin-right: -1.125em;
+            }
+            &:before {
+                grid-column-start: 2;
+                height: 100%;
+                width: 100%;
+                border-right: solid 2px ${ styles.colors.lightblue };
+                border-left: 0;
+            }
         }
     }
     &:last-child:before {
@@ -111,11 +127,16 @@ export const Milestone/*:ComponentType<MilestoneProps>*/= styled((props/*:Milest
         min-height: 0;
     }
 `;
+Milestone.displayName = 'Milestone';
+
 export const Roadmap = styled.ol`
     display: grid;
-    grid-template-columns: 1fr 1fr;
     padding-top: 2em;
-    margin-bottom: 2em;
+    padding-bottom: 2em;
     overflow: hidden;
+    @media ${ styles.media.tablet } {
+        grid-template-columns: 1fr 1fr;
+    }
 `;
+Roadmap.displayName = 'Roadmap';
 

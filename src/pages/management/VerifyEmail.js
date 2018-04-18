@@ -18,7 +18,7 @@ type VerifyProps = {|
 
 export const EmailVerified = ({className, t}/*: VerifyProps */) =>
     <PageContent className={className}>
-        <SectionTitle simple>{t('signup:verified_title')}</SectionTitle>
+        <SectionTitle>{t('signup:verified_title')}</SectionTitle>
         <ColumnCenter>
             <Text center>{t('signup:verified_text')}</Text>
         </ColumnCenter>
@@ -27,7 +27,7 @@ export const EmailVerified = ({className, t}/*: VerifyProps */) =>
 
 export const EmailNotVerified = ({className, t}/*: VerifyProps */) =>
     <PageContent className={className}>
-        <SectionTitle simple>{t('signup:not_verified_title')}</SectionTitle>
+        <SectionTitle>{t('signup:not_verified_title')}</SectionTitle>
         <ColumnCenter>
             <Text center>{t('signup:not_verified_text')}</Text>
             <LinkButton to="/signup" full>{t('signup:not_verified_link')}</LinkButton>

@@ -1,7 +1,5 @@
-//@flow
 import * as React from 'react';
 import _ from 'lodash';
-import numeral from 'numeral';
 import styled from 'styled-components';
 /*::
 type GalleryImage = {|
@@ -36,7 +34,7 @@ const GalleryElement = (props/*:GalleryProps*/) => {
                     <figure key={`figure-${ index }`}>
                         <img src={image.url}
                             alt={image.name}
-                            title={`${ image.original_name } (${ numeral(image.size).format('0.0b') })`}/>
+                            title={`${ image.original_name }`} />
                     </figure>
                 )
             }
