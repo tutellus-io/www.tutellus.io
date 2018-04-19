@@ -1,3 +1,7 @@
+### 1.15.1 (2018-04-19)
+- feat(i18n) Selective loading by lang and namespace (cf46724)
+- fix(i18n) New langs ja, ru, zh, ko (cd7a397)
+
 ## 1.15.0 (2018-04-18)
 - fix(i18n) Update i18n and package-lock (df473a2)
 - fix(Praises): open in a new tab (6090289)
