@@ -5,12 +5,13 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import Cache from 'i18next-localstorage-cache';
 import {reactI18nextModule} from 'react-i18next';
 import * as hash from 'json-hash';
+import {get} from 'lodash';
 
 import firebase from './models/firebase';
-import {es, en} from './i18n.json';
+import bundled_i18n from './i18n.json';
 
-const loadLng = async lng => {
-    const snapshot = await firebase.database().ref(`/locales/${ lng }`).once('value');
+const loadLng = async() => {
+    const snapshot = await firebase.database().ref('/locales/').once('value');
     return snapshot.val();
 };
 
@@ -23,10 +24,7 @@ const i18nextConfig = () => {
         debug: false,
         fallbackLng: 'en',
         defaultNS: 'translation',
-        resources: {
-            en,
-            es,
-        },
+        resources: bundled_i18n,
         cache: {
             enabled: true,
             //10 min tiempo de expiración
@@ -43,23 +41,28 @@ const i18nextConfig = () => {
     return i18next;
 };
 
+const sameObject = (obj_1, obj_2) => {
+    const hash_1 = hash.digest(obj_1);
+    const hash_2 = hash.digest(obj_2);
+    return hash_1 === hash_2;
+};
+
 const i18n = i18nextConfig();
 
-Promise.all([
-    loadLng('es'),
-    loadLng('en'),
-])
-.then(([remote_es, remote_en]) => {
-    const local_hash = hash.digest({es, en});
-    const remote_hash = hash.digest({es: remote_es, en: remote_en});
-    if (remote_hash === local_hash) {
-        return;
+const loadRemotei18n = (remote_i18n, lang) => {
+    if (!sameObject(bundled_i18n[lang], remote_i18n[lang])) {
+        Object.keys(remote_i18n[lang]).forEach(key => {
+            if (!sameObject(get(bundled_i18n[lang], key), remote_i18n[lang][key])) {
+                i18n.addResources(lang, key, remote_i18n[lang][key]);
+            }
+        });
     }
+};
 
-    Object.keys(remote_en).forEach(key => {
-        i18n.addResources('es', key, remote_es[key]);
-        i18n.addResources('en', key, remote_en[key]);
-    });
+loadLng()
+.then(remote_i18n => {
+    Object.keys(remote_i18n)
+    .forEach(lang => loadRemotei18n(remote_i18n, lang));
     i18n.emit('loaded_from', 'remote');
 });
 
