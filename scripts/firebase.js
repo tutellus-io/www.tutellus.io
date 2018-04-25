@@ -5,7 +5,7 @@ import path from 'path';
 //$FlowFixMe composeP existe
 import {invoker, composeP} from 'ramda';
 
-import firebase from '../src/models/firebase';
+import firebase from './firebase_config';
 
 const locales_file = path.join(__dirname, '..', 'src', 'i18n.json');
 
