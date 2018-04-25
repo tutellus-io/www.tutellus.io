@@ -2,7 +2,6 @@
 /*eslint no-magic-numbers: off*/
 import React from 'react';
 import PropTypes from 'prop-types';
-import {inject, observer} from 'mobx-react';
 import {translate} from 'react-i18next';
 import styled from 'styled-components';
 import {
@@ -47,12 +46,10 @@ const TopPartners = styled(({className}) => {
 `;
 TopPartners.displayName = 'TopPartners';
 
-const IntroComponent = inject('store')(observer(({t, store}) => {
+export const ICOIntro = translate('intro')(({t, store = {}}) => {
     const {
-        getServerTime,
-        config: {
-            timer_limit,
-        },
+        getServerTime = () => Promise.resolve(Date.now()),
+        timer_limit = 1546297200000,
     } = store;
     return (
         <PageBanner>
@@ -66,11 +63,8 @@ const IntroComponent = inject('store')(observer(({t, store}) => {
             <TopPartners/>
         </PageBanner>
     );
-}));
-
-IntroComponent.propTypes = {
-    t: PropTypes.func,
-    id: PropTypes.string,
-};
-export const ICOIntro = translate('intro')(IntroComponent);
+});
 ICOIntro.displayName = 'ICOIntro';
+ICOIntro.propTypes = {
+    t: PropTypes.func,
+};

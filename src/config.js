@@ -18,3 +18,5 @@ export const social_links = {
     reddit: 'https://www.reddit.com/r/Tutellus/',
 };
 export const S3 = 'https://lib.tutellus.com/ico';
+
+export const locales = ["EN", "ES", "JA", "RU", "ZH", "KO"];

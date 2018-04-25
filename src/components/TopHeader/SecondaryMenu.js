@@ -3,13 +3,10 @@ import * as React from 'react';
 /*:: import type {ComponentType} from 'react' */
 import styled from 'styled-components';
 import {observer, inject} from 'mobx-react';
-import {get} from 'lodash';
-import {withRouter} from 'react-router-dom';
 
 import {SocialIcons} from '../Footer';
 import {
-    LinkButton,
-    Button,
+    AButton,
 } from '../';
 import styles from '../../styles';
 
@@ -40,7 +37,7 @@ const ListLocales = styled(({className, locales, selected, onLanguage}) => <ul c
                     <li className={ selected === locale ? 'active' : '' }
                         key={index}
                     >
-                        <a href="#" onClick={ () => onLanguage(locale.toLowerCase()) }>
+                        <a onClick={ () => onLanguage(locale.toLowerCase()) }>
                             { locale }
                         </a>
                     </li>
@@ -82,7 +79,7 @@ type LangSelectState = {|
     open: bool,
 |}
 */
-const LangSelect = styled(inject('store')(observer(class extends React.Component/*::<LangSelectProps, LangSelectState>*/ {
+const LangSelect = styled(inject('config')(observer(class extends React.Component/*::<LangSelectProps, LangSelectState>*/ {
     constructor() {
         super();
         this.state = {
@@ -101,7 +98,9 @@ const LangSelect = styled(inject('store')(observer(class extends React.Component
             className,
             onLanguage,
             locale,
-            store,
+            config: {
+                locales,
+            },
         } = this.props;
 
         const selectLanguage = lang => {
@@ -121,7 +120,7 @@ const LangSelect = styled(inject('store')(observer(class extends React.Component
                     { selected_locale }
                 </SelectedLocale>
                 <ListLocales className={ `${ this.state.open ? 'open' : '' }` }
-                             locales={ store.config.locales}
+                             locales={ locales}
                              onLanguage={ selectLanguage }
                              selected={ selected_locale } />
             </div>
@@ -131,14 +130,6 @@ const LangSelect = styled(inject('store')(observer(class extends React.Component
     position: relative;
 `;
 
-const isHome = url => url === '/';
-const LoginButton = withRouter(inject('store')(observer(({history, store: {logged, logout}}) => (
-    isHome(get(history, 'location.pathname'))
-        ? <LinkButton to="/dashboard/home">
-              { logged ? 'Dashboard' : 'Whitelist' }
-          </LinkButton>
-        : logged && <Button onClick={ logout }>Logout</Button>
-))));
 /*::
 type SecondaryMenuProps = {|
     className?: string,
@@ -151,7 +142,7 @@ export const SecondaryMenu/*:ComponentType<SecondaryMenuProps>*/ = styled(props 
     <nav className={ props.className }>
         <LangSelect onLanguage={ props.onLanguage } locale={ props.locale } />
         { props.socialLinks && <SocialIcons networks={ props.socialLinks } /> }
-        <LoginButton />
+        <AButton href="https://www.google.es">Whitelist</AButton>
     </nav>
 )`
     display: grid;
@@ -160,12 +151,12 @@ export const SecondaryMenu/*:ComponentType<SecondaryMenuProps>*/ = styled(props 
     align-items: center;
     justify-items: center;
     justify-self: end;
-    
+
     & > * {
         margin-top: 0.8em;
     }
 
-    & > ${ LinkButton }, & > ${ Button }  {
+    & > ${ AButton }{
         padding: 1em 1.25em;
         font-weight: 400;
         background: ${ styles.colors.lightblue };
@@ -194,7 +185,7 @@ export const SecondaryMenu/*:ComponentType<SecondaryMenuProps>*/ = styled(props 
         & ${ SocialIcons } {
             display: none;
         }
-        & > ${ LinkButton }, & > ${ Button }  {
+        & > ${ AButton } {
             font-size: .7em;
         }
     }

@@ -1,0 +1,63 @@
+@font-face {
+    font-family: 'Lato';
+    src: url("/fonts/lato/lato-bold.woff") format("woff"),
+         url("/fonts/lato/lato-bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url("/fonts/lato/lato-bolditalic.woff") format("woff"),
+         url("/fonts/lato/lato-bolditalic.ttf") format("truetype");
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url("/fonts/lato/lato-italic.woff") format("woff"),
+         url("/fonts/lato/lato-italic.ttf") format("truetype");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url("/fonts/lato/lato-regular.woff") format("woff"),
+         url("/fonts/lato/lato-regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url("/fonts/lato/lato-light.woff") format("woff"),
+         url("/fonts/lato/lato-light.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Material Icons';
+    src: url(/fonts/material-icon/MaterialIcons-Regular.woff2) format('woff2'),
+         url(/fonts/material-icon/MaterialIcons-Regular.woff) format('woff'),
+         url(/fonts/material-icon/MaterialIcons-Regular.ttf) format('truetype');
+    font-display: swap;
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'socialIcons';
+    src: url('/fonts/socialIcons.woff') format('woff'),
+         url('/fonts/socialIcons.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
