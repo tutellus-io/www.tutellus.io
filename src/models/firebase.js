@@ -1,6 +1,7 @@
 //@flow
 import firebase from 'firebase';
 
+
 export const config = (({
     apiKey: process.env.REACT_APP_FIREBASE_APIKEY,
     authDomain: process.env.REACT_APP_FIREBASE_AUTHDOMAIN,

@@ -26,10 +26,8 @@ import {
     VideoFrame,
     OurOffice,
     Investors,
-} from './sections';
-import {
     AmbassadorsJoinSection,
-} from '../ambassadors';
+} from './sections';
 import {Landing} from '../../components';
 
 /*::

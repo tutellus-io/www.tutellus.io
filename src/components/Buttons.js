@@ -72,7 +72,7 @@ export const PlayButton/*:ComponentType<Props>*/= styled(class extends React.Com
         border: none;
         margin: 0 auto;
         padding: 0;
-        background: url(https://www.tutellus.com/dist/images/play-button-overlay.svg);
+        background: url(/images/play-button-overlay.svg);
         cursor: pointer;
         transition: all 0.2s linear;
         animation: 3s ${ animation } 0s infinite;
