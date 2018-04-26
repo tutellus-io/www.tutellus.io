@@ -2,7 +2,7 @@
 import * as React from 'react';
 /*:: import type {ComponentType} from 'react' */
 import styled from 'styled-components';
-import {omit} from 'lodash';
+import R from 'ramda';
 import {NavLink as RouteNavLink} from 'react-router-dom';
 
 import styles from '../styles';
@@ -11,7 +11,7 @@ export const NavLink = styled(props => {
     if (props.href.startsWith("http")) {
         return <a { ...props } />;
     }
-    return <RouteNavLink { ...omit(props, ['href']) } to={ props.href } />;
+    return <RouteNavLink { ...R.omit(['href'], props) } to={ props.href } />;
 })`
     line-height: 1.4em;
     font-size: 0.9em;

@@ -19,6 +19,7 @@ export const TheRoadshow = translate('roadshow')(({t, id}) =>
     <PageSection darker id={ id } title={ t('title') }>
         <Text center>{ t('description') }</Text>
         <Roadshow events={ JSON.parse(t('events')).map(event => ({
+            id: event,
             address: t(`${ event }_address`),
             date: t(`${ event }_date`),
             end_date: t(`${ event }_end_date`),
