@@ -142,11 +142,10 @@ export const SecondaryMenu/*:ComponentType<SecondaryMenuProps>*/ = styled(props 
     <nav className={ props.className }>
         <LangSelect onLanguage={ props.onLanguage } locale={ props.locale } />
         { props.socialLinks && <SocialIcons networks={ props.socialLinks } /> }
-        <AButton href="https://www.google.es">Whitelist</AButton>
     </nav>
 )`
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-column-gap: 0.5em;
     align-items: center;
     justify-items: center;
@@ -181,7 +180,6 @@ export const SecondaryMenu/*:ComponentType<SecondaryMenuProps>*/ = styled(props 
         & > ${ LangSelect } {
             justify-self: end;
         }
-        grid-template-columns: 1fr 1fr;
         & ${ SocialIcons } {
             display: none;
         }
@@ -190,7 +188,6 @@ export const SecondaryMenu/*:ComponentType<SecondaryMenuProps>*/ = styled(props 
         }
     }
     @media ${ styles.media.laptop } {
-        grid-template-columns: 1fr 2fr 1.5fr;
         & ${ SocialIcons } {
             display: inline-block;
         }
