@@ -29,7 +29,7 @@ const RoadShowEvents = styled(props =>
             <li className='icon-map'
                 key={ key }
                 onClick={ () => props.onSelect(event) }
-                data-selected={ event === props.selected }>
+                data-selected={ event.id === props.selected.id }>
                 { event.title }
             </li>
         )
@@ -62,6 +62,7 @@ const RoadShowEvents = styled(props =>
         }
     }
 `;
+RoadShowEvents.displayName = 'RoadShowEvents';
 
 const EventDetails = styled(props =>
     <div className={ props.className }>
@@ -111,6 +112,8 @@ type State = {|
 |}
 */
 export const Roadshow = styled(class extends React.Component/*::<Props, State>*/ {
+    static displayName = 'Roadshow';
+
     constructor(props) {
         super(props);
         this.state = {event: selectNextScheduled(Date.now(), this.props.events)};
