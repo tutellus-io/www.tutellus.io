@@ -1,7 +1,7 @@
 //@flow
 import * as React from 'react';
 /*:: import type {ComponentType} from 'react'*/
-import {has} from 'lodash';
+import R from 'ramda';
 import styled from 'styled-components';
 import {Label, Field} from './styled';
 
@@ -70,7 +70,8 @@ export const GroupField = (props/*:GroupFieldProps*/) => {
         children,
         className = '',
     } = props;
-    const has_error = has(form, `errors.${ field.name }`) && has(form, `touched.${ field.name }`);
+    const has_error = R.has(`errors.${ field.name }`)(form) &&
+        R.has(`touched.${ field.name }`)(form);
     return (
         <Field className={ `${ className } ${ has_error ? 'error' : '' }` } >
             <Label className="mbxs" {...label} >{ label.value }</Label>
@@ -105,7 +106,8 @@ export const OneCheckbox = (props/*:OneCheckboxProps*/) => {
         className = '',
     } = props;
     field.value = form.values[field.name];
-    const has_error = has(form, `errors.${ field.name }`) && has(form, `touched.${ field.name }`);
+    const has_error = R.has(`errors.${ field.name }`)(form) &&
+        R.has(`touched.${ field.name }`)(form);
     return (
         <Field no_margin className={ `${ className } ${ has_error ? 'error' : '' }` } >
             <Checkbox { ...props }/>

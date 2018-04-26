@@ -1,3 +1,13 @@
+# 2.0.0 (2018-04-26)
+Backend with firebase removed in several steps:
+- fix(roadshow) select next event city name (d7c26ff)
+- fix(header) delete whitelist button (0569fd4)
+- fix(ICOIntro) getting server time from a lambda function (67836a8)
+- feat(size improvement) replacing lodash (105Kb) with already imported ramda (95edc6c)
+- feat(size improvement) replacing moment (50Kb) with dayjs (2Kb) (aabf5c8)
+- fix(cleaning) deleting pages and dependencies unused with cryptonomos (d922663)
+- fix(pull scripts): ataching firebase config on same dir (dc3ecad)
+
 ### 1.15.1 (2018-04-19)
 - feat(i18n) Selective loading by lang and namespace (cf46724)
 - fix(i18n) New langs ja, ru, zh, ko (cd7a397)

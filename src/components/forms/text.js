@@ -1,10 +1,10 @@
 //@flow
 import React from 'react';
-import {negate, isEmpty, has, omit} from 'lodash';
+import R from 'ramda';
 import styled from 'styled-components';
 import {Input, Label, Field} from './styled';
 
-const nonEmpty = negate(isEmpty);
+const nonEmpty = R.complement(R.isEmpty);
 
 /*::
 type TextFieldProps = {|
@@ -27,8 +27,9 @@ export const TextField = styled((props/*:TextFieldProps*/) => {
         className = '',
         label = {},
     } = props;
-    const rest = omit(props, ['field', 'form', 'className']);
-    const has_error = has(form, `errors.${ field.name }`) && has(form, `touched.${ field.name }`);
+    const rest = R.omit(['field', 'form', 'className'], props);
+    const has_error = R.has(`errors.${ field.name }`)(form) &&
+        R.has(`touched.${ field.name }`)(form);
     return (
         <Field className={ `${ className } ${ has_error ? 'error' : '' }` }>
             { nonEmpty(label) &&
@@ -86,7 +87,8 @@ export const ErrorField = (props/*:ErroFieldProps*/) => {
         form,
         className = '',
     } = props;
-    const has_error = has(form, `errors.${ field.name }`) && has(form, `touched.${ field.name }`);
+    const has_error = R.has(`errors.${ field.name }`)(form) &&
+        R.has(`touched.${ field.name }`)(form);
     return (
         <Field className={ `${ className } ${ has_error ? 'error' : '' }` }>
             {

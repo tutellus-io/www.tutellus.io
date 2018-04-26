@@ -6,7 +6,6 @@ import styled from 'styled-components';
 
 import {MainHeader} from './MainHeader';
 import {MainFooter} from './MainFooter';
-import {NotifyBar} from './NotifyBar';
 import {PageSection, SectionTitle} from './PageSection';
 import {TOP_HEADER_HEIGHT} from './TopHeader';
 import styles from '../styles';
@@ -18,7 +17,6 @@ const pickMostRelevant = social_links =>
 export const Landing = inject('config')(observer(styled(({className, config, children}) =>
     <div className={ className }>
         <MainHeader socialLinks={ pickMostRelevant(config.social_links) } />
-        <NotifyBar />
         <main>{ children }</main>
         <MainFooter socialLinks={ config.social_links } />
     </div>

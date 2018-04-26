@@ -71,16 +71,34 @@ export const Timer = styled(class extends React.Component/*::<Props, State>*/ {
 
     componentWillMount() {
         const {
-            getServerTime,
+            server_time,
         } = this.props;
-        getServerTime()
-        .then(server_time =>{
-            this.setState({
-                server_time,
-            }, () =>{
-                this.interval = setInterval(this.updateTimer, 1000);
-            });
+
+        this.updateServerTime(server_time);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        const {
+            server_time,
+        } = nextProps;
+
+        this.updateServerTime(server_time);
+    }
+
+    updateServerTime = server_time => {
+        this.destroyInterval();
+        this.setState({
+            server_time,
+        }, () =>{
+            this.interval = setInterval(this.updateTimer, 1000);
         });
+    }
+
+    destroyInterval = () => {
+        if (this.interval) {
+            clearInterval(this.interval);
+            this.interval = undefined;
+        }
     }
 
     updateTimer = () => {
@@ -114,7 +132,7 @@ export const Timer = styled(class extends React.Component/*::<Props, State>*/ {
                 server_time: new_server_time,
             });
         } else {
-            clearInterval(this.interval);
+            this.destroyInterval();
         }
     }
     render() {

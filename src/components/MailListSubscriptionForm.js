@@ -5,7 +5,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {translate} from 'react-i18next';
 import styled from 'styled-components';
-import Yup from '../yup';
+import Yup from 'yup';
 import {Form, Field, Formik} from 'formik';
 import styles from '../styles';
 import {

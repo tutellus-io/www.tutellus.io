@@ -1,8 +1,9 @@
 //@flow
+/* global fetch: false */
 /*eslint no-magic-numbers: off*/
 import React from 'react';
 import PropTypes from 'prop-types';
-import {inject, observer} from 'mobx-react';
+import {observer, inject} from 'mobx-react';
 import {translate} from 'react-i18next';
 import styled from 'styled-components';
 import {
@@ -47,30 +48,61 @@ const TopPartners = styled(({className}) => {
 `;
 TopPartners.displayName = 'TopPartners';
 
-const IntroComponent = inject('store')(observer(({t, store}) => {
-    const {
-        getServerTime,
-        config: {
-            timer_limit,
-        },
-    } = store;
-    return (
-        <PageBanner>
-            <PageTitle margin={false}
-                dangerouslySetInnerHTML={ {__html: t("title")} } />
-            <PlayButton video={ t('video_url') } />
-            <Timer title={ t('timer_title') }
-                limit={ timer_limit }
-                getServerTime={ getServerTime }
-            />
-            <TopPartners/>
-        </PageBanner>
-    );
-}));
+export const ICOIntro = translate('intro')(inject('config')(observer(class extends React.Component {
+    constructor() {
+        super();
+        this.state = {};
+    }
 
-IntroComponent.propTypes = {
-    t: PropTypes.func,
-    id: PropTypes.string,
-};
-export const ICOIntro = translate('intro')(IntroComponent);
+    getServerTime = async() => {
+        const {
+            config: {
+                servertime_url: url,
+            },
+         } = this.props;
+
+        return await fetch(url)
+        .then(resp => resp.json())
+        .then(dates => dates.ms);
+    };
+
+    componentWillMount() {
+        const {
+            t,
+        } = this.props;
+        this.getServerTime()
+        .then(server_time => {
+            this.setState({
+                server_time: server_time,
+                timer_limit: parseInt(t('timer_limit')),
+            });
+        });
+    }
+
+    render() {
+        const {
+            t,
+        } = this.props;
+        const {
+            server_time,
+            timer_limit,
+        } = this.state;
+
+        return (
+            <PageBanner>
+                <PageTitle margin={false}
+                    dangerouslySetInnerHTML={ {__html: t("title")} } />
+                <PlayButton video={ t('video_url') } />
+                <Timer title={ t('timer_title') }
+                    limit={ timer_limit }
+                    server_time = { server_time }
+                />
+                <TopPartners/>
+            </PageBanner>
+        );
+    }
+})));
 ICOIntro.displayName = 'ICOIntro';
+ICOIntro.propTypes = {
+    t: PropTypes.func,
+};
