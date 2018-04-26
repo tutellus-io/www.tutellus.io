@@ -20,3 +20,5 @@ export const social_links = {
 export const S3 = 'https://lib.tutellus.com/ico';
 
 export const locales = ["EN", "ES", "JA", "RU", "ZH", "KO"];
+
+export const servertime_url = "https://us-central1-tutellus-ico-development.cloudfunctions.net/date";
