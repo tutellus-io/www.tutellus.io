@@ -1,7 +1,7 @@
 //@flow
 import * as React from 'react';
 /*:: import type {ComponentType} from 'react' */
-import moment from 'moment';
+import dayjs from 'dayjs';
 import styled from 'styled-components';
 
 import styles from '../styles';
@@ -44,7 +44,7 @@ type MilestoneProps = {|
 export const Milestone/*:ComponentType<MilestoneProps>*/= styled((props/*:MilestoneProps*/) =>
     <li className={ props.className }>
         <div>
-            <time dateTime={ moment(props.date).format('YYYY-MM-DD') }>{ moment(props.date).format('MMM YY') }</time>
+            <time dateTime={ dayjs(props.date).format('YYYY-MM-DD') }>{ dayjs(props.date).format('MMM YY') }</time>
             <span>{ props.title }</span>
             <div>{ props.children }</div>
         </div>
