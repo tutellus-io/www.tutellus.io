@@ -191,6 +191,18 @@
       "seed_name": "Seed Syndicates",
       "title": "Investors"
     },
+    "join": {
+      "disclaimer": "By clicking «Join» you have read and accept terms of <a href=\"https://tny.im/tosen\" target=\"_blank\">Token Sale</a>",
+      "email": "Email",
+      "email_email_err": "Ups, error in your email",
+      "email_required_err": "Introduce your email",
+      "join": "Join",
+      "name": "Name",
+      "name_required_err": "Introduce your name",
+      "subscription_duplicated": "The account already exists",
+      "subscription_failed": "Ups, error in the register",
+      "subscription_successful": "Done!"
+    },
     "mailinglist": {
       "description": "Discover news about the ICO before anyone else",
       "email_address": "Your email address...",
@@ -315,7 +327,7 @@
       "brussels_title": "Brussels",
       "brussels_url": "https://blockchain-summit.be/",
       "description": "Be part of Tutellus RoadShow worldwide, we'll invite you for a coffee!",
-      "events": "[\"miami\",\"sfo\",\"london\",\"amsterdam\",\"mumbai\",\"singapore\",\"london-2\",\"barcelona\",\"lithuania\",\"barcelona2\",\"monaco\",\"seoul\",\"hongkong\",\"tallin\",\"kiev\"]",
+      "events": "[\"miami\",\"sfo\",\"london\",\"amsterdam\",\"mumbai\",\"singapore\",\"london-2\",\"barcelona\",\"lithuania\",\"barcelona2\",\"nyc\",\"monaco\",\"seoul\",\"hongkong\",\"tallin\",\"kiev\"]",
       "hongkong_address": "",
       "hongkong_date": "to be announced soon",
       "hongkong_description": "",
@@ -935,6 +947,18 @@
       "mykomuna_name": "Mykomuna Investments",
       "seed_name": "Seed Syndicates",
       "title": "Inversores"
+    },
+    "join": {
+      "disclaimer": "Al participar has leído y aceptas los términos de la <a href=\"https://tny.im/toses\" target=\"_blank\">Token Sale</a>",
+      "email": "Email",
+      "email_email_err": "Ups, error en el email",
+      "email_required_err": "Introduce tu email",
+      "join": "Participa",
+      "name": "Nombre",
+      "name_required_err": "Introduce tu nombre",
+      "subscription_duplicated": "La cuenta ya existe",
+      "subscription_failed": "Ups, error en el registro",
+      "subscription_successful": "¡Hecho!"
     },
     "mailinglist": {
       "description": "Entérate de lo último sobre la ICO antes que nadie",
