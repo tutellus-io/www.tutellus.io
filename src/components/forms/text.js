@@ -6,6 +6,9 @@ import {Input, Label, Field} from './styled';
 
 const nonEmpty = R.complement(R.isEmpty);
 
+const hasError = (field, form) =>
+    R.path(['errors', field], form) && R.path(['touched', field], form);
+
 /*::
 type TextFieldProps = {|
     field: {
@@ -28,8 +31,7 @@ export const TextField = styled((props/*:TextFieldProps*/) => {
         label = {},
     } = props;
     const rest = R.omit(['field', 'form', 'className'], props);
-    const has_error = R.has(`errors.${ field.name }`)(form) &&
-        R.has(`touched.${ field.name }`)(form);
+    const has_error = hasError(field.name, form);
     return (
         <Field className={ `${ className } ${ has_error ? 'error' : '' }` }>
             { nonEmpty(label) &&
@@ -87,8 +89,7 @@ export const ErrorField = (props/*:ErroFieldProps*/) => {
         form,
         className = '',
     } = props;
-    const has_error = R.has(`errors.${ field.name }`)(form) &&
-        R.has(`touched.${ field.name }`)(form);
+    const has_error = hasError(field.name, form);
     return (
         <Field className={ `${ className } ${ has_error ? 'error' : '' }` }>
             {

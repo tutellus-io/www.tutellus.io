@@ -13,6 +13,8 @@ import {
     Timer,
     ResponsiveGrid,
     SvgFitted,
+    JoinICO,
+    SectionContent,
 } from '../../../components';
 import styles from '../../../styles';
 
@@ -48,7 +50,22 @@ const TopPartners = styled(({className}) => {
 `;
 TopPartners.displayName = 'TopPartners';
 
-export const ICOIntro = translate('intro')(inject('config')(observer(class extends React.Component {
+
+const JoinGroup = styled(({className, title, timer_limit, server_time, join_url}) =>
+    <div className={ className }>
+        <Timer title={ title }
+            limit={ timer_limit }
+            server_time = { server_time }
+        />
+        <JoinICO join_url={ join_url }/>
+    </div>
+)`
+    display: grid;
+    grid-gap: 1em;
+`;
+JoinGroup.displayName = 'JoinGroup';
+
+export const ICOIntro = translate('intro')(inject('config')(observer(styled(class extends React.Component {
     constructor() {
         super();
         this.state = {};
@@ -82,6 +99,12 @@ export const ICOIntro = translate('intro')(inject('config')(observer(class exten
     render() {
         const {
             t,
+            className,
+            config: {
+                cfg: {
+                    CRYPTONOMOS_URL: join_url,
+                },
+            },
         } = this.props;
         const {
             server_time,
@@ -89,19 +112,39 @@ export const ICOIntro = translate('intro')(inject('config')(observer(class exten
         } = this.state;
 
         return (
-            <PageBanner>
+            <PageBanner className={ className }>
                 <PageTitle margin={false}
                     dangerouslySetInnerHTML={ {__html: t("title")} } />
                 <PlayButton video={ t('video_url') } />
-                <Timer title={ t('timer_title') }
-                    limit={ timer_limit }
-                    server_time = { server_time }
-                />
+                <JoinGroup title={ t('timer_title') }
+                    server_time={ server_time }
+                    timer_limit={ timer_limit }
+                    join_url= { join_url }/>
                 <TopPartners/>
             </PageBanner>
         );
     }
-})));
+})`
+    @media ${ styles.media.tablet } {
+        & > ${ SectionContent } {
+            grid-template-columns: 1fr 1fr;
+            grid-column-gap: 1.5em;
+        }
+        & ${ PageTitle }{
+            grid-column-start: 1;
+        }
+        & ${ PlayButton }{
+            grid-column-start: 1;
+        }
+        & ${ JoinGroup } {
+            grid-row: 1 / span 2;
+            grid-column-start: 2;
+        }
+        & ${ TopPartners } {
+            grid-column: 1 / -1;
+        }
+    }
+`)));
 ICOIntro.displayName = 'ICOIntro';
 ICOIntro.propTypes = {
     t: PropTypes.func,
