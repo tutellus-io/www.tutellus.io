@@ -87,6 +87,9 @@ SubscriptionFormComponent.propTypes = {
 export const SubscriptionForm/*:ComponentType<*>*/ = translate('mailinglist')(SubscriptionFormComponent);
 
 export const MailListSubscriptionForm/*:ComponentType<*>*/ = styled(SubscriptionForm)`
+    & .done_placeholder {
+        margin-top: 1em;
+    }
     @media ${ styles.media.tablet } {
         display: block;
         margin: 0 auto;
@@ -103,6 +106,7 @@ export const MailListSubscriptionForm/*:ComponentType<*>*/ = styled(Subscription
         }
         & ${ Button } {
             display: inline-block;
+            padding: 0.7em 1.2em;
             margin-left: 1em;
             width: calc(40% - 1em);
             vertical-align: top;
