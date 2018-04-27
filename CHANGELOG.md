@@ -1,3 +1,8 @@
+## 2.1.0 (2018-04-27)
+- feat(join form) add new cryptonomos join (2897c11)
+- fix(maillist) small tweaks in styles (8364921)
+- fix(ramda) fix the calculation of hasError(6f5cdd2)
+
 # 2.0.0 (2018-04-26)
 Backend with firebase removed in several steps:
 - fix(roadshow) select next event city name (d7c26ff)
