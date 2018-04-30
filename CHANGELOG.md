@@ -1,3 +1,7 @@
+### 2.1.2 (2018-04-30)
+- feat(i18n) New Lightpaper document added (ffa45ba)
+- fix(crowdsale) CTA button fixed, now scroll to Top (2406522)
+
 ### 2.1.1 (2018-04-30)
 - fix(layout) centering FormICO and Timer (06fb11f)
 - fix(join form) new success message layout (0072093)
