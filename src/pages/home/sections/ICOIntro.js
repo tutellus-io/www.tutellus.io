@@ -62,6 +62,7 @@ const JoinGroup = styled(({className, title, timer_limit, server_time, join_url}
 )`
     display: grid;
     grid-gap: 1em;
+    justify-items: center;
 `;
 JoinGroup.displayName = 'JoinGroup';
 
