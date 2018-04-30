@@ -2,13 +2,15 @@
 /* eslint no-magic-numbers: off */
 import React from 'react';
 import {translate} from 'react-i18next';
+import {animateScroll} from 'react-scroll';
 import {
     PageSection,
     Text,
     CrowdsalePurpose,
     DistributionTable,
     CrowdsaleSummary,
-    CrowdsaleCTA,
+    Button,
+    CenteredBlock,
 } from '../../../components';
 
 export const Crowdsale = translate('crowdsale')(({t, id}) =>
@@ -66,6 +68,10 @@ export const Crowdsale = translate('crowdsale')(({t, id}) =>
                 </tr>
             </tbody>
         </CrowdsaleSummary>
-        <CrowdsaleCTA href="/signup">{ t('crowdsale:register_for_the_crowdsale') }</CrowdsaleCTA>
+        <CenteredBlock>
+            <Button primary onClick = {() => animateScroll.scrollToTop()}>
+                { t('crowdsale:register_for_the_crowdsale') }
+            </Button>
+        </CenteredBlock>
     </PageSection>
 );
