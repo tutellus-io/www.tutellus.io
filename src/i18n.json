@@ -65,7 +65,7 @@
     },
     "crowdsale": {
       "accepted_currencies": "Accepted Currencies",
-      "accepted_currencies_value": "ETH, BTC, XEM and more",
+      "accepted_currencies_value": "ETH, BTC, XEM, LTC, BCH, ZCASH, DASH, USD (only in preSale)",
       "amount_for_sale": "For Sale",
       "amount_for_sale_value": "60%",
       "bounty_advisors": "Bounty & Advisors",
@@ -194,14 +194,14 @@
     "join": {
       "disclaimer": "By clicking «Join» you have read and accept terms of <a href=\"https://tny.im/tosen\" target=\"_blank\">Token Sale</a>",
       "email": "Email",
-      "email_email_err": "Ups, error in your email",
-      "email_required_err": "Introduce your email",
+      "email_email_err": "Oops, that doesn’t look like a valid email address",
+      "email_required_err": "Please, enter your email",
       "join": "Join",
       "name": "Name",
-      "name_required_err": "Introduce your name",
+      "name_required_err": "Please, enter your name",
       "subscription_duplicated": "The account already exists",
-      "subscription_failed": "Ups, error in the register",
-      "subscription_successful": "Done!"
+      "subscription_failed": "Oops, it seems like something went wrong. Contact us for help",
+      "subscription_successful": "Thanks for your request. We will send you an invitation to our Token Sale soon"
     },
     "mailinglist": {
       "description": "Discover news about the ICO before anyone else",
@@ -830,7 +830,7 @@
     },
     "crowdsale": {
       "accepted_currencies": "Criptodivisa aceptada",
-      "accepted_currencies_value": "ETH, BTC, XEM y más",
+      "accepted_currencies_value": "ETH, BTC, XEM, LTC, BCH, ZCASH, DASH, USD (sólo en preSale)",
       "amount_for_sale": "Oferta para Token Sale",
       "amount_for_sale_value": "60%",
       "bounty_advisors": "Bounty y Advisors",
@@ -958,7 +958,7 @@
       "name_required_err": "Introduce tu nombre",
       "subscription_duplicated": "La cuenta ya existe",
       "subscription_failed": "Ups, error en el registro",
-      "subscription_successful": "¡Hecho!"
+      "subscription_successful": "Gracias por tu solicitud. Te enviaremos una invitación a nuestra Token Sale"
     },
     "mailinglist": {
       "description": "Entérate de lo último sobre la ICO antes que nadie",
@@ -1399,7 +1399,7 @@
     },
     "crowdsale": {
       "accepted_currencies": "使用可能な通貨",
-      "accepted_currencies_value": "ETH、BTC、XEMなど",
+      "accepted_currencies_value": "ETH, BTC, XEM, LTC, BCH, ZCASH, DASH, USD (のみ プレセール日付)",
       "amount_for_sale": "販売",
       "amount_for_sale_value": "60%",
       "bounty_advisors": "バウンティ&アドバイザー",
@@ -1930,7 +1930,7 @@
     },
     "crowdsale": {
       "accepted_currencies": "허용되는 통화",
-      "accepted_currencies_value": "ETH, BTC, XEM 등",
+      "accepted_currencies_value": "ETH, BTC, XEM, LTC, BCH, ZCASH, DASH, USD (프리 세일)",
       "amount_for_sale": "판매 가능 비율",
       "amount_for_sale_value": "60%",
       "bounty_advisors": "바운티 및 자문위원",
@@ -2457,7 +2457,7 @@
     },
     "crowdsale": {
       "accepted_currencies": "Принимаемая валюта",
-      "accepted_currencies_value": "ETH, BTC, XEM и др.",
+      "accepted_currencies_value": "ETH, BTC, XEM, LTC, BCH, ZCASH, DASH, USD (только предварительной)",
       "amount_for_sale": "На продажу",
       "amount_for_sale_value": "60 %",
       "bounty_advisors": "Премия и консультанты",
@@ -2984,7 +2984,7 @@
     },
     "crowdsale": {
       "accepted_currencies": "接受的货币类型",
-      "accepted_currencies_value": "以太币、比特币、新经币等",
+      "accepted_currencies_value": "ETH, BTC, XEM, LTC, BCH, ZCASH, DASH, USD (只有预售)",
       "amount_for_sale": "待售",
       "amount_for_sale_value": "60%",
       "bounty_advisors": "赏金及顾问",
