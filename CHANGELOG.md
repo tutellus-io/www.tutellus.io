@@ -1,3 +1,8 @@
+### 2.1.1 (2018-04-30)
+- fix(layout) centering FormICO and Timer (06fb11f)
+- fix(join form) new success message layout (0072093)
+- fix(cleanup) remove react-alert (a529b3a)
+
 ## 2.1.0 (2018-04-27)
 - feat(join form) add new cryptonomos join (2897c11)
 - fix(maillist) small tweaks in styles (8364921)
