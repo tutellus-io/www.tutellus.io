@@ -1,3 +1,6 @@
+### 2.1.3 (2018-05-03)
+- feat(join ico) Adding countries disclaimer (29275bd)
+
 ### 2.1.2 (2018-04-30)
 - feat(i18n) New Lightpaper document added (ffa45ba)
 - fix(crowdsale) CTA button fixed, now scroll to Top (2406522)
