@@ -152,6 +152,7 @@ const JoinICOForm/*:ComponentType<*>*/ = styled(({t, className, join_url}/*:Form
 
                     <Field component={ TextField } name="name" placeholder={ t('name') } />
                     <Field component={ TextField } name="email" placeholder={ t('email') } />
+                    <Text dangerouslySetInnerHTML={ {__html: t("disclaimer_countries")} } />
                     <Button full type="submit" primary disabled={ isSubmitting }>{ t('join') }</Button>
                     <Text dangerouslySetInnerHTML={ {__html: t("disclaimer")} } />
                     {
