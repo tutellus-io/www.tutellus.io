@@ -165,6 +165,7 @@ const JoinICOForm/*:ComponentType<*>*/ = styled(({t, className, join_url}/*:Form
     );
 })`
     position: relative;
+    max-width: 20em;
     & ${ myField } {
         & .error_placeholder {
             font-size:0.8em;
