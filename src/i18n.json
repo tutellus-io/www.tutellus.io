@@ -196,7 +196,7 @@
     },
     "join": {
       "disclaimer": "By clicking «Join» you have read and accept terms of <a href=\"https://tny.im/tosen\" target=\"_blank\">Token Sale</a>",
-      "disclaimer_countries": "Citizens from United States of America are not allowed to participate",
+      "disclaimer_countries": "TUT public sale will not be open to citizens, residents or green card holders of the USA (including Puerto Rico, US Virgin Islands, and any other protectorate of the USA) or other representatives of the USA",
       "email": "Email",
       "email_email_err": "Oops, that doesn’t look like a valid email address",
       "email_required_err": "Please, enter your email",
@@ -957,6 +957,7 @@
     },
     "join": {
       "disclaimer": "Al participar has leído y aceptas los términos de la <a href=\"https://tny.im/tosen\" target=\"_blank\">Token Sale</a>",
+      "disclaimer_countries": "La venta pública de tokens TUT no está abierta a ciudadanos o residentes de USA (incluido Puerto Rico, Islas Vírgenes y otros protectorados del país)",
       "email": "Email",
       "email_email_err": "Ups, error en el email",
       "email_required_err": "Introduce tu email",
