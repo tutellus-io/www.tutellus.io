@@ -1,3 +1,6 @@
+### 2.1.4 (2018-05-07)
+- fix(i18n) Update countries disclaimer (9793081)
+
 ### 2.1.3 (2018-05-03)
 - feat(join ico) Adding countries disclaimer (29275bd)
 
