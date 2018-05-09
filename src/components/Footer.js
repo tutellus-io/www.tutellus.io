@@ -8,7 +8,7 @@ import {NavLink as RouteNavLink} from 'react-router-dom';
 import styles from '../styles';
 
 export const NavLink = styled(props => {
-    if (props.href.startsWith("http")) {
+    if (props.href.startsWith("http") || props.href.startsWith("mailto")) {
         return <a { ...props } />;
     }
     return <RouteNavLink { ...R.omit(['href'], props) } to={ props.href } />;

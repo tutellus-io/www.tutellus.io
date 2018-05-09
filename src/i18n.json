@@ -75,7 +75,7 @@
       "hard_cap": "Hard Cap",
       "hard_cap_value": "40,000,000 USD",
       "ico_bonus": "Early bird Bonus",
-      "ico_bonus_value": "Up to 10%",
+      "ico_bonus_value": "June 12 - June 19: 10%<br/>June 20 - July 2: 5%<br/>July 3 - July 12: 0%",
       "ico_date": "Main Sale date",
       "ico_date_value": "June,12th 2018",
       "ico_min": "Minimum purchase",
@@ -83,7 +83,7 @@
       "operations": "Operations",
       "pool": "Pool",
       "preico_bonus": "Early bird Bonus",
-      "preico_bonus_value": "Up to 20%",
+      "preico_bonus_value": "May 10 - May 24: 20%<br/>May 25 - June 11: 15%",
       "preico_date": "Pre Sale date",
       "preico_date_value": "May,10th 2018",
       "preico_min": "Minimum purchase",
@@ -99,7 +99,9 @@
       "title": "Token Sale",
       "token_distribution": "Token Distribution",
       "total_supply": "Total Supply",
-      "total_supply_value": "1,500,000,000 TUT"
+      "total_supply_value": "1,500,000,000 TUT",
+      "tut_price": "TUT price",
+      "tut_price_value": "1 TUT = 0.05USD"
     },
     "dashboard": {
       "Inicio": "Dashboard",
@@ -161,10 +163,12 @@
       "about_tutellus": "Tutellus is the EdTech platform that pays you for learning",
       "ambassadors": "Ambassadors",
       "blog": "Blog",
+      "contact_email": "ico@tutellus.io",
+      "contact_title": "Contact",
       "help": "Help",
       "help_url": "//tutellusico.zendesk.com/hc/en-us",
       "terms_of_sale": "Terms of Token Sale",
-      "tos_url": "https://2tel.us/2B4hWQP"
+      "tos_url": "https://tny.im/tosen"
     },
     "how_it_works": {
       "description": "An ecosystem where all players get benefits: Students, Teachers and Companies. Using the Scholarship Program and the Market as entry points, students and teachers may study for free and earn money through tokens, get Relevance, and access to valuable services inside the dAPP. Lastly, Companies will be able to hire best profiles with the highest Relevance",
@@ -844,7 +848,7 @@
       "hard_cap": "Hard Cap",
       "hard_cap_value": "40.000.000 USD",
       "ico_bonus": "Bonus de descuento",
-      "ico_bonus_value": "Hasta 10%",
+      "ico_bonus_value": "12 de junio - 19 de junio: 10% <br/> 20 de junio - 2 de julio: 5% <br/> 3 de julio - 12 de julio: 0%",
       "ico_date": "Fecha de la Venta",
       "ico_date_value": "12 de junio 2018",
       "ico_min": "Compra mínima",
@@ -852,7 +856,7 @@
       "operations": "Operaciones",
       "pool": "Pool",
       "preico_bonus": "Bonus de descuento",
-      "preico_bonus_value": "Hasta 20%",
+      "preico_bonus_value": "10 de mayo - 24 de mayo: 20% <br/> 25 de mayo - 11 de junio: 15%",
       "preico_date": "Fecha de la pre-venta",
       "preico_date_value": "10 de mayo 2018",
       "preico_min": "Compra mínima",
@@ -868,7 +872,8 @@
       "title": "Token Sale",
       "token_distribution": "Distribución de Tokens",
       "total_supply": "Oferta total ",
-      "total_supply_value": "1.500.000.000 TUT"
+      "total_supply_value": "1.500.000.000 TUT",
+      "tut_price": "Precio del TUT"
     },
     "dashboard": {
       "Inicio": "Dashboard",
@@ -932,6 +937,7 @@
       "about_tutellus": "Tutellus es la Plataforma educativa que te paga por aprender",
       "ambassadors": "Embajadores",
       "blog": "Blog",
+      "contact_title": "Contacto",
       "help": "Ayuda",
       "help_url": "//tutellusico.zendesk.com/hc/es",
       "terms_of_sale": "Términos de la Token Sale",
@@ -1417,7 +1423,7 @@
       "hard_cap": "ハードキャップ",
       "hard_cap_value": "40,000,000米ドル",
       "ico_bonus": "アーリーバードボーナス",
-      "ico_bonus_value": "10%まで",
+      "ico_bonus_value": "6月12日〜6月19日：10％<br/> 6月20日〜7月2日：5％<br/> 7月3日〜7月12日：0％",
       "ico_date": "メインセール日付",
       "ico_date_value": "2018年6月12日",
       "ico_min": "最低購入額",
@@ -1425,7 +1431,7 @@
       "operations": "運用",
       "pool": "プール",
       "preico_bonus": "アーリーバードボーナス",
-      "preico_bonus_value": "20%まで",
+      "preico_bonus_value": "5月10日〜5月24日：20％<br/> 5月25日〜6月11日：15％",
       "preico_date": "プレセール日付",
       "preico_date_value": "2018年5月10日",
       "preico_min": "最低購入額",
@@ -1441,7 +1447,8 @@
       "title": "トークンセール",
       "token_distribution": "トークンの分配",
       "total_supply": "供給総数",
-      "total_supply_value": "1,500,000,000 TUT"
+      "total_supply_value": "1,500,000,000 TUT",
+      "tut_price": "TUT 価格"
     },
     "dashboard": {
       "Inicio": "ダッシュボード",
@@ -1502,6 +1509,7 @@
       "about_tutellus": "Tutellusは学習に対価を支払うEdTechプラットフォームです",
       "ambassadors": "アンバサダー",
       "blog": "ブログ",
+      "contact_title": "接触",
       "help": "ヘルプ",
       "help_url": "//tutellusico.zendesk.com/hc/en-us",
       "terms_of_sale": "トークンセールの条件",
@@ -1951,7 +1959,7 @@
       "hard_cap": "하드 캡",
       "hard_cap_value": "40,000,000달러",
       "ico_bonus": "얼리버드 보너스",
-      "ico_bonus_value": "최대 10%",
+      "ico_bonus_value": "6월 12일 - 6월 19일: 10% <br/> 6월 20일 - 7월 2일: 5% <br/> 7월 3일 - 7월 12일: 0%",
       "ico_date": "기본 판매 날짜",
       "ico_date_value": "2018년 6 월 12일",
       "ico_min": "최소 구매액",
@@ -1959,7 +1967,7 @@
       "operations": "운영",
       "pool": "풀",
       "preico_bonus": "얼리버드 보너스",
-      "preico_bonus_value": "최대 20%",
+      "preico_bonus_value": "5월 10일 - 5월 24일: 20% <br/> 5월 25일 - 6월 11일: 15 %",
       "preico_date": "사전 판매 날짜",
       "preico_date_value": "2018년 5월 10일",
       "preico_min": "최소 구매액",
@@ -1975,7 +1983,8 @@
       "title": "토큰 판매",
       "token_distribution": "토큰 분배",
       "total_supply": "총 공급",
-      "total_supply_value": "1,500,000,000 TUT"
+      "total_supply_value": "1,500,000,000 TUT",
+      "tut_price": "TUT 가격"
     },
     "dashboard": {
       "Inicio": "대시보드",
@@ -2036,6 +2045,7 @@
       "about_tutellus": "Tutellus는 여러분에게 학습 보상을 지불하는 EdTech 플랫폼입니다.",
       "ambassadors": "홍보대사",
       "blog": "블로그",
+      "contact_title": "접촉",
       "help": "도움말",
       "help_url": "//tutellusico.zendesk.com/hc/en-us",
       "terms_of_sale": "토큰 판매 약관",
@@ -2481,7 +2491,7 @@
       "hard_cap": "Верхний предел",
       "hard_cap_value": "40 000 000 долларов США",
       "ico_bonus": "Бонус за раннюю регистрацию",
-      "ico_bonus_value": "До 10 %",
+      "ico_bonus_value": "12 июня - 19 июня: 10% <br/> 20 июня - 2 июля: 5% <br/> 3 июля - 12 июля: 0%",
       "ico_date": "Основная дата продажи",
       "ico_date_value": "12 июня 2018 года",
       "ico_min": "Минимальная покупка",
@@ -2489,7 +2499,7 @@
       "operations": "Операции",
       "pool": "Пул",
       "preico_bonus": "Бонус за раннюю регистрацию",
-      "preico_bonus_value": "До 20 %",
+      "preico_bonus_value": "10 мая - 24 мая: 20% <br/> 25 мая - 11 июня: 15%",
       "preico_date": "Основная дата предварительной продажи",
       "preico_date_value": "10 мая 2018 г.",
       "preico_min": "Минимальная покупка",
@@ -2505,7 +2515,8 @@
       "title": "Продажа токенов",
       "token_distribution": "Распределение токенов",
       "total_supply": "Совокупное предложение",
-      "total_supply_value": "1 500 000 000 TUT"
+      "total_supply_value": "1 500 000 000 TUT",
+      "tut_price": "TUT цена"
     },
     "dashboard": {
       "Inicio": "Панель инструментов",
@@ -2566,6 +2577,7 @@
       "about_tutellus": "Tutellus — это платформа EdTech, которая платит вам за обучение",
       "ambassadors": "Представители",
       "blog": "Блог",
+      "contact_title": "контакт",
       "help": "Справка",
       "help_url": "//tutellusico.zendesk.com/hc/en-us",
       "terms_of_sale": "Условия продажи токенов",
@@ -3011,7 +3023,7 @@
       "hard_cap": "硬性限额",
       "hard_cap_value": "40,000,000美元",
       "ico_bonus": "早鸟奖金",
-      "ico_bonus_value": "高达 10%",
+      "ico_bonus_value": "6月12日 - 6月19日: 10％<br/> 6月20日 - 7月2日: 5％<br/> 7月3日 - 7月12日: 0％",
       "ico_date": "主销售日",
       "ico_date_value": "2018年6月12日",
       "ico_min": "最低购买量",
@@ -3019,7 +3031,7 @@
       "operations": "运作",
       "pool": "池",
       "preico_bonus": "早鸟奖金",
-      "preico_bonus_value": "高达 20%",
+      "preico_bonus_value": "5月10日 - 5月24日：20％<br/>5月25日 - 6月11日：15％",
       "preico_date": "预售日",
       "preico_date_value": "2018年5月10日",
       "preico_min": "最低购买量",
@@ -3035,7 +3047,8 @@
       "title": "代币销售",
       "token_distribution": "代币分配",
       "total_supply": "总供应量",
-      "total_supply_value": "1,500,000,000 TUT"
+      "total_supply_value": "1,500,000,000 TUT",
+      "tut_price": "TUT 价格"
     },
     "dashboard": {
       "Inicio": "控制面板",
@@ -3096,6 +3109,7 @@
       "about_tutellus": "Tutellus是一个为用户提供学习资金的教育科技（EdTech）平台。 ",
       "ambassadors": "大使",
       "blog": "博客",
+      "contact_title": "联系",
       "help": "帮助",
       "help_url": "//tutellusico.zendesk.com/hc/en-us",
       "terms_of_sale": "代币销售条款",
