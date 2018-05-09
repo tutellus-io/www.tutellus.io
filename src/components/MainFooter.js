@@ -25,6 +25,7 @@ export const MainFooter = styled(translate('footer')(({t, className, socialLinks
                 <NavLink href="/ambassadors">{ t('ambassadors') }</NavLink>
                 <NavLink href="//www.tutellus.com" target="_blank">Tutellus</NavLink>
                 <NavLink href={ t('tos_url') } target="_blank">{ t('terms_of_sale') }</NavLink>
+                <NavLink href={ `mailto:${ t('contact_email') }` }>{ `${ t('contact_title') }: ${ t('contact_email') }` }</NavLink>
             </NavCategory>
             <SocialIcons networks={ socialLinks } />
         </SectionContent>
