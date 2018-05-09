@@ -31,6 +31,7 @@ export const CrowdsaleSummary = styled.table`
             display: block;
             width: 100%;
             text-align: center;
+            vertical-align: top;
             @media ${ styles.media.tablet } {
                 display: table-cell;
                 width: 50%;
@@ -99,8 +100,8 @@ export const CrowdsaleSummary = styled.table`
             padding-top: .5em;
         }
     }
-    @media ${ styles.media.laptop } {
-        & td {
+    @media ${ styles.media.tablet } {
+        & td:first-child {
             &:before {
                 ${ bullet_styles }
             }

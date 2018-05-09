@@ -34,37 +34,40 @@ export const Crowdsale = translate('crowdsale')(({t, id}) =>
         <CrowdsaleSummary>
             <tbody>
                 <tr>
-                    <td>{ t('total_supply') }</td><td>{ t('total_supply_value') }</td>
+                    <td>{ t('total_supply') }</td><td dangerouslySetInnerHTML={ {__html: t('total_supply_value')} } />
                 </tr>
                 <tr>
-                    <td>{ t('amount_for_sale') }</td><td>{ t('amount_for_sale_value') }</td>
+                    <td>{ t('amount_for_sale') }</td><td dangerouslySetInnerHTML={ {__html: t('amount_for_sale_value')} } />
                 </tr>
                 <tr>
-                    <td>{ t('hard_cap') }</td><td>{ t('hard_cap_value') }</td>
+                    <td>{ t('hard_cap') }</td><td dangerouslySetInnerHTML={ {__html: t('hard_cap_value')} } />
                 </tr>
                 <tr>
-                    <td>{ t('scholarships') }</td><td>{ t('scholarships_value') }</td>
+                    <td>{ t('scholarships') }</td><td dangerouslySetInnerHTML={ {__html: t('scholarships_value')} } />
                 </tr>
                 <tr>
-                    <td>{ t('accepted_currencies') }</td><td>{ t('accepted_currencies_value') }</td>
+                    <td>{ t('accepted_currencies') }</td><td dangerouslySetInnerHTML={ {__html: t('accepted_currencies_value')} } />
                 </tr>
                 <tr>
-                    <td>{ t('preico_date') }</td><td>{ t('preico_date_value') }</td>
+                    <td>{ t('tut_price') }</td><td dangerouslySetInnerHTML={ {__html: t('tut_price_value')} } />
+                </tr>
+                <tr>
+                    <td>{ t('preico_date') }</td><td dangerouslySetInnerHTML={ {__html: t('preico_date_value')} } />
                 </tr>
                 <tr className="secondary">
-                    <td>{ t('preico_min') }</td><td>{ t('preico_min_value') }</td>
+                    <td>{ t('preico_min') }</td><td dangerouslySetInnerHTML={ {__html: t('preico_min_value')} } />
                 </tr>
                 <tr className="secondary">
-                    <td>{ t('preico_bonus') }</td><td>{ t('preico_bonus_value') }</td>
+                    <td>{ t('preico_bonus') }</td><td dangerouslySetInnerHTML={ {__html: t('preico_bonus_value')} } />
                 </tr>
                 <tr>
-                    <td>{ t('ico_date') }</td><td>{ t('ico_date_value') }</td>
+                    <td>{ t('ico_date') }</td><td dangerouslySetInnerHTML={ {__html: t('ico_date_value')} } />
                 </tr>
                 <tr className="secondary">
-                    <td>{ t('ico_min') }</td><td>{ t('ico_min_value') }</td>
+                    <td>{ t('ico_min') }</td><td dangerouslySetInnerHTML={ {__html: t('ico_min_value')} } />
                 </tr>
                 <tr className="secondary">
-                    <td>{ t('ico_bonus') }</td><td>{ t('ico_bonus_value') }</td>
+                    <td>{ t('ico_bonus') }</td><td dangerouslySetInnerHTML={ {__html: t('ico_bonus_value')} } />
                 </tr>
             </tbody>
         </CrowdsaleSummary>
