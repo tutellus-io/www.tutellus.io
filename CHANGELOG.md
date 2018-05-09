@@ -1,3 +1,7 @@
+### 2.1.5 (2018-05-09)
+- feat(crowdsale) new rows with TUT price and ICO bonuses (51122cb)
+- feat(footer) email contact added, fixed link terms of token sale (7b95724)
+
 ### 2.1.4 (2018-05-07)
 - fix(i18n) Update countries disclaimer (9793081)
 
