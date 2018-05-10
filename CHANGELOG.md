@@ -1,3 +1,7 @@
+### 2.1.7 (2018-05-10)
+- fix(i18n) Updated presale time (a44675f)
+- Revert "feat(countdown) Setting time to main sale" (2018c9b)
+
 ### 2.1.6 (2018-05-10)
 - feat(countdown) Setting time to main sale (2584da7)
 
