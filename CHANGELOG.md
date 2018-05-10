@@ -1,3 +1,7 @@
+### 2.1.8 (2018-05-10)
+- feat(join) Adding Buy button under timer (7809183)
+- fix(timer) when loading with past time shows 0 (298a67b)
+
 ### 2.1.7 (2018-05-10)
 - fix(i18n) Updated presale time (a44675f)
 - Revert "feat(countdown) Setting time to main sale" (2018c9b)
