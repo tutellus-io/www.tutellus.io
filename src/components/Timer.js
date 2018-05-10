@@ -101,6 +101,17 @@ export const Timer = styled(class extends React.Component/*::<Props, State>*/ {
         }
     }
 
+    checkNoTimer = () => {
+        if (this.state.days === "--") {
+            this.setState({
+                days: 0,
+                hours: 0,
+                minutes: 0,
+                seconds: 0,
+            });
+        }
+    }
+
     updateTimer = () => {
         const {
             limit,
@@ -132,6 +143,7 @@ export const Timer = styled(class extends React.Component/*::<Props, State>*/ {
                 server_time: new_server_time,
             });
         } else {
+            this.checkNoTimer();
             this.destroyInterval();
         }
     }
