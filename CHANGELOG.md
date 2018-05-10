@@ -1,3 +1,6 @@
+### 2.1.9 (2018-05-10)
+- feat(countdown) Setting time to main sale June 12, 10 am CET (8c71f35)
+
 ### 2.1.8 (2018-05-10)
 - feat(join) Adding Buy button under timer (7809183)
 - fix(timer) when loading with past time shows 0 (298a67b)
