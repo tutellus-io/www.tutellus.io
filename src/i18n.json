@@ -199,6 +199,8 @@
       "title": "Investors"
     },
     "join": {
+      "buy": "Buy",
+      "buy_url": "https://cryptonomos.com/feed/tut",
       "disclaimer": "By clicking «Join» you have read and accept terms of <a href=\"https://tny.im/tosen\" target=\"_blank\">Token Sale</a>",
       "disclaimer_countries": "TUT public sale will not be open to citizens, residents or green card holders of the USA (including Puerto Rico, US Virgin Islands, and any other protectorate of the USA) or other representatives of the USA",
       "email": "Email",
@@ -962,6 +964,7 @@
       "title": "Inversores"
     },
     "join": {
+      "buy": "Comprar",
       "disclaimer": "Al participar has leído y aceptas los términos de la <a href=\"https://tny.im/tosen\" target=\"_blank\">Token Sale</a>",
       "disclaimer_countries": "La venta pública de tokens TUT no está abierta a ciudadanos o residentes de USA (incluido Puerto Rico, Islas Vírgenes y otros protectorados del país)",
       "email": "Email",

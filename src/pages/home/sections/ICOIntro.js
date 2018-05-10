@@ -13,7 +13,7 @@ import {
     Timer,
     ResponsiveGrid,
     SvgFitted,
-    JoinICO,
+    BuyICO,
     SectionContent,
 } from '../../../components';
 import styles from '../../../styles';
@@ -51,17 +51,17 @@ const TopPartners = styled(({className}) => {
 TopPartners.displayName = 'TopPartners';
 
 
-const JoinGroup = styled(({className, title, timer_limit, server_time, join_url}) =>
+const JoinGroup = styled(({className, title, timer_limit, server_time}) =>
     <div className={ className }>
         <Timer title={ title }
             limit={ timer_limit }
             server_time = { server_time }
         />
-        <JoinICO join_url={ join_url }/>
+        <BuyICO/>
     </div>
 )`
     display: grid;
-    grid-gap: 1em;
+    grid-gap: 2em;
     justify-items: center;
 `;
 JoinGroup.displayName = 'JoinGroup';

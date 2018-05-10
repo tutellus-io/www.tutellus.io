@@ -10,6 +10,7 @@ import {
     TextField,
     Field as myField,
     Button,
+    AButton,
 } from './';
 
 const Text = styled.div`
@@ -182,3 +183,16 @@ const JoinICOForm/*:ComponentType<*>*/ = styled(({t, className, join_url}/*:Form
 
 export const JoinICO/*:ComponentType<*>*/ = translate('join')(JoinICOForm);
 JoinICO.displayName = "JoinICO";
+
+
+export const BuyICO = translate('join')(styled(({t, className}) =>
+    <AButton className={ className }
+        href={ t('buy_url') }
+        primary>
+        { t('buy') }
+    </AButton>
+)`
+    justify-self: center;
+    align-self: center;
+    padding: 0.8em 2em;
+`);
