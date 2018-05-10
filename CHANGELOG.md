@@ -1,3 +1,6 @@
+### 2.1.6 (2018-05-10)
+- feat(countdown) Setting time to main sale (2584da7)
+
 ### 2.1.5 (2018-05-09)
 - feat(crowdsale) new rows with TUT price and ICO bonuses (51122cb)
 - feat(footer) email contact added, fixed link terms of token sale (7b95724)
