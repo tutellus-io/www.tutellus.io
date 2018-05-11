@@ -1,3 +1,6 @@
+### 2.1.10 (2018-05-11)
+- fix(i18n) RU updated thanx to Cryptonomos (7ebd39c)
+
 ### 2.1.9 (2018-05-10)
 - feat(countdown) Setting time to main sale June 12, 10 am CET (8c71f35)
 
