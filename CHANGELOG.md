@@ -1,3 +1,6 @@
+## 2.2.0 (2018-05-16)
+- feat(notify-bar) added notify bar with "1ETH till 20 may" active promo (f72d4b1)
+
 ### 2.1.10 (2018-05-11)
 - fix(i18n) RU updated thanx to Cryptonomos (7ebd39c)
 
