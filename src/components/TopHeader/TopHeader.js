@@ -21,20 +21,20 @@ const small_header_styles = `
 const Header = styled.header`
     position: fixed;
     top: 0;
-    z-index: 11;
+    z-index: 1000;
     width: 100%;
     padding: 0 1em;
     font-size: 1em;
     color: white;
     transition: all .5s linear;
     ${ small_header_styles }
-    
+
     @media ${ styles.media.tablet } {
-        height: ${ TOP_HEADER_HEIGHT.BIG }px;
+        height: ${ TOP_HEADER_HEIGHT.SMALL }px;
         background: linear-gradient(black, transparent);
         ${ props => props.small && small_header_styles }
     }
-    
+
     @media ${ styles.media.laptop } {
         padding: 0 2em;
     }

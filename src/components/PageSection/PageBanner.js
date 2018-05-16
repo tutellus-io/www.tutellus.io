@@ -32,7 +32,7 @@ export const PageBanner/*:ComponentType<PageBannerProps>*/ = styled((props/*:Pag
         </SectionContent>
     </section>
 )`
-    padding: 1em;
+    padding: 2em 1em 1em;
     padding-top: calc(${ TOP_HEADER_HEIGHT.SMALL }px + 3em);
     background: url(${ responsive(responsive_background) }) no-repeat 50%;
     background-size: cover;
