@@ -87,7 +87,7 @@
       "preico_date": "Pre Sale date",
       "preico_date_value": "May,10th 2018",
       "preico_min": "Minimum purchase",
-      "preico_min_value": "5 ETH",
+      "preico_min_value": "<span style=\"text-decoration: line-through;\">5 ETH</span><span style=\"color: red;\"> 1 ETH till May 20</span>",
       "product_engineering": "Product & Engineering",
       "publicity_pr": "Publicity & PR",
       "register_for_the_crowdsale": "Register for the Token Sale",
@@ -226,6 +226,15 @@
     "menu": {
       "roadshow": "Roadshow",
       "solution": "Solution"
+    },
+    "notify": {
+      "background": "#24a9bd",
+      "enabled": true,
+      "foreground": "#ffffff",
+      "limit_on": 1526857200000,
+      "link": "Check it!",
+      "link_url": "#crowdsale",
+      "text": "PreSale open from 1ETH till May 20!"
     },
     "our_offices": {
       "description": "Come to Madrid and visit us, we work in a lovely place!",
@@ -862,7 +871,7 @@
       "preico_date": "Fecha de la pre-venta",
       "preico_date_value": "10 de mayo 2018",
       "preico_min": "Compra mínima",
-      "preico_min_value": "5 ETH",
+      "preico_min_value": "<span style=\"text-decoration: line-through;\">5 ETH</span><span style=\"color: red;\"> 1 ETH hasta 20 de mayo</span> ",
       "product_engineering": "Producto e Ingeniería",
       "publicity_pr": "Publicidad y RRPP",
       "register_for_the_crowdsale": "Regístrate para la Token Sale",
@@ -990,6 +999,10 @@
     "menu": {
       "roadshow": "Roadshow",
       "solution": "Solución"
+    },
+    "notify": {
+      "link": "¡Más info!",
+      "text": "PreSale abierta desde 1ETH hasta el 20/mayo!"
     },
     "our_offices": {
       "description": "Ven a Madrid y visítanos, ¡y conoce nuestra ofi!",
@@ -1438,7 +1451,7 @@
       "preico_date": "プレセール日付",
       "preico_date_value": "2018年5月10日",
       "preico_min": "最低購入額",
-      "preico_min_value": "5 ETH",
+      "preico_min_value": "<span style=\"text-decoration: line-through;\">5 ETH</span><span style=\"color: red;\"> 5月20日までETH 1</span>",
       "product_engineering": "商品&エンジニアリング",
       "publicity_pr": "広報&PR",
       "register_for_the_crowdsale": "トークンセールに登録する",
@@ -1545,6 +1558,10 @@
     "menu": {
       "roadshow": "ロードショー",
       "solution": "ソリューション"
+    },
+    "notify": {
+      "link": "それをチェック!",
+      "text": "PreSaleは1ETHから5月20日までオープン!"
     },
     "our_offices": {
       "description": "恵まれた環境にマドリッドのオフィスにぜひお立ち寄りください！",
@@ -1974,7 +1991,7 @@
       "preico_date": "사전 판매 날짜",
       "preico_date_value": "2018년 5월 10일",
       "preico_min": "최소 구매액",
-      "preico_min_value": "5 ETH",
+      "preico_min_value": "<span style=\"text-decoration: line-through;\">5 ETH</span><span style=\"color: red;\"> 5 월 20 일까지 1 ETH</span>",
       "product_engineering": "제품 및 엔지니어링",
       "publicity_pr": "홍보 및 PR",
       "register_for_the_crowdsale": "토큰 판매 등록하기",
@@ -2081,6 +2098,10 @@
     "menu": {
       "roadshow": "로드쇼",
       "solution": "솔루션"
+    },
+    "notify": {
+      "link": "확인해 봐!",
+      "text": "PreSale은 1ETH에서 5 월 20 일까지 오픈합니다!"
     },
     "our_offices": {
       "description": "아름다운 경관을 볼 수 있는 마드리드 사무실을 방문해보세요.",
@@ -2505,7 +2526,7 @@
       "preico_date": "Дата начала предварительной продажи",
       "preico_date_value": "10 мая 2018 г.",
       "preico_min": "Минимальная покупка",
-      "preico_min_value": "5 ETH",
+      "preico_min_value": "<span style=\"text-decoration: line-through;\">5 ETH</span><span style=\"color: red;\"> 1 ETH до 20 мая</span>",
       "product_engineering": "Продукты и проектирование",
       "publicity_pr": "Реклама и пиар",
       "register_for_the_crowdsale": "Зарегистрироваться на продажу токенов",
@@ -2623,6 +2644,10 @@
     "menu": {
       "roadshow": "Презентация для инвесторов",
       "solution": "Решение"
+    },
+    "notify": {
+      "link": "Проверь это!",
+      "text": "PreSale открыт с 1 по 20 мая!"
     },
     "our_offices": {
       "description": "Приезжайте в Мадрид и посетите наш офис, расположенный в живописном районе города!",
@@ -3080,7 +3105,7 @@
       "preico_date": "预售日",
       "preico_date_value": "2018年5月10日",
       "preico_min": "最低购买量",
-      "preico_min_value": "5个以太币",
+      "preico_min_value": "<span style=\"text-decoration: line-through;\">5个以太币</span><span style=\"color: red;\"> 1日至5月20日</span>",
       "product_engineering": "产品及工程",
       "publicity_pr": "宣传及公关",
       "register_for_the_crowdsale": "登记参加代币销售",
@@ -3187,6 +3212,10 @@
     "menu": {
       "roadshow": "路演",
       "solution": "解决方案"
+    },
+    "notify": {
+      "link": "核实！",
+      "text": "PreSale开放时间为1ETH至5月20日!"
     },
     "our_offices": {
       "description": "如果您来到马德里，欢迎到访我司，我们在一个非常可爱的地方工作。",

@@ -14,7 +14,7 @@ type LinkProps = {|
     children?: React.Node,
 |}
 */
-const MenuLink/*:ComponentType<LinkProps>*/ = styled((props/*:LinkProps*/) =>
+export const MenuLink/*:ComponentType<LinkProps>*/ = styled((props/*:LinkProps*/) =>
     <SmoothScroll.Link { ...props }
         spy={ true }
         smooth={ true }
@@ -71,7 +71,7 @@ export const MainMenu = styled(translate('menu')(({t, className}) =>
             display: block;
         }
     }
-    
+
     @media ${ styles.media.tablet } {
         font-size: 0.6em;
         & li {
