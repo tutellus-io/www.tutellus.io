@@ -1,3 +1,6 @@
+### 2.2.1 (2018-05-22)
+- feat(i18n) Translated to DE. Promo 1ETH till June 12. (9673a62)
+
 ## 2.2.0 (2018-05-16)
 - feat(notify-bar) added notify bar with "1ETH till 20 may" active promo (f72d4b1)
 
