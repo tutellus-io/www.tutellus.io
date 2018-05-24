@@ -194,5 +194,6 @@ export const BuyICO = translate('join')(styled(({t, className}) =>
 )`
     justify-self: center;
     align-self: center;
-    padding: 0.8em 2em;
+    padding: 0.6em 1.5em;
+    font-size: 1em;
 `);

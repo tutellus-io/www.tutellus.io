@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import {observer, inject} from 'mobx-react';
 import {translate} from 'react-i18next';
 import styled from 'styled-components';
+import R from 'ramda';
 import {
     PageBanner,
     PageTitle,
@@ -88,13 +89,25 @@ export const ICOIntro = translate('intro')(inject('config')(observer(styled(clas
         const {
             t,
         } = this.props;
+        const [timer_limit, bonus] = this.getTimerLimit();
+
         this.getServerTime()
         .then(server_time => {
             this.setState({
                 server_time: server_time,
-                timer_limit: parseInt(t('timer_limit')),
+                timer_limit,
+                bonus,
             });
         });
+    }
+
+    getTimerLimit = () => {
+        const {
+            t,
+        } = this.props;
+
+        const bonus = JSON.parse(t('bonus_timer'));
+        return R.find(item => item[0] > Date.now())(bonus);
     }
 
     render() {
@@ -110,14 +123,17 @@ export const ICOIntro = translate('intro')(inject('config')(observer(styled(clas
         const {
             server_time,
             timer_limit,
+            bonus,
         } = this.state;
-
+        const timer_title = (bonus > 0
+            ? `<span>${ bonus }%</span> ${ t('timer_title') }`
+            : t('ico_end'));
         return (
             <PageBanner className={ className }>
                 <PageTitle margin={false}
                     dangerouslySetInnerHTML={ {__html: t("title")} } />
                 <PlayButton video={ t('video_url') } />
-                <JoinGroup title={ t('timer_title') }
+                <JoinGroup title={ timer_title }
                     server_time={ server_time }
                     timer_limit={ timer_limit }
                     join_url= { join_url }/>

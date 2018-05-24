@@ -36,6 +36,15 @@ const TimerTitle = styled.div`
     text-transform: uppercase;
     justify-self: center;
     font-weight: bold;
+    & span {
+        background-color: ${ styles.colors.lightblue };
+        color: ${ styles.colors.white };
+        padding: 0.1em 0.6em 0.2em;
+        border-radius: 1em;
+        font-weight: 300;
+        font-size: 1.1em;
+        margin: 0.2em;
+    }
 `;
 TimerTitle.displayName = 'TimerTitle';
 
@@ -156,7 +165,7 @@ export const Timer = styled(class extends React.Component/*::<Props, State>*/ {
         } = this.state;
         return (
             <div className={ this.props.className }>
-                <TimerTitle>{ this.props.title }</TimerTitle>
+                <TimerTitle dangerouslySetInnerHTML={ {__html: this.props.title} } />
                 <TimerBox number={days} title="days"/>
                 <TimerBox number={hours} title="hours"/>
                 <TimerBox number={minutes} title="minutes"/>
@@ -168,13 +177,13 @@ export const Timer = styled(class extends React.Component/*::<Props, State>*/ {
     display: grid;
     grid-template-columns: repeat(4, 4em);
     grid-template-rows: 1em 1fr;
-    grid-gap: 0.5em 0.5em;
+    grid-gap: 1em 0.5em;
     align-items: center;
     font-size: 0.8em;
 
     & ${ TimerTitle } {
         grid-column: 1 / -1;
-        font-size: 0.9em;
+        font-size: 1em;
     }
     @media ${ styles.media.laptop } {
         font-size: 1em;

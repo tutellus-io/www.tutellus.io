@@ -14,7 +14,7 @@
       "banner_title": "BOTSCHAFTERPROGRAMM",
       "benefits_0_description": "Die Blockchain-Revolution ist da und die Welt wird nie wieder dieselbe sein. Seien Sie ein Pionier",
       "benefits_0_title": "Seien Sie ein Agent der Veränderung",
-      "benefits_1_description": "Be always aware of all news in this everchanging world, and will become a better influencer",
+      "benefits_1_description": "Seien Sie immer über alle Neuigkeiten informiert und werden Sie zu einem besseren Influencer",
       "benefits_1_title": "Immer auf dem Laufenden bleiben",
       "benefits_2_description": "Ihre aktive Teilnahme wird in der Blockchain-Community wahrgenommen",
       "benefits_2_title": "Entwickeln Sie Ihre Karriere",
@@ -22,7 +22,7 @@
       "benefits_3_title": "Werden Sie gehört",
       "benefits_4_description": "Seien Sie der Erste, der über das Projekt informiert wird und Zugriff auf das neueste Material hat",
       "benefits_4_title": "Holen Sie sich den besten Inhalt",
-      "benefits_5_description": "You will play a key role in the ecosystem that will change Education forever",
+      "benefits_5_description": "Sie werden eine Schlüsselrolle im Ökosystem spielen, das die Bildung für immer verändern wird",
       "benefits_5_title": "Schaffen Sie eine Community",
       "benefits_6_description": "Das Belohnungssystem, das die Plattform betreibt, gewährt Ihnen STUT-Token für Ihre Bemühungen",
       "benefits_6_title": "Erhalten Sie Belohnungen",
@@ -35,7 +35,7 @@
       "chores_3": "Stellen Sie der hohen Qualität bei Veranstaltungen und Meetups sicher",
       "chores_4": "Pflegen Sie ein Netzwerk mit Menschen mit gleichen Interessen",
       "chores_5": "Werden Sie ein Moderator des Projekts auf lokaler Ebene",
-      "chores_title": "VERANTWORTUNG",
+      "chores_title": "Verantwortlichkeiten",
       "cta_title": "ICH MÖCHTE EIN BOTSCHAFTER WERDEN",
       "join_description": "Wir schaffen die erste Schicht von Botschaftern in den wichtigsten Städten der Welt! Finde hier heraus wie du ein Botschafter werden kannst!",
       "join_title": "Wir rekrutieren Botschafter!",
@@ -45,7 +45,7 @@
       "meetuprules_3": "Der Ort der Aktivität sollte im Mittelpunkt stehen, um allen Teilnehmern die Unterstützung zu erleichtern",
       "meetuprules_description": "Die Tutellus-Gemeinschaft bleibt zusammen dank Aktivitäten, bei denen die Mitglieder der Gemeinschaft Kontakte knüpfen und zusammenarbeiten können und potenzielle neue Nutzer an das Projekt herangeführt werden",
       "meetuprules_powered": "powered by",
-      "meetuprules_title": "Events and meetups",
+      "meetuprules_title": "Events und meetups",
       "whatisit_description": "Tutellus-Botschafter sind Freiwillige, die unsere Vision teilen und Teil der Bildungsrevolution sein wollen, mit einer privilegierten Position innerhalb des weltweiten Blockchain-Netzwerks",
       "whatisit_title": "WAS IST DAS BOTSCHAFTERPROGRAMM?"
     },
@@ -61,30 +61,30 @@
       "hard_cap": "Hard Cap",
       "hard_cap_value": "40,000,000 USD",
       "ico_bonus": "Early bird Bonus",
-      "ico_bonus_value": "June 12 - June 19: 10%<br/>June 20 - July 2: 5%<br/>July 3 - July 12: 0%",
+      "ico_bonus_value": "Juni 12 - Juni 19: 10%<br/>Juni 20 - Juli 2: 5%<br/>Juli 3 - Juli 12: 0%",
       "ico_date": "Main Sale date",
       "ico_date_value": "June,12th 2018",
-      "ico_min": "Minimum purchase",
+      "ico_min": "Mindestabnahme",
       "ico_min_value": "0.05 ETH",
       "operations": "Operations",
       "pool": "Pool",
       "preico_bonus": "Early bird Bonus",
-      "preico_bonus_value": "May 10 - May 24: 20%<br/>May 25 - June 11: 15%",
+      "preico_bonus_value": "Mai 10 - Mai 24: 20%<br/>Mai 25 - Juni 11: 15%",
       "preico_date": "Pre Sale date",
       "preico_date_value": "May,10th 2018",
-      "preico_min": "Minimum purchase",
+      "preico_min": "Mindestabnahme",
       "preico_min_value": "<span style=\"text-decoration: line-through;\">5 ETH</span><span style=\"color: red;\"> 1 ETH till June 12</span>",
       "product_engineering": "Produkt & Technik",
       "publicity_pr": "Werbung & PR",
-      "register_for_the_crowdsale": "Register for the Token Sale",
+      "register_for_the_crowdsale": "Jetzt für den Tokenverkauf Anmelden",
       "sales_marketing": "Vertrieb & Marketing",
       "scholarships": "Stipendienprogramm",
       "scholarships_value": "50% die summe financiert",
       "security_loyalty_reserves": "Sicherheit, Loyalität & Reserven",
       "team": "Team",
-      "title": "Token Sale",
+      "title": "Tokenverkauf",
       "token_distribution": "Token-Verteilung",
-      "total_supply": "Total Offerte",
+      "total_supply": "Total Angeboten",
       "total_supply_value": "1,500,000,000 TUT",
       "tut_price": "TUT Wert",
       "tut_price_value": "1 TUT = 0.05USD"
@@ -98,13 +98,13 @@
       "deck-short_name": "Short Deck",
       "description": "Hier sind die wichtigsten Dokumente, um das Projekt zu verstehen, überprüfen Sie sie!",
       "help_description": "FAQ (Frequented Asked Questions) repository",
-      "help_name": "Help",
+      "help_name": "Hilfe",
       "lightpaper_description": "Kurze Beschreibung der Firma, Tokens und des Geschäftes",
       "lightpaper_name": "Lightpaper",
       "one-pager_description": "Geschäftsdefinition und ICO",
       "one-pager_name": "One Pager",
       "terms_description": "AGB für den Tokenverkauf",
-      "terms_name": "Terms",
+      "terms_name": "Konditionen",
       "title": "Dokumente",
       "token-launch_description": "Merkmale vom Vorverkauf und der ICO",
       "token-launch_name": "Token Launch",
@@ -126,12 +126,15 @@
       "title": "WIE DAS TOKEN FUNKTIONIERT"
     },
     "intro": {
-      "timer_title": "HAUPTVERKAUFT BEGINNT IN",
+      "timer_title": "Bonus sinkt in",
       "title": "<em>Menschen durch</em> Bildung befähigen"
     },
     "investors": {
       "description": "Führende Venture-Capital-Firmen, die seit 2014 auf uns setzen",
       "title": "INVESTOREN"
+    },
+    "join": {
+      "buy": "Trage jetzt dazu bei"
     },
     "mailinglist": {
       "description": "Erfahren Sie Neuigkeiten über die ICO vor allen anderen",
@@ -198,7 +201,7 @@
     },
     "the_pain": {
       "cost_description": "Menschen können beim Studieren kein Geld verdienen, sondern nur Geld ausgeben. Und das ist teuer",
-      "cost_title": "High Costs",
+      "cost_title": "Höhe Kosten",
       "description": "Das Lernen in einer EdTech-Plattform ist ein harter und teurer Prozess, wenn Sie Ihre Fähigkeiten verbessern wollen, um einen guten Job zu bekommen. Außerdem, man kann beim Lernen kein Geld verdienen. Menschen können nicht aus der Armut herauskommen, indem sie studieren. So entdeckten wir vier Hauptprobleme im Bildungsbereich:",
       "employment_description": "Zwischen Beschäftigung und Bildung besteht eine große Kluft",
       "employment_title": "Arbeitslosigkeit",
@@ -217,7 +220,7 @@
       "money_title": "$10M",
       "students_description": "Stundenten",
       "students_title": "1,000,000",
-      "title": "TUTELLUS, EINE KOMPLETT FUNKTIONSTÜCHTIGE PLATTOFRM SEIT 2013",
+      "title": "TUTELLUS, EINE KOMPLETT FUNKTIONSTÜCHTIGE PLATTFORM SEIT 2013",
       "transactions_description": "Transaktionen",
       "transactions_title": "+2,000,000"
     },
@@ -278,7 +281,7 @@
       "money_title": "Mehr Geld",
       "motivation_description": "Studenten erhalten die Motivation, anderen Nutzern beim Lernen zu helfen",
       "motivation_title": "Mehr Motivation",
-      "title": "<b>TDIE LÖSUNG:<\b> EINE PLATTFORM, DIE DICH FÜRS LERNEN BEZAHLT",
+      "title": "TDIE LÖSUNG: EINE PLATTFORM, DIE DICH FÜRS LERNEN BEZAHLT",
       "value_description": "Lehrer erhalten mehr Wert durch den Erfolg ihrer Schüler",
       "value_title": "Mehr Wert"
     },
@@ -510,8 +513,8 @@
       "title": "How the token works"
     },
     "intro": {
-      "timer_limit": 1528794000000,
-      "timer_title": "Main sale starts",
+      "bonus_timer": "[[1527238800000, 20], [1528794000000, 15], [1529485200000, 10], [1530608400000, 5], [1531386000000, 0]]",
+      "timer_title": "bonus decreases in",
       "title": "<em>Empowering people</em> through Education",
       "video_url": "https://player.vimeo.com/video/260732642"
     },
@@ -533,7 +536,7 @@
       "title": "Investors"
     },
     "join": {
-      "buy": "Buy",
+      "buy": "Contribute now",
       "buy_url": "https://cryptonomos.com/feed/tut",
       "disclaimer": "By clicking «Join» you have read and accept terms of <a href=\"https://tny.im/tosen\" target=\"_blank\">Token Sale</a>",
       "disclaimer_countries": "TUT public sale will not be open to citizens, residents or green card holders of the USA (including Puerto Rico, US Virgin Islands, and any other protectorate of the USA) or other representatives of the USA",
@@ -1295,6 +1298,7 @@
     },
     "intro": {
       "subtitle": "Te <strong>pagamos</strong> por aprender",
+      "timer_title": "bonus desciende en",
       "title": "<em>Bienvenido a la</em> educación del futuro",
       "video_url": "https://player.vimeo.com/video/260732701"
     },
@@ -1307,7 +1311,7 @@
       "title": "Inversores"
     },
     "join": {
-      "buy": "Comprar",
+      "buy": "Participa",
       "disclaimer": "Al participar has leído y aceptas los términos de la <a href=\"https://tny.im/tosen\" target=\"_blank\">Token Sale</a>",
       "disclaimer_countries": "La venta pública de tokens TUT no está abierta a ciudadanos o residentes de USA (incluido Puerto Rico, Islas Vírgenes y otros protectorados del país)",
       "email": "Email",
@@ -1871,13 +1875,16 @@
       "title": "トークンの仕組み"
     },
     "intro": {
-      "timer_title": "主な販売開始",
+      "timer_title": "ボーナスは",
       "title": "教育を通じて<em>人々をエンパワーメント</em>",
       "video_url": "https://player.vimeo.com/video/260732642"
     },
     "investors": {
       "description": "2014年から私たちを信頼してくれているベンチャーキャピタルのアライアンス。",
       "title": "投資家"
+    },
+    "join": {
+      "buy": "今投稿する"
     },
     "mailinglist": {
       "description": "ICOに関するニュースを誰よりも早く入手",
@@ -2411,13 +2418,16 @@
       "title": "토큰의 사용 원리"
     },
     "intro": {
-      "timer_title": "주요 판매 개시",
+      "timer_title": "보너스 감소",
       "title": "교육을 통한 <em>자립의 기반 마련</em>",
       "video_url": "https://player.vimeo.com/video/260732642"
     },
     "investors": {
       "description": "2014년부터 당사와 손을 잡은 제휴 벤처 캐피탈 회사입니다.",
       "title": "투자자"
+    },
+    "join": {
+      "buy": "지금 기부 해주세요."
     },
     "mailinglist": {
       "description": "ICO에 대한 최신 소식을 누구보다 빨리 받아보십시오.",
@@ -2943,7 +2953,7 @@
       "title": "Как работает токен"
     },
     "intro": {
-      "timer_title": "Начальная продажа начинается",
+      "timer_title": "бонус уменьшается в",
       "title": "<em>Открываем новые возможности</em> в онлайн-образовании",
       "video_url": "https://player.vimeo.com/video/260732642"
     },
@@ -2952,7 +2962,7 @@
       "title": "Инвесторы"
     },
     "join": {
-      "buy": "Купи сейчас",
+      "buy": "вносить свой вклад",
       "disclaimer": "Нажав на «Присоединиться», вы соглашаетесь с условиями <a href=\"https://tny.im/tosen\" target=\"_blank\">Продажи Токенов</a>",
       "disclaimer_countries": "Публичная продажа TUT не будет открыта для граждан, резидентов или владельцев грин-карт США (включая Пуэрто-Рико, Виргинские острова США и любой другой протекторат США), и других представителей государства.",
       "email": "Электронное письмо",
@@ -3525,13 +3535,16 @@
       "title": "代币的运作原理"
     },
     "intro": {
-      "timer_title": "主要销售开始",
+      "timer_title": "奖金减少",
       "title": "<em>通过教育</em>武装大脑",
       "video_url": "https://player.vimeo.com/video/260732642"
     },
     "investors": {
       "description": "自2014年以来一直依赖我们的联盟风投公司",
       "title": "投资者"
+    },
+    "join": {
+      "buy": "现在做贡献"
     },
     "mailinglist": {
       "description": "比其他任何人更快了解ICO消息",

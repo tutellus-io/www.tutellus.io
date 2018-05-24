@@ -1,3 +1,7 @@
+### 2.2.2 (2018-05-24)
+- feat(intro) New countdown with bonus info (cf9a645)
+- fix(i18n) little fixes on DE (d0984fa)
+
 ### 2.2.1 (2018-05-22)
 - feat(i18n) Translated to DE. Promo 1ETH till June 12. (9673a62)
 
