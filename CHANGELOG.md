@@ -1,3 +1,6 @@
+### 2.2.3 (2018-05-24)
+- fix(i18n) update min PreSale purchase to 0.05ETH (91dee95)
+
 ### 2.2.2 (2018-05-24)
 - feat(intro) New countdown with bonus info (cf9a645)
 - fix(i18n) little fixes on DE (d0984fa)
