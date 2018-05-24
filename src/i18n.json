@@ -126,12 +126,15 @@
       "title": "WIE DAS TOKEN FUNKTIONIERT"
     },
     "intro": {
-      "timer_title": "HAUPTVERKAUFT BEGINNT IN",
+      "timer_title": "Bonus sinkt in",
       "title": "<em>Menschen durch</em> Bildung befähigen"
     },
     "investors": {
       "description": "Führende Venture-Capital-Firmen, die seit 2014 auf uns setzen",
       "title": "INVESTOREN"
+    },
+    "join": {
+      "buy": "Trage jetzt dazu bei"
     },
     "mailinglist": {
       "description": "Erfahren Sie Neuigkeiten über die ICO vor allen anderen",
@@ -510,8 +513,8 @@
       "title": "How the token works"
     },
     "intro": {
-      "timer_limit": 1528794000000,
-      "timer_title": "Main sale starts",
+      "bonus_timer": "[[1527238800000, 20], [1528794000000, 15], [1529485200000, 10], [1530608400000, 5], [1531386000000, 0]]",
+      "timer_title": "bonus decreases in",
       "title": "<em>Empowering people</em> through Education",
       "video_url": "https://player.vimeo.com/video/260732642"
     },
@@ -533,7 +536,7 @@
       "title": "Investors"
     },
     "join": {
-      "buy": "Buy",
+      "buy": "Contribute now",
       "buy_url": "https://cryptonomos.com/feed/tut",
       "disclaimer": "By clicking «Join» you have read and accept terms of <a href=\"https://tny.im/tosen\" target=\"_blank\">Token Sale</a>",
       "disclaimer_countries": "TUT public sale will not be open to citizens, residents or green card holders of the USA (including Puerto Rico, US Virgin Islands, and any other protectorate of the USA) or other representatives of the USA",
@@ -1295,6 +1298,7 @@
     },
     "intro": {
       "subtitle": "Te <strong>pagamos</strong> por aprender",
+      "timer_title": "bonus desciende en",
       "title": "<em>Bienvenido a la</em> educación del futuro",
       "video_url": "https://player.vimeo.com/video/260732701"
     },
@@ -1307,7 +1311,7 @@
       "title": "Inversores"
     },
     "join": {
-      "buy": "Comprar",
+      "buy": "Participa",
       "disclaimer": "Al participar has leído y aceptas los términos de la <a href=\"https://tny.im/tosen\" target=\"_blank\">Token Sale</a>",
       "disclaimer_countries": "La venta pública de tokens TUT no está abierta a ciudadanos o residentes de USA (incluido Puerto Rico, Islas Vírgenes y otros protectorados del país)",
       "email": "Email",
@@ -1871,13 +1875,16 @@
       "title": "トークンの仕組み"
     },
     "intro": {
-      "timer_title": "主な販売開始",
+      "timer_title": "ボーナスは",
       "title": "教育を通じて<em>人々をエンパワーメント</em>",
       "video_url": "https://player.vimeo.com/video/260732642"
     },
     "investors": {
       "description": "2014年から私たちを信頼してくれているベンチャーキャピタルのアライアンス。",
       "title": "投資家"
+    },
+    "join": {
+      "buy": "今投稿する"
     },
     "mailinglist": {
       "description": "ICOに関するニュースを誰よりも早く入手",
@@ -2411,13 +2418,16 @@
       "title": "토큰의 사용 원리"
     },
     "intro": {
-      "timer_title": "주요 판매 개시",
+      "timer_title": "보너스 감소",
       "title": "교육을 통한 <em>자립의 기반 마련</em>",
       "video_url": "https://player.vimeo.com/video/260732642"
     },
     "investors": {
       "description": "2014년부터 당사와 손을 잡은 제휴 벤처 캐피탈 회사입니다.",
       "title": "투자자"
+    },
+    "join": {
+      "buy": "지금 기부 해주세요."
     },
     "mailinglist": {
       "description": "ICO에 대한 최신 소식을 누구보다 빨리 받아보십시오.",
@@ -2943,7 +2953,7 @@
       "title": "Как работает токен"
     },
     "intro": {
-      "timer_title": "Начальная продажа начинается",
+      "timer_title": "бонус уменьшается в",
       "title": "<em>Открываем новые возможности</em> в онлайн-образовании",
       "video_url": "https://player.vimeo.com/video/260732642"
     },
@@ -2952,7 +2962,7 @@
       "title": "Инвесторы"
     },
     "join": {
-      "buy": "Купи сейчас",
+      "buy": "вносить свой вклад",
       "disclaimer": "Нажав на «Присоединиться», вы соглашаетесь с условиями <a href=\"https://tny.im/tosen\" target=\"_blank\">Продажи Токенов</a>",
       "disclaimer_countries": "Публичная продажа TUT не будет открыта для граждан, резидентов или владельцев грин-карт США (включая Пуэрто-Рико, Виргинские острова США и любой другой протекторат США), и других представителей государства.",
       "email": "Электронное письмо",
@@ -3525,13 +3535,16 @@
       "title": "代币的运作原理"
     },
     "intro": {
-      "timer_title": "主要销售开始",
+      "timer_title": "奖金减少",
       "title": "<em>通过教育</em>武装大脑",
       "video_url": "https://player.vimeo.com/video/260732642"
     },
     "investors": {
       "description": "自2014年以来一直依赖我们的联盟风投公司",
       "title": "投资者"
+    },
+    "join": {
+      "buy": "现在做贡献"
     },
     "mailinglist": {
       "description": "比其他任何人更快了解ICO消息",
