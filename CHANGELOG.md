@@ -1,3 +1,6 @@
+### 2.2.4 (2018-05-28)
+-  feat(i18n) adding FR language (7e5ec4a)
+
 ### 2.2.3 (2018-05-24)
 - fix(i18n) update min PreSale purchase to 0.05ETH (91dee95)
 
