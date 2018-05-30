@@ -19,6 +19,17 @@ export const social_links = {
 };
 export const S3 = 'https://lib.tutellus.com/ico';
 
-export const locales = ["EN", "ES", "JA", "RU", "ZH", "KO", "DE", "FR"];
+export const locales = {
+    EN: {text: "ENG", icon: "gb"},
+    ES: {text: "ESP", icon: "es"},
+    JA: {text: "JPN", icon: "jp"},
+    RU: {text: "RUS", icon: "ru"},
+    ZH: {text: "CHN", icon: "cn"},
+    KO: {text: "KOR", icon: "kr"},
+    DE: {text: "DEU", icon: "de"},
+    FR: {text: "FRA", icon: "fr"},
+    ID: {text: "IDN", icon: "id"},
+    PH: {text: "PHL", icon: "ph"},
+};
 
 export const servertime_url = "https://us-central1-tutellus-ico-development.cloudfunctions.net/date";

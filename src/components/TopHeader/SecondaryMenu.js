@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import {observer, inject} from 'mobx-react';
 
 import {SocialIcons} from '../Footer';
+import FlagIcon from './FlagIcon';
 import {
     AButton,
 } from '../';
@@ -33,32 +34,47 @@ SelectedLocale.displayName = 'SelectedLocale';
 
 const ListLocales = styled(({className, locales, selected, onLanguage}) => <ul className={ className }>
         {
-            locales && locales.map((locale, index) => (
-                    <li className={ selected === locale ? 'active' : '' }
-                        key={index}
+            locales && Object.keys(locales).map(key => {
+                const {
+                    text: locale,
+                    icon,
+                } = locales[key];
+                return (
+                    <li className={ selected === key ? 'active' : '' }
+                        key={key}
                     >
-                        <a onClick={ () => onLanguage(locale.toLowerCase()) }>
+                        <a onClick={ () => onLanguage(key.toLowerCase()) }>
+                            <FlagIcon code={ icon }/>
                             { locale }
                         </a>
                     </li>
-                )
-            )
+                );
+            })
         }
     </ul>)`
     position: absolute;
-    padding: 0.25em 0;
     font-size: 0.9em;
     font-weight: 400;
     top: calc(100% + 10px);
+    margin-left: -0.3em;
     left: -0.5em;
     color: black;
     background-color: white;
     box-shadow: 0 1px 3px 0 rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 2px 1px -1px rgba(0,0,0,.12);
     transition: all .2s ease-in-out;
     & li {
-        padding: 0.25em 0.8em;
+        font-size: 0.9em;
+        width: 5.5em;
+        padding: 0.4em 0.8em;
+        border-bottom: 1px solid ${ styles.colors.softgrey };
+        &:last-child {
+            border-bottom: none;
+        }
         &.active{
             color: ${ styles.colors.lightblue };
+        }
+        & span {
+            margin-right: 5px;
         }
     }
     display: none;
@@ -117,7 +133,7 @@ const LangSelect = styled(inject('config')(observer(class extends React.Componen
         return (
             <div className={ className }>
                 <SelectedLocale onClick={ this.toggleOpen }>
-                    { selected_locale }
+                    <FlagIcon code={ locales[selected_locale].icon }/>
                 </SelectedLocale>
                 <ListLocales className={ `${ this.state.open ? 'open' : '' }` }
                              locales={ locales}
