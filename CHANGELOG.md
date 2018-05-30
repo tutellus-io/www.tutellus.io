@@ -1,3 +1,7 @@
+## 2.3.0 (2018-05-30)
+- feat(i18n) ID and PH langs added (094533f)
+- feat(lang-selector) New lang selector with flags (601a764)
+
 ### 2.2.4 (2018-05-28)
 -  feat(i18n) adding FR language (7e5ec4a)
 
