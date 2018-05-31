@@ -1,3 +1,7 @@
+## 2.4.0 (2018-05-31)
+- feat(toast) Adding toast with the latest ICO purchases (e738574)
+- fix(eslint) Linter fixes (d46fef1)
+
 ### 2.3.1 (2018-05-31)
 - fix(i18n) PH language fixes (8c5c5ba)
 
