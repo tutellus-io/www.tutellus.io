@@ -1,6 +1,6 @@
 {
   "name": "tutellus.io",
-  "version": "2.3.1",
+  "version": "2.4.0",
   "private": true,
   "dependencies": {
     "color": "^2.0.1",
@@ -28,6 +28,7 @@
     "react-scroll": "^1.6.4",
     "react-sizeme": "^2.4.2",
     "react-slick": "^0.23.1",
+    "react-toastify": "^4.0.1",
     "slick-carousel": "^1.8.1",
     "styled-components": "^2.2.1",
     "styled-reset": "^0.1.2",

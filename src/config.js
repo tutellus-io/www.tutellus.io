@@ -33,3 +33,4 @@ export const locales = {
 };
 
 export const servertime_url = "https://us-central1-tutellus-ico-development.cloudfunctions.net/date";
+export const purchase_url = "https://us-central1-tutellus-ico-development.cloudfunctions.net/public_stats";

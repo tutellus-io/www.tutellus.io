@@ -86,9 +86,6 @@ export const ICOIntro = translate('intro')(inject('config')(observer(styled(clas
     };
 
     componentWillMount() {
-        const {
-            t,
-        } = this.props;
         const [timer_limit, bonus] = this.getTimerLimit();
 
         this.getServerTime()
