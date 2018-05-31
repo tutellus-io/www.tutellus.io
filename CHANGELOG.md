@@ -1,3 +1,6 @@
+### 2.3.1 (2018-05-31)
+- fix(i18n) PH language fixes (8c5c5ba)
+
 ## 2.3.0 (2018-05-30)
 - feat(i18n) ID and PH langs added (094533f)
 - feat(lang-selector) New lang selector with flags (601a764)
