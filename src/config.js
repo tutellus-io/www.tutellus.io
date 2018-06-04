@@ -30,6 +30,8 @@ export const locales = {
     FR: {text: "FRA", icon: "fr"},
     ID: {text: "IDN", icon: "id"},
     PH: {text: "PHL", icon: "ph"},
+    VI: {text: "VTN", icon: "vn"},
+    AR: {text: "SAU", icon: "sa"},
 };
 
 export const servertime_url = "https://us-central1-tutellus-ico-development.cloudfunctions.net/date";

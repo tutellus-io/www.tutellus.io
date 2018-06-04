@@ -10,8 +10,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import styles from '../styles';
 
 const POOLING_INTERVAL = 60000;
-const MIN_TIMEOUT = 1000;
-const MAX_TIMEOUT = 7000;
+const MIN_TIMEOUT = 2000;
+const MAX_TIMEOUT = 10000;
 
 const NotificationMsg = styled(({tuts, amount, currency, className}) => {
     return (
@@ -69,7 +69,7 @@ export const ICOPurchases = inject('config')(observer(class extends React.Compon
 
     componentDidMount() {
         setInterval(this.updatePurchases, POOLING_INTERVAL);
-        this.updatePurchases();
+        setTimeout(this.updatePurchases, MIN_TIMEOUT);
     }
 
     updatePurchases = () => {
@@ -82,7 +82,7 @@ export const ICOPurchases = inject('config')(observer(class extends React.Compon
 
             let orders_to_show = recent_orders;
             if (this.state.max_id === -1) {
-                orders_to_show = recent_orders.slice(0, 1);
+                orders_to_show = recent_orders.slice(0, 3);
             }
 
             this.setState({
