@@ -1,3 +1,8 @@
+### 2.4.1 (2018-06-04)
+- feat(i8n) New languages AR and VI. New Praises added. (480da34)
+- feat(facebook) Adding cryptonomos facebook pixel (a432d2b)
+- fix(toast) Show 3 last transactions (1f7f2d6)
+
 ## 2.4.0 (2018-05-31)
 - feat(toast) Adding toast with the latest ICO purchases (e738574)
 - fix(eslint) Linter fixes (d46fef1)
