@@ -1,3 +1,6 @@
+### 2.4.4 (2018-06-05)
+-  feat(ratings) Adding top ratings sites (4d2f7b4)
+
 ### 2.4.3 (2018-06-05)
 - fix(i18n) fixes (747ffdc)
 

@@ -166,6 +166,10 @@
       "startuptoken_description": " هي شركة عالمية تركز على تعزيز ودعم عدد قليل من الشركات الناشئة من خلال الأسواق الآسيوية ، مما يمنحها",
       "title": "الشركاء"
     },
+    "ratings": {
+      "description": "تقييمات ممتازة من القوائم المستقلة لمعظم المكانة المعترف بها",
+      "title": "أعلى التقييمات"
+    },
     "technology_stack": {
       "api_description": "تستند كل من تقنيات Tutellus و NEM على واجهات برمجة التطبيقات. التوافق بينهما مطلق والتكامل سريع",
       "api_title": "نماذج  APIcentric",
@@ -507,6 +511,10 @@
       "startuptoken_description": "Startuptoken ist ein globales Unternehmen, das sich auf die Förderung und das Vorantreiben einiger Start-ups auf den asiatischen Märkten konzentriert, um ihnen die Sichtbarkeit in lokalen Ökosystemen zu ermöglichen",
       "title": "Partner"
     },
+    "ratings": {
+      "description": "Hervorragende Bewertungen aus den renommiertesten unabhängigen Börsengängen",
+      "title": "Top-Bewertungen"
+    },
     "technology_stack": {
       "api_description": "Sowohl Tutellus- als auch NEM-Technologien basieren auf APIs. Die Kompatibilität zwischen ihnen ist absolut und die Integration ist schnell",
       "api_title": "APIzentrische Modelle",
@@ -730,7 +738,7 @@
       "chores_3": "Ensure the high quality for both events and meetups",
       "chores_4": "Keep a network with people with the same interests",
       "chores_5": "Act as a moderator on a local level for the project",
-      "chores_title": "Responsabilities",
+      "chores_title": "Responsibilities",
       "cta_link": "https://tutellus.typeform.com/to/JU90EE",
       "cta_title": "I Want to be an Ambassador",
       "join_description": "We are creating the first layer of Ambassadors in the main cities of the world! If you want to be one of them, run meetups and foster the community in your city, discover how to do it here",
@@ -1021,6 +1029,59 @@
       "referente_name": "El Referente",
       "referente_url": "http://www.elreferente.es/blockchain/tutellus-nueva-plataforma-31968",
       "title": "News"
+    },
+    "ratings": {
+      "cointelegraph_height": 26,
+      "cointelegraph_icon": "//lib.tutellus.com/ico/images/rating/cointelegraph.svg",
+      "cointelegraph_rate": "4.7",
+      "cointelegraph_url": "https://cointelegraph.com/ico-calendar/tutellus",
+      "cryptocompare_height": 25,
+      "cryptocompare_icon": "//lib.tutellus.com/ico/images/rating/cryptocompare.png",
+      "cryptocompare_rate": "4.8",
+      "cryptocompare_url": "https://www.cryptocompare.com/coins/tut/overview",
+      "description": "High assesments and positive responses from Top sites",
+      "icobench_height": 29,
+      "icobench_icon": "//lib.tutellus.com/ico/images/rating/icobench.png",
+      "icobench_rate": "4.1",
+      "icobench_url": "https://icobench.com/ico/tutellus",
+      "icoholder_height": 43,
+      "icoholder_icon": "//lib.tutellus.com/ico/images/rating/icoholder.png",
+      "icoholder_rate": "4",
+      "icoholder_url": "https://icoholder.com/en/tutellus-17310",
+      "iconow_height": 55,
+      "iconow_icon": "//lib.tutellus.com/ico/images/rating/iconow.png",
+      "iconow_rate": "92",
+      "iconow_url": "https://iconow.net/tutellus-ico-rating-and-analysis/",
+      "icoranker_height": 26,
+      "icoranker_icon": "//lib.tutellus.com/ico/images/rating/icoranker.png",
+      "icoranker_rate": "100",
+      "icoranker_url": "https://icoranker.com/ico/tutellus/",
+      "icoscroll_height": 28,
+      "icoscroll_icon": "//lib.tutellus.com/ico/images/rating/icoscroll.png",
+      "icoscroll_rate": "4.8",
+      "icoscroll_url": "https://icoscroll.com/tutellus-tut-ico-review/",
+      "link_height": 28,
+      "link_icon": "//lib.tutellus.com/ico/images/rating/link.jpg",
+      "link_rate": "4.9",
+      "link_url": "https://icolink.com/ico-tutellus.html",
+      "newsbtc_height": 21,
+      "newsbtc_icon": "//lib.tutellus.com/ico/images/rating/newsbtc.png",
+      "newsbtc_rate": "4.3",
+      "newsbtc_url": "https://ico.newsbtc.com/ico/tutellus/",
+      "order": "[ \"cryptocompare\", \"cointelegraph\" , \"newsbtc\",\"icobench\", \"icoranker\", \"trackico\", \"iconow\", \"icoscroll\", \"icoholder\", \"tokentops\", \"link\", \"topicolist\"]",
+      "title": "All top ratings",
+      "tokentops_height": 28,
+      "tokentops_icon": "//lib.tutellus.com/ico/images/rating/tokentops.png",
+      "tokentops_rate": "4.9",
+      "tokentops_url": "https://tokentops.com/ico/tutellus/",
+      "topicolist_height": 22,
+      "topicolist_icon": "//lib.tutellus.com/ico/images/rating/topicolist.svg",
+      "topicolist_rate": "5",
+      "topicolist_url": "https://topicolist.com/ico/tutellus",
+      "trackico_height": 30,
+      "trackico_icon": "//lib.tutellus.com/ico/images/rating/trackico.png",
+      "trackico_rate": "4.4",
+      "trackico_url": "https://www.trackico.io/ico/tutellus/"
     },
     "roadshow": {
       "amsterdam_address": "Europaplein 2-22, 1078 GZ Amsterdam",
@@ -1786,6 +1847,10 @@
       "referente_name": "El Referente",
       "title": "Prensa"
     },
+    "ratings": {
+      "description": "Excelentes valoraciones desde los listados independientes de más reconocido prestigio",
+      "title": "Evaluaciones Top"
+    },
     "roadshow": {
       "amsterdam_address": "Europaplein 2-22, 1078 GZ Amsterdam",
       "amsterdam_date": "29 y 30 de Enero",
@@ -2285,6 +2350,10 @@
       "startuptoken_description": "Startuptoken est une entreprise mondiale, concentrée en promouvoir et stimuler startups dans les marchés asiatiques, en leur donant visibilité dans les écosystèmes locaux",
       "title": "Partners"
     },
+    "ratings": {
+      "description": "D'excellentes évaluations à partir des listes indépendantes les plus prestigieuses",
+      "title": "Meilleures évaluations"
+    },
     "technology_stack": {
       "api_description": "Les technologies de Tutellus et de NEM sont basées en APIs. La compatibilité des deux est totale et son intégration rapide",
       "api_title": "APIcentric models",
@@ -2625,6 +2694,10 @@
       "oblicity_description": "Oblicity adalah firma hukum perusahaan dan internet terkemuka di Estonia, yang menawarkan kerangka penjualan token paling canggih di Uni Eropa",
       "startuptoken_description": "Startuptoken adalah perusahaan global yang berfokus untuk mempromosikan dan meningkatkan beberapa startup melalui pasar Asia, memberi mereka visibilitas di ekosistem lokal",
       "title": "MITRA"
+    },
+    "ratings": {
+      "description": "Peringkat yang sangat baik dari daftar independen dari prestise yang paling dikenal",
+      "title": "Evaluasi atas"
     },
     "technology_stack": {
       "api_description": "Kedua teknologi Tutellus dan NEM didasarkan pada API. Kompatibilitas di antara mereka adalah mutlak dan integrasi berlangsung cepat",
@@ -3016,6 +3089,10 @@
       "read_more": "詳細",
       "referente_headline": "Nace Tutellus.io, una nueva plataforma basada en blockchain capaz de pagar a sus alumnos por aprender",
       "title": "ニュース"
+    },
+    "ratings": {
+      "description": "最も認知された威信の独立したリストからの優秀な評価",
+      "title": "トップ評価"
     },
     "roadshow": {
       "amsterdam_address": "Europaplein 2-22, 1078 GZ Amsterdam",
@@ -3564,6 +3641,10 @@
       "referente_headline": "Nace Tutellus.io, una nueva plataforma basada en blockchain capaz de pagar a sus alumnos por aprender",
       "title": "뉴스"
     },
+    "ratings": {
+      "description": "가장 인정받은 명성의 독립적 인 목록에서 우수한 평점",
+      "title": "최고 평가"
+    },
     "roadshow": {
       "amsterdam_address": "Europaplein 2-22, 1078 GZ Amsterdam",
       "amsterdam_date": "1월 29일, 30일",
@@ -4057,6 +4138,10 @@
       "startuptoken_description": "Ang Startuptoken ay ang global na kompanya  na tumutuon sa promosyon at pagpapataas ng iilang magsisimula sa pamamagitan ng merkado ng Asian, Binibigyan sila ng kakayahang Makita sa local na ecosystem",
       "title": "Partners"
     },
+    "ratings": {
+      "description": "Mahusay na rating mula sa mga independiyenteng listahan ng mga pinaka-kinikilalang prestihiyo",
+      "title": "Nangungunang mga pagsusuri"
+    },
     "technology_stack": {
       "api_description": "Ang parehong Tutellus at NEM technologies ay naka base sa APIs. Ang pagkakatugma sa kanilang dalawa ay mahusay at ang pagsasama ay mabilis",
       "api_title": "APIcentric models",
@@ -4455,6 +4540,10 @@
       "read_more": "Подробнее",
       "referente_headline": "Nace Tutellus.io, una nueva plataforma basada en blockchain capaz de pagar a sus alumnos por aprender",
       "title": "Новости"
+    },
+    "ratings": {
+      "description": "Отличные оценки от независимых листингов самого престижного престижа",
+      "title": "Лучшие оценки"
     },
     "roadshow": {
       "amsterdam_address": "Europaplein 2-22, 1078 GZ Амстердам",
@@ -4980,6 +5069,10 @@
       "startuptoken_description": "Startuptoken là một công ty toàn cầu tập trung vào việc hỗ trợ quảng bá và thúc đẩy các công ty mới khởi nghiệp tại thị trường châu Á, tạo ra danh tiếng cho họ tại hệ sinh thái địa phương",
       "title": "ĐỐI TÁC"
     },
+    "ratings": {
+      "description": "Xếp hạng xuất sắc từ danh sách độc lập có uy tín được công nhận nhất",
+      "title": "Đánh giá hàng đầu"
+    },
     "technology_stack": {
       "api_description": "Công nghệ của Tutellus và NEM đều dựa trên các API. Khả năng tương thích tuyệt đối và tích hợp rất nhanh",
       "api_title": "Mô hình API",
@@ -5370,6 +5463,10 @@
       "read_more": "阅读更多",
       "referente_headline": "Nace Tutellus.io, una nueva plataforma basada en blockchain capaz de pagar a sus alumnos por aprender",
       "title": "新闻"
+    },
+    "ratings": {
+      "description": "来自独立上市的最具声望的声望的优秀评级",
+      "title": "最高评价"
     },
     "roadshow": {
       "amsterdam_address": "Europaplein 2-22, 1078 GZ Amsterdam",
