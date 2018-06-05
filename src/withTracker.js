@@ -3,15 +3,19 @@ import React, {Component} from 'react';
 /*:: import type {ComponentType} from 'react' */
 import GoogleAnalytics from 'react-ga';
 
-GoogleAnalytics.initialize('UA-110157188-1');
+GoogleAnalytics.initialize([{
+    trackingId: 'UA-110157188-1',
+    gaOptions: {
+        name: 'tutellus_io',
+    },
+}], {alwaysSendToDefaultTracker: false});
 
 export const withTracker = (WrappedComponent/*:ComponentType<*>*/, options/*:any*/ = {}) => {
     const trackPage = page => {
-        GoogleAnalytics.set({
+        GoogleAnalytics.ga('tutellus_io.send', 'pageview', {
             page,
             ...options,
         });
-        GoogleAnalytics.pageview(page);
     };
 
     return class HOC extends Component/*::<*,*>*/ {
