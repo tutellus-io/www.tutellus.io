@@ -183,6 +183,10 @@
       "top_title": "أفضل بلوكشين",
       "why_this_blockchain": "NEM هو أقوى بلوكشين في السوق. Tutellus تطور أول تطبيق لامركزي تعليمي على NEM"
     },
+    "telegram": {
+      "description": "كن جزءًا من مجموعات Telegram المحلية وساهم في نشر المشروع",
+      "title": "انضم إلى مجتمعاتنا المحلية!"
+    },
     "the_benefits": {
       "companies_feature_0": "الوصول إلى أفضل الصفحات والملفات",
       "companies_feature_1": "مستوى التخصيص عالية",
@@ -519,6 +523,10 @@
       "top_description": "NEM hat eine der größten Communities weltweit. Es löst einige der endemischen Probleme dieser Technologie",
       "top_title": "Top Blockchain",
       "why_this_blockchain": "NEM ist die leistungsstärkste Blockchain auf dem Markt. Tutellus entwickelt das erste Educational dAPP über NEM"
+    },
+    "telegram": {
+      "description": "Seien Sie Teil unserer lokalen Telegram-Gruppen und tragen Sie dazu bei, das Projekt zu verbreiten",
+      "title": "Treten Sie unseren lokalen Gemeinschaften bei!"
     },
     "the_benefits": {
       "companies_feature_0": "Zugang zu den besten Profilen",
@@ -1265,6 +1273,36 @@
       "top_title": "Top Blockchain",
       "why_this_blockchain": "NEM is the most powerful blockchain in the market. Tutellus develops the first Educational dAPP over NEM"
     },
+    "telegram": {
+      "africa_icon": "//lib.tutellus.com/ico/images/telegram/africa.svg",
+      "africa_name": "Africa",
+      "africa_url": "https://t.me/tutellus_Africa",
+      "channels": "[\"china\",\"japon\",\"hispano\",\"rusia\",\"venezuela\", \"filipinas\",\"indonesia\",\"africa\" ]",
+      "china_icon": "//lib.tutellus.com/ico/images/telegram/china.svg",
+      "china_name": "China",
+      "china_url": "https://t.me/TutellusChina",
+      "description": "Be part of our local Telegram groups amd contribute to spread the project",
+      "filipinas_icon": "//lib.tutellus.com/ico/images/telegram/filipinas.svg",
+      "filipinas_name": "Philippines",
+      "filipinas_url": "https://t.me/TutellusPH",
+      "hispano_icon": "//lib.tutellus.com/ico/images/telegram/hispano.svg",
+      "hispano_name": "Hispano",
+      "hispano_url": "https://t.me/TutellusHispano",
+      "indonesia_icon": "//lib.tutellus.com/ico/images/telegram/indonesia.svg",
+      "indonesia_name": "Indonesia",
+      "indonesia_url": "https://t.me/tutellusindonesia",
+      "japon_icon": "//lib.tutellus.com/ico/images/telegram/japon.svg",
+      "japon_name": "Japan",
+      "japon_url": "https://t.me/tutellusjapan",
+      "powered": "Powered by <img src=\"//lib.tutellus.com/ico/images/telegram-logo.svg\" alt=\"Telegram\"/> <strong>Telegram</strong>",
+      "rusia_icon": "//lib.tutellus.com/ico/images/telegram/rusia.svg",
+      "rusia_name": "Russia",
+      "rusia_url": "https://t.me/TutellusRUS",
+      "title": "Join our local communities!",
+      "venezuela_icon": "//lib.tutellus.com/ico/images/telegram/venezuela.svg",
+      "venezuela_name": "Venezuela",
+      "venezuela_url": "https://t.me/TutellusVEN"
+    },
     "the_benefits": {
       "benefits": "[\"students\",\"teachers\",\"companies\",\"scholarships\"]",
       "companies_feature_0": "Access to best profiles",
@@ -1305,7 +1343,7 @@
     },
     "the_platform": {
       "courses_description": "Courses",
-      "courses_icon": "//lib.tutellus.com/ico/images/theplatform/courses.svg",
+      "courses_icon": "//lib.tutellus.com/ico/images/theplatform/courses.vng",
       "courses_title": "130,000",
       "cta_title": "Visit Tutellus",
       "description": "Tutellus is the biggest online educational collaborative platform in the Spanish-speaking world. We started in May 2013 and now we have a community of 1 million users from 160 countries, with over 130,000 video courses, positioning us as the leading platform in the market",
@@ -1930,6 +1968,10 @@
       "top_title": "Blockchain Top",
       "why_this_blockchain": "NEM es la blockchain más potente del mercado. Tutellus desarrolla la primera dAPP educativa sobre NEM"
     },
+    "telegram": {
+      "description": "Entra a nuestros grupos locales de Telegram y contribuye aprendiendo y difundiendo el proyecto",
+      "title": "¡Sé parte de nuestra Comunidad!"
+    },
     "the_benefits": {
       "companies_feature_0": "Acceso a mejores candidatos",
       "companies_feature_1": "Alto nivel de customización",
@@ -2259,6 +2301,10 @@
       "top_description": "NEM possède une des plus grande communauté et market cap du monde. Résout certains des problèmes endémiques de cette technologie",
       "top_title": "Top Blockchain",
       "why_this_blockchain": "NEM est la Blockchain la plus puissante du marché. Tutellus développe la première dAPP d'éducation sur NEM"
+    },
+    "telegram": {
+      "description": "Faites partie de nos groupes Telegram locaux et contribuez à la diffusion du projet",
+      "title": "Rejoignez nos communautés locales!"
     },
     "the_benefits": {
       "companies_feature_0": "Accès à de meilleurs candidats",
@@ -2596,6 +2642,10 @@
       "top_description": "NEM memiliki salah satu komunitas terbesar di dunia. Ini memecahkan beberapa masalah komunitas dengan teknologi ini",
       "top_title": "Blockchain Populer",
       "why_this_blockchain": "NEM adalah blockchain paling berkualitas di pasar. Tutellus mengembangkan Desentralisasi Aplikasi Pendidikan pertama di atas NEM"
+    },
+    "telegram": {
+      "description": "Jadilah bagian dari grup Telegram lokal kami dan sumbangkan untuk menyebarkan proyek",
+      "title": "Bergabunglah dengan komunitas lokal kami!"
     },
     "the_benefits": {
       "companies_feature_0": "Akses ke profil terbaik",
@@ -3139,6 +3189,10 @@
       "top_title": "トップブロックチェーン",
       "why_this_blockchain": "NEMは市場で最もパワフルなブロックチェーンです。Tutellusは、NEM上で最初の教育用dAPPを開発しています"
     },
+    "telegram": {
+      "description": "地元の電報グループに参加し、プロジェクトの普及に貢献する",
+      "title": "私たちの地域社会に参加！"
+    },
     "the_benefits": {
       "companies_feature_0": "最高の人材にアクセス",
       "companies_feature_1": "最高のカスタマイズレベル",
@@ -3678,6 +3732,10 @@
       "top_title": "최고의 블록체인",
       "why_this_blockchain": "NEM은 시장에서 가장 강력한 블록체인입니다. Tutellus는 NEM을 통해 최초의 교육용 dAPP를 개발합니다."
     },
+    "telegram": {
+      "description": "지역 텔레 그램 그룹의 일원이되어 프로젝트 확산에 기여하십시오.",
+      "title": "지역 사회에 가입하십시오!"
+    },
     "the_benefits": {
       "companies_feature_0": "최고의 인재 프로필 파악",
       "companies_feature_1": "높은 수준의 맞춤화 기능",
@@ -4015,6 +4073,10 @@
       "top_description": "Ang NEM ay merong pinakamalaking komunidad sa buong mundo. Nasolusyonan nito ang mga dating problema sa teknolohiya",
       "top_title": "Top Blockchain",
       "why_this_blockchain": "Ang NEM ay ang pinakamapangyarihang blockchain sa merkado. Ang Tutellus ay bumuo ng unang pang edukasyong dAPP higit sa NEM"
+    },
+    "telegram": {
+      "description": "Maging bahagi ng aming lokal na mga grupo ng Telegram at magbigay ng kontribusyon sa pagkalat ng proyekto",
+      "title": "Sumali sa aming mga lokal na komunidad!"
     },
     "the_benefits": {
       "companies_feature_0": "Ma-access ang pinakamahusay na profile",
@@ -4593,6 +4655,10 @@
       "top_title": "Ведущий блокчейн",
       "why_this_blockchain": "NEM — это самый мощный блокчейн на рынке. Tutellus разрабатывает первую образовательную dAPP на NEM"
     },
+    "telegram": {
+      "description": "Быть частью наших местных групп Telegram и способствовать распространению проекта",
+      "title": "Присоединяйтесь к нашим местным сообществам!"
+    },
     "the_benefits": {
       "companies_feature_0": "Доступ к лучшим специалистам",
       "companies_feature_1": "Высокий уровень кастомизации",
@@ -4930,6 +4996,10 @@
       "top_description": "NEM có một trong những cộng đồng lớn nhất trên toàn thế giới. Nó giải quyết các vấn đề đặc hữu của công nghệ này",
       "top_title": "Blockchain hàng đầu",
       "why_this_blockchain": "NEM là blockchain mạnh nhất trên thị trường. Tutellus phát triển ứng dụng giáo dục đầu tiên trên nền tảng NEM"
+    },
+    "telegram": {
+      "description": "Hãy là một phần của các nhóm Telegram địa phương của chúng tôi và góp phần truyền bá dự án",
+      "title": "Tham gia cộng đồng địa phương của chúng tôi!"
     },
     "the_benefits": {
       "companies_feature_0": "Được tham khảo các hồ sơ tốt nhất",
@@ -5470,6 +5540,10 @@
       "top_description": "NEM拥有全球最大的社区。它可解决该技术上的频发性问题",
       "top_title": "顶级区块链",
       "why_this_blockchain": "NEM是市场中最强大的区块链。Tutellus开发出第一款基于NEM的教育型dAPP "
+    },
+    "telegram": {
+      "description": "成为我们当地电报集团的一员，为推广项目做出贡献",
+      "title": "加入我们的当地社区！"
     },
     "the_benefits": {
       "companies_feature_0": "获取最佳档案",
