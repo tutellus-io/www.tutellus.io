@@ -1,3 +1,7 @@
+### 2.4.2 (2018-06-05)
+- feat(telegram) Adding local communities telegram groups (d84cf7f)
+- fix(analytics) Use withTracker with named tracker. Cryptonomos adds a default tracker that disables the one we were using. (d387d68)
+
 ### 2.4.1 (2018-06-04)
 - feat(i8n) New languages AR and VI. New Praises added. (480da34)
 - feat(facebook) Adding cryptonomos facebook pixel (a432d2b)
