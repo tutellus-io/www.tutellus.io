@@ -19,3 +19,4 @@ export * from './TechnologyStack';
 export * from './SubscribeToMailList';
 export * from './VideoFrame';
 export * from './WhyICO';
+export * from './ICORatings';

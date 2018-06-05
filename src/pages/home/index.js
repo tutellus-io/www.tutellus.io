@@ -22,6 +22,7 @@ import {
     VideoFrame,
     OurOffice,
     Investors,
+    ICORatings,
 } from './sections';
 import {
     AmbassadorsJoinSection,
@@ -31,6 +32,7 @@ import {Landing} from '../../components';
 export const Home = () =>
     <Landing>
         <ICOIntro />
+        <ICORatings/>
         <ThePlatform/>
         <Partners />
         <WhyICO/>
