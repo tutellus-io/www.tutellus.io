@@ -1,3 +1,6 @@
+### 2.4.3 (2018-06-05)
+- fix(i18n) fixes (747ffdc)
+
 ### 2.4.2 (2018-06-05)
 - feat(telegram) Adding local communities telegram groups (d84cf7f)
 - fix(analytics) Use withTracker with named tracker. Cryptonomos adds a default tracker that disables the one we were using. (d387d68)
