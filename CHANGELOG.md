@@ -1,3 +1,7 @@
+### 2.4.5 (2018-06-06)
+- feat(ratings) adding carousel with autoplay (1ad4328)
+- fix(imageCarousel) LazyLoad using react-slick (8caac792)
+
 ### 2.4.4 (2018-06-05)
 -  feat(ratings) Adding top ratings sites (4d2f7b4)
 
