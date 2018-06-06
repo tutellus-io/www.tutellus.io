@@ -5,54 +5,77 @@ import styled from 'styled-components';
 import {styles} from '../../../styles';
 import {
     PageSection,
-    Text,
-    ResponsiveGrid,
-    LazyImage,
+    Carousel,
 } from '../../../components';
 
-const SplitGradient = styled.div`
+const SplitGradient = styled(({className}) =>
+    <div className={ className }>
+        <div></div>
+    </div>
+)`
     height: 100%;
     width: 100%;
-    background-image: linear-gradient(#33596a, #15c1ce);
+    padding: 0 5px;
+    & > div {
+        height: 100%;
+        background-image: linear-gradient(#33596a, #15c1ce);
+    }
 `;
 
-const Rating = styled(({className, url, icon, name, height, rate}) =>
-    <li className={ className }>
+const Rating = styled(({className, url, icon, name, rate}) =>
+    <div className={ className }>
         <a href={ url } target="_blank">
-            <LazyImage offset={ 500 } src={ icon } height={ parseInt(height) } alt={name}/>
+            <img offset={ 500 } src={ icon } alt={name}/>
             <SplitGradient/>
             <div>{ rate }</div>
         </a>
-    </li>
+    </div>
 )`
     background-color: white;
-    padding: 1em 0.5em;
+    padding: 0.5em;
     height: 5em;
     & a {
         display: grid;
-        grid-template-columns: 7fr 2px 3fr;
+        grid-template-columns: 7fr 11px 3fr;
         font-size: 1em;
         align-items: center;
         justify-items: center;
         cursor: pointer;
         height: 100%;
     }
+    & img {
+        max-width: 100%;
+        min-width: 100%;
+    }
     & div {
         font-weight: 700;
-        font-size: 1.5em;
+        font-size: 1.2em;
     }
 `;
 Rating.displayName = 'Rating';
 
+const carousel_settings = {
+    slidesToShow: 6,
+    slidesToScroll: 2,
+    lazyLoad: true,
+    infinite: true,
+    autoplay: true,
+    speed: 1000,
+    autoplaySpeed: 3000,
+    pauseOnHover: true,
+    responsive: [
+        {breakpoint: 480, settings: {slidesToShow: 2, slidesToScroll: 1}},
+        {breakpoint: 768, settings: {slidesToShow: 4}},
+        {breakpoint: 1140, settings: {slidesToShow: 5}},
+    ],
+};
+
 export const ICORatings = translate('ratings')(styled(({t, className}) =>
-    <PageSection className={ className } light
-        title={ t('title') }>
-        <Text center>{ t('description') }</Text>
-        <ResponsiveGrid gap="0.4em" minWidth="10em">
+    <PageSection className={ className } light>
+        <Carousel { ...carousel_settings }>
             {
                 JSON.parse(t('order')).map((name, index) =>
                     <Rating key={ index }
-                        height={ t(`${ name }_height`) }
                         name={ name }
                         url={ t(`${ name }_url`) }
                         icon={ t(`${ name }_icon`) }
@@ -60,26 +83,34 @@ export const ICORatings = translate('ratings')(styled(({t, className}) =>
                     />
                 )
             }
-        </ResponsiveGrid>
+        </Carousel>
     </PageSection>
 )`
-    & ${ ResponsiveGrid } {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    & ${ Carousel } {
+        padding: 0;
         @media ${ styles.media.desktop } {
             grid-template-columns: repeat(auto-fit, minmax(13em, 1fr));
+        }
+        & .slick-next,
+        & .slick-prev {
+            &:before {
+                font-size: 14px;
+            }
         }
     }
     & ${ Rating } {
         padding: 0.5em;
-        font-size: 0.7em;
-        height: 6em;
+        font-size: 0.8em;
+        height: 5em;
         @media ${ styles.media.tablet } {
-            padding: 1em 0.5em;
             font-size: 0.9em;
-            height: 5.5em;
+            height: 4.5em;
         }
         @media ${ styles.media.laptop } {
             font-size: 1em;
-            height: 5em;
+            height: 4em;
         }
     }
 `);

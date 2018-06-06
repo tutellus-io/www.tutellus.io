@@ -12,7 +12,6 @@ import {styles} from '../styles';
 
 import {
     PageSection,
-    LazyImage,
 } from '.';
 
 export const Carousel = styled(Slider).attrs({
@@ -87,8 +86,8 @@ type Props = {|
 |}
 */
 export const ImageCarousel = (props/*:Props*/) =>
-    <Carousel { ...image_carousel_config } { ...props }>{
+    <Carousel { ...image_carousel_config } { ...props } lazyLoad={ true }>{
         props.images.map((image_url, key) =>
-            <LazyImage key={ key } src={ image_url } alt="" />
+            <img key={ key } src={ image_url } alt="" />
         )
     }</Carousel>;
