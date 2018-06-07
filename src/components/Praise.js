@@ -5,13 +5,21 @@ import styled from 'styled-components';
 
 import {CTAButton} from './CTAButton';
 import {LazyImage} from './LazyImage';
+import {ATracker} from '../withTracker';
 
 export const Praise = styled(translate('praises')(props =>
-    <a className={ props.className } href={ props.href } target="_blank">
+    <ATracker className={ props.className }
+        event= {{
+            category: "praises",
+            action: props.id,
+        }}
+        href={ props.href }
+        target="_blank"
+    >
         <LazyImage src={ props.logo } alt={ props.name } />
         <blockquote cite={ props.href }>&ldquo;{ props.children }&rdquo;</blockquote>
         <CTAButton>{ props.t('read_more') }</CTAButton>
-    </a>
+    </ATracker>
 ))`
     background: white;
     color: black;

@@ -16,6 +16,7 @@ export const PraiseQuotes = translate('praises')(({id, t}) =>
         <Carousel>{
             JSON.parse(t('praises')).map((praise, key) =>
                 <Praise key={ key }
+                        id={ praise }
                         name={ t(`${ praise }_name`) }
                         logo={ t(`${ praise }_logo`) }
                         href={ t(`${ praise }_url`) }>
