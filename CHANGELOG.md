@@ -1,3 +1,7 @@
+### 2.4.6 (2018-06-07)
+- feat(analytics) Tracking click events (9ad2e23)
+- fix(unmount) Adding unmount method to remove listeners/intervals (9bf9244)
+
 ### 2.4.5 (2018-06-06)
 - feat(ratings) adding carousel with autoplay (1ad4328)
 - fix(imageCarousel) LazyLoad using react-slick (8caac792)
