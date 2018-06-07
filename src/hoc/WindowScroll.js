@@ -9,12 +9,20 @@ export class WindowScroll extends React.Component/*::<WindowScrollProps, Scroll>
         //eslint-disable-next-line id-length
         this.state = {x: 0, y: 0};
     }
-    componentDidMount() {
-        window.addEventListener('scroll', () => {
-            //eslint-disable-next-line id-length
-            this.setState({x: window.scrollX, y: window.scrollY});
-        });
+
+    componentWillUnmount() {
+        window.removeEventListener('scroll', this.updateWindowPosition);
     }
+
+    componentDidMount() {
+        window.addEventListener('scroll', this.updateWindowPosition);
+    }
+
+    updateWindowPosition = () => {
+        //eslint-disable-next-line id-length
+        this.setState({x: window.scrollX, y: window.scrollY});
+    }
+
     render() {
         return this.props.children(this.state);
     }

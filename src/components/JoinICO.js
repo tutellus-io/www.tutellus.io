@@ -6,6 +6,7 @@ import {translate} from 'react-i18next';
 import styled from 'styled-components';
 import Yup from 'yup';
 import {Form, Field, Formik} from 'formik';
+import {withClickTracker} from '../withTracker';
 import {
     TextField,
     Field as myField,
@@ -184,13 +185,18 @@ const JoinICOForm/*:ComponentType<*>*/ = styled(({t, className, join_url}/*:Form
 export const JoinICO/*:ComponentType<*>*/ = translate('join')(JoinICOForm);
 JoinICO.displayName = "JoinICO";
 
+const TrackButton = withClickTracker(AButton);
 
 export const BuyICO = translate('join')(styled(({t, className}) =>
-    <AButton className={ className }
+    <TrackButton className={ className }
+        event= {{
+            category: "cryptonomos",
+            action: "contribute",
+        }}
         href={ t('buy_url') }
         primary>
         { t('buy') }
-    </AButton>
+    </TrackButton>
 )`
     justify-self: center;
     align-self: center;

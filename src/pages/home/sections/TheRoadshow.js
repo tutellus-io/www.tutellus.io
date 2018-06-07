@@ -3,6 +3,7 @@
 import React from 'react';
 import {translate} from 'react-i18next';
 import styled from 'styled-components';
+import {ATracker} from '../../../withTracker';
 
 import {
     SectionTitle,
@@ -14,12 +15,18 @@ import {
     ResponsiveGrid,
 } from '../../../components';
 
-const Channel = styled(({className, url, name, icon}) =>
+const Channel = styled(({className, url, id, name, icon}) =>
     <li className={ className } >
-        <a target="_blank" href={ url }>
+        <ATracker href={ url }
+            target="_blank"
+            event= {{
+                category: "telegram",
+                action: id,
+            }}
+        >
             <LazyImage src={ icon } alt={ name }/>
             <div>{ name }</div>
-        </a>
+        </ATracker>
     </li>
 )`
     & a {
@@ -54,6 +61,7 @@ const TelegramSection = translate('telegram')(styled(({className, t}) =>
             {
                 JSON.parse(t('channels')).map(channel =>
                     <Channel key={ channel }
+                        id={ channel }
                         url={ t(`${ channel }_url`) }
                         icon={ t(`${ channel }_icon`) }
                         name={ t(`${ channel }_name`) }

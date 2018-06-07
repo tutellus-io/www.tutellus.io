@@ -4,6 +4,7 @@ import React from 'react';
 import styled, {keyframes} from 'styled-components';
 import styles from '../styles';
 import {bounceIn} from 'react-animations';
+import {ButtonTracker} from '../withTracker';
 
 const animation = keyframes`${ bounceIn }`;
 
@@ -59,7 +60,12 @@ export const PlayButton/*:ComponentType<Props>*/= styled(class extends React.Com
                                 frameBorder="0"
                                 allowFullScreen="allowfullscreen" />
                       </Overlay>
-                    : <button onClick={ this.play } />
+                    : <ButtonTracker onClick={ this.play }
+                            event= {{
+                                category: "video",
+                                action: "play",
+                            }}
+                        />
                 }
             </div>
         );

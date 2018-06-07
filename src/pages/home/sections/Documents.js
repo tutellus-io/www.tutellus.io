@@ -3,19 +3,26 @@ import React from 'react';
 import styled from 'styled-components';
 import {translate} from 'react-i18next';
 import styles from '../../../styles';
+import {ATracker} from '../../../withTracker';
 import {
     PageSection,
     Text,
     ResponsiveGrid,
 } from '../../../components';
 
-export const Document = styled(({className, url, name, description, cta}) =>
+export const Document = styled(({className, url, id, name, description, cta}) =>
     <li className={ className } >
-        <a target="_blank" href={ url }>
+        <ATracker href={ url }
+            target="_blank"
+            event= {{
+                category: "document",
+                action: id,
+            }}
+        >
             <div>{ name }</div>
             <small>{ description }</small>
             <button>{ cta } </button>
-        </a>
+        </ATracker>
     </li>
 )`
     background: url('https://lib.tutellus.com/ico/video/background.mp4.jpg') no-repeat;
@@ -24,7 +31,7 @@ export const Document = styled(({className, url, name, description, cta}) =>
     position: relative;
     overflow: hidden;
     line-height: 1.3em;
-    
+
     & > a {
         display: grid;
         width: 100%;
@@ -107,6 +114,7 @@ export const Documents = translate('documents')(styled(({className, id, t}) =>
             {
                 JSON.parse(t('documents')).map((name, index) =>
                     <Document key={ index }
+                        id={ name }
                         url={ t(`${ name }_url`) }
                         name={ t(`${ name }_name`) }
                         description={ t(`${ name }_description`) }

@@ -78,6 +78,10 @@ export const Timer = styled(class extends React.Component/*::<Props, State>*/ {
         };
     }
 
+    componentWillUnmount() {
+        this.destroyInterval();
+    }
+
     componentWillMount() {
         const {
             server_time,

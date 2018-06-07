@@ -3,6 +3,7 @@ import React from 'react';
 import {translate} from 'react-i18next';
 import styled from 'styled-components';
 import {styles} from '../../../styles';
+import {ATracker} from '../../../withTracker';
 import {
     PageSection,
     Carousel,
@@ -24,11 +25,17 @@ const SplitGradient = styled(({className}) =>
 
 const Rating = styled(({className, url, icon, name, rate}) =>
     <div className={ className }>
-        <a href={ url } target="_blank">
+        <ATracker href={ url }
+            event= {{
+                category: "rating",
+                action: name,
+            }}
+            target="_blank"
+        >
             <img offset={ 500 } src={ icon } alt={name}/>
             <SplitGradient/>
             <div>{ rate }</div>
-        </a>
+        </ATracker>
     </div>
 )`
     background-color: white;
