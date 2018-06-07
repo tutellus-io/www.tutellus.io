@@ -1,3 +1,6 @@
+### 2.4.7 (2018-06-07)
+- feat(cryptonomos) Adding referral snippet code. (49bbf91)
+
 ### 2.4.6 (2018-06-07)
 - feat(analytics) Tracking click events (9ad2e23)
 - fix(unmount) Adding unmount method to remove listeners/intervals (9bf9244)

@@ -37,3 +37,4 @@ export * from './Loading';
 export * from './JoinICO';
 export * from './NotifyBar';
 export * from './ICOPurchases';
+export * from './CryptonomosReferral';
