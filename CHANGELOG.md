@@ -1,3 +1,7 @@
+### 2.4.8 (2018-06-08)
+- feat(roadshow) Adding roadshow events (2064f76)
+- fix(suscription) fixed config mailchimp (550f93b)
+
 ### 2.4.7 (2018-06-07)
 - feat(cryptonomos) Adding referral snippet code. (49bbf91)
 
