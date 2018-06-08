@@ -41,7 +41,7 @@ const SubscriptionFormComponent/*:ComponentType<*>*/ = inject('config')(observer
     });
     const subscribe = async(form_data = {}, {setSubmitting, setErrors, setStatus, resetForm}) => {
         const form_reset_timeout = 4000;
-        const general_mail_list = config.MAILLIST_GENERAL;
+        const general_mail_list = config.cfg.MAILLIST_GENERAL;
         try {
             await subscribeTo(((general_mail_list/*:any*/)/*:string*/), form_data);
             setStatus({done: t('subscription_successful')});
