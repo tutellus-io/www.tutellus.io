@@ -1,3 +1,6 @@
+## 2.5.0 (2018-06-12)
+- feat(sticky) added sticky bar with countdown and contribute button (57f2b25)
+
 ### 2.4.8 (2018-06-08)
 - feat(roadshow) Adding roadshow events (2064f76)
 - fix(suscription) fixed config mailchimp (550f93b)
