@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import R from 'ramda';
 import styles from '../styles';
 
-const TimerBox = styled(({className, number, title}) =>
+export const TimerBox = styled(({className, number, title}) =>
     <div className={ className }>
         <div>{ number.toString().padStart(2, '0') }</div>
         <div>{ title }</div>
@@ -32,7 +32,7 @@ const TimerBox = styled(({className, number, title}) =>
 `;
 TimerBox.displayName = 'TimerBox';
 
-const TimerTitle = styled.div`
+export const TimerTitle = styled.div`
     text-transform: uppercase;
     justify-self: center;
     font-weight: bold;

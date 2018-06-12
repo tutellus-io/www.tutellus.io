@@ -126,6 +126,7 @@
       "title": "كيف يعمل التوكن"
     },
     "intro": {
+      "cta_text": "المساهمة الآن",
       "timer_title": "ينقص المكافأة في",
       "title": "تمكين الناس من خلال التعليم"
     },
@@ -471,6 +472,7 @@
       "title": "WIE DAS TOKEN FUNKTIONIERT"
     },
     "intro": {
+      "cta_text": "Trage jetzt dazu bei",
       "timer_title": "Bonus sinkt in",
       "title": "<em>Menschen durch</em> Bildung befähigen"
     },
@@ -866,7 +868,10 @@
       "title": "How the token works"
     },
     "intro": {
+      "background_url": "https://lib.tutellus.com/ico/images/background2.jpg",
       "bonus_timer": "[[1527238800000, 20], [1528794000000, 15], [1529485200000, 10], [1530608400000, 5], [1531386000000, 0]]",
+      "cta_text": "Contribute now",
+      "cta_url": "https://cryptonomos.com/feed/tut",
       "timer_title": "bonus decreases in",
       "title": "<em>Empowering people</em> through Education",
       "video_url": "https://player.vimeo.com/video/260732642"
@@ -1759,6 +1764,7 @@
       "title": "Cómo funciona el Token"
     },
     "intro": {
+      "cta_text": "Participa",
       "subtitle": "Te <strong>pagamos</strong> por aprender",
       "timer_title": "bonus desciende en",
       "title": "<em>Bienvenido a la</em> educación del futuro",
@@ -2312,6 +2318,7 @@
       "title": "COMMENT FONCTIONNE LE TOKEN"
     },
     "intro": {
+      "cta_text": "Participe",
       "timer_title": "BONUS FINIT EN",
       "title": "<em>Bienvenue à</em> l'enseignement du futur"
     },
@@ -2657,6 +2664,7 @@
       "title": "BAGAIMANA TOKEN BEKERJA"
     },
     "intro": {
+      "cta_text": "BELI",
       "timer_title": "BONUS MENURUNKAN DI",
       "title": "<em>Memberdayakan manusia</em> melalui Pendidikan"
     },
@@ -3035,6 +3043,7 @@
       "title": "トークンの仕組み"
     },
     "intro": {
+      "cta_text": "今投稿する",
       "timer_title": "ボーナスは",
       "title": "教育を通じて<em>人々をエンパワーメント</em>",
       "video_url": "https://player.vimeo.com/video/260732642"
@@ -3586,6 +3595,7 @@
       "title": "토큰의 사용 원리"
     },
     "intro": {
+      "cta_text": "지금 기부 해주세요.",
       "timer_title": "보너스 감소",
       "title": "교육을 통한 <em>자립의 기반 마련</em>",
       "video_url": "https://player.vimeo.com/video/260732642"
@@ -4100,6 +4110,7 @@
       "title": "PAANO GUMAGANA ANG TOKEN"
     },
     "intro": {
+      "cta_text": "BUMILI",
       "timer_title": "ANG BONUS NILA SA",
       "title": "<em>Pagpapalakas sa mga tao</em> sa pamamagitan ng Edukasyon"
     },
@@ -4474,6 +4485,7 @@
       "title": "Как работает токен"
     },
     "intro": {
+      "cta_text": "Купить токены",
       "timer_title": "бонус уменьшается в",
       "title": "<em>Открываем новые возможности</em> в онлайн-образовании",
       "video_url": "https://player.vimeo.com/video/260732642"
@@ -5031,6 +5043,7 @@
       "title": "CÁCH THỨC HOẠT ĐỘNG"
     },
     "intro": {
+      "cta_text": "NHẤP MUA",
       "timer_title": "THƯỞNG THƯỞNG",
       "title": "<em>Empowering people</em> through Education"
     },
@@ -5409,9 +5422,9 @@
       "title": "代币的运作原理"
     },
     "intro": {
+      "cta_text": "现在做贡献",
       "timer_title": "奖金减少",
-      "title": "<em>通过教育</em>武装大脑",
-      "video_url": "https://player.vimeo.com/video/260732642"
+      "title": "<em>通过教育</em>武装大脑"
     },
     "investors": {
       "description": "自2014年以来一直依赖我们的联盟风投公司",

@@ -37,8 +37,8 @@ const NotificationContainer = styled((props) =>
 )`
     &.Toastify__toast-container {
         width: auto;
-        left: 0.5em;
-        bottom: 0.5em;
+        left: 1em;
+        bottom: 1.7em;
     }
 
     & .Toastify__toast {
@@ -82,7 +82,7 @@ export const ICOPurchases = inject('config')(observer(class extends React.Compon
 
             let orders_to_show = recent_orders;
             if (this.state.max_id === -1) {
-                orders_to_show = recent_orders.slice(0, 3);
+                orders_to_show = recent_orders.slice(0, 2);
             }
 
             this.setState({
