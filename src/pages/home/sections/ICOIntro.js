@@ -11,12 +11,13 @@ import {
     PageBanner,
     PageTitle,
     PlayButton,
-    Timer,
     ResponsiveGrid,
     SvgFitted,
-    BuyICO,
     SectionContent,
+    DoubleCountDown,
+    CountDownPanel,
 } from '../../../components';
+
 import styles from '../../../styles';
 
 const TopPartners = styled(({className}) => {
@@ -50,22 +51,6 @@ const TopPartners = styled(({className}) => {
     }
 `;
 TopPartners.displayName = 'TopPartners';
-
-
-const JoinGroup = styled(({className, title, timer_limit, server_time}) =>
-    <div className={ className }>
-        <Timer title={ title }
-            limit={ timer_limit }
-            server_time = { server_time }
-        />
-        <BuyICO/>
-    </div>
-)`
-    display: grid;
-    grid-gap: 2em;
-    justify-items: center;
-`;
-JoinGroup.displayName = 'JoinGroup';
 
 export const ICOIntro = translate('intro')(inject('config')(observer(styled(class extends React.Component {
     constructor() {
@@ -130,10 +115,13 @@ export const ICOIntro = translate('intro')(inject('config')(observer(styled(clas
                 <PageTitle margin={false}
                     dangerouslySetInnerHTML={ {__html: t("title")} } />
                 <PlayButton video={ t('video_url') } />
-                <JoinGroup title={ timer_title }
+                <DoubleCountDown title={ timer_title }
                     server_time={ server_time }
                     timer_limit={ timer_limit }
-                    join_url= { join_url }/>
+                    cta_url={ t('cta_url') }
+                    cta_text={ t('cta_text') }
+                    background_url={ t('background_url')}
+                />
                 <TopPartners/>
             </PageBanner>
         );
@@ -150,7 +138,7 @@ export const ICOIntro = translate('intro')(inject('config')(observer(styled(clas
         & ${ PlayButton }{
             grid-column-start: 1;
         }
-        & ${ JoinGroup } {
+        & ${ CountDownPanel } {
             grid-row: 1 / span 2;
             grid-column-start: 2;
         }
@@ -159,6 +147,7 @@ export const ICOIntro = translate('intro')(inject('config')(observer(styled(clas
         }
     }
 `)));
+
 ICOIntro.displayName = 'ICOIntro';
 ICOIntro.propTypes = {
     t: PropTypes.func,

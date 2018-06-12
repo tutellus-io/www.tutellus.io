@@ -25,7 +25,7 @@ FloatingHelpComponent.propTypes = {
 export const FloatingHelp = styled(FloatingHelpComponent)`
     position: fixed;
     z-index: 3;
-    bottom: 0;
+    bottom: 3em;
     right: 0;
     cursor: pointer;
     &:before {
