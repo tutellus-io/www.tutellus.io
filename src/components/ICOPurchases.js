@@ -37,9 +37,20 @@ const NotificationContainer = styled((props) =>
     <ToastContainer {...props}/>
 )`
     &.Toastify__toast-container {
+        font-size: 0.8em;
+        bottom: 3em;
+        @media ${ styles.media.tablet } {
+            font-size: 0.9em;
+            bottom: 2em;
+        }
+        @media ${ styles.media.laptop } {
+            font-size: 1em;
+        }
+        @media ${ styles.media.desktop } {
+            bottom: 1em;
+        }
         width: auto;
         left: 1em;
-        bottom: 1.7em;
     }
 
     & .Toastify__toast {

@@ -93,7 +93,7 @@ const CountDownBar = styled(class extends React.Component {
     @media ${ styles.media.tablet } {
         padding: 0.5em 3em;
     }
-    font-size: 0.8em;
+    font-size: 0.85em;
     & ${ CountDown } {
         padding: 0em;
         @media ${ styles.media.laptop } {
@@ -135,6 +135,7 @@ const CountDownBar = styled(class extends React.Component {
                 font-size: 1em;
                 padding: 0.6em 1.5em;
             }
+            width: 100%;
         }
     }
 `;

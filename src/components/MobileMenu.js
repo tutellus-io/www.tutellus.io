@@ -50,7 +50,7 @@ export const MobileMenuLayer = styled(class extends React.Component/*::<MobileMe
     }
 })`
     display: block;
-    z-index: 10;
+    z-index: 100000;
 	top: 0;
     right: -100%;
     width: 100%;
