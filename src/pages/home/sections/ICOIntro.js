@@ -7,6 +7,7 @@ import {observer, inject} from 'mobx-react';
 import {translate} from 'react-i18next';
 import styled from 'styled-components';
 import R from 'ramda';
+import PageVisibility from 'react-page-visibility';
 import {
     PageBanner,
     PageTitle,
@@ -71,6 +72,19 @@ export const ICOIntro = translate('intro')(inject('config')(observer(styled(clas
     };
 
     componentWillMount() {
+        this.loadServerTime();
+    }
+
+    getTimerLimit = () => {
+        const {
+            t,
+        } = this.props;
+
+        const bonus = JSON.parse(t('bonus_timer'));
+        return R.find(item => item[0] > Date.now())(bonus);
+    }
+
+    loadServerTime = () => {
         const [timer_limit, bonus] = this.getTimerLimit();
 
         this.getServerTime()
@@ -83,24 +97,16 @@ export const ICOIntro = translate('intro')(inject('config')(observer(styled(clas
         });
     }
 
-    getTimerLimit = () => {
-        const {
-            t,
-        } = this.props;
-
-        const bonus = JSON.parse(t('bonus_timer'));
-        return R.find(item => item[0] > Date.now())(bonus);
+    handleVisibilityChange = isVisible => {
+        if (isVisible) {
+            this.loadServerTime();
+        }
     }
 
     render() {
         const {
             t,
             className,
-            config: {
-                cfg: {
-                    CRYPTONOMOS_URL: join_url,
-                },
-            },
         } = this.props;
         const {
             server_time,
@@ -123,6 +129,7 @@ export const ICOIntro = translate('intro')(inject('config')(observer(styled(clas
                     background_url={ t('background_url')}
                 />
                 <TopPartners/>
+                <PageVisibility onChange={this.handleVisibilityChange}/>
             </PageBanner>
         );
     }

@@ -1,6 +1,6 @@
 {
   "name": "tutellus.io",
-  "version": "2.5.0",
+  "version": "2.5.1",
   "private": true,
   "dependencies": {
     "color": "^2.0.1",
@@ -22,8 +22,9 @@
     "react-flag-icon-css": "^1.0.23",
     "react-ga": "^2.5.3",
     "react-i18next": "^6.1.0",
+    "react-intersection-observer": "^5.0.5",
     "react-lazyload": "^2.3.0",
-    "react-observed": "^1.0.2",
+    "react-page-visibility": "^3.0.0",
     "react-responsive": "^4.0.5",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.14",

@@ -91,11 +91,13 @@ export const Timer = styled(class extends React.Component/*::<Props, State>*/ {
     }
 
     componentWillReceiveProps(nextProps) {
-        const {
-            server_time,
-        } = nextProps;
+        if (!R.equals(nextProps, this.props)) {
+            const {
+                server_time,
+            } = nextProps;
 
-        this.updateServerTime(server_time);
+            this.updateServerTime(server_time);
+        }
     }
 
     updateServerTime = server_time => {
