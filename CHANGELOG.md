@@ -1,3 +1,8 @@
+### 2.5.1 (2018-06-13)
+- fix(styles) fixes for mobile layout (40fced1)
+- feat(CountDown) Check page visibility for check server time. (3f2c21d)
+- feat(visibility) Check page visibility for disable purchase polling (2d0db97)
+
 ## 2.5.0 (2018-06-12)
 - feat(sticky) added sticky bar with countdown and contribute button (57f2b25)
 
