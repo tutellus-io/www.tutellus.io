@@ -3,7 +3,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
-import Observed from 'react-observed';
+import Observed from 'react-intersection-observer';
 import {withClickTracker} from '../withTracker';
 import {
     PageSection,
@@ -139,14 +139,31 @@ const CountDownBar = styled(class extends React.Component {
     }
 `;
 
-export const DoubleCountDown = props =>
-    <Observed initialViewState={true}>
-        {
-            ({isInView, mapRef}) => (
-                <React.Fragment>
-                    <CountDownPanel {...props} mapRef={ mapRef } />
-                    <CountDownBar {...props} show={ !isInView }/>
-                </React.Fragment>
-            )
-        }
-    </Observed>;
+export const DoubleCountDown = class extends React.Component {
+    static displayName = "DoubleCountDown";
+
+    state = {
+        show: false,
+    }
+
+    handleVisibility = isInView => {
+        this.setState({
+            show: !isInView,
+        });
+    }
+
+    render() {
+        const {
+            show,
+        } = this.state;
+        return (
+            <React.Fragment>
+                <Observed onChange={ this.handleVisibility }>
+                    <CountDownPanel {...this.props}/>
+                </Observed>
+                <CountDownBar {...this.props} show={ show }/>
+            </React.Fragment>
+        );
+    }
+};
+
