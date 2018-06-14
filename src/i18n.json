@@ -693,11 +693,14 @@
   },
   "en": {
     "advisors": {
-      "advisors": "[\"travia\",\"solana\",\"poskotin\",\"terai\",\"rene\",\"cellero\"]",
+      "advisors": "[\"erik\",\"travia\",\"solana\",\"poskotin\",\"terai\",\"rene\",\"cellero\"]",
       "cellero_bio": "Global Head of Blockchain UST Global. ESIC professor, co-author of \"The Blockchain book\"",
       "cellero_name": "Daniel Díez",
       "cellero_photo": "//lib.tutellus.com/ico/images/advisors/dani_cellero.jpg",
       "description": "A powerful and global team from Blockchain, FinTech and EdTech industries",
+      "erik_bio": "NEM Foundation co-founder",
+      "erik_name": "Erik Van Himbergen",
+      "erik_photo": "//lib.tutellus.com/ico/images/advisors/erik_van_himberger.jpg",
       "poskotin_bio": "Cryptonomos CEO, previously founder of Viar.live and Enkrypt. Xsolla VP",
       "poskotin_name": "Oleg Poskotin",
       "poskotin_photo": "//lib.tutellus.com/ico/images/advisors/oleg_poskotin.jpg",
@@ -1602,6 +1605,7 @@
       "cellero_bio": "Director de Blockchain UST Global, profesor de ESIC, coautor de \"Libro Blockchain\"",
       "cellero_name": "Daniel Díez",
       "description": "Un equipo global con experiencia consolidada en Blockchain, FinTech y Educación",
+      "erik_bio": "Co-fundador de la Fundación NEM",
       "poskotin_bio": "CEO de Cryptonomos, fundador de Viar.Live y Enkrypt. VP de Xsolla",
       "poskotin_name": "Oleg Poskotin",
       "rene_bio": "CEO de Oblicity y asesor legal del gobierno de Estonia, trabajando en el marco legal cripto de la UE",
