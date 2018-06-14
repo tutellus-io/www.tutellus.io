@@ -1,3 +1,6 @@
+### 2.5.3 (2018-06-14)
+- feat(modal) added modal with cryptonomos process explained (979ce94)
+
 ### 2.5.2 (2018-06-14)
 - feat(i18n) add new advisor (fc6f8f2)
 
