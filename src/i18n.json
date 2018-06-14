@@ -127,6 +127,10 @@
     },
     "intro": {
       "cta_text": "المساهمة الآن",
+      "modal_h1": "المساهمة في ICO لدينا هي سهلة ، مع Cryptonomos",
+      "modal_step1": "تسجيل الدخول أو التسجيل في Cryptonomos",
+      "modal_step2": "إيداع في محفظتك المبلغ الذي تريده من ETH ، BTC ، XEM ، LTC ، BCH ، ZCASH o DASH",
+      "modal_step3": "شراء رمز TUT الخاص بنا و ... فعل!",
       "timer_title": "ينقص المكافأة في",
       "title": "تمكين الناس من خلال التعليم"
     },
@@ -473,6 +477,10 @@
     },
     "intro": {
       "cta_text": "Trage jetzt dazu bei",
+      "modal_h1": "Mit Cryptonomos ist es einfach, in unserer ICO zu helfen",
+      "modal_step1": "Anmelden oder Registrieren in Cryptonomos",
+      "modal_step2": "Hinterlegen Sie in Ihrer Brieftasche die gewünschte Summe von ETH, BTC, XEM, LTC, BCH, ZCASH oder DASH",
+      "modal_step3": "Kaufen Sie unser TUT-Token und ... fertig!",
       "timer_title": "Bonus sinkt in",
       "title": "<em>Menschen durch</em> Bildung befähigen"
     },
@@ -875,6 +883,10 @@
       "bonus_timer": "[[1527238800000, 20], [1528794000000, 15], [1529485200000, 10], [1530608400000, 5], [1531386000000, 0]]",
       "cta_text": "Contribute now",
       "cta_url": "https://cryptonomos.com/feed/tut",
+      "modal_h1": "Contributing in our ICO is easy, with Cryptonomos",
+      "modal_step1": "Sign in or Register in Cryptonomos",
+      "modal_step2": "Deposit in your wallet the amount you want of ETH, BTC, XEM, LTC, BCH, ZCASH o DASH",
+      "modal_step3": "Buy our TUT token and… done!",
       "timer_title": "bonus decreases in",
       "title": "<em>Empowering people</em> through Education",
       "video_url": "https://player.vimeo.com/video/260732642"
@@ -1769,6 +1781,10 @@
     },
     "intro": {
       "cta_text": "Participa",
+      "modal_h1": "Participar en nuestra ICO es fácil, con Cryptonomos",
+      "modal_step1": "Inicia sesión o crea tu cuenta en Cryptonomos",
+      "modal_step2": "Deposita en tu wallet la cantidad que quieras de ETH, BTC, XEM, LTC, BCH, ZCASH o DASH ",
+      "modal_step3": "Compra nuestro token TUT... y listo!",
       "subtitle": "Te <strong>pagamos</strong> por aprender",
       "timer_title": "bonus desciende en",
       "title": "<em>Bienvenido a la</em> educación del futuro",
@@ -2323,6 +2339,10 @@
     },
     "intro": {
       "cta_text": "Participe",
+      "modal_h1": "Contribuer à notre ICO est facile, avec Cryptonomos",
+      "modal_step1": "Connectez-vous ou inscrivez-vous à Cryptonomos",
+      "modal_step2": "Déposez dans votre portefeuille le montant que vous souhaitez pour ETH, BTC, XEM, LTC, BCH, ZCASH ou DASH",
+      "modal_step3": "Achetez notre jeton TUT et ... c'est fait!",
       "timer_title": "BONUS FINIT EN",
       "title": "<em>Bienvenue à</em> l'enseignement du futur"
     },
@@ -2669,6 +2689,10 @@
     },
     "intro": {
       "cta_text": "BELI",
+      "modal_h1": "Berkontribusi di ICO kami mudah, dengan Cryptonomos",
+      "modal_step1": "Masuk atau Daftar di Cryptonomos",
+      "modal_step2": "Setor dalam dompet Anda jumlah yang Anda inginkan dari ETH, BTC, XEM, LTC, BCH, ZCASH dan DASH",
+      "modal_step3": "Beli token TUT kami dan ... selesai!",
       "timer_title": "BONUS MENURUNKAN DI",
       "title": "<em>Memberdayakan manusia</em> melalui Pendidikan"
     },
@@ -3048,6 +3072,10 @@
     },
     "intro": {
       "cta_text": "今投稿する",
+      "modal_h1": "私たちのICOに貢献するのは簡単です、クリプトノモス",
+      "modal_step1": "Cryptonomosにサインインまたは登録する",
+      "modal_step2": "ETH、BTC、XEM、LTC、BCH、ZCASH、DASH のいずれかの金額をあなたの財布に入金してください。",
+      "modal_step3": "TUTトークンを購入して...完了！",
       "timer_title": "ボーナスは",
       "title": "教育を通じて<em>人々をエンパワーメント</em>",
       "video_url": "https://player.vimeo.com/video/260732642"
@@ -3600,6 +3628,10 @@
     },
     "intro": {
       "cta_text": "지금 기부 해주세요.",
+      "modal_h1": "우리의 ICO에 기여하는 것은 쉽습니다, Cryptonomos",
+      "modal_step1": "Cryptonomos에 로그인 또는 등록하십시오.",
+      "modal_step2": "지갑에 ETH, BTC, XEM, LTC, BCH, ZCASH, DASH 중 원하는 금액을 입금하십시오.",
+      "modal_step3": "TUT 토큰을 구입하고 ... 완료!",
       "timer_title": "보너스 감소",
       "title": "교육을 통한 <em>자립의 기반 마련</em>",
       "video_url": "https://player.vimeo.com/video/260732642"
@@ -4115,6 +4147,10 @@
     },
     "intro": {
       "cta_text": "BUMILI",
+      "modal_h1": "Ang kontribusyon sa aming ICO ay madali, na may Cryptonomos",
+      "modal_step1": "Mag-sign in o Magparehistro sa Cryptonomos",
+      "modal_step2": "Magtustos sa iyong wallet ang halaga na gusto mo ng ETH, BTC, XEM, LTC, BCH, ZCASH o DASH",
+      "modal_step3": "Bilhin ang aming TUT token at ... tapos na!",
       "timer_title": "ANG BONUS NILA SA",
       "title": "<em>Pagpapalakas sa mga tao</em> sa pamamagitan ng Edukasyon"
     },
@@ -4490,6 +4526,10 @@
     },
     "intro": {
       "cta_text": "Купить токены",
+      "modal_h1": "Вносить свой вклад в наш ICO легко, с Cryptonomos",
+      "modal_step1": "Войдите или зарегистрируйтесь в Cryptonomos",
+      "modal_step2": "Вложите в свой кошелек сумму, которую вы хотите получить от ETH, BTC, XEM, LTC, BCH, ZCASH o DASH",
+      "modal_step3": "Купите токен TUT и ... сделайте!",
       "timer_title": "бонус уменьшается в",
       "title": "<em>Открываем новые возможности</em> в онлайн-образовании",
       "video_url": "https://player.vimeo.com/video/260732642"
@@ -5048,6 +5088,10 @@
     },
     "intro": {
       "cta_text": "NHẤP MUA",
+      "modal_h1": "Đóng góp trong ICO của chúng tôi rất dễ dàng, với Cryptonomos",
+      "modal_step1": "Đăng nhập hoặc Đăng ký trong Cryptonomos",
+      "modal_step2": "Gửi vào ví của bạn số tiền bạn muốn của ETH, BTC, XEM, LTC, BCH, ZCASH o DASH",
+      "modal_step3": "Mua mã thông báo TUT của chúng tôi và… đã hoàn tất!",
       "timer_title": "THƯỞNG THƯỞNG",
       "title": "<em>Empowering people</em> through Education"
     },
@@ -5427,6 +5471,10 @@
     },
     "intro": {
       "cta_text": "现在做贡献",
+      "modal_h1": "用Cryptonomos为我们的ICO做出贡献很简单",
+      "modal_step1": "登录或注册Cryptonomos",
+      "modal_step2": "在你的钱包中存入你想要的ETH，BTC，XEM，LTC，BCH，ZCASH o DASH",
+      "modal_step3": "购买我们的TUT令牌并完成！",
       "timer_title": "奖金减少",
       "title": "<em>通过教育</em>武装大脑"
     },

@@ -16,7 +16,6 @@ import {
     SvgFitted,
     SectionContent,
     DoubleCountDown,
-    CountDownPanel,
 } from '../../../components';
 
 import styles from '../../../styles';
@@ -116,6 +115,14 @@ export const ICOIntro = translate('intro')(inject('config')(observer(styled(clas
         const timer_title = (bonus > 0
             ? `<span>${ bonus }%</span> ${ t('timer_title') }`
             : t('ico_end'));
+
+        const modal = {
+            h1: t('modal_h1'),
+            step1: t('modal_step1'),
+            step2: t('modal_step2'),
+            step3: t('modal_step3'),
+        };
+
         return (
             <PageBanner className={ className }>
                 <PageTitle margin={false}
@@ -126,6 +133,7 @@ export const ICOIntro = translate('intro')(inject('config')(observer(styled(clas
                     timer_limit={ timer_limit }
                     cta_url={ t('cta_url') }
                     cta_text={ t('cta_text') }
+                    modal={ modal }
                     background_url={ t('background_url')}
                 />
                 <TopPartners/>
@@ -145,7 +153,7 @@ export const ICOIntro = translate('intro')(inject('config')(observer(styled(clas
         & ${ PlayButton }{
             grid-column-start: 1;
         }
-        & ${ CountDownPanel } {
+        & ${ DoubleCountDown } {
             grid-row: 1 / span 2;
             grid-column-start: 2;
         }
