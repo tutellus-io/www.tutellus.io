@@ -1,3 +1,6 @@
+### 2.5.2 (2018-06-14)
+- feat(i18n) add new advisor (fc6f8f2)
+
 ### 2.5.1 (2018-06-13)
 - fix(styles) fixes for mobile layout (40fced1)
 - feat(CountDown) Check page visibility for check server time. (3f2c21d)
