@@ -1,3 +1,6 @@
+### 2.5.5 (2018-06-15)
+- fix(CryptonomosReferral) sending credentials on fetch (13daf43)
+
 ### 2.5.4 (2018-06-15)
 - feat(modal) New copies suggested by Cryptonomos (d89c10c)
 
