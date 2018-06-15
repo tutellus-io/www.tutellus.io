@@ -104,7 +104,7 @@ const IcoModal = styled.div`
     }
 `;
 
-const ModalCryptonomos = ({className, visible, closeModal, modal, url, text}) =>
+const ModalCryptonomos = ({className, visible, closeModal, modal, url}) =>
     <Modal
         visible={visible}
         width="620"
@@ -125,7 +125,7 @@ const ModalCryptonomos = ({className, visible, closeModal, modal, url, text}) =>
                     <li>{ modal.step3 }</li>
                 </ol>
             </div>
-            <BuyICO onClickCapture={closeModal} url={url} text={text}/>
+            <BuyICO onClickCapture={closeModal} url={url} text={modal.cta}/>
         </IcoModal>
     </Modal>;
 ModalCryptonomos.displayName = "ModalCryptonomos";
@@ -281,7 +281,6 @@ export const DoubleCountDown = styled(class extends React.Component {
                 />
                 <ModalCryptonomos closeModal={this.toggleModalVisibility}
                     url={this.props.cta_url}
-                    text={this.props.cta_text}
                     visible={modal_visible}
                     modal={modal}
                 />
