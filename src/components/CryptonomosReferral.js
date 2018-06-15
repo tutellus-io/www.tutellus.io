@@ -21,7 +21,9 @@ export class CryptonomosReferral extends React.Component/*::<Props>*/ {
             url,
         } = this.props;
         if (referral) {
-            return await fetch(`${ url }/${ referral }`);
+            return await fetch(`${ url }/${ referral }`, {
+                credentials: 'include',
+            });
         }
     }
 
