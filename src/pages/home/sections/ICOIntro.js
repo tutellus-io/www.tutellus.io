@@ -121,6 +121,7 @@ export const ICOIntro = translate('intro')(inject('config')(observer(styled(clas
             step1: t('modal_step1'),
             step2: t('modal_step2'),
             step3: t('modal_step3'),
+            cta: t('modal_cta'),
         };
 
         return (
