@@ -1,3 +1,6 @@
+### 2.5.4 (2018-06-15)
+- feat(modal) New copies suggested by Cryptonomos (d89c10c)
+
 ### 2.5.3 (2018-06-14)
 - feat(modal) added modal with cryptonomos process explained (979ce94)
 
