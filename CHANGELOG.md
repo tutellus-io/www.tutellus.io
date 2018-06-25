@@ -1,3 +1,6 @@
+### 2.5.6 (2018-06-25)
+- fix(i18n) add chinese praises (5e62c0c)
+
 ### 2.5.5 (2018-06-15)
 - fix(CryptonomosReferral) sending credentials on fetch (13daf43)
 
