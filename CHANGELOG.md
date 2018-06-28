@@ -1,3 +1,6 @@
+### 2.5.7 (2018-06-28)
+- fix(i18n) update crowdsale dates (23cb3d7)
+
 ### 2.5.6 (2018-06-25)
 - fix(i18n) add chinese praises (5e62c0c)
 
