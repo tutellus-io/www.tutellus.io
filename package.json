@@ -1,6 +1,6 @@
 {
   "name": "tutellus.io",
-  "version": "2.5.6",
+  "version": "2.5.7",
   "private": true,
   "dependencies": {
     "color": "^2.0.1",
