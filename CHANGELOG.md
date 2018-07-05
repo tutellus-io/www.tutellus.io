@@ -1,3 +1,7 @@
+### 2.5.8 (2018-07-05)
+- fix(i18n) Update Crowdsale table to new Hard Cap (4a397fb)
+- feat(ICOPurchases) Omit ICOPurchases while retail is shy (be5598f)
+
 ### 2.5.7 (2018-06-28)
 - fix(i18n) update crowdsale dates (23cb3d7)
 
