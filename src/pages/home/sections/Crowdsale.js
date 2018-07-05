@@ -25,8 +25,8 @@ export const Crowdsale = translate('crowdsale')(({t, id}) =>
                 {value: 0.1, label: t('security_loyalty_reserves')},
             ] } graph="/images/funds_allocation.svg" />
             <DistributionTable title={ t('token_distribution') } stats={ [
-                {value: 0.6, label: t('crowdsale')},
-                {value: 0.2, label: t('pool')},
+                {value: 0.4, label: t('crowdsale')},
+                {value: 0.4, label: t('pool')},
                 {value: 0.1, label: t('team')},
                 {value: 0.1, label: t('bounty_advisors')},
             ] } graph="/images/token_distribution.svg" />
