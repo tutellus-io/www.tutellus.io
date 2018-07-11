@@ -1,3 +1,7 @@
+### 2.5.9 (2018-07-11)
+- fix(crowdsale) change image token distribution (41380e2)
+- fix(i18n) new document in korean; info about roadshow in Seoul (676e4b7)
+
 ### 2.5.8 (2018-07-05)
 - fix(i18n) Update Crowdsale table to new Hard Cap (4a397fb)
 - feat(ICOPurchases) Omit ICOPurchases while retail is shy (be5598f)
