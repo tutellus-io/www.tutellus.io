@@ -52,15 +52,6 @@ export const Crowdsale = translate('crowdsale')(({t, id}) =>
                     <td>{ t('tut_price') }</td><td dangerouslySetInnerHTML={ {__html: t('tut_price_value')} } />
                 </tr>
                 <tr>
-                    <td>{ t('preico_date') }</td><td dangerouslySetInnerHTML={ {__html: t('preico_date_value')} } />
-                </tr>
-                <tr className="secondary">
-                    <td>{ t('preico_min') }</td><td dangerouslySetInnerHTML={ {__html: t('preico_min_value')} } />
-                </tr>
-                <tr className="secondary">
-                    <td>{ t('preico_bonus') }</td><td dangerouslySetInnerHTML={ {__html: t('preico_bonus_value')} } />
-                </tr>
-                <tr>
                     <td>{ t('ico_date') }</td><td dangerouslySetInnerHTML={ {__html: t('ico_date_value')} } />
                 </tr>
                 <tr className="secondary">
