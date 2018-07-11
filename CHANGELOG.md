@@ -1,3 +1,6 @@
+### 2.5.10 (2018-07-11)
+- fix(Crowdsale) hide preico table info (4d3b845)
+
 ### 2.5.9 (2018-07-11)
 - fix(crowdsale) change image token distribution (41380e2)
 - fix(i18n) new document in korean; info about roadshow in Seoul (676e4b7)
