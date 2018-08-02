@@ -23,6 +23,7 @@ import {
     FBTracker,
     FloatingHelp,
     CryptonomosReferral,
+    BrowserModal,
 } from './components';
 
 import i18next from './i18n';
@@ -85,6 +86,7 @@ class Master extends React.Component/*::<void, MasterState>*/ {
                     <FloatingHelp icon="/images/telegram-logo.svg"/>
                     <FBTracker id={ fb_tracker_id } />
                     <CryptonomosReferral url={ crypto_url }/>
+                    <BrowserModal />
                 </ScrollToTop>
             </BrowserRouter>
         );
