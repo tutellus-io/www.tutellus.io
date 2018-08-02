@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'mobx-react';
 import {unregister} from './registerServiceWorker';
 import * as config from './config';
+//Adding legacy polyfill methods for IE
+import './legacy';
 
 import Master from './Master';
 
