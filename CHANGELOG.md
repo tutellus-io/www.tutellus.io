@@ -1,3 +1,6 @@
+### 2.5.12 (2018-09-18)
+- feat(CountDown) hiding the timer (b4016c8)
+
 ### 2.5.11 (2018-08-02)
 - feat(IE) Show modal, must use another browser css:grid not supported (782e441)
 - fix(IE) adding polyfills for new methods (70e98ac)
