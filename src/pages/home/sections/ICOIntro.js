@@ -145,18 +145,8 @@ export const ICOIntro = translate('intro')(inject('config')(observer(styled(clas
 })`
     @media ${ styles.media.tablet } {
         & > ${ SectionContent } {
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
             grid-column-gap: 1.5em;
-        }
-        & ${ PageTitle }{
-            grid-column-start: 1;
-        }
-        & ${ PlayButton }{
-            grid-column-start: 1;
-        }
-        & ${ DoubleCountDown } {
-            grid-row: 1 / span 2;
-            grid-column-start: 2;
         }
         & ${ TopPartners } {
             grid-column: 1 / -1;

@@ -132,17 +132,10 @@ ModalCryptonomos.displayName = "ModalCryptonomos";
 
 const CountDown = styled(({
     className,
-    title,
-    timer_limit,
-    server_time,
     cta_text,
     showModal,
 }) =>
     <div className={ className }>
-        <Timer title={ title }
-            limit={ timer_limit }
-            server_time = { server_time }
-        />
         <ShowModal showModal={ showModal } text={ cta_text }/>
     </div>
 )``;
