@@ -22,7 +22,6 @@ import {
 import {
     FBTracker,
     FloatingHelp,
-    CryptonomosReferral,
     BrowserModal,
 } from './components';
 
@@ -32,9 +31,12 @@ import i18next from './i18n';
 type MasterState = {|
     provider?: void,
 |}
+
+type MasterProps = {|
+    config: any,
+|}
 */
-class Master extends React.Component/*::<void, MasterState>*/ {
-    /*:: alertContainer: AlertContainer */
+class Master extends React.Component/*::<MasterProps, MasterState>*/ {
     constructor() {
         super();
 
@@ -68,7 +70,6 @@ class Master extends React.Component/*::<void, MasterState>*/ {
             config: {
                 cfg: {
                     FBTRACKERID: fb_tracker_id,
-                    CRYPTONOMOS_REF_URL: crypto_url,
                 },
             },
         } = this.props;
@@ -85,7 +86,6 @@ class Master extends React.Component/*::<void, MasterState>*/ {
                     </Switch>
                     <FloatingHelp icon="/images/telegram-logo.svg"/>
                     <FBTracker id={ fb_tracker_id } />
-                    <CryptonomosReferral url={ crypto_url }/>
                     <BrowserModal />
                 </ScrollToTop>
             </BrowserRouter>
