@@ -7,13 +7,7 @@ import {reactI18nextModule} from 'react-i18next';
 // import * as hash from 'json-hash';
 // import {get} from 'lodash';
 
-// import firebase from './models/firebase';
 import bundled_i18n from './i18n.json';
-
-// const loadLng = async() => {
-//     const snapshot = await firebase.database().ref('/locales/').once('value');
-//     return snapshot.val();
-// };
 
 const i18nextConfig = () => {
     i18next
@@ -42,28 +36,5 @@ const i18nextConfig = () => {
 };
 
 const i18n = i18nextConfig();
-
-// const sameObject = (obj_1, obj_2) => {
-//     const hash_1 = hash.digest(obj_1);
-//     const hash_2 = hash.digest(obj_2);
-//     return hash_1 === hash_2;
-// };
-
-// const loadRemotei18n = (remote_i18n, lang) => {
-//     if (!sameObject(bundled_i18n[lang], remote_i18n[lang])) {
-//         Object.keys(remote_i18n[lang]).forEach(key => {
-//             if (!sameObject(get(bundled_i18n[lang], key), remote_i18n[lang][key])) {
-//                 i18n.addResources(lang, key, remote_i18n[lang][key]);
-//             }
-//         });
-//     }
-// };
-
-// loadLng()
-// .then(remote_i18n => {
-//     Object.keys(remote_i18n)
-//     .forEach(lang => loadRemotei18n(remote_i18n, lang));
-//     i18n.emit('loaded_from', 'remote');
-// });
 
 export default i18n;
