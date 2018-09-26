@@ -36,6 +36,4 @@ export * from './FBTracker';
 export * from './Loading';
 export * from './JoinICO';
 export * from './NotifyBar';
-export * from './ICOPurchases';
-export * from './CountDown';
 export * from './BrowserModal';

@@ -19,10 +19,7 @@ import {
     SubscribeToMailList,
     Documents,
     WhyICO,
-    VideoFrame,
-    OurOffice,
     Investors,
-    ICORatings,
 } from './sections';
 import {
     AmbassadorsJoinSection,
@@ -32,7 +29,6 @@ import {Landing} from '../../components';
 export const Home = () =>
     <Landing>
         <ICOIntro />
-        <ICORatings/>
         <ThePlatform/>
         <Partners />
         <WhyICO/>
@@ -42,8 +38,6 @@ export const Home = () =>
         <PlatformBenefits />
         <HowItWorks />
         <TheTeam id="team" />
-        <VideoFrame/>
-        <OurOffice/>
         <Advisors />
         <Investors/>
         <TheRoadshow id="roadshow"/>
