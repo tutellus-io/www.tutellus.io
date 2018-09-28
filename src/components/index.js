@@ -15,7 +15,6 @@ export * from './Powered';
 export * from './Praise';
 export * from './ResponsiveGrid';
 export * from './SvgFitted';
-export * from './Timer';
 export * from './TopHeader';
 export * from './Traits';
 export * from './Triangle';
