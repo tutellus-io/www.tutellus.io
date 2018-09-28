@@ -42,15 +42,13 @@ class Master extends React.Component/*::<MasterProps, MasterState>*/ {
 
         this.setProvider = this.setProvider.bind(this);
         this.state = {provider: undefined};
+
+        i18next.on('loaded_from', this.setProvider);
     }
 
     /*:: setProvider: string => void */
     setProvider(provider) {
         this.setState({provider});
-    }
-
-    componentWillMount() {
-        i18next.on('loaded_from', this.setProvider);
     }
 
     componentWillUnmount() {

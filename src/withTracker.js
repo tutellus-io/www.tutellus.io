@@ -12,13 +12,12 @@ export const withTracker = (WrappedComponent/*:ComponentType<*>*/, options/*:any
             const page = this.props.location.pathname;
             trackPage(page);
         }
-
-        componentWillReceiveProps(nextProps/*:any*/) {
+        componentDidUpdate(prevProps/*:any*/) {
             const currentPage = this.props.location.pathname;
-            const nextPage = nextProps.location.pathname;
+            const prevPage = prevProps.location.pathname;
 
-            if (currentPage !== nextPage) {
-                trackPage(nextPage);
+            if (currentPage !== prevPage) {
+                trackPage(currentPage);
             }
         }
 
