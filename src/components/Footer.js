@@ -104,13 +104,13 @@ export const SocialIcons = styled((props/*:SocialIconsProps*/) =>
 type FooterBrandingProps = {|
     className?: string,
     logo: string,
-    about: string,
+    about?: string,
 |}
 */
 export const FooterBranding/*:ComponentType<FooterBrandingProps>*/ = styled((props/*:FooterBrandingProps*/) =>
     <div className={ props.className }>
         <img src={ props.logo } alt="Tutellus.io"/>
-        <small>{ props.about }</small>
+        {props.about && <small>{ props.about }</small>}
     </div>
 )`
     text-align: center;

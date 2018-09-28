@@ -5,6 +5,7 @@ import {translate} from 'react-i18next';
 import {animateScroll} from 'react-scroll';
 import {
     PageSection,
+    SectionTitle,
     Text,
     CrowdsalePurpose,
     DistributionTable,
@@ -17,55 +18,58 @@ export const Crowdsale = translate('crowdsale')(({t, id}) =>
     <PageSection id={ id } darker title={ t('title') }>
         <Text center>{ t('description') }</Text>
         <CrowdsalePurpose>
-            <DistributionTable title={ t('funds_allocation') } stats={ [
-                {value: 0.4, label: t('product_engineering')},
-                {value: 0.2, label: t('sales_marketing')},
-                {value: 0.2, label: t('publicity_pr')},
-                {value: 0.1, label: t('operations')},
-                {value: 0.1, label: t('security_loyalty_reserves')},
-            ] } graph="/images/funds_allocation.svg" />
-            <DistributionTable title={ t('token_distribution') } stats={ [
-                {value: 0.4, label: t('crowdsale')},
-                {value: 0.4, label: t('pool')},
-                {value: 0.1, label: t('team')},
-                {value: 0.1, label: t('bounty_advisors')},
-            ] } graph="/images/token_distribution.svg" />
+            <DistributionTable title={ t('c_title') } stats={
+                [0.5, 0.2, 0.2, 0.1].map((value, index) => ({
+                    value,
+                    label: t(`c_item_${ index }`),
+                }))
+            } graph="/images/funds_allocation.svg" />
         </CrowdsalePurpose>
         <CrowdsaleSummary>
             <tbody>
                 <tr>
-                    <td>{ t('total_supply') }</td><td dangerouslySetInnerHTML={ {__html: t('total_supply_value')} } />
-                </tr>
-                <tr>
-                    <td>{ t('amount_for_sale') }</td><td dangerouslySetInnerHTML={ {__html: t('amount_for_sale_value')} } />
-                </tr>
-                <tr>
-                    <td>{ t('hard_cap') }</td><td dangerouslySetInnerHTML={ {__html: t('hard_cap_value')} } />
-                </tr>
-                <tr>
-                    <td>{ t('scholarships') }</td><td dangerouslySetInnerHTML={ {__html: t('scholarships_value')} } />
-                </tr>
-                <tr>
-                    <td>{ t('accepted_currencies') }</td><td dangerouslySetInnerHTML={ {__html: t('accepted_currencies_value')} } />
-                </tr>
-                <tr>
                     <td>{ t('tut_price') }</td><td dangerouslySetInnerHTML={ {__html: t('tut_price_value')} } />
                 </tr>
                 <tr>
-                    <td>{ t('ico_date') }</td><td dangerouslySetInnerHTML={ {__html: t('ico_date_value')} } />
+                    <td>{ t('fundraising') }</td><td dangerouslySetInnerHTML={ {__html: t('fundraising_value')} } />
                 </tr>
-                <tr className="secondary">
-                    <td>{ t('ico_min') }</td><td dangerouslySetInnerHTML={ {__html: t('ico_min_value')} } />
+                <tr>
+                    <td>{ t('tokens_supply') }</td><td dangerouslySetInnerHTML={ {__html: t('tokens_supply_value')} } />
                 </tr>
-                <tr className="secondary">
-                    <td>{ t('ico_bonus') }</td><td dangerouslySetInnerHTML={ {__html: t('ico_bonus_value')} } />
+                <tr>
+                    <td>{ t('tokens_sold') }</td><td dangerouslySetInnerHTML={ {__html: t('tokens_sold_value')} } />
+                </tr>
+                <tr>
+                    <td>{ t('teachers_event') }</td><td dangerouslySetInnerHTML={ {__html: t('teachers_event_value')} } />
+                </tr>
+                <tr>
+                    <td>{ t('rights_ttut') }</td><td dangerouslySetInnerHTML={ {__html: t('rights_ttut_value')} } />
+                </tr>
+                <tr>
+                    <td>{ t('irr') }</td><td dangerouslySetInnerHTML={ {__html: t('irr_value')} } />
                 </tr>
             </tbody>
         </CrowdsaleSummary>
-        <CenteredBlock>
-            <Button primary onClick = {() => animateScroll.scrollToTop()}>
-                { t('crowdsale:register_for_the_crowdsale') }
-            </Button>
-        </CenteredBlock>
+        <SectionTitle>{t('distribution_title')}</SectionTitle>
+        <CrowdsaleSummary>
+            <thead>
+                <tr>
+                    <th>{ t('distribution_name_title') }</th>
+                    <th>{ t('distribution_discount_title') }</th>
+                    <th>{ t('distribution_status_title') }</th>
+                </tr>
+            </thead>
+            <tbody>
+                {
+                    [0, 1, 2, 3, 4].map(index =>
+                        <tr key={ index }>
+                            <td>{ t(`distribution_name_${ index }`) }</td>
+                            <td dangerouslySetInnerHTML={ {__html: t(`distribution_discount_${ index }`)} } />
+                            <td dangerouslySetInnerHTML={ {__html: t(`distribution_status_${ index }`)} } />
+                        </tr>
+                    )
+                }
+            </tbody>
+        </CrowdsaleSummary>
     </PageSection>
 );

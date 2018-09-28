@@ -16,9 +16,7 @@ import {
 export const MainFooter = styled(translate('footer')(({t, className, socialLinks}) =>
     <footer className={ className }>
         <SectionContent >
-            <FooterBranding logo="/images/color-logo.svg"
-                about={ t('about_tutellus') }
-            />
+            <FooterBranding logo="/images/color-logo.svg"/>
             <NavCategory>
                 <NavLink href={ t('help_url') } target="_blank">{ t('help') }</NavLink>
                 <NavLink href={ socialLinks.medium } target="_blank">{ t('blog') }</NavLink>

@@ -16,7 +16,6 @@ import {
     TheTeam,
     Crowdsale,
     TheRoadshow,
-    SubscribeToMailList,
     Documents,
     WhyICO,
     Investors,
@@ -46,5 +45,4 @@ export const Home = () =>
         <PlatformRoadmap />
         <Crowdsale id="crowdsale" />
         <Documents id="documents" />
-        <SubscribeToMailList />
     </Landing>;

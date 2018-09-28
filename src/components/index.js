@@ -31,7 +31,6 @@ export * from './Footer';
 export * from './FloatingHelp';
 export * from './Technology';
 export * from './Benefits';
-export * from './MailListSubscriptionForm';
 export * from './FBTracker';
 export * from './Loading';
 export * from './JoinICO';

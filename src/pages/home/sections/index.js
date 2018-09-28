@@ -15,5 +15,4 @@ export * from './TheTeam';
 export * from './Crowdsale';
 export * from './TheRoadshow';
 export * from './TechnologyStack';
-export * from './SubscribeToMailList';
 export * from './WhyICO';
