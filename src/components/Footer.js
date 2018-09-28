@@ -80,6 +80,7 @@ export const SocialIcons = styled((props/*:SocialIconsProps*/) =>
                     <a className={ `icon-${ network }` }
                         href={ link }
                         target="_blank"
+                        rel="noopener noreferrer"
                     />
                 </SocialIcon>
             )

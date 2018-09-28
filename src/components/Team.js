@@ -21,6 +21,7 @@ const TeamIcons = styled(props =>
                             <a className={ `icon-${ network }` }
                                 href={ link }
                                 target="_blank"
+                                rel="noopener noreferrer"
                                 onClick={ (event) => event.stopPropagation() }
                             />
                         </TeamIcon>

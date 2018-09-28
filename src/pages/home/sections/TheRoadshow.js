@@ -19,6 +19,7 @@ const Channel = styled(({className, url, id, name, icon}) =>
     <li className={ className } >
         <ATracker href={ url }
             target="_blank"
+            rel="noreferrer"
             event= {{
                 category: "telegram",
                 action: id,

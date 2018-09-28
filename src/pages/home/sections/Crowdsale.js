@@ -2,7 +2,6 @@
 /* eslint no-magic-numbers: off */
 import React from 'react';
 import {translate} from 'react-i18next';
-import {animateScroll} from 'react-scroll';
 import {
     PageSection,
     SectionTitle,
@@ -10,8 +9,6 @@ import {
     CrowdsalePurpose,
     DistributionTable,
     CrowdsaleSummary,
-    Button,
-    CenteredBlock,
 } from '../../../components';
 
 export const Crowdsale = translate('crowdsale')(({t, id}) =>

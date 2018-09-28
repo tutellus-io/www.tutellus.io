@@ -89,7 +89,7 @@ class Notify extends React.Component/*::<{store: any, t: any}, {open: boolean}>*
                 &nbsp;&gt;&gt;&nbsp;
                 { link_url.startsWith('#')
                     ? <MenuLink to={ link_url.substring(1) }>{ t('link') }</MenuLink>
-                    : <a target="_blank" href={ link_url }>{ t('link') }</a> }
+                    : <a target="_blank" rel="noopener noreferrer" href={ link_url }>{ t('link') }</a> }
             </Notification>
         );
     }

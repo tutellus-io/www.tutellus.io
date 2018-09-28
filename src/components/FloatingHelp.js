@@ -15,7 +15,9 @@ type Props = {|
 const FloatingHelpComponent = inject('config')(observer((props/*:Props*/) =>
     <a className={ props.className }
         href={ (props/*:any*/).config.social_links.telegram }
-        target="_blank" />
+        target="_blank"
+        rel="noopener noreferrer"
+    />
 ));
 
 FloatingHelpComponent.propTypes = {
