@@ -1,12 +1,12 @@
 //@flow
 import React from 'react';
 import styled from 'styled-components';
-import sizeMe from 'react-sizeme';
+import withSize from 'react-sizeme';
 import {
     SectionContent,
 } from '.';
 
-export const Triangle = sizeMe()(styled(({className}) =>
+export const Triangle = withSize()(styled(({className}) =>
     <SectionContent className={ className }>
     </SectionContent>
 )`

@@ -15,6 +15,7 @@ export const Praise = styled(translate('praises')(props =>
         }}
         href={ props.href }
         target="_blank"
+        rel="noopener"
     >
         <LazyImage src={ props.logo } alt={ props.name } />
         <blockquote cite={ props.href }>&ldquo;{ props.children }&rdquo;</blockquote>

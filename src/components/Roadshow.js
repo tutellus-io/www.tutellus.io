@@ -72,7 +72,7 @@ const EventDetails = styled(props =>
         <em>{ props.event.description }</em>
         <strong>{ props.event.place }</strong>
         { props.event.address }
-        <a href={ props.event.url } target="_blank">{ props.event.url }</a>
+        <a href={ props.event.url } target="_blank" rel="noopener noreferrer">{ props.event.url }</a>
     </div>
 )`
     background: ${ styles.colors.modify(styles.colors.midgrey)

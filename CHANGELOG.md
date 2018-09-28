@@ -1,3 +1,17 @@
+## 3.0.0 (2018-09-28)
+- Javier Ortiz - refactor(react-sizeme) updating library version (cf848a9)
+- Javier Ortiz - refactor(Timer) delete unused component (66cb776)
+- Javier Ortiz - refactor(lifecicle) changing methods react lifecycle (c9e16e4)
+- Javier Ortiz - fix(audits) best practices chrome audits (f53f61f)
+- Javier Ortiz - fix(npm) Fix registry to registry.npmjs.org (08d8af3)
+- Javier Ortiz - fix(nodejs) updating node and package versions (f3f5905)
+- Javier Ortiz - feat(STO) first version of the home page (ffb7d18)
+- Javier Ortiz - feat(script) new script to serve static. Use: npm run serve (ee794c2)
+- Javier Ortiz - refactor(flow-types) updating flow-types (2a707b1)
+- Javier Ortiz - feat(Home) cleaning components that will no longer be used in the home (59c4c0e)
+- Javier Ortiz - refactor(i18n) deleted commented lines (0d3a390)
+- Javier Ortiz - feat(CryptonomosReferral) delete CryptonomosReferral (f3be0b4)
+
 ### 2.5.12 (2018-09-18)
 - feat(CountDown) hiding the timer (b4016c8)
 
