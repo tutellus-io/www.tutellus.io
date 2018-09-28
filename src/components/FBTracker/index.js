@@ -15,7 +15,7 @@ export class FBTracker extends React.Component/*::<Props>*/ {
         const pixel_url = `https://www.facebook.com/tr?id=${ this.props.id }&ev=PageView&noscript=1`;
         return (
             <noscript>
-                <img height="1" width="1" style={ {display: "none"} } src={ pixel_url } />
+                <img height="1" width="1" style={ {display: "none"} } src={ pixel_url } alt="" />
             </noscript>
         );
     }

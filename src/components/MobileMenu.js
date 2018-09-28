@@ -156,6 +156,13 @@ export const MobileMenu = styled(class extends React.Component/*::<MobileMenuPro
         this.state = {
             open: false,
         };
+
+        //Prevents scrolling when the menu is open
+        injectGlobal`
+            body.mobile-open & {
+                overflow-y: hidden;
+            }
+        `;
     }
 
     toggleMenu = () => {
@@ -167,16 +174,7 @@ export const MobileMenu = styled(class extends React.Component/*::<MobileMenuPro
         });
     }
 
-    componentWillMount() {
-        //Prevents scrolling when the menu is open
-        injectGlobal`
-            body.mobile-open & {
-                overflow-y: hidden;
-            }
-        `;
-    }
-
-    componentWillUpdate(nextProps, nextState) {
+    componentDidUpdate(nextProps, nextState) {
         const body = document.querySelector('body');
         //$FlowFixMe siempre hay un body;
         const classNames = body.className;

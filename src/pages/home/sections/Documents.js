@@ -14,6 +14,7 @@ export const Document = styled(({className, url, id, name, description, cta}) =>
     <li className={ className } >
         <ATracker href={ url }
             target="_blank"
+            rel="noopener"
             event= {{
                 category: "document",
                 action: id,

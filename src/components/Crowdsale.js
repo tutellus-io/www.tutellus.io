@@ -12,7 +12,7 @@ export const CrowdsaleCTA = ({href = "", children}/*:{href: string, children: Re
         {
             (href.startsWith("http")
                 ? <AButton href={href}
-                    target="_blank" primary="primary">
+                    target="_blank" rel="noopener" primary="primary">
                     { children }
                 </AButton>
                 : <LinkButton to={href} primary="primary">
@@ -27,6 +27,17 @@ export const CrowdsaleSummary = styled.table`
     & tr {
         color: black;
         line-height: 2.5em;
+        & th {
+            display: none;
+            @media ${ styles.media.tablet } {
+                display: table-cell;
+                width: 50%;
+                text-align: left;
+                text-decoration: underline;
+                font-weight: bold;
+                padding: 0 1em;
+            }
+        }
         & td {
             display: block;
             width: 100%;
@@ -115,17 +126,20 @@ export const CrowdsaleSummary = styled.table`
     }
 `;
 export const CrowdsalePurpose = styled.div`
+    margin-top: 1em;
+    margin-bottom: 1em;
     @media ${ styles.media.tablet } {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        margin-top: 3em;
+        grid-template-columns: 1fr;
+        margin-top: 2em;
+        margin-bottom: 2em;
     }
 `;
 const DistributionGraph = styled(LazyImage)`
     display: block;
     width: 80%;
     margin: 0 auto;
-    margin-bottom: 1em;
+    height: 100%;
 `;
 const DistributionTableTitle = styled.h4`
     margin-bottom: 1em;
@@ -158,7 +172,6 @@ export const DistributionTable/*:ComponentType<DistributionTableProps>*/= styled
         </div>
     </div>
 )`
-    margin-bottom: 1em;
     display: grid;
     grid: "graph table" / 40%   60%;
     justify-items: start;
@@ -188,6 +201,5 @@ export const DistributionTable/*:ComponentType<DistributionTableProps>*/= styled
     @media ${ styles.media.laptop } {
         grid-column-gap: 1em;
         font-size: 1.25em;
-        margin-bottom: 2em;
     }
 `;
