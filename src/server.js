@@ -9,7 +9,9 @@ const app = express();
 app.use(helmet());
 app.use(compression());
 
-app.use(express.static(path.join(__dirname, '..', 'build')));
+app.use(express.static(path.join(__dirname, '..', 'build'), {
+    maxAge: '1w',
+}));
 
 app.listen(PORT, err => {
     if (err) {

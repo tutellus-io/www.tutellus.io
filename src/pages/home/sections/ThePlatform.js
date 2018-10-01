@@ -15,7 +15,7 @@ import {
 export const ThePlatform = translate('the_platform')(styled(({className, t, id}) =>
     <PageSection className={ className } id={ id } title={ t('title') }>
         <Text center>{ t('description') }</Text>
-        <SectionImage src="/images/theplatform.png" />
+        <SectionImage src={ t('background_url') } />
         <ResponsiveGrid minWidth="10em">
             {
                 JSON.parse(t('features_order')).map((name, index) =>
@@ -39,10 +39,10 @@ export const ThePlatform = translate('the_platform')(styled(({className, t, id})
         @media ${ styles.media.tablet } {
             margin-left: 0;
             font-size: 0.8em;
-        } 
+        }
         @media ${ styles.media.laptop } {
             font-size: 1em;
-        } 
+        }
     }
 `);
 
