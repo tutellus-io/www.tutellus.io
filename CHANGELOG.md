@@ -1,3 +1,6 @@
+### 3.0.2 (2018-10-01)
+- fix(i18n) deleting some documents (197455d)
+
 ### 3.0.1 (2018-10-01)
 - fix(Crowdsale) adding height settings to donut chart (a4d32bd)
 - refactor(optimice) change index js location to improve performance. (5631955)
