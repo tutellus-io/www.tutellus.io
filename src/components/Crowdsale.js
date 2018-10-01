@@ -128,11 +128,15 @@ export const CrowdsaleSummary = styled.table`
 export const CrowdsalePurpose = styled.div`
     margin-top: 1em;
     margin-bottom: 1em;
+    height: 7em;
     @media ${ styles.media.tablet } {
         display: grid;
         grid-template-columns: 1fr;
         margin-top: 2em;
         margin-bottom: 2em;
+    }
+    @media ${ styles.media.laptop } {
+        height: 9em;
     }
 `;
 const DistributionGraph = styled(LazyImage)`
