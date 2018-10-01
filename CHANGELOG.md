@@ -1,3 +1,6 @@
+### 3.0.3 (2018-10-01)
+- feat(i18n) update IDN language (a3e71d1)
+
 ### 3.0.2 (2018-10-01)
 - fix(i18n) deleting some documents (197455d)
 
