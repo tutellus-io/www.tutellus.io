@@ -1,3 +1,7 @@
+### 3.0.1 (2018-10-01)
+- fix(Crowdsale) adding height settings to donut chart (a4d32bd)
+- refactor(optimice) change index js location to improve performance. (5631955)
+
 ## 3.0.0 (2018-09-28)
 - Javier Ortiz - refactor(react-sizeme) updating library version (cf848a9)
 - Javier Ortiz - refactor(Timer) delete unused component (66cb776)
