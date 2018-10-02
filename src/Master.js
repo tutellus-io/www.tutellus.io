@@ -82,7 +82,7 @@ class Master extends React.Component/*::<MasterProps, MasterState>*/ {
                         <Route path='/404' component={withTracker(NoMatch)}/>
                         <Route component={NoMatch}/>
                     </Switch>
-                    <FloatingHelp icon="/images/telegram-logo.svg"/>
+                    <FloatingHelp icon="//lib.tutellus.com/ico/images/telegram-logo.svg"/>
                     <FBTracker id={ fb_tracker_id } />
                     <BrowserModal />
                 </ScrollToTop>

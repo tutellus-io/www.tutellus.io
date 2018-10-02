@@ -873,6 +873,7 @@
     },
     "intro": {
       "background_url": "https://lib.tutellus.com/ico/images/background2.jpg",
+      "concept": "tokens sold",
       "cta_text": "Enter Whitelist",
       "title": "<em>Tokenizing Education</em>",
       "video_url": "https://player.vimeo.com/video/260732642"
@@ -1401,6 +1402,7 @@
       "value_title": "Low Value"
     },
     "the_platform": {
+      "background_url": "https://lib.tutellus.com/ico/images/theplatform/theplatform.jpg",
       "courses_description": "Courses",
       "courses_icon": "//lib.tutellus.com/ico/images/theplatform/courses.svg",
       "courses_title": "150,000",

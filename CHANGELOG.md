@@ -1,3 +1,7 @@
+### 3.0.4 (2018-10-02)
+- feat(Banner) adding tokens bubble and video on top (e513c81)
+- refactor(GTMetrics) externalizing the images (f94ff00)
+
 ### 3.0.3 (2018-10-01)
 - feat(i18n) update IDN language (a3e71d1)
 
