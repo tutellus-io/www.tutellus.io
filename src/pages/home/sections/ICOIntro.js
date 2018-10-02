@@ -8,23 +8,33 @@ import styled from 'styled-components';
 import {
     PageBanner,
     PageTitle,
-    PlayButton,
     SectionContent,
+    ResponsiveIFrame,
+    ProgressLiquidBubble,
 } from '../../../components';
 
 import styles from '../../../styles';
 
+const ProgressBlock = styled.div`
+    display: grid;
+    grid-gap: 1em;
+`;
+
 export const ICOIntro = translate('intro')(observer(styled(({className, t}) =>
     <PageBanner className={ className }>
-        <PageTitle margin={false}
-            dangerouslySetInnerHTML={ {__html: t("title")} } />
-        <PlayButton video={ t('video_url') } />
+        <ProgressBlock>
+            <PageTitle margin={false}
+                dangerouslySetInnerHTML={ {__html: t("title")} } />
+            <ProgressLiquidBubble progress={ 33 } concept={ t('concept') }/>
+        </ProgressBlock>
+        <ResponsiveIFrame video={ t('video_url') }/>
     </PageBanner>
 )`
     @media ${ styles.media.tablet } {
         & > ${ SectionContent } {
-            grid-template-columns: 1fr;
-            grid-column-gap: 1.5em;
+            grid-template-columns: 1fr 1fr;
+            grid-column-gap: 1em;
+            align-items: center;
         }
     }
 `));

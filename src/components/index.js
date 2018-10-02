@@ -35,3 +35,5 @@ export * from './Loading';
 export * from './JoinICO';
 export * from './NotifyBar';
 export * from './BrowserModal';
+export * from './ResponsiveIFrame';
+export * from './ProgressLiquidBubble';

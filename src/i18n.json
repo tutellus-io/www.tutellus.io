@@ -873,6 +873,7 @@
     },
     "intro": {
       "background_url": "https://lib.tutellus.com/ico/images/background2.jpg",
+      "concept": "tokens sold",
       "cta_text": "Enter Whitelist",
       "title": "<em>Tokenizing Education</em>",
       "video_url": "https://player.vimeo.com/video/260732642"

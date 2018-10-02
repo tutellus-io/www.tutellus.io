@@ -33,7 +33,7 @@ export const PageBanner/*:ComponentType<PageBannerProps>*/ = styled((props/*:Pag
     </section>
 )`
     padding: 2em 1em 1em;
-    padding-top: calc(${ TOP_HEADER_HEIGHT.SMALL }px + 3em);
+    padding-top: calc(${ TOP_HEADER_HEIGHT.SMALL }px + 1em);
     background: url(${ responsive(responsive_background) }) no-repeat 50%;
     background-size: cover;
     color: white;
@@ -44,14 +44,11 @@ export const PageBanner/*:ComponentType<PageBannerProps>*/ = styled((props/*:Pag
         grid-row-gap: 1.5em;
     }
 
-    @media ${ styles.media.tablet } {
-        padding-left: 3em;
-        padding-right: 3em;
-        padding-bottom: 2em;
-    }
     @media ${ styles.media.laptop } {
         background: url(${ background }) no-repeat 50%;
         background-color: black;
         background-size: cover;
     }
 `;
+
+PageBanner.displayName = "PageBanner";
